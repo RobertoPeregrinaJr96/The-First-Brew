@@ -17,18 +17,8 @@ h1 {
   padding-bottom: 7px;
 }
 
-input {
-  width: 100%;
-}
-
 .sign-up-submit {
   height: 2rem;
-  background-color: #ff385c;
+  background-color: var(--modal-bg);
   box-shadow: 2px 2px 2px black;
-}
-
-.errors {
-    color:#ff385c;
-    font-weight: 400;
-
 }

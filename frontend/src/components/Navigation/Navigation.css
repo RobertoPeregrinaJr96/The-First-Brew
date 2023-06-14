@@ -1,7 +1,37 @@
-.hidden {
+/* .hidden {
+  display: none;
+} */
+
+/* navigation */
+.nav-list-img {
+  height: 5rem;
+  width: 4rem;
+}
+.nav-button {
   display: none;
 }
-.nav-list-img {
-  height: 3rem;
-  width: 3rem;
+.nav-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 7rem;
+  padding: 2rem;
+}
+
+.nav-div-topLeft {
+  display: grid;
+  grid-template-columns: 10% 45%;
+  column-gap: 10%;
+  height: 20%;
+}
+.nav-div-topRight {
+  height: 20%;
+}
+/* Profile Button */
+
+.nav-topRight-modal {
+  display: grid;
+  grid-template-columns: 15% 15%;
+  column-gap: 10%;
+  width: 100%;
+  justify-content: end;
 }

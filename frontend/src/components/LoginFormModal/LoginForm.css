@@ -22,7 +22,7 @@ h1 {
 }
 
 .submit-button {
-  background-color: #ff385c;
+  background-color: var(--button);
   height: 2rem;
 }
 

@@ -26,7 +26,7 @@ function LoginFormModal() {
   };
 
   const demoUser = (e) => {
-    return dispatch(sessionActions.login({ credential: 'DemoUser', password: 'password' })).then(closeModal)
+    return dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' })).then(closeModal)
   }
   let stateCheck = credential.length >= 4 && password.length >= 6 ? true : false
   // console.log('password in Nav', password)
