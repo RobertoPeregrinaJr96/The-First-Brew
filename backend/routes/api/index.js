@@ -8,6 +8,8 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const coffeeRouter = require('./coffee.js')
 const itemRouter = require('./item.js')
+const menuRouter = require('./menu.js')
+const reviewRouter = require('./reviews.js')
 // my active routes
 router.use(restoreUser);
 
@@ -17,7 +19,11 @@ router.use('/users', usersRouter);
 
 router.use('/coffee', coffeeRouter)
 
-router.use('/item', itemRouter)
+router.use('/items', itemRouter)
+
+router.use('/menu', menuRouter)
+
+router.use('/review', reviewRouter)
 // POST /api/test
 router.post('/test', function (req, res) {
     res.json({ requestBody: req.body });

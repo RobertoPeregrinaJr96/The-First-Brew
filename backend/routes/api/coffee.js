@@ -7,7 +7,7 @@ const express = require('express')
 
 
 // const { Op } = require('sequelize');
-const { Coffee } = require('../../db/models');
+const { Coffee, Item, Review, ShoppingCart, User } = require('../../db/models');
 
 
 const router = express.Router();

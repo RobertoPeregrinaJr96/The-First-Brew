@@ -13,17 +13,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      product_id: {
-        type: Sequelize.INTEGER
+      productId: {
+        type: Sequelize.INTEGER,
+        reference: {
+          model: 'Items',
+          key: 'id'
+        }
       },
-      instruction_id: {
-        type: Sequelize.INTEGER
-      },
-      created_at: {
-        type: Sequelize.DATE
-      },
-      updated_at: {
-        type: Sequelize.DATE
+      instructionId: {
+        type: Sequelize.INTEGER,
+        reference: {
+          model: 'Instructions',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -35,7 +37,7 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    },options);
+    }, options);
   },
   async down(queryInterface, Sequelize) {
     options.tableName = "Items";

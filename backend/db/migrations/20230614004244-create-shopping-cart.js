@@ -16,20 +16,22 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER
       },
-      user_id: {
-        type: Sequelize.INTEGER
+      userId: {
+        type: Sequelize.INTEGER,
+        reference: {
+          model: 'Users',
+          key: 'id'
+        }
       },
-      item_id: {
-        type: Sequelize.INTEGER
+      itemId: {
+        type: Sequelize.INTEGER,
+        reference: {
+          model: 'Items',
+          key: 'id'
+        }
       },
       quantity: {
         type: Sequelize.INTEGER
-      },
-      created_at: {
-        type: Sequelize.DATE
-      },
-      updated_at: {
-        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -41,7 +43,7 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    },options);
+    }, options);
   },
   async down(queryInterface, Sequelize) {
     options.tableName = "ShoppingCarts";
