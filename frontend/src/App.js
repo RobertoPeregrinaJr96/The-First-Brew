@@ -6,7 +6,7 @@ import Navigation from "./components/Navigation";
 
 // my components
 import SplashPage from './components/LandingPage/index'
-
+import ShoppingCart from './components/ShoppingCart/index'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -19,6 +19,7 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && <Switch>
         <Route exact path='/' component={SplashPage} />
+        <Route exact path='/cart' component={ShoppingCart} />
       </Switch>}
     </>
   );

@@ -8,11 +8,11 @@ import './Navigation.css';
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
-  console.log("SESSION:", sessionUser)
+  // console.log("SESSION:", sessionUser)
 
 
   useEffect(() => {
-    console.log('Navigation')
+    // console.log('Navigation')
   }, [])
   return (
     <div className='nav-wrapper'>

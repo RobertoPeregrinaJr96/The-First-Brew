@@ -13,6 +13,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      cartId: {
+        type: Sequelize.INTEGER,
+        reference: {
+          model: "ShoppingCarts",
+          key: 'id'
+        }
+      },
       coffeeId: {
         type: Sequelize.INTEGER,
         reference: {

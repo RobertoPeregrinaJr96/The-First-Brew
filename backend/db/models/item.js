@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       // Association for
-      Item.belongsTo(models.ShoppingCart, { foreignKey: 'coffeeId', hooks: true, otherKey: 'id' })
+      Item.belongsTo(models.ShoppingCart, { foreignKey: 'cartId', hooks: true, otherKey: 'id' })
       Item.belongsTo(models.Coffee, { foreignKey: 'coffeeId', hooks: true, otherKey: 'id' })
 
     }
@@ -24,10 +24,12 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
+    cartId: {
+      type: DataTypes.INTEGER
+    },
     coffeeId: {
       type: DataTypes.INTEGER,
       allowNull: true,
-
     },
     instructionId: {
       type: DataTypes.INTEGER,
