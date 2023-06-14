@@ -25,9 +25,9 @@ function LoginFormModal() {
       });
   };
 
-  // const demoUser = (e) => {
-  //   return dispatch(sessionActions.login({ credential: 'DemoUser', password: 'password' })).then(closeModal)
-  // }
+  const demoUser = (e) => {
+    return dispatch(sessionActions.login({ credential: 'DemoUser', password: 'password' })).then(closeModal)
+  }
   let stateCheck = credential.length >= 4 && password.length >= 6 ? true : false
   // console.log('password in Nav', password)
   // console.log('credential in Nav', credential)
@@ -60,7 +60,7 @@ function LoginFormModal() {
           <p>{errors.credential}</p>
         )}
         <button type="submit" disabled={!stateCheck} className="submit-button">Log In</button>
-        {/* <button onClick={demoUser} type="submit" className="demo-user">Demo User</button> */}
+        <button onClick={demoUser} type="submit" className="demo-user">Demo User</button>
       </form>
     </div>
   );
