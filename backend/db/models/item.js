@@ -11,8 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Item.belongsTo(models.ShoppingCart, { foreignKey: 'itemId', hooks: true, otherKey: 'id' })
-      Item.belongsTo(models.Coffee, { foreignKey: 'productId', hooks: true, otherKey: 'id' })
+      // Association for
+      Item.belongsTo(models.ShoppingCart, { foreignKey: 'coffeeId', hooks: true, otherKey: 'id' })
+      Item.belongsTo(models.Coffee, { foreignKey: 'coffeeId', hooks: true, otherKey: 'id' })
 
     }
   }
@@ -23,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    productId: {
+    coffeeId: {
       type: DataTypes.INTEGER,
       allowNull: true,
 

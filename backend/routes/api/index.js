@@ -10,6 +10,7 @@ const coffeeRouter = require('./coffee.js')
 const itemRouter = require('./item.js')
 const menuRouter = require('./menu.js')
 const reviewRouter = require('./reviews.js')
+const cartRouter = require('./shoppingCart.js')
 // my active routes
 router.use(restoreUser);
 
@@ -24,6 +25,8 @@ router.use('/items', itemRouter)
 router.use('/menu', menuRouter)
 
 router.use('/review', reviewRouter)
+
+router.use('/cart', cartRouter)
 // POST /api/test
 router.post('/test', function (req, res) {
     res.json({ requestBody: req.body });

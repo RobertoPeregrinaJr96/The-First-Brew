@@ -13,7 +13,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      productId: {
+      coffeeId: {
         type: Sequelize.INTEGER,
         reference: {
           model: 'Coffees',

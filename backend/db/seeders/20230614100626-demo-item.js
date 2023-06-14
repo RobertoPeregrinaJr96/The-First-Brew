@@ -9,35 +9,35 @@ if (process.env.NODE_ENV === 'production') {
 
 const items = [
   {
-    productId: 1,
+    coffeeId: 1,
     instructionId: null
   },
   {
-    productId: 1,
+    coffeeId: 1,
     instructionId: null
   },
   {
-    productId: 1,
+    coffeeId: 1,
     instructionId: null
   },
   {
-    productId: 1,
+    coffeeId: 1,
     instructionId: null
   },
   {
-    productId: 1,
+    coffeeId: 1,
     instructionId: null
   },
   {
-    productId: 1,
+    coffeeId: 1,
     instructionId: null
   },
   {
-    productId: 1,
+    coffeeId: 1,
     instructionId: null
   },
   {
-    productId: 1,
+    coffeeId: 1,
     instructionId: null
   },
 ]
