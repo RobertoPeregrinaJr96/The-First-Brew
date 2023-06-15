@@ -51,17 +51,17 @@ export const fetchOneItemThunk = (id) => async (dispatch) => {
     }
 }
 export const fetchPostOneItem = (coffeeId, cartId) => async (dispatch) => {
-    console.log("coffeeId", coffeeId)
-    console.log("cartId", cartId)
+    // console.log("coffeeId", coffeeId)
+    // console.log("cartId", cartId)
     const response = await csrfFetch(`/api/coffee/${coffeeId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ coffeeId, cartId })
     })
-    console.log("response", response)
+    // console.log("response", response)
     if (response.ok) {
         const item = await response.json()
-        console.log("item", item)
+        // console.log("item", item)
         dispatch(postOneItem(item))
         return item
     }
@@ -69,30 +69,32 @@ export const fetchPostOneItem = (coffeeId, cartId) => async (dispatch) => {
 }
 // update a Item
 export const fetchUpdateItemThunk = (item, id) => async (dispatch) => {
+    console.log("---------------------------------")
+    console.log("item:", item)
+    console.log("id:", id)
+    console.log("---------------------------------")
     const response = await csrfFetch(`/api/items/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(item),
     });
-    // console.log("Response ====>", response)
+    console.log("Response ====>", response)
+    console.log("---------------------------------")
     if (response.ok) {
         const updatedItem = await response.json();
-        // console.log("data ====>", updatedSpot)
+        console.log("data ====>", updatedItem)
+        console.log("---------------------------------")
         dispatch(updateItem(updatedItem));
         return updatedItem;
-    } else {
-        const errors = await response.json();
-        // console.log(errors)
-        return errors;
     }
 };
 // delete a Item
 export const fetchDeleteItemThunk = (id) => async (dispatch) => {
-    // console.log("DELETE")
+    console.log("DELETE", id)
     const response = await csrfFetch(`/api/items/${id}`, {
         method: 'DELETE',
     });
-    // console.log('res ====>', response)
+    console.log('res ====>', response)
     if (response.ok) {
         dispatch(deleteItem(id));
     }

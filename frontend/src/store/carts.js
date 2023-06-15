@@ -34,7 +34,7 @@ export const fetchUserCartThunk = () => async (dispatch) => {
     if (response.ok) {
         const cart = await response.json()
         // console.log(cart)
-        dispatch(getOneCart(cart.UserCart))
+        dispatch(getOneCart(cart))
         return cart
     }
 }
@@ -56,7 +56,7 @@ const cartReducer = (state = initialState, action) => {
             return { ...getState }
         case GET_ONE_CART:
             // console.log(action.cart)
-            const getOneState = { ...state, userCart: { ...action.cart } }
+            const getOneState = { ...state, userCart: action.cart.UserCart }
             return getOneState
         default:
             return state

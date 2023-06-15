@@ -12,46 +12,48 @@ const items = [
     coffeeId: 1,
     cartId: 1,
     instructionId: null,
-    quantity:1
+    quantity: 1
   },
   {
     coffeeId: 2,
     cartId: 1,
     instructionId: null,
-    quantity:1
+    quantity: 1
   },
   {
     coffeeId: 3,
     cartId: 1,
     instructionId: null,
-    quantity:1
+    quantity: 1
   },
   {
     coffeeId: 4,
     cartId: 1,
     instructionId: null,
-    quantity:1
+    quantity: 1
   },
   {
     coffeeId: 5,
     cartId: 1,
     instructionId: null,
-    quantity:1
+    quantity: 1
   },
   {
-    coffeeId: 1,
+    coffeeId: 6,
     instructionId: null,
-    quantity:1
+    quantity: 1
   },
   {
-    coffeeId: 1,
+    coffeeId: 7,
+    cartId: 1,
     instructionId: null,
-    quantity:1
+    quantity: 1
   },
   {
-    coffeeId: 1,
+    coffeeId: 8,
+    cartId: 1,
     instructionId: null,
-    quantity:1
+    quantity: 1
   },
 ]
 

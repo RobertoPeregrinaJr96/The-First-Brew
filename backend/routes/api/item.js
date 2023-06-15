@@ -22,9 +22,9 @@ router.get('/:itemId', async (req, res) => {
 
     res.status(200).json({ "oneItem": [oneItem] })
 })
-
+// UPDATE ITEM
 router.put('/:itemId', async (req, res) => {
-
+    console.log("---------------------------------")
     const idOfItem = req.params.itemId
     console.log("idOfItem", idOfItem)
     const item = await Item.findByPk(idOfItem)
@@ -36,15 +36,16 @@ router.put('/:itemId', async (req, res) => {
 
     await item.save();
 
+    console.log("---------------------------------")
     res.json(item)
 })
 
 router.delete('/:itemId', async (req, res) => {
 
     const idOfItem = req.params.itemId
-    console.log("idOfItem", idOfItem)
+    // console.log("idOfItem", idOfItem)
     const item = await Item.findByPk(idOfItem)
-    console.log("item", item)
+    // console.log("item", item)
 
     await item.destroy();
 
