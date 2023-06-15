@@ -4,6 +4,9 @@ import { csrfFetch } from "./csrf";
 export const GET_ITEMS = 'items/GET_ITEMS'
 export const GET_ONE_ITEM = 'items/GET_ONE_ITEM'
 export const POST_ONE_ITEM = 'items/POST_ONE_ITEM'
+export const UPDATE_ITEM = 'item/UPDATE_ITEM'
+export const DELETE_ITEM = 'item/DELETE_ITEM'
+
 /* Action Creators: */
 export const getAllItems = (items) => ({
     type: GET_ITEMS,
@@ -15,6 +18,14 @@ export const getOneItem = (item) => ({
 })
 export const postOneItem = (item) => ({
     type: POST_ONE_ITEM,
+    item
+})
+export const updateItem = (item) => ({
+    type: UPDATE_ITEM,
+    item
+})
+export const deleteItem = (item) => ({
+    type: DELETE_ITEM,
     item
 })
 
@@ -45,7 +56,7 @@ export const fetchPostOneItem = (coffeeId, cartId) => async (dispatch) => {
     const response = await csrfFetch(`/api/coffee/${coffeeId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({coffeeId,cartId})
+        body: JSON.stringify({ coffeeId, cartId })
     })
     console.log("response", response)
     if (response.ok) {
@@ -56,10 +67,38 @@ export const fetchPostOneItem = (coffeeId, cartId) => async (dispatch) => {
     }
 
 }
-
+// update a Item
+export const fetchUpdateItemThunk = (item, id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/items/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(item),
+    });
+    // console.log("Response ====>", response)
+    if (response.ok) {
+        const updatedItem = await response.json();
+        // console.log("data ====>", updatedSpot)
+        dispatch(updateItem(updatedItem));
+        return updatedItem;
+    } else {
+        const errors = await response.json();
+        // console.log(errors)
+        return errors;
+    }
+};
+// delete a Item
+export const fetchDeleteItemThunk = (id) => async (dispatch) => {
+    // console.log("DELETE")
+    const response = await csrfFetch(`/api/items/${id}`, {
+        method: 'DELETE',
+    });
+    // console.log('res ====>', response)
+    if (response.ok) {
+        dispatch(deleteItem(id));
+    }
+};
 
 /* Reducers */
-
 const initialState = { allItems: {}, singleItem: {} }
 
 const itemReducer = (state = initialState, action) => {
@@ -73,6 +112,10 @@ const itemReducer = (state = initialState, action) => {
         case GET_ONE_ITEM:
             const getOneState = { ...state, singleItem: { ...action.item } }
             return getOneState
+        case DELETE_ITEM:
+            const deleteState = { ...state, allItems: { ...state.allItems } }
+            delete deleteState.allItems[action.item]
+            return deleteState
         default:
             return state
     }

@@ -37,12 +37,3 @@ function Navigation({ isLoaded }) {
 }
 
 export default Navigation;
-{/* <ul className='nav-list'>
-          <li className='nav-list-logo'>
-          </li>
-          {isLoaded && (
-            <li className='nav-landingPage'>
-              <ProfileButton user={sessionUser} />
-            </li>
-          )}
-        </ul> */}

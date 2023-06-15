@@ -23,6 +23,36 @@ router.get('/:itemId', async (req, res) => {
     res.status(200).json({ "oneItem": [oneItem] })
 })
 
+router.put('/:itemId', async (req, res) => {
 
+    const idOfItem = req.params.itemId
+    console.log("idOfItem", idOfItem)
+    const item = await Item.findByPk(idOfItem)
+    console.log("item", item)
+
+    let { coffeeId, cartId, instructionId, quantity } = req.body
+
+    item.quantity = quantity
+
+    await item.save();
+
+    res.json(item)
+})
+
+router.delete('/:itemId', async (req, res) => {
+
+    const idOfItem = req.params.itemId
+    console.log("idOfItem", idOfItem)
+    const item = await Item.findByPk(idOfItem)
+    console.log("item", item)
+
+    await item.destroy();
+
+    res.json({
+        "message": "Successfully delete"
+    })
+
+
+})
 
 module.exports = router

@@ -22,7 +22,7 @@ const SplashPage = () => {
 
     useEffect(() => {
         dispatch(fetchAllCoffeeThunk())
-    }, [])
+    }, [dispatch])
 
     return (
         <div className='landingPage-wrapper'>

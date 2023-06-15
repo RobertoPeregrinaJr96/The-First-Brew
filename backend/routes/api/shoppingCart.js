@@ -35,8 +35,6 @@ router.get('/current', requireAuth, async (req, res) => {
     })
     // console.log("items:", items)
 
-
-
     if (!userCartArr) return res.status(404).json({ "message": "Cannot find the Users Chart" })
 
     const responseCart = {
@@ -50,7 +48,5 @@ router.get('/current', requireAuth, async (req, res) => {
 
     res.status(200).json({ "UserCart": [responseCart] })
 })
-
-
 
 module.exports = router
