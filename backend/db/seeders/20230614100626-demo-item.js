@@ -10,22 +10,27 @@ if (process.env.NODE_ENV === 'production') {
 const items = [
   {
     coffeeId: 1,
+    cartId: 1,
     instructionId: null
   },
   {
-    coffeeId: 1,
+    coffeeId: 2,
+    cartId: 1,
     instructionId: null
   },
   {
-    coffeeId: 1,
+    coffeeId: 3,
+    cartId: 1,
     instructionId: null
   },
   {
-    coffeeId: 1,
+    coffeeId: 4,
+    cartId: 1,
     instructionId: null
   },
   {
-    coffeeId: 1,
+    coffeeId: 5,
+    cartId: 1,
     instructionId: null
   },
   {

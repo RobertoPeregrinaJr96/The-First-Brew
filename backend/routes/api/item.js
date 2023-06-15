@@ -7,9 +7,7 @@ router.get('/', async (req, res) => {
 
     // are there any items?
     const allItems = await Item.findAll();
-    console.log("------------------------")
-    console.log("allItems:", allItems)
-    console.log("------------------------")
+
     if (!allItems) return res.status(404).json({ "message": "Cannot find any any items" })
 
     res.status(200).json({ "Items": [...allItems] })
@@ -24,6 +22,7 @@ router.get('/:itemId', async (req, res) => {
 
     res.status(200).json({ "oneItem": [oneItem] })
 })
+
 
 
 module.exports = router

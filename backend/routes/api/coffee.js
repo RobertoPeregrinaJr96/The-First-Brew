@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
 
     // are there any coffee items?
     const allCoffee = await Coffee.findAll();
-    // console.log("allCoffee:", allCoffee)
     if (!allCoffee) return res.status(404).json({ "message": "Cannot find any Coffee items" })
 
     res.status(200).json({ "Coffee": [...allCoffee] })
@@ -26,9 +25,10 @@ router.get('/', async (req, res) => {
 router.get('/:coffeeId', async (req, res) => {
     // is there a specific coffee
     const coffeeId = req.params.coffeeId
-    const oneCoffee = await Coffee.findByPk(coffeeId)
-    if (!oneCoffee) return res.status(404).json({ "message": "Cannot find any Coffee items" })
+    const coffee = await Coffee.findByPk(coffeeId)
+    if (!coffee) return res.status(404).json({ "message": "Cannot find any Coffee items" })
 
-    res.status(200).json({ "oneCoffee": [oneCoffee] })
+    res.status(200).json(coffee)
 })
+
 module.exports = router;
