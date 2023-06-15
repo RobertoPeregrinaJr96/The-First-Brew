@@ -2,7 +2,7 @@ const express = require('express')
 const { Coffee, Item, Review, ShoppingCart, User } = require('../../db/models');
 
 const router = express.Router();
-
+// GEt all items
 router.get('/', async (req, res) => {
 
     // are there any items?
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
     res.status(200).json({ "Items": [...allItems] })
 })
-
+// Get item by Id
 router.get('/:itemId', async (req, res) => {
 
     const itemId = req.params.itemId

@@ -15,7 +15,6 @@ export const getOneCoffee = (coffee) => ({
 })
 
 
-
 /* Thunk Creators: */
 export const fetchAllCoffeeThunk = () => async (dispatch) => {
 

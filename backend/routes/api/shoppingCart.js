@@ -26,9 +26,9 @@ router.get('/current', requireAuth, async (req, res) => {
     const idOfUser = user.id;
     // console.log("id", idOfUser)
     const userCartArr = await ShoppingCart.findAll({ where: { userId: idOfUser } })
-    console.log("userCartArr:", userCartArr[0])
+    // console.log("userCartArr:", userCartArr[0])
     const userCart = userCartArr[0]
-    console.log(userCart)
+    // console.log(userCart)
     const items = await Item.findAll({
         where: { cartId: userCart.id },
         include: [{ model: Coffee }]

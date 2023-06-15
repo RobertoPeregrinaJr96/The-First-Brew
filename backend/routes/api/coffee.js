@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
     res.status(200).json({ "Coffee": [...allCoffee] })
 })
-
+// Get Coffee by Id
 router.get('/:coffeeId', async (req, res) => {
     // is there a specific coffee
     const coffeeId = req.params.coffeeId
@@ -29,6 +29,29 @@ router.get('/:coffeeId', async (req, res) => {
     if (!coffee) return res.status(404).json({ "message": "Cannot find any Coffee items" })
 
     res.status(200).json(coffee)
+})
+
+// Create a Item
+router.post('/:coffeeId', async (req, res) => {
+
+    const { user } = req;
+    console.log("user", user)
+    const idOfUser = user.id;
+    const idOfCoffee = req.params.coffeeId;
+    console.log("idOfCoffee", idOfCoffee)
+    const { cartId, coffeeId, instructionId } = req.body
+    console.log("--------------------------------------")
+    console.log("cartId", cartId)
+    console.log("coffeeId", coffeeId)
+    console.log("instructionId", instructionId)
+    console.log("--------------------------------------")
+
+    const newItem = await Item.create({
+        cartId,
+        coffeeId,
+        instructionId
+    })
+    res.status(200).json(newItem)
 })
 
 module.exports = router;

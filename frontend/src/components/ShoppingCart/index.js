@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchUserCartThunk } from "../../store/carts"
+import { fetchAllCartThunk } from "../../store/carts"
 
 
 
@@ -9,13 +9,13 @@ const ShoppingCart = () => {
 
     const dispatch = useDispatch()
     const cartsObj = useSelector(state => state.cart.allCarts)
-    console.log("cartsObj in index", cartsObj)
+    // console.log("cartsObj in index", cartsObj)
     const carts = Object.values(cartsObj)
-    console.log("carts in index", carts)
+    // console.log("carts in index", carts)
 
 
     useEffect(() => {
-        dispatch(fetchUserCartThunk())
+        dispatch(fetchAllCartThunk())
     }, [dispatch])
 
     return (
