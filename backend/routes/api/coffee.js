@@ -46,6 +46,8 @@ router.post('/:coffeeId', async (req, res) => {
     console.log("instructionId", instructionId)
     console.log("--------------------------------------")
 
+    // create a conditional for if there is and item with the same itemId in and if so then grab that item instead and update its QUANTITY by 1
+
     const newItem = await Item.create({
         cartId,
         coffeeId,

@@ -11,12 +11,10 @@ const cart = [
   {
     userId: 1,
     itemId: 1,
-    quantity: 1,
   },
   {
     userId: 2,
     itemId: 1,
-    quantity: 1,
   },
 ]
 

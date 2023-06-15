@@ -11,39 +11,47 @@ const items = [
   {
     coffeeId: 1,
     cartId: 1,
-    instructionId: null
+    instructionId: null,
+    quantity:1
   },
   {
     coffeeId: 2,
     cartId: 1,
-    instructionId: null
+    instructionId: null,
+    quantity:1
   },
   {
     coffeeId: 3,
     cartId: 1,
-    instructionId: null
+    instructionId: null,
+    quantity:1
   },
   {
     coffeeId: 4,
     cartId: 1,
-    instructionId: null
+    instructionId: null,
+    quantity:1
   },
   {
     coffeeId: 5,
     cartId: 1,
-    instructionId: null
+    instructionId: null,
+    quantity:1
   },
   {
     coffeeId: 1,
-    instructionId: null
+    instructionId: null,
+    quantity:1
   },
   {
     coffeeId: 1,
-    instructionId: null
+    instructionId: null,
+    quantity:1
   },
   {
     coffeeId: 1,
-    instructionId: null
+    instructionId: null,
+    quantity:1
   },
 ]
 

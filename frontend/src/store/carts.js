@@ -27,7 +27,7 @@ export const fetchAllCartThunk = () => async (dispatch) => {
         return carts
     }
 }
-export const fetchUserCartThunk = (id) => async (dispatch) => {
+export const fetchUserCartThunk = () => async (dispatch) => {
 
     const response = await csrfFetch(`/api/cart/current`)
     // console.log("fetch response:", response)

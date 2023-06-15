@@ -35,13 +35,14 @@ router.get('/current', requireAuth, async (req, res) => {
     })
     // console.log("items:", items)
 
+
+
     if (!userCartArr) return res.status(404).json({ "message": "Cannot find the Users Chart" })
 
     const responseCart = {
         "id": userCart.id,
         "userId": idOfUser,
         "itemId": userCart.itemId,
-        "quantity": userCart.quantity,
         "createdAt": userCart.createdAt,
         "updatedAt": userCart.updatedAt,
         "Items": [...items]

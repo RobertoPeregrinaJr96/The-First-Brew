@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchAllCartThunk } from "../../store/carts"
+import { fetchUserCartThunk } from "../../store/carts"
 
 
 
@@ -8,22 +8,31 @@ import { fetchAllCartThunk } from "../../store/carts"
 const ShoppingCart = () => {
 
     const dispatch = useDispatch()
-    const cartsObj = useSelector(state => state.cart.allCarts)
-    // console.log("cartsObj in index", cartsObj)
-    const carts = Object.values(cartsObj)
-    // console.log("carts in index", carts)
-
+    const cartsObj = useSelector(state => state.cart.userCart[0])
+    console.log("cartsObj in index", cartsObj?.Items)
+    const items = cartsObj?.Items
+    console.log('items', items)
 
     useEffect(() => {
-        dispatch(fetchAllCartThunk())
+        dispatch(fetchUserCartThunk())
     }, [dispatch])
 
     return (
         <div>
             <h1>Shopping Cart</h1>
             <ul>
-                {carts.map(cart => {
-                    return <li>cartId:{cart.id}, userId:{cart.userId},   quantity:{cart.quantity},  started:{cart.createdAt}</li>
+                {items?.map(item => {
+                    const coffee = item?.Coffee
+                    console.log("item", item)
+                    console.log("coffee", coffee)
+                    return <li>
+                        <p>{coffee?.name}</p>
+                        <p>{coffee?.price}</p>
+                        <div>
+                            quantity:
+                            {item.quantity}
+                        </div>
+                    </li>
                 })}
             </ul>
         </div>
