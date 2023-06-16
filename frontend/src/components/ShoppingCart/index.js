@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchUserCartThunk } from "../../store/carts"
 import { fetchDeleteItemThunk, fetchUpdateItemThunk } from "../../store/item"
+import Checkout from "./checkout"
 
 import './index.css'
 
@@ -18,12 +19,12 @@ const ShoppingCart = () => {
     let newTotal
     if (items) {
         newTotal = items?.map(item => {
-            console.log(item)
+            // console.log(item)
             const price = Number(item.Coffee.price) * Number(item?.quantity)
-            console.log(price)
+            // console.log(price)
             return Number(price)
         })
-        console.log("newTotal", newTotal)
+        // console.log("newTotal", newTotal)
     }
     // Onclick functions
 
@@ -77,7 +78,7 @@ const ShoppingCart = () => {
                     const coffee = item?.Coffee
                     // console.log("item", item)
                     // console.log("coffee", coffee)
-                    return <li className="cart-div-li">
+                    return <li key={item.id} className="cart-div-li">
                         <p>Name: {coffee?.name}</p>
                         <p>Price: ${coffee?.price}</p>
                         <div>
@@ -93,9 +94,10 @@ const ShoppingCart = () => {
                 })}
             </ul>
             <div className="cart-footer">
+                <p className="checkout"> Total Price: {newTotal?.length !== 0 ? newTotal?.reduce((a, b) => a + b) : "Cart is Empty"}</p>
                 <p>Total Items: {items?.length}</p>
-                <button className="checkout"> Total Price: {newTotal.length !== 0 ? newTotal.reduce((a, b) => a + b) : "Cart is Empty"}</button>
             </div>
+            <Checkout  items={items} />
         </div>
     )
 }
