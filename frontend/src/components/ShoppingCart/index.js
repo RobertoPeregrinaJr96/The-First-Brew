@@ -14,15 +14,17 @@ const ShoppingCart = () => {
     const dispatch = useDispatch()
     const cartsObj = useSelector(state => state.cart.userCart[0])
     // specific Variables
-    const items = cartsObj?.Items
-        ;
-    let newTotal = items?.map(item => {
-        console.log(item)
-        const price = Number(item.Coffee.price) * Number(item?.quantity)
-        console.log(price)
-        return Number(price)
-    })
-    console.log("newTotal", newTotal)
+    const items = cartsObj?.Items;
+    let newTotal
+    if (items) {
+        newTotal = items?.map(item => {
+            console.log(item)
+            const price = Number(item.Coffee.price) * Number(item?.quantity)
+            console.log(price)
+            return Number(price)
+        })
+        console.log("newTotal", newTotal)
+    }
     // Onclick functions
 
     // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers
@@ -92,7 +94,7 @@ const ShoppingCart = () => {
             </ul>
             <div className="cart-footer">
                 <p>Total Items: {items?.length}</p>
-                <button className="checkout"> Total Price: {newTotal?.reduce((a, b) => a + b)}</button>
+                <button className="checkout"> Total Price: {newTotal.length !== 0 ? newTotal.reduce((a, b) => a + b) : "Cart is Empty"}</button>
             </div>
         </div>
     )
