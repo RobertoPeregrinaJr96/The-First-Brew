@@ -94,10 +94,10 @@ const ShoppingCart = () => {
                 })}
             </ul>
             <div className="cart-footer">
-                <p className="checkout"> Total Price: {newTotal?.length !== 0 ? newTotal?.reduce((a, b) => a + b) : "Cart is Empty"}</p>
                 <p>Total Items: {items?.length}</p>
+                <p className="checkout"> Total Price: ${newTotal?.length !== 0 ? newTotal?.reduce((a, b) => a + b)?.toFixed(2) : "Cart is Empty"}</p>
+                <Checkout items={items} />
             </div>
-            <Checkout  items={items} />
         </div>
     )
 }

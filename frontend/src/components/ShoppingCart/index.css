@@ -6,11 +6,11 @@
 .cart-div-ul {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 40% 40% 40% 40% 40% 40% 40%;
+  /* grid-template-rows:  20% 20% 20% 20% 20%; */
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 .cart-div-li {
   display: grid;
@@ -18,6 +18,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 40%;
   padding: 10px;
 }
 .cart-div-quantity-wrapper {
@@ -47,7 +48,8 @@
 .cart-footer {
   display: flex;
   justify-content: space-around;
-  height: 100%;
+  align-items: center;
+  height: 6rem;
 }
 .checkout {
   display: flex;
