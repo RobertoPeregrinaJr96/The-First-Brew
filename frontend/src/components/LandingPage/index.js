@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 
 import './index.css';
 import { fetchAllCoffeeThunk } from '../../store/coffee';
-
-
+import OpenModalButton from '../OpenModalButton';
+import ItemModal from './quickItemModal';
 
 const SplashPage = () => {
 
@@ -29,7 +29,13 @@ const SplashPage = () => {
             <h1>Hello</h1>
             <ul>
                 {coffees.map(coffee => {
-                    return <li onClick={(e) => itemPage(e, coffee)}> {coffee.name}</li>
+                    return <li >
+                        <div className='item-modal-li'>
+                            <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee}/>}>
+                            </OpenModalButton>
+                        </div>
+
+                    </li>
                 })}
             </ul>
         </div>

@@ -1,0 +1,13 @@
+
+
+
+.item-modal-li button{
+    border: none;
+    background-color: white;
+}
+
+/* MODAL */
+.checkout-div-wrapper{
+    background-color: bisque;
+    height: 100%;
+}
