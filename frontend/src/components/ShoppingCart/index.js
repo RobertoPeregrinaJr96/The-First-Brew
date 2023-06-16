@@ -16,7 +16,8 @@ const ShoppingCart = () => {
     const cartsObj = useSelector(state => state.cart.userCart[0])
     // specific Variables
     const items = cartsObj?.Items;
-    let newTotal
+    let newTotal;
+    let sortedItems;
     if (items) {
         newTotal = items?.map(item => {
             // console.log(item)
@@ -25,7 +26,9 @@ const ShoppingCart = () => {
             return Number(price)
         })
         // console.log("newTotal", newTotal)
+        sortedItems = items.sort((a, b) => { return a.id + b.id  })
     }
+    // console.log("sorted", sortedItems)
     // Onclick functions
 
     // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers
@@ -60,7 +63,7 @@ const ShoppingCart = () => {
     // I want to pre-populate the state for Coffee and Cart
     useEffect(() => {
         dispatch(fetchUserCartThunk())
-    }, [dispatch, boolean,])
+    }, [dispatch, boolean])
 
 
     /*
@@ -74,7 +77,7 @@ const ShoppingCart = () => {
         <div className="cart-div-wrapper">
             <h1>Shopping Cart</h1>
             <ul className="cart-div-ul">
-                {items?.map(item => {
+                {sortedItems?.map(item => {
                     const coffee = item?.Coffee
                     // console.log("item", item)
                     // console.log("coffee", coffee)
