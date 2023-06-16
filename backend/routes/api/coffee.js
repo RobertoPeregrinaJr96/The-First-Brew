@@ -51,7 +51,7 @@ router.post('/:coffeeId', async (req, res) => {
     const newItem = await Item.create({
         cartId,
         coffeeId,
-        quantity: 0,
+        quantity: 1,
         instructionId
     })
     res.status(200).json(newItem)

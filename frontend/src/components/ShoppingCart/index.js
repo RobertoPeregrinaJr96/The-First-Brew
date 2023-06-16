@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchUserCartThunk } from "../../store/carts"
 import { fetchDeleteItemThunk, fetchUpdateItemThunk } from "../../store/item"
 
-
+import './index.css'
 
 
 
@@ -15,7 +15,14 @@ const ShoppingCart = () => {
     const cartsObj = useSelector(state => state.cart.userCart[0])
     // specific Variables
     const items = cartsObj?.Items
-
+        ;
+    let newTotal = items?.map(item => {
+        console.log(item)
+        const price = Number(item.Coffee.price) * Number(item?.quantity)
+        console.log(price)
+        return Number(price)
+    })
+    console.log("newTotal", newTotal)
     // Onclick functions
 
     // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers
@@ -50,7 +57,7 @@ const ShoppingCart = () => {
     // I want to pre-populate the state for Coffee and Cart
     useEffect(() => {
         dispatch(fetchUserCartThunk())
-    }, [dispatch, boolean])
+    }, [dispatch, boolean,])
 
 
     /*
@@ -61,30 +68,32 @@ const ShoppingCart = () => {
         3.) The ability to make a new Cart
     */
     return (
-        <div>
+        <div className="cart-div-wrapper">
             <h1>Shopping Cart</h1>
-            <ul>
+            <ul className="cart-div-ul">
                 {items?.map(item => {
                     const coffee = item?.Coffee
                     // console.log("item", item)
                     // console.log("coffee", coffee)
-                    return <li>
+                    return <li className="cart-div-li">
                         <p>Name: {coffee?.name}</p>
                         <p>Price: ${coffee?.price}</p>
                         <div>
-                            quantity:
                             {item.quantity}
                         </div>
-                        <div>
-                            <button onClick={(e) => updateItemMinus(e, item, item?.id)}>Update quantity by -1</button>
-                            <p>{item?.quantity ? item.quantity : 0}</p>
-                            <button onClick={(e) => updateItemPlus(e, item, item?.id)}>Update quantity by 1</button>
+                        <div className="cart-div-quantity-wrapper">
+                            <button className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
+                            <p className="cart-div-quantity-total" >{item?.quantity ? item.quantity : 0}</p>
+                            <button className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
                         </div>
-                        <button onClick={(e) => deleteItem(e, item?.id)}>Delete</button>
+                        <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}>Delete</button>
                     </li>
                 })}
             </ul>
-            <p>Total Items: {items?.length}</p>
+            <div className="cart-footer">
+                <p>Total Items: {items?.length}</p>
+                <button className="checkout"> Total Price: {newTotal?.reduce((a, b) => a + b)}</button>
+            </div>
         </div>
     )
 }

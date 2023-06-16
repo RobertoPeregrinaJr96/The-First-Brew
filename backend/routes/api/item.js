@@ -24,11 +24,11 @@ router.get('/:itemId', async (req, res) => {
 })
 // UPDATE ITEM
 router.put('/:itemId', async (req, res) => {
-    console.log("---------------------------------")
+    // console.log("---------------------------------")
     const idOfItem = req.params.itemId
-    console.log("idOfItem", idOfItem)
+    // console.log("idOfItem", idOfItem)
     const item = await Item.findByPk(idOfItem)
-    console.log("item", item)
+    // console.log("item", item)
 
     let { coffeeId, cartId, instructionId, quantity } = req.body
 
@@ -36,7 +36,7 @@ router.put('/:itemId', async (req, res) => {
 
     await item.save();
 
-    console.log("---------------------------------")
+    // console.log("---------------------------------")
     res.json(item)
 })
 

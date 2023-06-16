@@ -69,21 +69,21 @@ export const fetchPostOneItem = (coffeeId, cartId) => async (dispatch) => {
 }
 // update a Item
 export const fetchUpdateItemThunk = (item, id) => async (dispatch) => {
-    console.log("---------------------------------")
-    console.log("item:", item)
-    console.log("id:", id)
-    console.log("---------------------------------")
+    // console.log("---------------------------------")
+    // console.log("item:", item)
+    // console.log("id:", id)
+    // console.log("---------------------------------")
     const response = await csrfFetch(`/api/items/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(item),
     });
-    console.log("Response ====>", response)
-    console.log("---------------------------------")
+    // console.log("Response ====>", response)
+    // console.log("---------------------------------")
     if (response.ok) {
         const updatedItem = await response.json();
-        console.log("data ====>", updatedItem)
-        console.log("---------------------------------")
+        // console.log("data ====>", updatedItem)
+        // console.log("---------------------------------")
         dispatch(updateItem(updatedItem));
         return updatedItem;
     }
