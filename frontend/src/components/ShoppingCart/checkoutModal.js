@@ -13,12 +13,13 @@ const CheckoutModel = ({ items }) => {
     const { closeModal } = useModal()
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        items.map(item => {
-            dispatch(fetchDeleteItemThunk(item.id))
-        })
-        setBoolean(!boolean)
+    const handleSubmit = () => {
+        if (items) {
+            items.map(item => {
+                dispatch(fetchDeleteItemThunk(item.id))
+            })
+            setBoolean(!boolean)
+        }
     }
 
 
@@ -32,7 +33,7 @@ const CheckoutModel = ({ items }) => {
             <p>Please Review your items before preceding</p>
             <div>
                 <button onClick={() => closeModal()}>go back to cart</button>
-                <button onClick={(e) => handleSubmit(e)}>Confirm</button>
+                <button onClick={() => handleSubmit()}>Confirm</button>
             </div>
         </div>
     )

@@ -15,16 +15,18 @@ module.exports = (sequelize, DataTypes) => {
       // Association for Shopping Cart
       Coffee.belongsToMany(models.ShoppingCart, { through: models.Item, foreignKey: "coffeeId", hooks: true, otherKey: 'id' })
       // Association for Reviews
-      Coffee.hasMany(models.Review, { foreignKey: "productId", hooks: true, otherKey: 'id' })
+      Coffee.hasMany(models.Review, { foreignKey: "coffeeId", hooks: true, otherKey: 'id' })
     }
   }
   Coffee.init({
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
 
     },
     price: {
       type: DataTypes.FLOAT,
+      allowNull: false,
 
     },
 

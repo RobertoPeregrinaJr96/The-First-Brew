@@ -29,9 +29,9 @@ const SplashPage = () => {
             <h1>Hello</h1>
             <ul>
                 {coffees.map(coffee => {
-                    return <li >
+                    return <li key={coffee.id}>
                         <div className='item-modal-li'>
-                            <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee}/>}>
+                            <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} />}>
                             </OpenModalButton>
                         </div>
 

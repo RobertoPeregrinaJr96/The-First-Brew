@@ -18,14 +18,16 @@ module.exports = {
         reference: {
           model: 'Users',
           key: 'id'
-        }
+        },
+        allowNull: false,
       },
       itemId: {
         type: Sequelize.INTEGER,
         reference: {
           model: 'Items',
           key: 'id'
-        }
+        },
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

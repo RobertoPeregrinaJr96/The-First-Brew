@@ -18,21 +18,23 @@ module.exports = {
         reference: {
           model: "ShoppingCarts",
           key: 'id'
-        }
+        },
+        allowNull: false,
       },
       coffeeId: {
         type: Sequelize.INTEGER,
         reference: {
           model: 'Items',
           key: 'id'
-        }
+        },
+        allowNull: false,
       },
       instructionId: {
         type: Sequelize.INTEGER,
         reference: {
           model: 'Instructions',
           key: 'id'
-        }
+        },
       },
       quantity: {
         type: Sequelize.INTEGER,

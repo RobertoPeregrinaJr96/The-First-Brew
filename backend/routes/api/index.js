@@ -24,7 +24,7 @@ router.use('/items', itemRouter)
 
 router.use('/menu', menuRouter)
 
-router.use('/review', reviewRouter)
+router.use('/reviews', reviewRouter)
 
 router.use('/cart', cartRouter)
 

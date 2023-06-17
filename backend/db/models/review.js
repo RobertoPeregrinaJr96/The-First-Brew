@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Review.belongsTo(models.Coffee, { foreignKey: "productId", hooks: true , otherKey: 'id'})
+      Review.belongsTo(models.Coffee, { foreignKey: "coffeeId", hooks: true, otherKey: 'id'})
+      Review.belongsTo(models.User, { foreignKey: "userId", hooks: true, otherKey: "id" })
     }
   }
   Review.init({
@@ -21,13 +22,25 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    productId: {
+    coffeeId: {
       type: DataTypes.INTEGER,
-
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     review: {
-      type: DataTypes.STRING
-
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   }, {
     sequelize,

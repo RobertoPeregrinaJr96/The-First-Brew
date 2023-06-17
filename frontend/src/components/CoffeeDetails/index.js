@@ -3,52 +3,40 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './index.css'
 import { fetchOneCoffeeThunk } from '../../store/coffee';
-import { fetchPostOneItem, fetchUpdateItemThunk } from '../../store/item';
-import { fetchUserCartThunk } from "../../store/carts"
-
+import CoffeeDetail from './detailsForCoffee';
+import CoffeeCart from './Cart';
+import { fetchAllCoffeeReviewThunk } from '../../store/review';
 
 
 const CoffeeById = () => {
+    // console.log("------------------------------------- :")
     // general Variables
-    const [boolean, setBoolean] = useState(true)
     const dispatch = useDispatch();
     const coffeeIdObj = useParams();
-    // console.log("coffeeIdObj", coffeeIdObj)
+    // console.log("coffeeIdObj :", coffeeIdObj)
     const coffeeObj = useSelector(state => state.coffee.singleCoffee)
-    // console.log("Coffee State:", coffeeObj)
+    // console.log(" coffeeObj:", coffeeObj)
     const user = useSelector(state => state.session.user)
-    // console.log("User State:", user)
+    // console.log(" user:", user)
     const userCartArr = useSelector(state => state.cart.userCart)
-    // console.log("userCart State", userCartArr)
+    // console.log("userCartArr :", userCartArr)
     // specific Variables
     const userId = user.id
+    // console.log("userId :", userId)
     const coffeeId = coffeeIdObj.coffeeId
-    // console.log("coffeeId in specific Variables", coffeeId)
+    // console.log("coffeeId :", coffeeId)
     const userCart = userCartArr[0]
-    // console.log("USER Cart in specific Variables", userCart)
+    // console.log("userCart :", userCart)
     const items = userCart?.Items
-    // console.log("ITEMS in specific Variables", items )
+    // console.log("items :", items)
     // Onclick functions
     const itemInCart = items ? items.find(item => Number(coffeeId) === Number(item?.coffeeId)) : []
-
-    function testPost(e) {
-        dispatch(fetchPostOneItem(coffeeId, userCart?.id));
-        setBoolean(!boolean)
-    }
-
-    const testUpdate = (itemInCart) => {
-        itemInCart.quantity += 1;
-        // console.log("itemInCart", itemInCart)
-        // console.log("Dispatch", itemInCart, Number(itemInCart?.coffeeId))
-        dispatch(fetchUpdateItemThunk(itemInCart,itemInCart.id ))
-        setBoolean(!boolean)
-    }
+    // console.log("------------------------------------- :")
 
     // I want to pre-populate the state for Coffee and Cart
     useEffect(() => {
         dispatch(fetchOneCoffeeThunk(coffeeId))
-        dispatch(fetchUserCartThunk(userId))
-    }, [dispatch, boolean, userId,])
+    }, [dispatch])
 
 
     /*
@@ -63,8 +51,11 @@ const CoffeeById = () => {
     return (
         <div>
             <h2>HELLO FROM COFFEE DETAILS</h2>
-            <h1>{coffeeObj.name},  price:${coffeeObj.price}</h1>
-            <button onClick={(e) => itemInCart ? testUpdate(itemInCart) : testPost(e)}>Add to cart</button>
+            <h1>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
+            <CoffeeCart itemUpdate={itemInCart} coffeeId={coffeeId} />
+            <div>
+                <CoffeeDetail coffee={coffeeIdObj} user={user} />
+            </div>
         </div>
     )
 }

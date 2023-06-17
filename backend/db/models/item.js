@@ -25,11 +25,12 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     cartId: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     coffeeId: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
     instructionId: {
       type: DataTypes.INTEGER,

@@ -20,13 +20,10 @@ const ShoppingCart = () => {
     let sortedItems;
     if (items) {
         newTotal = items?.map(item => {
-            // console.log(item)
-            const price = Number(item.Coffee.price) * Number(item?.quantity)
-            // console.log(price)
+            const price = Number(item.Coffee?.price) * Number(item?.quantity)
             return Number(price)
         })
-        // console.log("newTotal", newTotal)
-        sortedItems = items.sort((a, b) => { return a.id + b.id  })
+        sortedItems = items.sort((a, b) => { return a.id + b.id })
     }
     console.log("sorted", sortedItems)
     // Onclick functions
@@ -34,6 +31,7 @@ const ShoppingCart = () => {
     // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers
     const updateItemMinus = (e, item, id) => {
         const quantity = item.quantity
+        if (quantity == 0) return null
         const updateItem = {
             "cartId": item.cartId,
             "coffeeId": item.coffeeId,
@@ -59,7 +57,7 @@ const ShoppingCart = () => {
         dispatch(fetchDeleteItemThunk(id))
         setBoolean(!boolean)
     }
-
+    const checkState = () => { }
     // I want to pre-populate the state for Coffee and Cart
     useEffect(() => {
         dispatch(fetchUserCartThunk())
@@ -76,26 +74,30 @@ const ShoppingCart = () => {
     return (
         <div className="cart-div-wrapper">
             <h1>Shopping Cart</h1>
+
             <ul className="cart-div-ul">
                 {sortedItems?.map(item => {
                     const coffee = item?.Coffee
-                    // console.log("item", item)
-                    // console.log("coffee", coffee)
                     return <li key={item.id} className="cart-div-li">
+
                         <p>Name: {coffee?.name}</p>
                         <p>Price: ${coffee?.price}</p>
+
                         <div>
                             {item.quantity}
                         </div>
+
                         <div className="cart-div-quantity-wrapper">
                             <button className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
                             <p className="cart-div-quantity-total" >{item?.quantity ? item.quantity : 0}</p>
                             <button className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
                         </div>
-                        <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}>Delete</button>
+
+                        <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)} disabled={!(item.quantity)}>Delete</button>
                     </li>
                 })}
             </ul>
+
             <div className="cart-footer">
                 <p>Total Items: {items?.length}</p>
                 <p className="checkout"> Total Price: ${newTotal?.length !== 0 ? newTotal?.reduce((a, b) => a + b)?.toFixed(2) : "Cart is Empty"}</p>

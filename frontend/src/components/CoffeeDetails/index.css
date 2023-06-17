@@ -1,0 +1,10 @@
+/* Index */
+
+/* Coffee Detail */
+
+.coffee-detail-wrapper {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-items: center;
+}

@@ -40,6 +40,7 @@ const items = [
   },
   {
     coffeeId: 6,
+    cartId: 1,
     instructionId: null,
     quantity: 1
   },

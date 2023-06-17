@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       // Association for Coffee
       ShoppingCart.belongsToMany(models.Coffee, { through: models.Item, foreignKey: 'cartId', hooks: true, otherKey: 'id' })
       // Association for User
-      ShoppingCart.belongsTo(models.User, { foreignKey: 'userId', hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
-      ShoppingCart.hasMany(models.Item, { foreignKey: 'cartId', hooks: true, otherKey: 'id' , onDelete: 'CASCADE'})
+      ShoppingCart.belongsTo(models.User, { foreignKey: 'userId', hooks: true, otherKey: 'id' })
+      ShoppingCart.hasMany(models.Item, { foreignKey: 'cartId', hooks: true, otherKey: 'id'  })
     }
   }
   ShoppingCart.init({
@@ -27,12 +27,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     userId: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
 
     },
     itemId: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
     },
 
   }, {

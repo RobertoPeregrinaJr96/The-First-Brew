@@ -18,10 +18,27 @@ module.exports = {
         reference: {
           model: 'Coffees',
           key: 'id'
-        }
+        },
+        allowNull: false,
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        reference: {
+          model: 'Users',
+          key: 'id'
+        },
+        allowNull: false,
+      },
+      title: {
+        type: Sequelize.STRING
+      },
+      rating: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       review: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

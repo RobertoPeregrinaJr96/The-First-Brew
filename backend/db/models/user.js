@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasOne(models.ShoppingCart, { foreignKey: 'userId', hooks: true })
+      User.hasMany(models.Review,{foreignKey:'userId',hooks:true})
     }
+
   };
 
   User.init(
