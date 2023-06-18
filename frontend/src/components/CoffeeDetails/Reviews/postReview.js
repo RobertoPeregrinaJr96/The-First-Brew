@@ -31,12 +31,13 @@ const PostReview = ({ coffee, user }) => {
         e.preventDefault();
         const err = {}
 
-        if (review.length === 0) err.review = ""
-        if (review.length >= 255) err.review = ""
-        if (rating <= 0) err.rating = ""
-        if (rating > 10) err.rating = ""
-        if (title.length === 0) err.title = ""
-        if (title.length >= 30) err.title = ""
+        if (review.length === 0) err.review = "Must be between 1 and 255 characters"
+        if (review.length >= 255) err.review = "Must be between 1 and 255 characters"
+        if (rating <= 0) err.rating = "Must be between 1 and 10"
+        if (rating > 10) err.rating = "Must be between 1 and 10"
+        if (title.length === 0) err.title = "Must be between 1 and 30"
+        if (title.length >= 30) err.title = "Must be between 1 and 30"
+        setErrors(err)
 
         if (Object.values(err).length === 0) {
             console.log("Review Format is Correct")
@@ -51,36 +52,43 @@ const PostReview = ({ coffee, user }) => {
             dispatch(fetchPostOneReview(newReview, coffee.coffeeId))
             dispatch(fetchAllCoffeeReviewThunk(coffee.coffeeId))
             setBool(!bool)
-            return
+            closeModal()
         }
         console.log("Review Format is Incorrect")
-        setErrors(err)
-        closeModal()
+        // closeModal()
     }
 
-
+    console.log("ERRORS:", errors)
     return (
         <div className="coffee-detail-wrapper">
             <form className='coffee-detail-form' onSubmit={(e) => handleSubmit(e)} >
-
+                <p className='errors'>{errors.title}</p>
                 <label>
                     <input
                         placeholder="Title"
                         onChange={(e) => setTitle(e.target.value)}
+                        type='Text'
+                        min={1} max={30}
                     >
-
                     </input>
                 </label>
+                <p className='errors'>{errors.review}</p>
                 <label>
                     <textarea
                         placeholder="Review"
                         onChange={(e) => setReview(e.target.value)}
                     >
-
                     </textarea>
-
                 </label>
-                <button type='submit'></button>
+                <div className='post-div-buttons'>
+                    <button
+                        // disabled={!!Object.values(errors)}
+                        type='submit'>Submit</button>
+                    <button onClick={(e) => closeModal()}> Cancel
+                    </button>
+                </div>
+
+
             </form>
 
         </div >

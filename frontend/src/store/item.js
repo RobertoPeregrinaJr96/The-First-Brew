@@ -90,11 +90,11 @@ export const fetchUpdateItemThunk = (item, id) => async (dispatch) => {
 };
 // delete a Item
 export const fetchDeleteItemThunk = (id) => async (dispatch) => {
-    console.log("DELETE", id)
+    // console.log("DELETE", id)
     const response = await csrfFetch(`/api/items/${id}`, {
         method: 'DELETE',
     });
-    console.log('res ====>', response)
+    // console.log('res ====>', response)
     if (response.ok) {
         dispatch(deleteItem(id));
     }

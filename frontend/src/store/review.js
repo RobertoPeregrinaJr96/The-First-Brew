@@ -89,35 +89,35 @@ export const fetchPostOneReview = (review, coffeeId) => async (dispatch) => {
 }
 // update a Review
 export const fetchUpdateReviewThunk = (review, id) => async (dispatch) => {
-    console.log("---------------------------------")
-    console.log("review:", review)
-    console.log("id:", id)
-    console.log("---------------------------------")
+    // console.log("---------------------------------")
+    // console.log("review:", review)
+    // console.log("id:", id)
+    // console.log("---------------------------------")
     const response = await csrfFetch(`/api/reviews/${id}/reviews`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(review),
     });
-    console.log("Response ====>", response)
-    console.log("---------------------------------")
+    // console.log("Response ====>", response)
+    // console.log("---------------------------------")
     if (response.ok) {
         const updatedReview = await response.json();
-        console.log("data ====>", updatedReview)
-        console.log("---------------------------------")
+        // console.log("data ====>", updatedReview)
+        // console.log("---------------------------------")
         dispatch(updateReview(updatedReview));
         return updatedReview;
     }
 };
 // delete a Review
 export const fetchDeleteReviewThunk = (id) => async (dispatch) => {
-    console.log("DELETE", id )
+    // console.log("DELETE", id )
     const response = await csrfFetch(`/api/reviews/${id}`, {
         method: 'DELETE',
     });
     // console.log('res ====>', response)
     if (response.ok) {
         const message = await response.json()
-        console.log("message", message)
+        // console.log("message", message)
         dispatch(deleteReview(id));
     }
 };

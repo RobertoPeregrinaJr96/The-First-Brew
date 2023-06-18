@@ -12,6 +12,7 @@ const ShoppingCart = () => {
 
     // general Variables
     const [boolean, setBoolean] = useState(true)
+    const [goober, setGoober] = useState(false)
     const dispatch = useDispatch()
     const cartsObj = useSelector(state => state.cart.userCart[0])
     // specific Variables
@@ -25,7 +26,7 @@ const ShoppingCart = () => {
         })
         sortedItems = items.sort((a, b) => { return a.id + b.id })
     }
-    console.log("sorted", sortedItems)
+    // console.log("sorted", sortedItems)
     // Onclick functions
 
     // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers
@@ -40,6 +41,10 @@ const ShoppingCart = () => {
         }
         if (quantity == 1) dispatch(fetchDeleteItemThunk(item.id))
         if (quantity >= 2) dispatch(fetchUpdateItemThunk(updateItem, id))
+        setGoober(true)
+        setTimeout(() => {
+            setGoober(false)
+        }, 500)
         setBoolean(!boolean)
     }
     const updateItemPlus = (e, item, id) => {
@@ -50,11 +55,19 @@ const ShoppingCart = () => {
             "quantity": (item.quantity + 1)
         }
         dispatch(fetchUpdateItemThunk(updateItem, id))
+        setGoober(true)
+        setTimeout(() => {
+            setGoober(false)
+        }, 300)
         setBoolean(!boolean)
     }
     // This is just a plain Overall Delete Item Function
     const deleteItem = (e, id) => {
         dispatch(fetchDeleteItemThunk(id))
+        setGoober(true)
+        setTimeout(() => {
+            setGoober(false)
+        }, 300)
         setBoolean(!boolean)
     }
     const checkState = () => { }
@@ -88,9 +101,9 @@ const ShoppingCart = () => {
                         </div>
 
                         <div className="cart-div-quantity-wrapper">
-                            <button className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
+                            <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
                             <p className="cart-div-quantity-total" >{item?.quantity ? item.quantity : 0}</p>
-                            <button className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
+                            <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
                         </div>
 
                         <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)} disabled={!(item.quantity)}>Delete</button>

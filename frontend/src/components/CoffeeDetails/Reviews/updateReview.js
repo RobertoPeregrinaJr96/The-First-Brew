@@ -1,8 +1,7 @@
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './index.css'
-import { fetchAllCoffeeReviewThunk, fetchUpdateReviewThunk, fetchAllReviewThunk } from '../../../store/review';
+import { fetchAllCoffeeReviewThunk, fetchUpdateReviewThunk } from '../../../store/review';
 import { useModal } from '../../../context/Modal'
 import './index.css'
 
@@ -18,7 +17,6 @@ const UpdateReview = ({ coffee, user, review }) => {
     const [newRating, setNewRating] = useState(review?.rating)
     const [newReview, setNewReview] = useState(review.review)
     const [errors, setErrors] = useState({})
-    const [bool, setBool] = useState(false)
     const { closeModal } = useModal()
 
     const coffeeReviews = useSelector(state => state.review.coffeeReviews)
@@ -32,12 +30,12 @@ const UpdateReview = ({ coffee, user, review }) => {
         e.preventDefault();
         const err = {}
 
-        if (newReview.length === 0) err.review = ""
-        if (newReview.length >= 255) err.review = ""
-        if (newRating <= 0) err.rating = ""
-        if (newRating > 10) err.rating = ""
-        if (newTitle.length === 0) err.title = ""
-        if (newTitle.length >= 30) err.title = ""
+        if (newReview.length === 0) err.review = "Must be between 1 and 255 characters"
+        if (newReview.length >= 255) err.review = "Must be between 1 and 255 characters"
+        if (newRating <= 0) err.rating = "Must be between 1 and 10"
+        if (newRating > 10) err.rating = "Must be between 1 and 10"
+        if (newTitle.length === 0) err.title = "Must be between 1 and 30"
+        if (newTitle.length >= 30) err.title = "Must be between 1 and 30"
 
         if (Object.values(err).length === 0) {
             console.log("Review Format is Correct")
@@ -51,39 +49,45 @@ const UpdateReview = ({ coffee, user, review }) => {
             console.log("NEW EWCIWIQ", updatedReview)
             dispatch(fetchUpdateReviewThunk(updatedReview, review.id))
             dispatch(fetchAllCoffeeReviewThunk(coffee.coffeeId))
-            setBool(!bool)
-            return
+            dispatch(fetchAllCoffeeReviewThunk(coffee.coffeeId))
+            closeModal()
         }
         console.log("Review Format is Incorrect")
         setErrors(err)
-        closeModal()
     }
 
 
     return (
         <div className="coffee-detail-wrapper">
             <form className='coffee-detail-form' onSubmit={(e) => handleSubmit(e)} >
-
+                <p className='errors'>{errors.title}</p>
                 <label>
                     <input
                         placeholder="Title"
                         value={newTitle}
                         onChange={(e) => setNewTitle(e.target.value)}
                     >
-
                     </input>
                 </label>
+                <p className='errors'>{errors.review}</p>
                 <label>
                     <textarea
                         placeholder="Review"
                         value={newReview}
                         onChange={(e) => setNewReview(e.target.value)}
                     >
-
                     </textarea>
 
                 </label>
-                <button type='submit'></button>
+                <div className='update-div-buttons'>
+                    <button
+                        //  disabled={!!Object.values(errors)}
+                        type='submit'>
+                        Submit
+                    </button>
+                    <button onClick={(e) => closeModal()}> Cancel
+                    </button>
+                </div>
             </form>
 
         </div >

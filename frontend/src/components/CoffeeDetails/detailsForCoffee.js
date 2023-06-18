@@ -21,9 +21,11 @@ const CoffeeDetail = ({ coffee, user }) => {
     // console.log("coffeeReviews:", coffeeReviews)
     const coffeeReviewArr = Object.values(coffeeReviews)
     // console.log("Arr:", coffeeReviewArr)
+    const sortedArr = coffeeReviewArr.sort((a, b) => a.createdAt + b.createdAt)
 
     const switchPost = () => {
         let userReview = coffeeReviewArr.find(review => review.userId === user.id)
+
         // console.log("userReview:", userReview)
 
         if (!userReview) {
@@ -44,10 +46,11 @@ const CoffeeDetail = ({ coffee, user }) => {
 
     return (
         <div className="coffee-detail-wrapper">
-            {/* <OpenModalButton buttonText={'Post Your Review'} modalComponent={<PostReview coffee={coffee} user={user} />}></OpenModalButton> */}
-            {switchPost()}
+            <div className='coffee-detail-button-switch'>
+                {switchPost()}
+            </div>
             <ul>
-                {coffeeReviewArr.map(review => {
+                {sortedArr.map(review => {
                     return <li key={review?.id}>
                         <p>{review?.title}</p>
                         <p>{review?.review}</p>

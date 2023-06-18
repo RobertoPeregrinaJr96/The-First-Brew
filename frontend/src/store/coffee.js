@@ -28,9 +28,9 @@ export const fetchAllCoffeeThunk = () => async (dispatch) => {
 }
 export const fetchOneCoffeeThunk = (id) => async (dispatch) => {
 
-    console.log("fetch id In Thunk:", id)
+    // console.log("fetch id In Thunk:", id)
     const response = await csrfFetch(`/api/coffee/${id}`)
-    console.log("fetch response:", response)
+    // console.log("fetch response:", response)
     if (response.ok) {
         const coffee = await response.json()
         dispatch(getOneCoffee(coffee))
@@ -46,7 +46,7 @@ const coffeeReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case GET_COFFEE:
-            console.log("Action:", action.carts)
+            // console.log("Action:", action.carts)
             const getState = { ...state, allCoffee: { ...state.allCoffee } }
             action.coffee.Coffee.forEach(coffee => getState.allCoffee[coffee.id] = coffee)
             return { ...getState }

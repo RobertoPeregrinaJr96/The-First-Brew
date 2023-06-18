@@ -15,6 +15,9 @@ const SplashPage = () => {
     const coffeeObj = useSelector(state => state.coffee.allCoffee)
     const coffees = Object.values(coffeeObj)
 
+    const user = useSelector(state => state.session.user)
+
+
     const itemPage = (e, coffee) => {
         e.preventDefault();
         history.push(`/coffee/${coffee.id}`)
@@ -31,7 +34,7 @@ const SplashPage = () => {
                 {coffees.map(coffee => {
                     return <li key={coffee.id}>
                         <div className='item-modal-li'>
-                            <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} />}>
+                            <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} />}>
                             </OpenModalButton>
                         </div>
 

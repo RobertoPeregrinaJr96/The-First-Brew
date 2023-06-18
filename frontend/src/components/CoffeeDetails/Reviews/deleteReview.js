@@ -1,8 +1,7 @@
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './index.css'
-import { fetchAllCoffeeReviewThunk, fetchDeleteReviewThunk } from '../../../store/review'
+import { fetchDeleteReviewThunk } from '../../../store/review'
 import { useModal } from '../../../context/Modal'
 import './index.css'
 
@@ -20,7 +19,7 @@ const DeleteReview = ({ coffee, review }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         dispatch(fetchDeleteReviewThunk(review.id))
-        dispatch(fetchAllCoffeeReviewThunk(coffee.coffeeId))
+
         setGoober(true)
         setTimeout(() => {
             setGoober(false)

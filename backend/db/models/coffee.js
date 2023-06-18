@@ -29,7 +29,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
 
     },
-
+    description: {
+      type: DataTypes.STRING,
+    }
   }, {
     sequelize,
     modelName: 'Coffee',
