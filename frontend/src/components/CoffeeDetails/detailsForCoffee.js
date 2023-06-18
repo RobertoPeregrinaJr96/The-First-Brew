@@ -7,6 +7,7 @@ import DeleteReview from './Reviews/deleteReview';
 import OpenModalButton from '../OpenModalButton'
 import './index.css'
 import { fetchAllCoffeeReviewThunk } from '../../store/review';
+import UpdateReview from './Reviews/updateReview';
 
 
 
@@ -21,13 +22,30 @@ const CoffeeDetail = ({ coffee, user }) => {
     const coffeeReviewArr = Object.values(coffeeReviews)
     // console.log("Arr:", coffeeReviewArr)
 
+    const switchPost = () => {
+        let userReview = coffeeReviewArr.find(review => review.userId === user.id)
+        // console.log("userReview:", userReview)
+
+        if (!userReview) {
+            // console.log("000")
+            return <OpenModalButton buttonText={'Post Your Review'} modalComponent={<PostReview coffee={coffee} user={user} />}></OpenModalButton>
+        }
+        if (userReview) {
+            // console.log("100")
+            return <OpenModalButton buttonText={'Update Your Review'} modalComponent={<UpdateReview coffee={coffee} user={user} review={userReview} />}></OpenModalButton>
+        }
+
+    }
+
+
     useEffect(() => {
         dispatch(fetchAllCoffeeReviewThunk(coffee?.coffeeId))
     }, [dispatch])
 
     return (
         <div className="coffee-detail-wrapper">
-            <OpenModalButton buttonText={'Post Your Review'} modalComponent={<PostReview coffee={coffee} user={user} />}></OpenModalButton>
+            {/* <OpenModalButton buttonText={'Post Your Review'} modalComponent={<PostReview coffee={coffee} user={user} />}></OpenModalButton> */}
+            {switchPost()}
             <ul>
                 {coffeeReviewArr.map(review => {
                     return <li key={review?.id}>

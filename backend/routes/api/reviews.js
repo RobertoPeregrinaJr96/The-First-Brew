@@ -38,6 +38,36 @@ router.get('/current', async (req, res) => {
     res.status(200).json({ "userReview": [responseReview] })
 })
 
+// Update
+router.put('/:reviewId/reviews', async (req, res) => {
+
+    const { user } = req;
+    // console.log("user", user)
+    const idOfUser = user.id;
+    const idOfReview = Number(req.params.reviewId);
+
+    const { coffeeId, userId, title, rating, review } = req.body
+    console.log("--------------------------------------")
+    // console.log("idOfReview", idOfReview)
+    // console.log("idOfUser in Backend", userId)
+    // console.log("idOfCoffee  in Backend", coffeeId)
+    // console.log("title in Backend", title)
+    // console.log("rating in backend", rating)
+    // console.log("review in Backend", review)
+    console.log("--------------------------------------")
+
+    const oldReview = await Review.findByPk(idOfReview)
+    console.log("oldReview:", oldReview)
+
+    oldReview.title = title
+    oldReview.rating = rating
+    oldReview.review = review
+
+    console.log("newReview:", oldReview)
+    await oldReview.save()
+    res.status(200).json(oldReview)
+})
+
 // DELETE
 router.delete('/:reviewId', async (req, res) => {
     console.log("---------------------------------------")

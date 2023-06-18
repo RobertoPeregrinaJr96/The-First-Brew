@@ -71,17 +71,17 @@ export const fetchUsersReviewThunk = () => async (dispatch) => {
 }
 // POST A Review
 export const fetchPostOneReview = (review, coffeeId) => async (dispatch) => {
-    console.log("coffeeId", coffeeId)
-    console.log("review", review)
+    // console.log("coffeeId", coffeeId)
+    // console.log("review", review)
     const response = await csrfFetch(`/api/coffee/${coffeeId}/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ review })
     })
-    console.log("response", response)
+    // console.log("response", response)
     if (response.ok) {
         const review = await response.json()
-        console.log("review", review)
+        // console.log("review", review)
         dispatch(postOneReview(review))
         return review
     }
@@ -89,21 +89,21 @@ export const fetchPostOneReview = (review, coffeeId) => async (dispatch) => {
 }
 // update a Review
 export const fetchUpdateReviewThunk = (review, id) => async (dispatch) => {
-    // console.log("---------------------------------")
-    // console.log("review:", review)
-    // console.log("id:", id)
-    // console.log("---------------------------------")
-    const response = await csrfFetch(`/api/reviews/${id}`, {
+    console.log("---------------------------------")
+    console.log("review:", review)
+    console.log("id:", id)
+    console.log("---------------------------------")
+    const response = await csrfFetch(`/api/reviews/${id}/reviews`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(review),
     });
-    // console.log("Response ====>", response)
-    // console.log("---------------------------------")
+    console.log("Response ====>", response)
+    console.log("---------------------------------")
     if (response.ok) {
         const updatedReview = await response.json();
-        // console.log("data ====>", updatedReview)
-        // console.log("---------------------------------")
+        console.log("data ====>", updatedReview)
+        console.log("---------------------------------")
         dispatch(updateReview(updatedReview));
         return updatedReview;
     }

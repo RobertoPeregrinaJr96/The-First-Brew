@@ -4,11 +4,18 @@
 // import './index.css'
 
 
+// const CoffeeDetail = ({ coffee, user }) => {
 
-// const CoffeeDetail = () => {
-
+//     console.log("coffee in Detail", coffee)
+//     console.log("user in Detail", user)
 //     // general Variables
-//     const dispatch =useDispatch()
+//     const dispatch = useDispatch()
+//     const [title, setTitle] = useState('')
+//     const [review, setReview] = useState('')
+//     const [rating, setRating] = useState(1)
+//     const [errors, setErrors] = useState({})
+//     const [bool, setBool] = useState(false)
+//     const { closeModal } = useModal()
 
 
 //     const handleSubmit = (e) => {

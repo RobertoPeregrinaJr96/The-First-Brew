@@ -8,8 +8,8 @@ import './index.css'
 
 const PostReview = ({ coffee, user }) => {
 
-    console.log("coffee in Detail", coffee)
-    console.log("user in Detail", user)
+    // console.log("coffee in Detail", coffee)
+    // console.log("user in Detail", user)
 
     // general Variables
     const dispatch = useDispatch()
@@ -21,9 +21,9 @@ const PostReview = ({ coffee, user }) => {
     const { closeModal } = useModal()
 
     const coffeeReviews = useSelector(state => state.review.coffeeReviews)
-    console.log("coffeeReviews:", coffeeReviews)
+    // console.log("coffeeReviews:", coffeeReviews)
     const coffeeReviewArr = Object.values(coffeeReviews)
-    console.log("Arr:", coffeeReviewArr)
+    // console.log("Arr:", coffeeReviewArr)
 
 
 
