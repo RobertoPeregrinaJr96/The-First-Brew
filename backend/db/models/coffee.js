@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
 
     },
     description: {
-      type: DataTypes.STRING(2000),
+      type: DataTypes.TEXT,
     }
   }, {
     sequelize,
