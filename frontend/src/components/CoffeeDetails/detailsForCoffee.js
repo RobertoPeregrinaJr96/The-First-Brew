@@ -6,7 +6,7 @@ import PostReview from './Reviews/postReview';
 import DeleteReview from './Reviews/deleteReview';
 import OpenModalButton from '../OpenModalButton'
 import './index.css'
-import { fetchAllCoffeeReviewThunk } from '../../store/review';
+import { fetchAllCoffeeReviewThunk, fetchUsersReviewThunk } from '../../store/review';
 import UpdateReview from './Reviews/updateReview';
 
 
@@ -42,6 +42,7 @@ const CoffeeDetail = ({ coffee, user }) => {
 
     useEffect(() => {
         dispatch(fetchAllCoffeeReviewThunk(coffee?.coffeeId))
+        // dispatch(fetchUsersReviewThunk())
     }, [dispatch])
 
     return (
@@ -54,7 +55,7 @@ const CoffeeDetail = ({ coffee, user }) => {
                     return <li key={review?.id}>
                         <p>{review?.title}</p>
                         <p>{review?.review}</p>
-                        <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} />}></OpenModalButton>
+                        <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton>
                     </li>
                 })}
             </ul>

@@ -20,15 +20,7 @@ module.exports = {
           key: 'id'
         },
         allowNull: false,
-      },
-      itemId: {
-        type: Sequelize.INTEGER,
-        reference: {
-          model: 'Items',
-          key: 'id'
-        },
-        allowNull: false,
-      },
+      } ,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

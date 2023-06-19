@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, ShoppingCart } = require('../../db/models');
 
 const router = express.Router();
 
@@ -77,6 +77,24 @@ router.post('/', validateLogin, async (req, res, next) => {
     });
 }
 );
+
+router.post('/user/cart', async (req, res) => {
+
+    console.log("------------------------------")
+    console.log("------------------------------")
+    const { user } = req
+    console.log("user", user)
+
+    const newUserCart = await ShoppingCart.create({
+        userId: user.id,
+    })
+    await newUserCart.save()
+
+    res.status(200).json(newUserCart)
+
+    console.log("------------------------------")
+    console.log("------------------------------")
+})
 
 router.delete('/', (_req, res) => {
     res.clearCookie('token');

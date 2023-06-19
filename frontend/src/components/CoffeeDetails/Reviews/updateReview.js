@@ -7,9 +7,9 @@ import './index.css'
 
 const UpdateReview = ({ coffee, user, review }) => {
 
-    console.log("coffee in COFFEE Detail", coffee)
-    console.log("user in  COFFEE Detail", user)
-    console.log("review in  COFFEE Detail", review)
+    // console.log("coffee in COFFEE Detail", coffee)
+    // console.log("user in  COFFEE Detail", user)
+    // console.log("review in  COFFEE Detail", review)
 
     // general Variables
     const dispatch = useDispatch()
@@ -46,7 +46,7 @@ const UpdateReview = ({ coffee, user, review }) => {
                 "rating": newRating,
                 "review": newReview,
             }
-            console.log("NEW EWCIWIQ", updatedReview)
+            // console.log("NEW EWCIWIQ", updatedReview)
             dispatch(fetchUpdateReviewThunk(updatedReview, review.id))
             dispatch(fetchAllCoffeeReviewThunk(coffee.coffeeId))
             dispatch(fetchAllCoffeeReviewThunk(coffee.coffeeId))

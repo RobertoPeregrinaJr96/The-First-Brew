@@ -18,7 +18,7 @@ const coffee = [
   {
     name: "Americano",
     price: 2.75,
-    description: " Our signature blend of rich espresso and hot water creates the perfect balance of bold flavors. This timeless favorite boasts a smooth and robust taste, with a hint of caramel undertones. Savor the intense aroma and indulge in the velvety texture of this traditional Americano.",
+    description:"Our signature blend of rich espresso and hot water creates the perfect balance of bold flavors. This timeless favorite boasts a smooth and robust taste, with a hint of caramel undertones. Savor the intense aroma and indulge in the velvety texture of this traditional Americano.",
   },
   {
     name: "Latte",
