@@ -6,6 +6,7 @@ import './index.css';
 import { fetchAllCoffeeThunk } from '../../store/coffee';
 import OpenModalButton from '../OpenModalButton';
 import ItemModal from './quickItemModal';
+import { fetchUserCartThunk } from '../../store/carts';
 
 const SplashPage = () => {
 
@@ -20,11 +21,13 @@ const SplashPage = () => {
 
     const itemPage = (e, coffee) => {
         e.preventDefault();
-        history.push(`/coffee/${coffee.id}`)
+        history.push(`/coffee/${coffee?.id}`)
     }
 
     useEffect(() => {
         dispatch(fetchAllCoffeeThunk())
+        if (user) dispatch(fetchUserCartThunk(user?.id))
+
     }, [dispatch])
 
     return (

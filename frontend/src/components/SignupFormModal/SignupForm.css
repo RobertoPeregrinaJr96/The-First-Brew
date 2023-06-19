@@ -1,0 +1,14 @@
+.sign-up-div {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.sign-up-form {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

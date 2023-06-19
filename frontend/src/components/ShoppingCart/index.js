@@ -67,7 +67,7 @@ const ShoppingCart = () => {
         setGoober(true)
         setTimeout(() => {
             setGoober(false)
-        }, 300)
+        }, 500)
         setBoolean(!boolean)
     }
     const checkState = () => { }
@@ -106,14 +106,15 @@ const ShoppingCart = () => {
                             <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
                         </div>
 
-                        <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)} disabled={!(item.quantity)}>Delete</button>
+                        <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
+                            disabled={goober} >Delete</button>
                     </li>
                 })}
             </ul>
 
             <div className="cart-footer">
                 <p>Total Items: {items?.length}</p>
-                <p className="checkout"> Total Price: ${newTotal?.length !== 0 ? newTotal?.reduce((a, b) => a + b)?.toFixed(2) : "Cart is Empty"}</p>
+                <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
                 <Checkout items={items} />
             </div>
         </div>

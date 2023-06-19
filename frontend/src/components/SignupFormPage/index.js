@@ -62,7 +62,7 @@ function SignupFormPage() {
 
 
   return (
-    <>
+    <div className="sign-up-div">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -127,7 +127,7 @@ function SignupFormPage() {
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         <button type="submit" disabled={!checkState}>Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 

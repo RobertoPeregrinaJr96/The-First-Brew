@@ -20,23 +20,34 @@ const CoffeeById = () => {
     // console.log(" user:", user)
     const userCartArr = useSelector(state => state.cart.userCart)
     // console.log("userCartArr :", userCartArr)
-    // specific Variables
-    const userId = user.id
-    // console.log("userId :", userId)
-    const coffeeId = coffeeIdObj.coffeeId
+    let coffeeId = coffeeIdObj.coffeeId
     // console.log("coffeeId :", coffeeId)
-    const userCart = userCartArr[0]
-    // console.log("userCart :", userCart)
-    const items = userCart?.Items
-    // console.log("items :", items)
-    // Onclick functions
-    const itemInCart = items ? items.find(item => Number(coffeeId) === Number(item?.coffeeId)) : []
-    // console.log("------------------------------------- :")
+
+
+    let userId;
+    let userCart;
+    let items;
+    let itemInCart;
+
+    // specific Variables
+    if (user) {
+
+        userId = user.id
+        // console.log("userId :", userId)
+        userCart = userCartArr[0]
+        // console.log("userCart :", userCart)
+        items = userCart?.Items
+        // console.log("items :", items)
+        // Onclick functions
+        itemInCart = items ? items.find(item => Number(coffeeId) === Number(item?.coffeeId)) : []
+        // console.log("------------------------------------- :")
+    }
 
     // I want to pre-populate the state for Coffee and Cart
     useEffect(() => {
         dispatch(fetchOneCoffeeThunk(coffeeId))
     }, [dispatch])
+
 
 
     /*
@@ -47,17 +58,27 @@ const CoffeeById = () => {
         4.) The ability to add a Coffee to the Users Cart
             - If the User all ready has the coffee in their Cart then an additional Button will appear to edit the amount of Coffees they want to order
 
-    */
-    return (
-        <div>
+            */
+    if (!user) {
+        return (<div>
             <h2>HELLO FROM COFFEE DETAILS</h2>
             <h1>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
-            <CoffeeCart itemUpdate={itemInCart} coffeeId={coffeeId} />
+            <p>{coffeeObj.description}</p>
+        </div>)
+    } else {
+
+        return (
             <div>
-                <CoffeeDetail coffee={coffeeIdObj} user={user} />
+                <h2>HELLO FROM COFFEE DETAILS</h2>
+                <h1>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
+                <p>{coffeeObj.description}</p>
+                <CoffeeCart itemUpdate={itemInCart} coffeeId={coffeeId} />
+                <div>
+                    <CoffeeDetail coffee={coffeeIdObj} user={user} />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default CoffeeById

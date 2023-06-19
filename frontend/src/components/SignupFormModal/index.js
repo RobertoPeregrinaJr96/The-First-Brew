@@ -55,15 +55,11 @@ function SignupFormModal() {
   //   if (Object.values(errors).length) boolean = true
   // }
 
-
-
-
   return (
     <div className="sign-up-div">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit} className="sign-up-form"   >
         <label>
-
           <input
             type="text"
             value={email}
