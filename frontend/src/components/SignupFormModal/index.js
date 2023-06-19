@@ -25,7 +25,7 @@ function SignupFormModal() {
       const err = {}
 
       if (email.length === 0) err.email = "Confirm Password "
-      if (email.length >= 30) err.email = "Confirm Password "
+      if (email.length >= 70) err.email = "Confirm Password "
       if (username.length === 0) err.username = "Confirm Password "
       if (username.length >= 30) err.username = "Confirm Password "
       if (firstName.length === 0) err.firstName = "Confirm Password "
@@ -79,31 +79,34 @@ function SignupFormModal() {
     <div className="sign-up-div">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit} className="sign-up-form"   >
-        <label>
+        <label className="sign-up-form-input">
+          Email
           <input
-            type="text"
+            type="email"
+            maxLength="70"
             value={email}
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             required
+            title="Please keep characters between 1 to 70 "
           />
-          Email
         </label>
         {errors.email && <p className="errors">{errors.email}</p>}
-        <label>
+        <label className="sign-up-form-input">
+          Username
 
           <input
             type="text"
             value={username}
+            title="Please keep characters between 1 to 30 "
             placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
             required
-            title="Please make Unique and between 1 and 30 characters"
           />
-          Username
         </label>
         {errors.username && <p className="errors">{errors.username}</p>}
-        <label>
+        <label className="sign-up-form-input">
+          First name
 
           <input
             type="text"
@@ -111,23 +114,27 @@ function SignupFormModal() {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
+            title="Please keep characters between 1 to 30 "
+
           />
-          First name
         </label>
         {errors.firstName && <p className="errors">{errors.firstName}</p>}
-        <label>
+        <label className="sign-up-form-input">
+          Last name
 
           <input
             type="text"
             placeholder="Last Name"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            title="Please keep characters between 1 to 30 "
+
             required
           />
-          Last name
         </label>
         {errors.lastName && <p className="errors">{errors.lastName}</p>}
-        <label>
+        <label className="sign-up-form-input">
+          Password
 
           <input
             type="password"
@@ -135,20 +142,22 @@ function SignupFormModal() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            title="Please keep characters between 1 to 30 "
+
           />
-          Password
         </label>
         {errors.password && <p className="errors">{errors.password}</p>}
-        <label>
+        <label className="sign-up-form-input">
+          Confirm Password
 
           <input
             type="password"
             placeholder=" Confirm Password"
             value={confirmPassword}
+            title="Please make sure this matches your password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          Confirm Password
         </label>
         {errors.confirmPassword && (
           <p className="errors">{errors.confirmPassword}</p>

@@ -12,3 +12,7 @@
   align-items: center;
   width: 100%;
 }
+.sign-up-form-input {
+  display: grid;
+  grid-template-columns: 30% 50%;
+}

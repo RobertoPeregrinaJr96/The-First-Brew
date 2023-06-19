@@ -89,20 +89,20 @@ const ShoppingCart = () => {
             <h1>Shopping Cart</h1>
 
             <ul className="cart-div-ul">
-                {sortedItems?.map(item => {
+                {sortedItems?.sort((a, b) => a.id + b.ib)?.map(item => {
                     const coffee = item?.Coffee
-                    return <li key={item.id} className="cart-div-li">
+                    return <li key={item?.id} className="cart-div-li">
 
                         <p>Name: {coffee?.name}</p>
                         <p>Price: ${coffee?.price}</p>
 
                         <div>
-                            {item.quantity}
+                            {item?.quantity}
                         </div>
 
                         <div className="cart-div-quantity-wrapper">
                             <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
-                            <p className="cart-div-quantity-total" >{item?.quantity ? item.quantity : 0}</p>
+                            <p className="cart-div-quantity-total" >{item?.quantity ? item?.quantity : 0}</p>
                             <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
                         </div>
 
