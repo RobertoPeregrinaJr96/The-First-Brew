@@ -26,7 +26,7 @@ const ShoppingCart = () => {
         })
         sortedItems = items.sort((a, b) => { return a.id + b.id })
     }
-    // console.log("sorted", sortedItems)
+    console.log("sorted", sortedItems)
     // Onclick functions
 
     // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers

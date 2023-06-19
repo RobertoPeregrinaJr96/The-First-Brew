@@ -22,20 +22,20 @@ export const postNewCart = (cart) => ({
 })
 //  POST a cart upon user sign up
 export const fetchPostUserCart = () => async (dispatch) => {
-  console.log("---------------------------")
-  console.log("---------------------------")
+  // console.log("---------------------------")
+  // console.log("---------------------------")
   const response = await csrfFetch("/api/session/user/cart", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({})
   })
-  console.log(response)
+  // console.log(response)
   if (response.ok) {
     const cart = await response.json()
-    console.log(cart)
+    // console.log(cart)
     dispatch(postNewCart(cart))
-    console.log("---------------------------")
-    console.log("---------------------------")
+    // console.log("---------------------------")
+    // console.log("---------------------------")
     return cart
   }
 }
