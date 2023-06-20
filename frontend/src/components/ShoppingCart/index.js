@@ -60,6 +60,7 @@ const ShoppingCart = () => {
             "quantity": (item.quantity + 1)
         }
         dispatch(fetchUpdateItemThunk(updateItem, id))
+        dispatch(fetchUserCartThunk())
         console.log("ID IN UPDATE", id)
         setGoober(true)
         setTimeout(() => {
@@ -78,9 +79,9 @@ const ShoppingCart = () => {
     }
     const checkState = () => { }
     // I want to pre-populate the state for Coffee and Cart
-    useEffect(() => {
-        dispatch(fetchUserCartThunk())
-    }, [dispatch, boolean])
+    // useEffect(() => {
+    //     dispatch(fetchUserCartThunk())
+    // }, [dispatch, boolean])
 
 
     /*
