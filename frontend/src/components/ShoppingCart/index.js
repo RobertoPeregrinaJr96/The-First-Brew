@@ -93,7 +93,7 @@ const ShoppingCart = () => {
             <h1>Shopping Cart</h1>
 
             <ul className="cart-div-ul">
-                {sortedItems?.sort((a, b) => a.id + b.ib)?.map(item => {
+                {sortedItems?.sort((a, b) => a.id + b.id) && sortedItems?.sort((a, b) => a.id + b.id)?.map(item => {
                     const coffee = item?.Coffee
                     return <li key={item?.id} className="cart-div-li">
 
