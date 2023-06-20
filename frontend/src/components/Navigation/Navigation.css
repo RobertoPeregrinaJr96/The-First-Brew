@@ -59,7 +59,10 @@
   align-items: center;
 }
 .profile-ul {
-  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
 }
 .profile-ul li {
   height: 2.8rem;
