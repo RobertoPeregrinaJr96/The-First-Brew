@@ -1,0 +1,77 @@
+/* Index */
+.detail-wrapper {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.detail-img {
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 15rem; */
+  /* width: 15rem; */
+  /* border-radius: 50%; */
+}
+.detail-img p {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25rem;
+  width: 25rem;
+  border-radius: 50%;
+}
+.detail-div-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detail-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detail-p {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  width: 60%;
+  height: 5rem;
+  font-size: 1.5rem;
+}
+
+.detail-h1 {
+  border-bottom: solid 3px black;
+}
+/* .detail-h2 {
+} */
+.detail-div-component {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .component-button2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+/* Detailed item */
+.coffee-detail-wrapper {
+}
+
+.coffee-detail-button-switch {
+}
+
+.coffee-detail-ul {
+}
+/* Reviews */
+
+/* POST */
+
+/* UPDATE */
+
+/* DELETEs */

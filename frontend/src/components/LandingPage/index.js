@@ -18,10 +18,10 @@ const SplashPage = () => {
 
     const user = useSelector(state => state.session.user)
 
-
-    const itemPage = (e, coffee) => {
-        e.preventDefault();
-        history.push(`/coffee/${coffee?.id}`)
+    const compClick = (coffee, user) => {
+        <OpenModalButton>
+            <ItemModal coffee={coffee} user={user} />
+        </OpenModalButton>
     }
 
     useEffect(() => {
@@ -31,19 +31,45 @@ const SplashPage = () => {
     }, [dispatch])
 
     return (
-        <div className='landingPage-wrapper'>
+        <div className='landingPage-wrapper bg'>
             <h1>Hello</h1>
-            <ul>
+
+            <ul className='landingPage-ul'>
                 {coffees.map(coffee => {
-                    return <li key={coffee.id}>
-                        <div className='item-modal-li'>
+                    // return <li key={coffee.id} className='item-modal-li'>
+                    //     <div className='item-modal-li-div'>
+                    //         <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} />}>
+                    //         </OpenModalButton>
+                    //     </div>
+                    // </li>
+                    return <li key={coffee.id} className={`item-modal-li ${(coffee.name)?.toLowerCase()}`}>
+                        <div className='item-modal-li-div' >
                             <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} />}>
                             </OpenModalButton>
                         </div>
-
                     </li>
                 })}
             </ul>
+            <div className='mega-div-img-wrapper'>
+                <div className='mega-div-img-wrapper2'>
+                    <div className='landingPage-img-div1'>
+                        <div className='filler1'>
+                            <p className='filler-p1'> </p>
+
+                        </div>
+                    </div>
+                    <div className='landingPage-img-div1'>
+                        <div className='filler1'>
+                            <p className='filler-p1'> </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div className='filler2'>
+                    <p className='filler-p2'> </p>
+
+                </div>
+            </div>
         </div>
     )
 }

@@ -114,6 +114,12 @@ const itemReducer = (state = initialState, action) => {
         case GET_ONE_ITEM:
             const getOneState = { ...state, singleItem: { ...action.item } }
             return getOneState
+        case POST_ONE_ITEM:
+            const postState = { ...state, allItems: action.item }
+            return postState
+        case UPDATE_ITEM:
+            const updateState = { ...state, allItems: action.item }
+            return updateState
         case DELETE_ITEM:
             const deleteState = { ...state, allItems: { ...state.allItems } }
             delete deleteState.allItems[action.item]

@@ -65,6 +65,7 @@ const PostReview = ({ coffee, user }) => {
                 <p className='errors'>{errors.title}</p>
                 <label>
                     <input
+                        title='Please enter a title between 1 to 30 characters long'
                         placeholder="Title"
                         onChange={(e) => setTitle(e.target.value)}
                         type='Text'
@@ -75,6 +76,7 @@ const PostReview = ({ coffee, user }) => {
                 <p className='errors'>{errors.review}</p>
                 <label>
                     <textarea
+                        title='Please write a review between 1 to 255 characters long'
                         placeholder="Review"
                         onChange={(e) => setReview(e.target.value)}
                     >

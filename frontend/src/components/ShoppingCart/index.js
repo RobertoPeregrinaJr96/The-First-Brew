@@ -18,12 +18,16 @@ const ShoppingCart = () => {
     // specific Variables
     const items = cartsObj?.Items;
     let newTotal;
+    let newTotalQuantity = 0;
     let sortedItems;
     if (items) {
         newTotal = items?.map(item => {
             const price = Number(item.Coffee?.price) * Number(item?.quantity)
             return Number(price)
         })
+        items.forEach(item => {
+            newTotalQuantity += item.quantity
+        });
         sortedItems = items.sort((a, b) => { return a.id + b.id })
     }
     console.log("sorted", sortedItems)
@@ -113,7 +117,7 @@ const ShoppingCart = () => {
             </ul>
 
             <div className="cart-footer">
-                <p>Total Items: {items?.length}</p>
+                <p>Total Items:{newTotalQuantity}</p>
                 <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
                 <Checkout items={items} />
             </div>

@@ -18,8 +18,12 @@ const CheckoutModel = ({ items }) => {
             items.map(item => {
                 dispatch(fetchDeleteItemThunk(item.id))
             })
+            dispatch(fetchUserCartThunk())
+
             setBoolean(!boolean)
         }
+        closeModal()
+        window.alert(" PLACEHOLDER : Your Cart has Successfully been Checkout")
     }
 
 

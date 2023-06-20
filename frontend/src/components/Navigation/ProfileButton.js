@@ -46,13 +46,13 @@ const ProfileButton = ({ user }) => {
    I want to show the Login && Sign up button MODAL when the User is not Logged IN and show the Profile Button && Cart Button Links when the User is Logged in
   */
   return (
-    <ul>
+    <ul className="profile-ul">
       {
         user ?
-          (<>
-            <button onClick={(e) => logout(e)}>Logout</button>
-            <button onClick={(e) => cart(e)}>Cart</button>
-          </>) : (
+          (<div className="nav-topRight-modal" >
+            <button className="nav-topRight-logged" onClick={(e) => logout(e)}>Logout</button>
+            <button className="nav-topRight-logged" onClick={(e) => cart(e)}><i class="fa-solid fa-cart-shopping"></i></button>
+          </div>) : (
             <div className="nav-topRight-modal" >
               <OpenModalMenuItem
                 itemText="Log In"

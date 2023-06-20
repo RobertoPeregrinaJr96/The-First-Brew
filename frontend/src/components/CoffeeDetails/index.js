@@ -61,20 +61,32 @@ const CoffeeById = () => {
             */
     if (!user) {
         return (<div>
-            <h2>HELLO FROM COFFEE DETAILS</h2>
+            <h2>HELLO FROM COFFEE {coffeeObj.name} DETAILS</h2>
             <h1>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
             <p>{coffeeObj.description}</p>
         </div>)
     } else {
 
         return (
-            <div>
-                <h2>HELLO FROM COFFEE DETAILS</h2>
-                <h1>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
-                <p>{coffeeObj.description}</p>
-                <CoffeeCart itemUpdate={itemInCart} coffeeId={coffeeId} />
-                <div>
+            <div className='detail-wrapper'>
+                <h2 className='detail-h2'>Custom Features coming soon</h2>
+                <div className='detail-img'>
+                    <p></p>
+                </div>
+
+                <div className='detail-div-header'>
+                    <h1 className='detail-h1'>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
+                </div>
+
+                <div className='detail-description'>
+                    <p className='detail-p'>{coffeeObj.description}</p>
+                </div>
+                <div className='detail-div-component'>
+
+                    <CoffeeCart itemUpdate={itemInCart} coffeeId={coffeeId} />
+
                     <CoffeeDetail coffee={coffeeIdObj} user={user} />
+
                 </div>
             </div>
         )

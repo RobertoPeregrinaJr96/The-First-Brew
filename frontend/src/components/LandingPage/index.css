@@ -1,13 +1,109 @@
+.landingPage {
+  height: 100%;
+  width: 100%;
+}
+.landingPage-wrapper {
+  background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120508205211070464/41593.jpg")
+    no-repeat center center fixed;
+  background-size: 90%;
+  height: 100rem;
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 5%;
+}
 
+.item-modal-li {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12rem;
+  width: 12rem;
+  /* background-color: blueviolet; */
+  border-radius: 50%;
+}
+.item-modal-li-div button {
+  /* background-color: blueviolet; */
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.5rem;
+  box-shadow: 2px 2px 2px black;
 
+}
+.landingPage-ul {
+  display: grid;
+  grid-template-columns: 15% 15% 15% 15% 15%;
+  row-gap: 2rem;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 0%;
+}
 
-.item-modal-li button{
-    border: none;
-    background-color: white;
+/*  */
+.mega-div-img-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.mega-div-img-wrapper2 {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-row: 40% 40%;
+  row-gap: 5%;
+}
+.landingPage-img-div1 {
+  display: flex;
+  align-items: center;
+}
+.landingPage-img-div2 {
+  display: flex;
+  align-items: center;
+}
+.filler1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  width: 100%;
+}
+.filler2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.filler-p1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  height: 80%;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px black;
+}
+.filler-p2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  height: 100%;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px black;
+}
+/* Coffee */
+.espresso {
+  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500414014574704/expresso.jpg");
 }
 
 /* MODAL */
-.checkout-div-wrapper{
-    background-color: bisque;
-    height: 100%;
+.checkout-div-wrapper {
+  background-color: var(--bg-color);
+  height: 100%;
+  width: 100%;
 }

@@ -4,8 +4,8 @@
 
 /* navigation */
 .nav-list-img {
-  height: 5rem;
-  width: 4rem;
+  height: 10rem;
+  width: 8rem;
 }
 .nav-button {
   display: none;
@@ -13,8 +13,9 @@
 .nav-wrapper {
   display: grid;
   grid-template-columns: 50% 50%;
-  height: 7rem;
+  height: 10rem;
   padding: 2rem;
+  border-bottom: solid 2px black;
 }
 
 .nav-div-topLeft {
@@ -26,6 +27,9 @@
 .nav-div-topRight {
   height: 20%;
 }
+.nav-h1 {
+  font-size: 4rem;
+}
 /* Profile Button */
 
 .nav-topRight-modal {
@@ -34,4 +38,29 @@
   column-gap: 10%;
   width: 100%;
   justify-content: end;
+  font-size: 2rem;
+}
+.nav-topRight-label {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border: none;
+  justify-self: center;
+  align-items: center;
+}
+.nav-topRight-logged {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 2rem;
+  background-color: white;
+  justify-self: center;
+  align-items: center;
+}
+.profile-ul {
+  height: 5rem;
+}
+.profile-ul li {
+  height: 2.8rem;
 }

@@ -50,15 +50,18 @@ const CoffeeDetail = ({ coffee, user }) => {
             <div className='coffee-detail-button-switch'>
                 {switchPost()}
             </div>
-            <ul>
-                {sortedArr.map(review => {
-                    return <li key={review?.id}>
-                        <p>{review?.title}</p>
-                        <p>{review?.review}</p>
-                        <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton>
-                    </li>
-                })}
-            </ul>
+            <div className='coffee-detail-ul'>
+
+                <ul>
+                    {sortedArr.map(review => {
+                        return <li key={review?.id}>
+                            <p>{review?.title}</p>
+                            <p>{review?.review}</p>
+                            <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton>
+                        </li>
+                    })}
+                </ul>
+            </div>
         </div >
     )
 }
