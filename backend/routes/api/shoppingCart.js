@@ -43,7 +43,7 @@ router.get('/current', requireAuth, async (req, res) => {
         "itemId": userCart.itemId,
         "createdAt": userCart.createdAt,
         "updatedAt": userCart.updatedAt,
-        "Items": [...items]
+        "Items": [...items.sort((a, b) => a.id - b.id)]
     }
 
     res.status(200).json({ "UserCart": [responseCart] })
