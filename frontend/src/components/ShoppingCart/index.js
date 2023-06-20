@@ -17,7 +17,7 @@ const ShoppingCart = () => {
     const cartsObj = useSelector(state => state.cart.userCart[0])
     // specific Variables
     const items = cartsObj?.Items;
-    console.log("ITEMS", items)
+    // console.log("ITEMS", items)
     let newTotal;
     let newTotalQuantity = 0;
     // let sortedItems;
@@ -61,7 +61,7 @@ const ShoppingCart = () => {
         }
         dispatch(fetchUpdateItemThunk(updateItem, id))
         // dispatch(fetchUserCartThunk())
-        console.log("ID IN UPDATE", id)
+        // console.log("ID IN UPDATE", id)
         setGoober(true)
         setTimeout(() => {
             setGoober(false)
