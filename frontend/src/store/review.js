@@ -110,14 +110,14 @@ export const fetchUpdateReviewThunk = (review, id) => async (dispatch) => {
 };
 // delete a Review
 export const fetchDeleteReviewThunk = (id) => async (dispatch) => {
-    // console.log("DELETE", id )
+    console.log("DELETE", id)
     const response = await csrfFetch(`/api/reviews/${id}`, {
         method: 'DELETE',
     });
-    // console.log('res ====>', response)
+    console.log('res ====>', response)
     if (response.ok) {
         const message = await response.json()
-        // console.log("message", message)
+        console.log("message", message)
         dispatch(deleteReview(id));
     }
 };
@@ -144,8 +144,9 @@ const reviewReducer = (state = initialState, action) => {
             // console.log("state Reducker", coffeeState)
             return coffeeState
         case DELETE_REVIEW:
-            const deleteState = { ...state, singleReview: { ...state.singleReview } }
+            const deleteState = { ...state, singleReview: { ...state.singleReview }, coffeeReviews: { ...state.coffeeReviews } }
             delete deleteState.allReviews[action.review]
+            delete deleteState.coffeeReviews[action.review]
             return deleteState
         default:
             return state

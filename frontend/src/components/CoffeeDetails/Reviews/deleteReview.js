@@ -8,7 +8,7 @@ import './index.css'
 
 
 const DeleteReview = ({ coffee, review, user }) => {
-    // console.log('coffee in DeleteReviewModal', coffee)
+    console.log('coffee in DeleteReviewModal', coffee)
     // console.log('review in DeleteReviewModal', review)
 
     const { closeModal } = useModal()
@@ -32,21 +32,20 @@ const DeleteReview = ({ coffee, review, user }) => {
         e.preventDefault()
 
         dispatch(fetchDeleteReviewThunk(review?.id))
+        dispatch(fetchAllCoffeeReviewThunk(Number(coffee?.coffeeId)))
 
-        // dispatch(fetchAllCoffeeReviewThunk(coffee.id))
 
         setGoober(true)
 
         setTimeout(() => {
             setGoober(false)
         }, 300)
-
         closeModal()
     }
 
-    // useEffect(() => {
-    //     dispatch(fetchAllCoffeeReviewThunk(coffee?.id))
-    // }, [dispatch, goober])
+    useEffect(() => {
+        dispatch(fetchAllCoffeeReviewThunk(Number(coffee?.coffeeId)))
+    }, [dispatch, goober])
 
     return (
         <div disabled={goober} className='delete-Modal-div'>
