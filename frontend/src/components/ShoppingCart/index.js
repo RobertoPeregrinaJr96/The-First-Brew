@@ -17,9 +17,10 @@ const ShoppingCart = () => {
     const cartsObj = useSelector(state => state.cart.userCart[0])
     // specific Variables
     const items = cartsObj?.Items;
+    console.log("ITEMS", items)
     let newTotal;
     let newTotalQuantity = 0;
-    let sortedItems;
+    // let sortedItems;
     if (items) {
         newTotal = items?.map(item => {
             const price = Number(item.Coffee?.price) * Number(item?.quantity)
@@ -28,9 +29,9 @@ const ShoppingCart = () => {
         items.forEach(item => {
             newTotalQuantity += item.quantity
         });
-        sortedItems = items.sort((a, b) => { return a.id + b.id })
+        // sortedItems = items.sort((a, b) => { return a.id + b.id })
     }
-    console.log("sorted", sortedItems)
+    // console.log("sorted", sortedItems)
     // Onclick functions
 
     // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers
@@ -59,6 +60,7 @@ const ShoppingCart = () => {
             "quantity": (item.quantity + 1)
         }
         dispatch(fetchUpdateItemThunk(updateItem, id))
+        console.log("ID IN UPDATE", id)
         setGoober(true)
         setTimeout(() => {
             setGoober(false)
