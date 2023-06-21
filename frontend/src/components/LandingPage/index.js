@@ -32,7 +32,7 @@ const SplashPage = () => {
 
     return (
         <div className='landingPage-wrapper bg'>
-            <h1>Hello</h1>
+            <h1 className='landingPage-h1'>Hello</h1>
 
             <ul className='landingPage-ul'>
                 {coffees.map(coffee => {

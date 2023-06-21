@@ -39,7 +39,7 @@ router.get('/:coffeeId', async (req, res) => {
 router.post('/:coffeeId', async (req, res) => {
 
     const { user } = req;
-    console.log("user", user)
+    // console.log("user", user)
     const idOfUser = user.id;
     const idOfCoffee = req.params.coffeeId;
     // console.log("idOfCoffee", idOfCoffee)
@@ -79,16 +79,16 @@ router.get('/:coffeeId/reviews', async (req, res) => {
 router.post('/:coffeeId/reviews', async (req, res) => {
     // console.log("--------------------------------------")
     const { user } = req;
-    console.log("user", user)
+    // console.log("user", user)
     const idOfUser = user.id;
     const idOfCoffee = req.params.coffeeId;
     const { coffeeId, userId, title, rating, review } = req.body
-    console.log("reviewObj", review)
-    console.log("idOfUser in Backend", review.idOfUser)
-    console.log("idOfCoffee  in Backend", review.idOfCoffee)
-    console.log("title in Backend", review.title)
-    console.log("rating in backend", review.rating)
-    console.log("review in Backend", review.review)
+    // console.log("reviewObj", review)
+    // console.log("idOfUser in Backend", review.idOfUser)
+    // console.log("idOfCoffee  in Backend", review.idOfCoffee)
+    // console.log("title in Backend", review.title)
+    // console.log("rating in backend", review.rating)
+    // console.log("review in Backend", review.review)
 
     const newReview = await Review.create({
         coffeeId: review.coffeeId,
@@ -97,7 +97,7 @@ router.post('/:coffeeId/reviews', async (req, res) => {
         title: review.title,
         review: review.review
     })
-    console.log("newReview:", newReview)
+    // console.log("newReview:", newReview)
     await newReview.save()
     res.status(200).json(newReview)
 

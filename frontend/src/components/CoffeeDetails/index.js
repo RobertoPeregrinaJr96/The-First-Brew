@@ -71,7 +71,7 @@ const CoffeeById = () => {
             <div className='detail-wrapper'>
                 <h2 className='detail-h2'>Custom Features coming soon</h2>
                 <div className='detail-img'>
-                    <p></p>
+                    <p className={`${(coffeeObj.name)?.toLowerCase()}`}></p>
                 </div>
 
                 <div className='detail-div-header'>

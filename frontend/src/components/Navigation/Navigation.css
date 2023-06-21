@@ -67,3 +67,28 @@
 .profile-ul li {
   height: 2.8rem;
 }
+@media screen and (max-width: 1440px) {
+  .nav-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 7rem;
+    padding: 2rem;
+    border-bottom: solid 2px black;
+  }
+  .nav-div-topLeft {
+    display: grid;
+    grid-template-columns: 10% 45%;
+    column-gap: 10%;
+    height: 20%;
+  }
+  .nav-div-topRight {
+    height: 20%;
+  }
+  .nav-h1 {
+    font-size: 2.5rem;
+  }
+  .nav-list-img {
+    height: 7rem;
+    width: 5rem;
+  }
+}

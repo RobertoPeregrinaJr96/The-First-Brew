@@ -20,9 +20,13 @@ const CoffeeDetail = ({ coffee, user }) => {
     const coffeeReviews = useSelector(state => state.review.coffeeReviews)
     // console.log("coffeeReviews:", coffeeReviews)
     const coffeeReviewArr = Object.values(coffeeReviews)
-    // console.log("Arr:", coffeeReviewArr)
-    const sortedArr = coffeeReviewArr.sort((a, b) => a.createdAt + b.createdAt)
-
+    console.log("Arr:", coffeeReviewArr)
+    console.log("Arr2:", coffeeReviewArr.sort((a, b) => {
+        // { console.log(a, b) }
+        return new Date(b.createdAt) - new Date(a.createdAt)
+    }))
+    const sortedArr = coffeeReviewArr.sort((a, b) => a?.id + b?.id)
+    console.log(sortedArr.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
     const switchPost = () => {
         let userReview = coffeeReviewArr.find(review => review.userId === user.id)
 
@@ -57,7 +61,8 @@ const CoffeeDetail = ({ coffee, user }) => {
                         return <li key={review?.id}>
                             <p>{review?.title}</p>
                             <p>{review?.review}</p>
-                            <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton>
+                            {user?.id == review?.userId ? <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton> : <></>}
+
                         </li>
                     })}
                 </ul>

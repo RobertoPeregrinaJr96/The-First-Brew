@@ -30,7 +30,6 @@
   border: none;
   font-size: 1.5rem;
   box-shadow: 2px 2px 2px black;
-
 }
 .landingPage-ul {
   display: grid;
@@ -99,6 +98,8 @@
 /* Coffee */
 .espresso {
   background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500414014574704/expresso.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 /* MODAL */
@@ -106,4 +107,10 @@
   background-color: var(--bg-color);
   height: 100%;
   width: 100%;
+}
+
+@media screen and (max-width: 1440px) {
+  .landingPage-h1 {
+    font-size: 1.7rem;
+  }
 }
