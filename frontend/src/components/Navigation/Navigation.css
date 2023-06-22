@@ -92,3 +92,26 @@
     width: 5rem;
   }
 }
+@media screen and (max-width: 1024px) {
+  .nav-topRight-modal {
+    display: grid;
+    grid-template-columns: 40% 15%;
+    column-gap: 10%;
+    width: 100%;
+    justify-content: end;
+    font-size: 2rem;
+  }
+  .nav-list-img {
+    height: 8rem;
+    width: 5rem;
+  }
+  .nav-div-topLeft {
+    display: grid;
+    grid-template-columns: 10% 45%;
+    column-gap: 10%;
+    height: 20%;
+  }
+  .nav-h1 {
+    font-size: 2.3rem;
+  }
+}

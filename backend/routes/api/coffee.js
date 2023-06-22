@@ -69,8 +69,30 @@ router.get('/:coffeeId/reviews', async (req, res) => {
     const idOfCoffee = req.params.coffeeId
     // console.log("idOfCoffee", idOfCoffee)
     const reviews = await Review.findAll({ where: { coffeeId: Number(idOfCoffee) } })
-    // console.log("reviews:", reviews)
-    res.status(200).json(reviews)
+    // console.log("reviews:", reviews.sort((a, b) => {
+        // console.log("-----------------------------------")
+        // console.log("A", a.dataValues,  "B", b.dataValues)
+        // console.log("-----------------------------------")
+        // let aObj = a.dataValues
+        // console.log("a====", aObj.id)
+        // console.log("-----------------------------------")
+        // let bObj = b.dataValues
+        // console.log("b====", bObj.id)
+        // console.log("-----------------------------------")
+        // return aObj.id - bObj.id
+    // }))
+    res.status(200).json(reviews.sort((a, b) => {
+        // console.log("-----------------------------------")
+        // console.log("A", a.dataValues,  "B", b.dataValues)
+        // console.log("-----------------------------------")
+        let aObj = a.dataValues
+        // console.log("a====", aObj.id)
+        // console.log("-----------------------------------")
+        let bObj = b.dataValues
+        // console.log("b====", bObj.id)
+        // console.log("-----------------------------------")
+        return aObj.id + bObj.id
+    }))
     // console.log("------------------------")
     // console.log("------------------------")
     // console.log("------------------------")

@@ -50,16 +50,20 @@ const ItemModal = ({ coffee, user }) => {
         if (quantity == 1) {
             dispatch(fetchDeleteItemThunk(item.id))
             dispatch(fetchUserCartThunk(user?.id))
+            setGoober(true)
+            setTimeout(() => {
+                setGoober(false)
+            }, 700)
         }
         if (quantity >= 2) {
             dispatch(fetchUpdateItemThunk(updateItem, id))
             dispatch(fetchUserCartThunk(user?.id))
             setQuantity(quantity - 1)
+            setGoober(true)
+            setTimeout(() => {
+                setGoober(false)
+            }, 300)
         }
-        setGoober(true)
-        setTimeout(() => {
-            setGoober(false)
-        }, 500)
         setBoolean(!boolean)
     }
 
@@ -76,7 +80,7 @@ const ItemModal = ({ coffee, user }) => {
         setGoober(true)
         setTimeout(() => {
             setGoober(false)
-        }, 300)
+        }, 400)
         setBoolean(!boolean)
     }
 
@@ -87,7 +91,7 @@ const ItemModal = ({ coffee, user }) => {
         setGoober(true)
         setTimeout(() => {
             setGoober(false)
-        }, 300)
+        }, 400)
     }
 
     const coffeeNav = () => {
@@ -106,15 +110,17 @@ const ItemModal = ({ coffee, user }) => {
 
         if (!user) return <p>Log in you goober</p>
         if (user && item) {
-            return <div className="cart-div-quantity-wrapper">
-                <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
-                <p className="cart-div-quantity-total" >{quantity ? quantity : item?.quantity}</p>
-                <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
+            return <div className="landingPage-cart-div-quantity-wrapper2">
+                <button disabled={goober} className="landingPage-cart-div-quantity-update-minus" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
+                <p className="landingPage-cart-div-quantity-total" >{quantity ? quantity : item?.quantity}</p>
+                <button disabled={goober} className="landingPage-cart-div-quantity-update-plus" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
+                <p>Total quantity:{item.quantity}</p>
+                <p>Total price:${(item.quantity * coffee.price)?.toFixed(2)}</p>
             </div>
         }
         if (user && !item) {
-            return <div>
-                <button disabled={goober} onClick={(e) => testPost(e)}> Add to Cart</button>
+            return <div className="landingPage-cart-div-quantity-wrapper1">
+                <button className="landingPage-cart-div-quantity-post" disabled={goober} onClick={(e) => testPost(e)}> Add to Cart</button>
             </div>
         }
     }
@@ -127,7 +133,7 @@ const ItemModal = ({ coffee, user }) => {
     }, [dispatch])
 
     return (
-        <div className='checkout-div-wrapper'>
+        <div className='landingPage-cart-div-wrapper'>
             <div>
                 <h1>{coffee.name}</h1>
                 <p>{coffee.description}</p>
@@ -135,12 +141,13 @@ const ItemModal = ({ coffee, user }) => {
             <div>
 
             </div>
-            <div>
+            <p className='landingPage-coffee-price'>Coffee Price:$ {coffee.price?.toFixed(2)}</p>
+            <div className='landingPage-loggedIn-function'>
                 {loggedIn(user, item)}
             </div>
 
 
-            <p onClick={(e) => coffeeNav()}>For More Info</p>
+            <p onClick={(e) => coffeeNav()}>For More Info click here</p>
         </div>
     )
 }

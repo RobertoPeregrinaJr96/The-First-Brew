@@ -25,8 +25,8 @@ const CoffeeDetail = ({ coffee, user }) => {
         // { console.log(a, b) }
         return new Date(b.createdAt) - new Date(a.createdAt)
     }))
-    const sortedArr = coffeeReviewArr.sort((a, b) => a?.id + b?.id)
-    console.log(sortedArr.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
+    const sortedArr = coffeeReviewArr.sort((a, b) => a?.id - b?.id)
+    console.log("sortedArr",sortedArr)
     const switchPost = () => {
         let userReview = coffeeReviewArr.find(review => review.userId === user.id)
 
@@ -47,7 +47,7 @@ const CoffeeDetail = ({ coffee, user }) => {
     useEffect(() => {
         dispatch(fetchAllCoffeeReviewThunk(coffee?.coffeeId))
         // dispatch(fetchUsersReviewThunk())
-    }, [dispatch])
+    }, [dispatch, coffee.id])
 
     return (
         <div className="coffee-detail-wrapper">
@@ -57,7 +57,7 @@ const CoffeeDetail = ({ coffee, user }) => {
             <div className='coffee-detail-ul'>
 
                 <ul>
-                    {sortedArr.map(review => {
+                    {coffeeReviewArr.map(review => {
                         return <li key={review?.id}>
                             <p>{review?.title}</p>
                             <p>{review?.review}</p>

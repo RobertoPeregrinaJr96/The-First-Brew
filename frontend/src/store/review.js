@@ -138,7 +138,7 @@ const reviewReducer = (state = initialState, action) => {
             const getOneState = { ...state, singleReview: { ...action.review } }
             return getOneState
         case GET_COFFEE_REVIEW:
-            const coffeeState = { ...state, coffeeReviews: { ...state.coffeeReviews } }
+            const coffeeState = { ...state, coffeeReviews: {} }
             // console.log("Reducker", action.reviews)
             action.reviews.forEach(review => coffeeState.coffeeReviews[review.id] = review)
             // console.log("state Reducker", coffeeState)
