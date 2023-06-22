@@ -18,7 +18,7 @@ const CoffeeDetail = ({ coffee, user }) => {
 
     const dispatch = useDispatch()
     const coffeeReviews = useSelector(state => state.review.coffeeReviews)
-    // console.log("coffeeReviews:", coffeeReviews)
+    console.log("coffeeReviews:", coffeeReviews)
     const coffeeReviewArr = Object.values(coffeeReviews)
     console.log("Arr:", coffeeReviewArr)
     console.log("Arr2:", coffeeReviewArr.sort((a, b) => {
@@ -26,7 +26,7 @@ const CoffeeDetail = ({ coffee, user }) => {
         return new Date(b.createdAt) - new Date(a.createdAt)
     }))
     const sortedArr = coffeeReviewArr.sort((a, b) => a?.id - b?.id)
-    console.log("sortedArr",sortedArr)
+    console.log("sortedArr", sortedArr)
     const switchPost = () => {
         let userReview = coffeeReviewArr.find(review => review.userId === user.id)
 
@@ -54,14 +54,22 @@ const CoffeeDetail = ({ coffee, user }) => {
             <div className='coffee-detail-button-switch'>
                 {switchPost()}
             </div>
-            <div className='coffee-detail-ul'>
+            <div className='coffee-detail-div-ul-wrapper'>
 
-                <ul>
+                <ul className='coffee-detail-ul'>
                     {coffeeReviewArr.map(review => {
                         return <li key={review?.id}>
-                            <p>{review?.title}</p>
-                            <p>{review?.review}</p>
-                            {user?.id == review?.userId ? <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton> : <></>}
+
+                            <div>
+                                --- {(review?.User["firstName"])[0].toUpperCase()}
+                                {(review?.User["firstName"]).slice(1)}
+                                {"  "}
+                                {review?.User["lastName"]}
+                                <p>{review?.title}</p>
+                                <p>{review?.review}</p>
+                                {user?.id == review?.userId ? <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton> : <></>}
+
+                            </div>
 
                         </li>
                     })}

@@ -44,13 +44,23 @@ const ShoppingCart = () => {
             "instructionId": item.instructionId,
             "quantity": (item.quantity - 1)
         }
-        if (quantity == 1) dispatch(fetchDeleteItemThunk(item.id))
-        if (quantity >= 2) dispatch(fetchUpdateItemThunk(updateItem, id))
-        setGoober(true)
-        setTimeout(() => {
-            setGoober(false)
-        }, 500)
-        setBoolean(!boolean)
+        if (quantity == 1) {
+
+            dispatch(fetchDeleteItemThunk(item.id))
+            setGoober(true)
+            setTimeout(() => {
+                setGoober(false)
+            }, 500)
+            setBoolean(!boolean)
+        }
+        if (quantity >= 2) {
+            dispatch(fetchUpdateItemThunk(updateItem, id))
+            setGoober(true)
+            setTimeout(() => {
+                setGoober(false)
+            }, 200)
+            setBoolean(!boolean)
+        }
     }
     const updateItemPlus = (e, item, id) => {
         const updateItem = {
@@ -65,7 +75,7 @@ const ShoppingCart = () => {
         setGoober(true)
         setTimeout(() => {
             setGoober(false)
-        }, 300)
+        }, 100)
         setBoolean(!boolean)
     }
     // This is just a plain Overall Delete Item Function

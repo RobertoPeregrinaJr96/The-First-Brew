@@ -30,8 +30,8 @@ const UpdateReview = ({ coffee, user, review }) => {
         e.preventDefault();
         const err = {}
 
-        if (newReview.length === 0) err.review = "Must be between 1 and 255 characters"
-        if (newReview.length >= 255) err.review = "Must be between 1 and 255 characters"
+        if (newReview.length === 0) err.review = "Must be between 1 and 1000 characters"
+        if (newReview.length >= 1000) err.review = "Must be between 1 and 1000 characters"
         if (newRating <= 0) err.rating = "Must be between 1 and 10"
         if (newRating > 10) err.rating = "Must be between 1 and 10"
         if (newTitle.length === 0) err.title = "Must be between 1 and 30"
@@ -58,34 +58,46 @@ const UpdateReview = ({ coffee, user, review }) => {
 
 
     return (
-        <div className="coffee-detail-wrapper">
-            <form className='coffee-detail-form' onSubmit={(e) => handleSubmit(e)} >
+        <div className="review-update-wrapper">
+            <form className='review-update-form' onSubmit={(e) => handleSubmit(e)} >
                 <p className='errors'>{errors.title}</p>
                 <label>
+                    Title
                     <input
+                        className='review-update-input'
                         placeholder="Title"
                         value={newTitle}
                         onChange={(e) => setNewTitle(e.target.value)}
                     >
                     </input>
+                    <p className='character-counter'>{newTitle?.length}/30</p>
+
                 </label>
                 <p className='errors'>{errors.review}</p>
                 <label>
+                    Review
                     <textarea
+                        className='review-update-textarea'
                         placeholder="Review"
                         value={newReview}
                         onChange={(e) => setNewReview(e.target.value)}
                     >
                     </textarea>
+                    <p className='character-counter'>{newReview?.length}/1000</p>
 
                 </label>
-                <div className='update-div-buttons'>
+                <div className='review-update-div-buttons'>
+                    <button
+                        className='post-submit'
+                        onClick={(e) => closeModal()}>
+                        Cancel
+                    </button>
                     <button
                         //  disabled={!!Object.values(errors)}
+                        className='post-cancel'
                         type='submit'>
                         Submit
-                    </button>
-                    <button onClick={(e) => closeModal()}> Cancel
+
                     </button>
                 </div>
             </form>

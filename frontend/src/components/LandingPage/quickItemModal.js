@@ -147,7 +147,9 @@ const ItemModal = ({ coffee, user }) => {
             </div>
 
 
-            <p onClick={(e) => coffeeNav()}>For More Info click here</p>
+            <p
+            className='nav-to-coffee'
+            onClick={(e) => coffeeNav()}>For More Info click here</p>
         </div>
     )
 }

@@ -3,8 +3,79 @@
 /* Coffee Detail */
 
 .coffee-detail-wrapper {
+  background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120508205211070464/41593.jpg")
+    no-repeat center center fixed;
+  background-size: 90% 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 100%;
+  /* grid-template-columns: 100%; */
+  row-gap: 5%;
+}
+
+.coffee-detail-button-switch {
+  display: grid;
+  justify-self: center;
+  align-items: center;
+  height: 2rem;
+}
+.coffee-detail-div-ul-wrapper {
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+.coffee-detail-ul {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 99, 40, 0.808);
+  height: 90%;
+  width: 80%;
+  color: white;
+  scroll-behavior: auto;
+  overflow-y: scroll;
+  word-break: break-all;
+}
+
+/* cart */
+
+.cart-div {
+  display: grid;
+  height: 5rem;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.cart-div-quantity-wrapper1 {
+}
+
+.cart-div-quantity-post {
+}
+
+.cart-div-quantity-wrapper2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50rem;
+  column-gap: 5%;
+}
+
+.cart-div-quantity-update-minus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+}
+
+.cart-div-quantity-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-div-quantity-update-plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
 }

@@ -62,40 +62,28 @@ router.post('/:coffeeId', async (req, res) => {
 })
 // GET A reviews for the coffee
 router.get('/:coffeeId/reviews', async (req, res) => {
-    // console.log("------------------------")
-    // res.json({"Message":"I HATE IT HERE"})
-    // console.log("------------------------")
-    // console.log("------------------------")
     const idOfCoffee = req.params.coffeeId
     // console.log("idOfCoffee", idOfCoffee)
-    const reviews = await Review.findAll({ where: { coffeeId: Number(idOfCoffee) } })
-    // console.log("reviews:", reviews.sort((a, b) => {
-        // console.log("-----------------------------------")
-        // console.log("A", a.dataValues,  "B", b.dataValues)
-        // console.log("-----------------------------------")
-        // let aObj = a.dataValues
-        // console.log("a====", aObj.id)
-        // console.log("-----------------------------------")
-        // let bObj = b.dataValues
-        // console.log("b====", bObj.id)
-        // console.log("-----------------------------------")
-        // return aObj.id - bObj.id
-    // }))
+    const reviews = await Review.findAll({
+        where: { coffeeId: Number(idOfCoffee) },
+        include: [{ model: User }]
+    })
+
+    // console.log("----------------------------------")
+    // console.log(reviews)
+    // console.log("----------------------------------")
+
+
+
     res.status(200).json(reviews.sort((a, b) => {
-        // console.log("-----------------------------------")
-        // console.log("A", a.dataValues,  "B", b.dataValues)
-        // console.log("-----------------------------------")
+
         let aObj = a.dataValues
-        // console.log("a====", aObj.id)
-        // console.log("-----------------------------------")
+
         let bObj = b.dataValues
-        // console.log("b====", bObj.id)
-        // console.log("-----------------------------------")
+
         return aObj.id + bObj.id
     }))
-    // console.log("------------------------")
-    // console.log("------------------------")
-    // console.log("------------------------")
+
 })
 // POST A review for the coffee
 router.post('/:coffeeId/reviews', async (req, res) => {

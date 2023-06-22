@@ -49,9 +49,20 @@ const DeleteReview = ({ coffee, review, user }) => {
 
     return (
         <div disabled={goober} className='delete-Modal-div'>
-            <button onClick={(e) => handleSubmit(e)}>
-                Delete
-            </button>
+            <h1 className='delete-h1'>Do you want to Delete your review for {coffee?.name}</h1>
+            <div className='review-delete-div-buttons '>
+
+                <button
+                    className='delete-cancel'
+                    onClick={(e) => closeModal()}>
+                    Cancel
+                </button>
+                <button
+                    className='delete-submit'
+                    onClick={(e) => handleSubmit(e)}>
+                    Delete
+                </button>
+            </div>
         </div>
     )
 }

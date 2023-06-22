@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
 
     const allReviews = await Review.findAll();
     if (!allReviews) return res.status(404).json({ "message": "Cannot find any Reviews items" })
-    res.status(200).json({ "Reviews": [...allReviews ] })
+    res.status(200).json({ "Reviews": [...allReviews] })
 
 
 })

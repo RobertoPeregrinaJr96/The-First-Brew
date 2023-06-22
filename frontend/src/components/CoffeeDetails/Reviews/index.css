@@ -4,6 +4,7 @@
   grid-template-columns: 100%;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 .detail-img {
   /* background-color: aqua; */
@@ -13,25 +14,30 @@
   /* height: 15rem; */
   /* width: 15rem; */
   /* border-radius: 50%; */
+  background-color: rgba(128, 98, 40, 0.461);
 }
 .detail-img p {
-  background-color: aqua;
+  /* background-color: aqua; */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25rem;
-  width: 25rem;
+  height: 20rem;
+  width: 20rem;
   border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.494);
 }
 .detail-div-header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(128, 98, 40, 0.461);
 }
 .detail-description {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 20rem;
+  background-color: rgba(128, 98, 40, 0.461);
 }
 .detail-p {
   display: flex;
@@ -71,7 +77,141 @@
 /* Reviews */
 
 /* POST */
-
+.review-post-wrapper {
+  display: grid;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 98, 40, 0.461);
+}
+.review-post-form {
+  display: grid;
+  height: 90%;
+  width: 20rem;
+  row-gap: 10px;
+}
+.review-post-input {
+  display: grid;
+  height: 30%;
+  width: 100%;
+}
+.review-post-textarea {
+  display: grid;
+  height: 10rem;
+  width: 100%;
+}
+.review-post-div-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  column-gap: 10px;
+}
+.review-post-div-buttons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.post-submit {
+  border-radius: 70px;
+  box-shadow: 2px 1px 3px black;
+}
+.post-submit:hover {
+  border-radius: 70px;
+  box-shadow: 2px 1px 3px black;
+  background-color: rgba(255, 0, 0, 0.719);
+}
+.post-cancel {
+  border-radius: 70px;
+  box-shadow: 2px 1px 3px black;
+}
+.post-cancel:hover {
+  border-radius: 70px;
+  background-color: rgba(0, 128, 0, 0.642);
+  box-shadow: 2px 1px 3px black;
+}
+.character-counter {
+  display: flex;
+  justify-content: end;
+  font-size: 70%;
+}
 /* UPDATE */
 
+.review-update-wrapper {
+  display: grid;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 98, 40, 0.461);
+}
+.review-update-form {
+  display: grid;
+  height: 90%;
+  width: 20rem;
+  /* row-gap: 10px; */
+}
+.review-update-input {
+  display: grid;
+  height: 30%;
+  width: 100%;
+}
+.review-update-textarea {
+  display: grid;
+  height: 10rem;
+  width: 100%;
+}
+.review-update-div-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  column-gap: 10px;
+}
+.review-update-div-buttons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 /* DELETEs */
+.delete-Modal-div {
+  display: grid;
+  grid-template-rows: 50% 10% 10%;
+  align-items: center;
+  justify-content: center;
+  margin: 5%;
+  height: 90%;
+  background-color: rgba(128, 98, 40, 0.461);
+}
+.delete-h1 {
+  margin: 5%;
+}
+.review-delete-div-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  column-gap: 10px;
+}
+.delete-submit {
+  border-radius: 70px;
+  height: 2rem;
+  width: 4rem;
+}
+.delete-cancel {
+  border-radius: 70px;
+  height: 2rem;
+  width: 4rem;
+}
+.delete-submit:hover {
+  border-radius: 70px;
+  box-shadow: 2px 1px 3px black;
+  background-color: rgba(255, 0, 0, 0.719);
+}
+
+.delete-cancel:hover {
+  border-radius: 70px;
+  background-color: rgba(0, 128, 0, 0.642);
+  box-shadow: 2px 1px 3px black;
+}

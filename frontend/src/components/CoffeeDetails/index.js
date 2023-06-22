@@ -71,7 +71,7 @@ const CoffeeById = () => {
             <div className='detail-wrapper'>
                 <h2 className='detail-h2'>Custom Features coming soon</h2>
                 <div className='detail-img'>
-                    <p className={`${(coffeeObj.name)?.toLowerCase()}`}></p>
+                    <p className={`${(coffeeObj.name)?.toLowerCase()} img-p`}></p>
                 </div>
 
                 <div className='detail-div-header'>
@@ -83,7 +83,7 @@ const CoffeeById = () => {
                 </div>
                 <div className='detail-div-component'>
 
-                    <CoffeeCart itemUpdate={itemInCart} coffeeId={coffeeId} />
+                    <CoffeeCart item={itemInCart} coffeeId={coffeeId} coffee={coffeeObj} />
 
                     <CoffeeDetail coffee={coffeeIdObj} user={user} />
 

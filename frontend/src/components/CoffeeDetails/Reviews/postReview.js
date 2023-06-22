@@ -31,8 +31,8 @@ const PostReview = ({ coffee, user }) => {
         e.preventDefault();
         const err = {}
 
-        if (review.length === 0) err.review = "Must be between 1 and 255 characters"
-        if (review.length >= 255) err.review = "Must be between 1 and 255 characters"
+        if (review.length === 0) err.review = "Must be between 1 and 1000 characters"
+        if (review.length >= 1000) err.review = "Must be between 1 and 1000 characters"
         if (rating <= 0) err.rating = "Must be between 1 and 10"
         if (rating > 10) err.rating = "Must be between 1 and 10"
         if (title.length === 0) err.title = "Must be between 1 and 30"
@@ -60,11 +60,12 @@ const PostReview = ({ coffee, user }) => {
 
     console.log("ERRORS:", errors)
     return (
-        <div className="coffee-detail-wrapper">
-            <form className='coffee-detail-form' onSubmit={(e) => handleSubmit(e)} >
-                <p className='errors'>{errors.title}</p>
+        <div className="review-post-wrapper">
+            <form className='review-post-form' onSubmit={(e) => handleSubmit(e)} >
                 <label>
+                    Title
                     <input
+                        className='review-post-input'
                         title='Please enter a title between 1 to 30 characters long'
                         placeholder="Title"
                         onChange={(e) => setTitle(e.target.value)}
@@ -72,21 +73,27 @@ const PostReview = ({ coffee, user }) => {
                         min={1} max={30}
                     >
                     </input>
+                    <p className='character-counter'>{title?.length}/30</p>
+                    <p className='errors'>{errors.title}</p>
                 </label>
-                <p className='errors'>{errors.review}</p>
                 <label>
+                    Review
                     <textarea
-                        title='Please write a review between 1 to 255 characters long'
+                        className='review-post-textarea'
+                        title='Please write a review between 1 to 1000 characters long'
                         placeholder="Review"
                         onChange={(e) => setReview(e.target.value)}
                     >
                     </textarea>
+                    <p className='character-counter'>{review?.length}/1000</p>
                 </label>
-                <div className='post-div-buttons'>
+                <p className='errors'>{errors.review}</p>
+                <div className='review-post-div-buttons'>
+                    <button className='post-submit' onClick={(e) => closeModal()}> Cancel
+                    </button>
                     <button
-                        // disabled={!!Object.values(errors)}
-                        type='submit'>Submit</button>
-                    <button onClick={(e) => closeModal()}> Cancel
+                        className='post-cancel'
+                        type='submit'>Submit
                     </button>
                 </div>
 
