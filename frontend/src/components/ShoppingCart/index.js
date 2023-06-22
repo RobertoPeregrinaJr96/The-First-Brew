@@ -58,7 +58,7 @@ const ShoppingCart = () => {
             setGoober(true)
             setTimeout(() => {
                 setGoober(false)
-            }, 200)
+            }, )
             setBoolean(!boolean)
         }
     }

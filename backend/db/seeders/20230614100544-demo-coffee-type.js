@@ -28,7 +28,7 @@ const coffee = [
   {
     name: "Mocha",
     price: 4.25,
-    description: " Indulge in the perfect blend of rich espresso and smooth, velvety chocolate with our signature Mocha. This luscious creation starts with a double shot of our finest Arabica coffee, expertly brewed to perfection. We then delicately blend in a generous portion of premium, Belgian dark chocolate, creating a harmonious fusion of flavors that will satisfy even the most discerning palate. Topped with a dollop of freshly whipped cream and a sprinkle of chocolate shavings, our Mocha is a decadent treat that will transport you to a world of pure bliss. Whether you're seeking a morning pick-me-up or a luxurious afternoon indulgence, our Mocha is the epitome of coffee shop elegance",
+    description: " Indulge in the perfect blend of rich espresso and smooth, velvety chocolate with our signature Mocha. This luscious creation starts with a double shot of our finest Arabica coffee, expertly brewed to perfection. We then delicately blend in a generous portion of premium, Belgian dark chocolate, creating a harmonious fusion of flavors that will satisfy even the most discerning palate. ",
   },
   {
     name: "Macchiato",
@@ -43,12 +43,12 @@ const coffee = [
   {
     name: "Affogato",
     price: 5.00,
-    description: " Indulge in our heavenly Affogato - a delightful union of rich, smooth espresso and velvety vanilla gelato. A symphony of flavors awaits as a single shot of our freshly brewed espresso is poured over a generous scoop of luscious, artisanal vanilla gelato. Watch as the steam rises, mingling with the cold creaminess of the gelato, creating a tantalizing dance of temperature and texture. Savor the contrasting sensations as the bold bitterness of the espresso harmonizes with the sweet, creamy notes of the gelato. Topped with a sprinkle of cocoa powder and served in a chilled glass, this Italian classic is the perfect marriage of coffee and dessert, guaranteed to transport your taste buds to coffee nirvana",
+    description: " Indulge in our heavenly Affogato - a delightful union of rich, smooth espresso and velvety vanilla gelato. A symphony of flavors awaits as a single shot of our freshly brewed espresso is poured over a generous scoop of luscious, artisanal vanilla gelato. Watch as the steam rises, mingling with the cold creaminess of the gelato, creating a tantalizing dance of temperature and texture.   ",
   },
   {
     name: "Turkish Coffee",
     price: 3.25,
-    description: "Experience the rich and authentic flavors of Turkey with our signature Turkish Coffee. Served in a traditional copper cezve, this exquisite blend of finely ground Arabica beans and cardamom is brewed to perfection. Indulge in the velvety texture and intense aroma as you savor each sip of this time-honored delicacy. Allow the coffee grounds to settle at the bottom of your cup, and let our coffee transport you to the bustling streets of Istanbul. A truly unforgettable coffee experience awaits you. ",
+    description: "Experience the rich and authentic flavors of Turkey with our signature Turkish Coffee. Served in a traditional copper cezve, this exquisite blend of finely ground Arabica beans and cardamom is brewed to perfection. Indulge in the velvety texture and intense aroma as you savor each sip of this time-honored delicacy  ",
   },
   {
     name: "Irish Coffee",

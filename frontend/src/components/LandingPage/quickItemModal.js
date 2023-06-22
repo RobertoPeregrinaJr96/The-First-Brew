@@ -80,7 +80,7 @@ const ItemModal = ({ coffee, user }) => {
         setGoober(true)
         setTimeout(() => {
             setGoober(false)
-        }, 400)
+        }, 100)
         setBoolean(!boolean)
     }
 
