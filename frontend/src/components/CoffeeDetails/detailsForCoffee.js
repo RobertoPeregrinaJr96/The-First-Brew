@@ -18,15 +18,21 @@ const CoffeeDetail = ({ coffee, user }) => {
 
     const dispatch = useDispatch()
     const coffeeReviews = useSelector(state => state.review.coffeeReviews)
-    console.log("coffeeReviews:", coffeeReviews)
+    // console.log("coffeeReviews:", coffeeReviews)
     const coffeeReviewArr = Object.values(coffeeReviews)
-    console.log("Arr:", coffeeReviewArr)
-    console.log("Arr2:", coffeeReviewArr.sort((a, b) => {
-        // { console.log(a, b) }
-        return new Date(b.createdAt) - new Date(a.createdAt)
-    }))
-    const sortedArr = coffeeReviewArr.sort((a, b) => a?.id - b?.id)
-    console.log("sortedArr", sortedArr)
+    // console.log("Arr:", coffeeReviewArr)
+    // console.log("Arr2:", coffeeReviewArr.sort((a, b) => {
+    //     // { console.log(a, b) }
+    //     return new Date(b.createdAt) - new Date(a.createdAt)
+    // }))
+    const copyArr = [...coffeeReviewArr]
+    // console.log("CopyArr", copyArr)
+    const sortedArr = copyArr.sort((a, b) => {
+        console.log("a", a)
+        console.log("b", b)
+        return a?.id - b?.id
+    })
+    // console.log("sortedArr", sortedArr.reverse())
     const switchPost = () => {
         let userReview = coffeeReviewArr.find(review => review.userId === user.id)
 
@@ -57,7 +63,7 @@ const CoffeeDetail = ({ coffee, user }) => {
             <div className='coffee-detail-div-ul-wrapper'>
 
                 <ul className='coffee-detail-ul'>
-                    {coffeeReviewArr.map(review => {
+                    {coffeeReviewArr?.reverse()?.map(review => {
                         return <li key={review?.id}>
 
                             <div>
@@ -65,6 +71,7 @@ const CoffeeDetail = ({ coffee, user }) => {
                                 {(review?.User["firstName"]).slice(1)}
                                 {"  "}
                                 {review?.User["lastName"]}
+                                {" : "}
                                 <p>{review?.title}</p>
                                 <p>{review?.review}</p>
                                 {user?.id == review?.userId ? <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton> : <></>}

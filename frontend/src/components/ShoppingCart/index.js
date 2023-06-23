@@ -112,7 +112,7 @@ const ShoppingCart = () => {
                         return <li key={item?.id} className="cart-div-li">
 
                             <p>Name: {coffee?.name}</p>
-                            <p>Price: ${coffee?.price}</p>
+                            <p>Price: ${(coffee?.price).toFixed(2)}</p>
 
                             <div>
                                 {item?.quantity}
