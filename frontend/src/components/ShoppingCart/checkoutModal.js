@@ -3,7 +3,7 @@ import { useModal } from "../../context/Modal";
 import { useEffect, useState } from 'react';
 import { fetchDeleteItemThunk } from "../../store/item"
 import { fetchUserCartThunk } from "../../store/carts"
-
+import './index.css'
 
 
 const CheckoutModel = ({ items }) => {
@@ -33,11 +33,12 @@ const CheckoutModel = ({ items }) => {
 
     return (
         <div className='checkout-div-wrapper'>
-            <p>Are you ready to Checkout your items?</p>
-            <p>Please Review your items before preceding</p>
-            <div>
-                <button onClick={() => closeModal()}>go back to cart</button>
-                <button onClick={() => handleSubmit()}>Confirm</button>
+            <p></p>
+            <p className='checkout-p'>Are you ready to Checkout your items?</p>
+            <p className='checkout-p'>Please Review your items before preceding</p>
+            <div className='checkout-button-div'>
+                <button className='checkout-button-cancel' onClick={() => closeModal()}>go back to cart</button>
+                <button className='checkout-button-submit' onClick={() => handleSubmit()}>Confirm</button>
             </div>
         </div>
     )

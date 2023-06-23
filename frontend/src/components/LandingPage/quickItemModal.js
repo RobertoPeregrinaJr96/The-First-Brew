@@ -48,18 +48,18 @@ const ItemModal = ({ coffee, user }) => {
             "quantity": (item?.quantity - 1)
         }
         if (quantity == 1) {
+            setGoober(true)
             dispatch(fetchDeleteItemThunk(item.id))
             dispatch(fetchUserCartThunk(user?.id))
-            setGoober(true)
             setTimeout(() => {
                 setGoober(false)
             }, 700)
         }
         if (quantity >= 2) {
+            setGoober(true)
             dispatch(fetchUpdateItemThunk(updateItem, id))
             dispatch(fetchUserCartThunk(user?.id))
             setQuantity(quantity - 1)
-            setGoober(true)
             setTimeout(() => {
                 setGoober(false)
             }, 300)
@@ -148,8 +148,8 @@ const ItemModal = ({ coffee, user }) => {
 
 
             <p
-            className='nav-to-coffee'
-            onClick={(e) => coffeeNav()}>For More Info click here</p>
+                className='nav-to-coffee'
+                onClick={(e) => coffeeNav()}>For More Info click here</p>
         </div>
     )
 }

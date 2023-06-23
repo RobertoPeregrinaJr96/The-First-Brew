@@ -97,8 +97,13 @@
     display: grid;
     grid-template-columns: 40% 15%;
     column-gap: 10%;
-    width: 100%;
+    width: 23rem;
     justify-content: end;
+    font-size: 2rem;
+  }
+  .nav-topRight-modal li{
+    display: flex;
+    width: 23rem;
     font-size: 2rem;
   }
   .nav-list-img {

@@ -1,7 +1,22 @@
 .cart-div-wrapper {
-  display: 1;
+  /* display: ; */
   width: 100%;
   height: 100%;
+  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1120508205211070464/41593.jpg)
+    no-repeat center center fixed;
+  background-size: 90% 80%;
+  opacity: 100%;
+}
+.cart-style-div {
+  background-color: rgba(141, 70, 4, 0.286);
+  height: 100%;
+}
+.cart-h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgba(128, 99, 40, 0);
 }
 .cart-div-ul {
   display: grid;
@@ -9,17 +24,22 @@
   /* grid-template-rows:  20% 20% 20% 20% 20%; */
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
   height: 80%;
+  scroll-behavior: auto;
+  /* overflow-y: hidden;
+  overflow-x: hidden; */
+  /* word-break: break-all; */
 }
 .cart-div-li {
   display: grid;
-  grid-template-columns: 20% 20% 10% 20% 10%;
+  grid-template-columns: 23% 23% 13% 23% 13%;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 40%;
   padding: 10px;
+  color: white;
 }
 .cart-div-quantity-wrapper {
   display: grid;
@@ -50,10 +70,61 @@
   justify-content: space-around;
   align-items: center;
   height: 6rem;
+  color: white;
+  background-color: rgba(128, 99, 40, 0);
 }
 .checkout {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 90%;
+}
+
+/* Checkout Modal */
+.checkout-div-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-rows: 20% 10% 20%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(141, 70, 4, 0.286);
+
+}
+.checkout-p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold ;
+}
+.checkout-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  column-gap: 10px;
+}
+
+.checkout-button-cancel {
+  border-radius: 70px;
+  height: 2rem;
+  width: 7rem;
+}
+
+.checkout-button-submit {
+  border-radius: 70px;
+  height: 2rem;
+  width: 7rem;
+}
+.checkout-button-submit:hover {
+  border-radius: 70px;
+  box-shadow: 2px 1px 3px black;
+  background-color: rgba(0, 128, 0, 0.642);
+}
+
+.checkout-button-cancel:hover {
+  border-radius: 70px;
+  background-color: rgba(255, 0, 0, 0.719);
+  box-shadow: 2px 1px 3px black;
 }

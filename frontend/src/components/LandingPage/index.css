@@ -37,7 +37,7 @@
   display: grid;
   grid-template-columns: 15% 15% 15% 15% 15%;
   row-gap: 2rem;
-  column-gap: 10px;
+  column-gap: 5px;
   justify-content: center;
   align-items: center;
   margin: 10px;
@@ -207,7 +207,7 @@
   justify-content: center;
   align-items: center;
 }
-.nav-to-coffee{
+.nav-to-coffee {
   text-decoration: underline;
 }
 @media screen and (max-width: 1440px) {
@@ -231,17 +231,18 @@
     grid-template-rows: 50% 35%;
     height: 104%;
     row-gap: 10px;
-}
+  }
 }
 @media screen and (max-width: 1024px) {
   .landingPage-wrapper {
-    background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1120508205211070464/41593.jpg) no-repeat center center fixed;
+    background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1120508205211070464/41593.jpg)
+      no-repeat center center fixed;
     background-size: 90% 80%;
     height: 83rem;
     display: grid;
     grid-template-columns: 100%;
     row-gap: 5%;
-}
+  }
   .landingPage-h1 {
     font-size: 1.2rem;
     height: 20%;
@@ -250,7 +251,7 @@
     display: grid;
     grid-template-columns: 15% 15% 15% 15% 15%;
     row-gap: 2rem;
-    column-gap: 10px;
+    column-gap: 5px;
     justify-content: space-evenly;
     align-items: center;
     margin: 12px;
@@ -287,7 +288,9 @@
     width: 80%;
     border-radius: 10px;
     box-shadow: 2px 2px 2px black;
-}
+    color: white;
+    font-size: 0.9rem;
+  }
   .filler-p2 {
     display: flex;
     justify-content: center;
@@ -296,6 +299,8 @@
     height: 80%;
     width: 80%;
     border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
     box-shadow: 2px 2px 2px black;
   }
   .mega-div-img-wrapper2 {
@@ -304,7 +309,6 @@
     height: 122%;
     grid-template-rows: 40% 40%;
     row-gap: 10px;
-
   }
   .filler2 {
     display: flex;

@@ -36,18 +36,18 @@ const CoffeeCart = ({ item, coffeeId, coffee }) => {
             "quantity": (item?.quantity - 1)
         }
         if (quantity == 1) {
+            setGoober(true)
             dispatch(fetchDeleteItemThunk(item.id))
             dispatch(fetchUserCartThunk(user?.id))
-            setGoober(true)
             setTimeout(() => {
                 setGoober(false)
             }, 700)
         }
         if (quantity >= 2) {
+            setGoober(true)
             dispatch(fetchUpdateItemThunk(updateItem, id))
             dispatch(fetchUserCartThunk(user?.id))
             setQuantity(quantity - 1)
-            setGoober(true)
             setTimeout(() => {
                 setGoober(false)
             }, 300)

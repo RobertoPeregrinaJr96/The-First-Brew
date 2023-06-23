@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
@@ -16,30 +16,43 @@ function SignupFormModal() {
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
+  let newUser = {
+    email,
+    username,
+    firstName,
+    lastName,
+    password,
+    confirmPassword
+  }
   const handleSubmit = (e) => {
-
     e.preventDefault();
-    if (password === confirmPassword) {
-      setErrors({});
-
-      const err = {}
-
-      if (email.length === 0) err.email = "Confirm Password "
-      if (email.length >= 70) err.email = "Confirm Password "
-      if (username.length === 0) err.username = "Confirm Password "
-      if (username.length >= 30) err.username = "Confirm Password "
-      if (firstName.length === 0) err.firstName = "Confirm Password "
-      if (firstName.length === 0) err.firstName = "Confirm Password "
-      if (firstName.length >= 30) err.firstName = "Confirm Password "
-      if (lastName.length === 0) err.lastName = "Confirm Password "
-      if (typeof lastName === String) err.lastName = "Confirm Password "
-      if (lastName.length >= 30) err.lastName = "Confirm Password "
-      if (password.length === 0) err.password = "Confirm Password "
-      if (password.length >= 20) err.password = "Confirm Password "
 
 
-      setErrors({});
-      return dispatch(
+    const err = {}
+
+    if (newUser.email.length < 3) err.email = "Email must contain a least 1 character"
+    if (newUser.email.length >= 70) err.email = "Email cannot exceed 70 characters long"
+    if (newUser.username.length < 4) err.username = "Username must contain a least 4 character "
+    if (newUser.username.length >= 30) err.username = "Username cannot exceed 30 characters long"
+    if (newUser.firstName.length === 0) err.firstName = "First name must contain a least 1 character "
+    if (typeof newUser.firstName === String) err.firstName = "First name cannot contain any numbers"
+    if (newUser.firstName.length >= 30) err.firstName = "First name cannot exceed 30 characters long"
+    if (newUser.lastName.length === 0) err.lastName = "Last name must contain a least 1 character "
+    if (typeof newUser.lastName === String) err.lastName = "Last name cannot contain any numbers"
+    if (newUser.lastName.length >= 30) err.lastName = "Last name cannot exceed 30 characters long"
+    if (newUser.password.length < 6) err.password = "Password must be at least 6 characters long"
+    if (newUser.password.length >= 20) err.password = "Password cannot exceed past 20 characters long"
+    if (newUser.confirmPassword.length < 6) err.password = "Password must be at least 6 characters long"
+    if (newUser.confirmPassword.length >= 20) err.password = "Password cannot exceed past 20 characters long"
+    if (newUser.password !== confirmPassword) err.password = "Confirm Password field must be the same as the Password"
+    console.log(err)
+    setErrors(err);
+
+    console.log(errors)
+
+    if (Object.values(err).length === 0) {
+
+      dispatch(
         sessionActions.signup({
           email,
           username,
@@ -48,18 +61,9 @@ function SignupFormModal() {
           password,
         })
       )
-        .then(closeModal)
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) {
-            setErrors(data.errors);
-          }
-        });
-
+      closeModal()
     }
-    return setErrors({
-      confirmPassword: "Confirm Password field must be the same as the Password  "
-    });
+
   };
 
   let boolean = false;
@@ -68,21 +72,20 @@ function SignupFormModal() {
     return boolean
   }
 
-  // const checkState = () => {
-  //   if (username <= 3 || username.length === 0) boolean = true
-  //   if (lastName.length === 0) boolean = true
-  //   if (password.length <= 5) boolean = true
-  //   if (Object.values(errors).length) boolean = true
-  // }
+  useEffect(() => {
+
+  }, [dispatch, newUser])
 
   return (
     <div className="sign-up-div">
-      <h1>Sign Up</h1>
+      <h1 className="sign-up-h1">Sign Up</h1>
       <form onSubmit={handleSubmit} className="sign-up-form"   >
-        <label className="sign-up-form-input">
+        <label className="sign-up-form-label">
           Email
           <input
+            className="sign-up-form-input"
             type="email"
+            minLength="1"
             maxLength="70"
             value={email}
             placeholder="Email"
@@ -92,23 +95,29 @@ function SignupFormModal() {
           />
         </label>
         {errors.email && <p className="errors">{errors.email}</p>}
-        <label className="sign-up-form-input">
+        <label className="sign-up-form-label">
           Username
 
           <input
+            minLength="1"
+            maxLength="30"
+            className="sign-up-form-input"
             type="text"
             value={username}
-            title="Please keep characters between 1 to 30 "
+            title="Please keep characters between 4 to 30 "
             placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value ? e.target.value : username)}
             required
           />
         </label>
         {errors.username && <p className="errors">{errors.username}</p>}
-        <label className="sign-up-form-input">
+        <label className="sign-up-form-label">
           First name
 
           <input
+            minLength="1"
+            maxLength="30"
+            className="sign-up-form-input"
             type="text"
             placeholder="First Name"
             value={firstName}
@@ -119,10 +128,13 @@ function SignupFormModal() {
           />
         </label>
         {errors.firstName && <p className="errors">{errors.firstName}</p>}
-        <label className="sign-up-form-input">
+        <label className="sign-up-form-label">
           Last name
 
           <input
+            minLength="1"
+            maxLength="30"
+            className="sign-up-form-input"
             type="text"
             placeholder="Last Name"
             value={lastName}
@@ -133,10 +145,13 @@ function SignupFormModal() {
           />
         </label>
         {errors.lastName && <p className="errors">{errors.lastName}</p>}
-        <label className="sign-up-form-input">
+        <label className="sign-up-form-label">
           Password
 
           <input
+            minLength="1"
+            maxLength="30"
+            className="sign-up-form-input"
             type="password"
             placeholder="Password"
             value={password}
@@ -147,10 +162,13 @@ function SignupFormModal() {
           />
         </label>
         {errors.password && <p className="errors">{errors.password}</p>}
-        <label className="sign-up-form-input">
-          Confirm Password
+        <label className="sign-up-form-label">
 
+          Confirm Password
           <input
+            minLength="1"
+            maxLength="30"
+            className="sign-up-form-input"
             type="password"
             placeholder=" Confirm Password"
             value={confirmPassword}
@@ -162,10 +180,15 @@ function SignupFormModal() {
         {errors.confirmPassword && (
           <p className="errors">{errors.confirmPassword}</p>
         )}
-        <button type="submit" className="sign-up-submit" disabled={checkState()} >Sign Up</button>
+        <button
+          onClick={(e) => handleSubmit(e)}
+          type="submit"
+          className="sign-up-submit"
+        >Sign Up</button>
       </form>
     </div>
   );
 }
 
 export default SignupFormModal;
+//  disabled={checkState()}

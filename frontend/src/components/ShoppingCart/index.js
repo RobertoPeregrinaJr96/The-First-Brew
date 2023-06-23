@@ -35,7 +35,7 @@ const ShoppingCart = () => {
     // Onclick functions
 
     // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers
-    const updateItemMinus = (e, item, id) => {
+    const updateItemMinus = async (e, item, id) => {
         const quantity = item.quantity
         if (quantity == 0) return null
         const updateItem = {
@@ -46,11 +46,11 @@ const ShoppingCart = () => {
         }
         if (quantity == 1) {
 
-            dispatch(fetchDeleteItemThunk(item.id))
             setGoober(true)
+            dispatch(fetchDeleteItemThunk(item.id))
             setTimeout(() => {
                 setGoober(false)
-            }, 500)
+            }, 600)
             setBoolean(!boolean)
         }
         if (quantity >= 2) {
@@ -58,7 +58,7 @@ const ShoppingCart = () => {
             setGoober(true)
             setTimeout(() => {
                 setGoober(false)
-            }, )
+            },)
             setBoolean(!boolean)
         }
     }
@@ -69,10 +69,10 @@ const ShoppingCart = () => {
             "instructionId": item.instructionId,
             "quantity": (item.quantity + 1)
         }
+        setGoober(true)
         dispatch(fetchUpdateItemThunk(updateItem, id))
         // dispatch(fetchUserCartThunk())
         // console.log("ID IN UPDATE", id)
-        setGoober(true)
         setTimeout(() => {
             setGoober(false)
         }, 100)
@@ -80,8 +80,8 @@ const ShoppingCart = () => {
     }
     // This is just a plain Overall Delete Item Function
     const deleteItem = (e, id) => {
-        dispatch(fetchDeleteItemThunk(id))
         setGoober(true)
+        dispatch(fetchDeleteItemThunk(id))
         setTimeout(() => {
             setGoober(false)
         }, 500)
@@ -103,36 +103,39 @@ const ShoppingCart = () => {
     */
     return (
         <div className="cart-div-wrapper">
-            <h1>Shopping Cart</h1>
+            <div className="cart-style-div">
+                <h1 className="cart-h1">Shopping Cart</h1>
 
-            <ul className="cart-div-ul">
-                {items?.map(item => {
-                    const coffee = item?.Coffee
-                    return <li key={item?.id} className="cart-div-li">
+                <ul className="cart-div-ul">
+                    {items?.map(item => {
+                        const coffee = item?.Coffee
+                        return <li key={item?.id} className="cart-div-li">
 
-                        <p>Name: {coffee?.name}</p>
-                        <p>Price: ${coffee?.price}</p>
+                            <p>Name: {coffee?.name}</p>
+                            <p>Price: ${coffee?.price}</p>
 
-                        <div>
-                            {item?.quantity}
-                        </div>
+                            <div>
+                                {item?.quantity}
+                            </div>
 
-                        <div className="cart-div-quantity-wrapper">
-                            <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
-                            <p className="cart-div-quantity-total" >{item?.quantity ? item?.quantity : 0}</p>
-                            <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
-                        </div>
+                            <div className="cart-div-quantity-wrapper">
+                                <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
+                                <p className="cart-div-quantity-total" >{item?.quantity ? item?.quantity : 0}</p>
+                                <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
+                            </div>
 
-                        <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
-                            disabled={goober} >Delete</button>
-                    </li>
-                })}
-            </ul>
+                            <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
+                                disabled={goober} >Delete</button>
+                        </li>
+                    })}
+                </ul>
 
-            <div className="cart-footer">
-                <p>Total Items:{newTotalQuantity}</p>
-                <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
-                <Checkout items={items} />
+                <div className="cart-footer">
+                    <p>Total Items:{newTotalQuantity}</p>
+                    <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
+                    <Checkout items={items} />
+                </div>
+
             </div>
         </div>
     )

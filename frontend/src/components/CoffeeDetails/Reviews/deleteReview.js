@@ -33,6 +33,7 @@ const DeleteReview = ({ coffee, review, user }) => {
 
         dispatch(fetchDeleteReviewThunk(review?.id))
         dispatch(fetchAllCoffeeReviewThunk(Number(coffee?.coffeeId)))
+        dispatch(fetchAllCoffeeReviewThunk(Number(coffee?.coffeeId)))
 
 
         setGoober(true)

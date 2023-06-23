@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 20% 50%;
+  background-color: rgba(128, 98, 40, 0.461);
 }
 /*
 h1 {
@@ -22,12 +23,20 @@ h1 {
 }
 
 .submit-button {
-  background-color: var(--button);
   height: 2rem;
 }
-
+.login-input {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  width: 16rem;
+}
 .demo-user {
   border: none;
   text-decoration: underline;
-  background-color: white;
+  background-color: rgba(128, 99, 40, 0);
+  font-size: 1.5rem;
+}
+.login-errors {
+  color: red;
 }

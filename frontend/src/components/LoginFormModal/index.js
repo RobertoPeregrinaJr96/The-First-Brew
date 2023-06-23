@@ -39,6 +39,7 @@ function LoginFormModal() {
         <label>
           {/* Username or Email */}
           <input
+            className="login-input"
             type="text"
             value={credential}
             placeholder="Username or Email"
@@ -49,6 +50,7 @@ function LoginFormModal() {
         <label>
           {/* Password */}
           <input
+          className="login-input"
             type="password"
             value={password}
             placeholder="Password"
@@ -57,9 +59,9 @@ function LoginFormModal() {
           />
         </label>
         {errors.credential && (
-          <p>{errors.credential}</p>
+          <p className="login-errors">{errors.credential}</p>
         )}
-        <button type="submit" disabled={!stateCheck} className="submit-button">Log In</button>
+        <button type="submit" className="submit-button">Log In</button>
         <button onClick={demoUser} type="submit" className="demo-user">Demo User</button>
       </form>
     </div>
@@ -67,3 +69,4 @@ function LoginFormModal() {
 }
 
 export default LoginFormModal;
+// disabled={!stateCheck}
