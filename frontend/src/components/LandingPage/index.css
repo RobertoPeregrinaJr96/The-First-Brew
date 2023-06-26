@@ -156,13 +156,18 @@
 }
 /* MODAL */
 .landingPage-cart-div-wrapper {
-  background-color: rgba(128, 98, 40, 0.461);
+  /* background-color: rgba(128, 98, 40, 0.461); */
+  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
+    no-repeat center center fixed;
+  background-size: 90% 100%;
+  color: white;
   height: 100%;
   width: 100%;
   display: grid;
   justify-content: center;
   align-items: center;
   grid-template-columns: 100%;
+  padding: 10px 10px 10px 10px;
 }
 .landingPage-loggedIn-function {
   display: grid;
@@ -209,6 +214,11 @@
 }
 .nav-to-coffee {
   text-decoration: underline;
+  border: solid 2px white;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (max-width: 1440px) {
   .landingPage-h1 {
@@ -237,15 +247,40 @@
   .landingPage-wrapper {
     background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1120508205211070464/41593.jpg)
       no-repeat center center fixed;
+    /* background-color: rgba(128, 98, 40, 0.461); */
+    background-color: rgba(0, 0, 0, 0);
+    grid-template-rows: 5%;
     background-size: 90% 80%;
-    height: 83rem;
+    height: 98rem;
     display: grid;
     grid-template-columns: 100%;
-    row-gap: 5%;
+    row-gap: 0%;
+  }
+  .landingPage-div-h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397503893544/brown-wooden-frame-tree-boards-background-rustic-wood-texture-wallpaper-2560x1440_51.jpg)
+      no-repeat center center fixed;
+    background-size: 35% 100%; */
   }
   .landingPage-h1 {
+    display: flex;
+    justify-self: center;
+    align-items: center;
     font-size: 1.2rem;
-    height: 20%;
+    height: 80%;
+    /* background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
+      no-repeat center center fixed;
+    background-size: 180%; */
+    width: 25%;
+    border-radius: 5px;
+    font-family: "Fredericka the Great", cursive;
+    color: white;
+  }
+  .mega-div-ul-wrapper {
+    display: flex;
+    height: 65%;
   }
   .landingPage-ul {
     display: grid;
@@ -256,8 +291,8 @@
     align-items: center;
     margin: 12px;
     width: 96%;
-    height: 70%;
-    padding: 0%;
+    height: 90%;
+    padding: 0% 3% 0% 1%;
   }
   .item-modal-li {
     border: none;
@@ -280,6 +315,9 @@
     box-shadow: 2px 2px 2px black;
   }
   .filler-p1 {
+    background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg")
+      no-repeat center center fixed;
+    background-size: 180%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -288,20 +326,12 @@
     width: 80%;
     border-radius: 10px;
     box-shadow: 2px 2px 2px black;
+    font-size: 1.1rem;
     color: white;
-    font-size: 0.9rem;
-  }
-  .filler-p2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.702);
-    height: 80%;
-    width: 80%;
-    border-radius: 10px;
-    color: white;
-    font-size: 0.9rem;
-    box-shadow: 2px 2px 2px black;
+    font-family: "Fredericka the Great", cursive;
+    padding: 20px 20px 20px 20px;
+    transform: rotate(0turn);
+    font-family: "Fredericka the Great", cursive;
   }
   .mega-div-img-wrapper2 {
     display: grid;
@@ -309,6 +339,14 @@
     height: 122%;
     grid-template-rows: 40% 40%;
     row-gap: 10px;
+    padding: 10px 10px 10px 45px;
+  }
+  .mega-div-img-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122348839509176380/3378164.jpg")
+      no-repeat center center fixed;
+    background-size: 180%;
   }
   .filler2 {
     display: flex;
@@ -316,5 +354,46 @@
     align-items: center;
     height: 99%;
     width: 100%;
+  }
+  .filler2-bg-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122402397503893544/brown-wooden-frame-tree-boards-background-rustic-wood-texture-wallpaper-2560x1440_51.jpg")
+      no-repeat center center fixed;
+    background-size: 97% 75%;
+    width: 80%;
+    height: 80%;
+    transform: rotate(0turn);
+  }
+  .filler-p2 {
+    background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg")
+      no-repeat center center fixed;
+    background-size: 180%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.702);
+    height: 55%;
+    width: 69%;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    box-shadow: 2px 2px 2px black;
+    transform: rotate(0turn);
+    font-family: "Fredericka the Great", cursive;
+    padding: 20px 20px 20px 20px;
+  }
+  .filler1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397503893544/brown-wooden-frame-tree-boards-background-rustic-wood-texture-wallpaper-2560x1440_51.jpg)
+      no-repeat center center;
+    background-size: 107% 106%;
+    width: 108%;
+    height: 76%;
+    transform: rotate(0turn);
+    border-radius: 11px;
   }
 }

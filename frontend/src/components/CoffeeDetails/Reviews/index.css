@@ -14,7 +14,8 @@
   /* height: 15rem; */
   /* width: 15rem; */
   /* border-radius: 50%; */
-  background-color: rgba(128, 98, 40, 0.461);
+  /* background-color: rgba(128, 98, 40, 0.461); */
+  /* background-color: rgba(5, 4, 2, 0.576); */
 }
 .detail-img p {
   /* background-color: aqua; */
@@ -24,32 +25,39 @@
   height: 20rem;
   width: 20rem;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.494);
+  /* background-color: rgba(0, 0, 0, 0.494); */
 }
 .detail-div-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(128, 98, 40, 0.461);
+  color: white;
+  /* background-color: rgba(5, 4, 2, 0.576); */
+  /* background-color: rgba(128, 98, 40, 0.461); */
 }
 .detail-description {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 20rem;
-  background-color: rgba(128, 98, 40, 0.461);
+  color: white;
+  /* background-color: rgba(5, 4, 2, 0.576); */
+  /* width: 90%; */
 }
 .detail-p {
+  font-family: "Fredericka the Great", cursive;
   display: flex;
   justify-self: center;
   align-items: center;
   width: 60%;
   height: 5rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 
 .detail-h1 {
-  border-bottom: solid 3px black;
+  font-family: "Fredericka the Great", cursive;
+  border-bottom: solid 3px white;
+  font-size: 2.3rem;
 }
 /* .detail-h2 {
 } */
@@ -82,7 +90,10 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: rgba(128, 98, 40, 0.461);
+  /* background-color: rgba(128, 98, 40, 0.461); */
+  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
+  no-repeat center center fixed;
+background-size: 90% 100%;
 }
 .review-post-form {
   display: grid;
@@ -143,7 +154,10 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: rgba(128, 98, 40, 0.461);
+  /* background-color: rgba(128, 98, 40, 0.461); */
+  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
+  no-repeat center center fixed;
+background-size: 90% 100%;
 }
 .review-update-form {
   display: grid;
@@ -182,7 +196,10 @@
   justify-content: center;
   margin: 5%;
   height: 90%;
-  background-color: rgba(128, 98, 40, 0.461);
+  /* background-color: rgba(128, 98, 40, 0.461); */
+  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
+  no-repeat center center fixed;
+background-size: 90% 100%;
 }
 .delete-h1 {
   margin: 5%;

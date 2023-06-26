@@ -60,30 +60,44 @@ const CoffeeById = () => {
 
             */
     if (!user) {
-        return (<div>
-            <h2>HELLO FROM COFFEE {coffeeObj.name} DETAILS</h2>
-            <h1>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
-            <p>{coffeeObj.description}</p>
+        return (<div className='detail-div-container-top'>
+            <div className='detail-img'>
+                <p className={`${(coffeeObj.name)?.toLowerCase()} img-p`}></p>
+            </div>
+            <div className='detail-div-header'>
+
+                <h1 className='detail-h1'>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
+            </div>
+            <div className='detail-description'>
+                <p className='detail-p'>{coffeeObj.description}</p>
+
+            </div>
         </div>)
     } else {
 
         return (
             <div className='detail-wrapper'>
-                <h2 className='detail-h2'>Custom Features coming soon</h2>
-                <div className='detail-img'>
-                    <p className={`${(coffeeObj.name)?.toLowerCase()} img-p`}></p>
-                </div>
+                <div className='hail-mary'>
+                    <CoffeeCart item={itemInCart} coffeeId={coffeeId} coffee={coffeeObj} />
+                    {/* <h2 className='detail-h2'>Custom Features coming soon</h2> */}
+                    <div className='detail-div-container-top'>
 
-                <div className='detail-div-header'>
-                    <h1 className='detail-h1'>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>
-                </div>
+                        <div className='detail-img'>
+                            <p className={`${(coffeeObj.name)?.toLowerCase()} img-p`}></p>
+                        </div>
 
-                <div className='detail-description'>
-                    <p className='detail-p'>{coffeeObj.description}</p>
+                        <div className='detail-div-header'>
+                            <h1 className='detail-h1'>{coffeeObj.name}  price : ${coffeeObj?.price?.toFixed(2)}</h1>
+                        </div>
+
+                        <div className='detail-description'>
+                            <p className='detail-p'>{coffeeObj.description}</p>
+                        </div>
+                    </div>
+
                 </div>
                 <div className='detail-div-component'>
 
-                    <CoffeeCart item={itemInCart} coffeeId={coffeeId} coffee={coffeeObj} />
 
                     <CoffeeDetail coffee={coffeeIdObj} user={user} />
 

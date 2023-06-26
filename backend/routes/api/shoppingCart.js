@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 })
 
 // GET A SPECIFIC CART
-router.get('/current', requireAuth, async (req, res) => {
+router.get('/current', async (req, res) => {
 
     const { user } = req;
     // console.log("user", user)

@@ -16,6 +16,10 @@
   height: 10rem;
   padding: 2rem;
   border-bottom: solid 2px black;
+  /* background-color: rgba(128, 98, 40, 0.461); */
+  background-color: rgba(0, 0, 0, 0);
+
+  margin: 0%;
 }
 
 .nav-div-topLeft {
@@ -54,7 +58,8 @@
   width: 100%;
   border: none;
   font-size: 2rem;
-  background-color: white;
+  /* background-color: white; */
+  background-color: rgba(255, 255, 255, 0);
   justify-self: center;
   align-items: center;
 }
@@ -93,18 +98,35 @@
   }
 }
 @media screen and (max-width: 1024px) {
+  .nav-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 8rem;
+    padding: 10px 10px 10px 10px;
+    border-bottom: solid 2px black;
+
+  }
+  .profile-ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+}
   .nav-topRight-modal {
     display: grid;
-    grid-template-columns: 40% 15%;
+    grid-template-columns: 36% 36%;
     column-gap: 10%;
     width: 23rem;
     justify-content: end;
     font-size: 2rem;
   }
-  .nav-topRight-modal li{
+  .nav-topRight-modal li {
     display: flex;
     width: 23rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+  .nav-topRight-logged {
+    font-size: 3rem;
   }
   .nav-list-img {
     height: 8rem;
@@ -112,11 +134,13 @@
   }
   .nav-div-topLeft {
     display: grid;
-    grid-template-columns: 10% 45%;
+    grid-template-columns: 20% 45%;
     column-gap: 10%;
     height: 20%;
   }
   .nav-h1 {
-    font-size: 2.3rem;
+    font-size: 3.1rem;
+    font-weight: bolder;
+    width: 20rem;
   }
 }

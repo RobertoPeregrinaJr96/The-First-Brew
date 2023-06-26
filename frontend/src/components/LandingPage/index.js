@@ -32,24 +32,30 @@ const SplashPage = () => {
 
     return (
         <div className='landingPage-wrapper bg'>
-            <h1 className='landingPage-h1'>Hello {user?.firstName} {user?.lastName}</h1>
+            <div className='landingPage-div-h1'>
+{/*
+                <h1 className='landingPage-h1'>Hello {user?.firstName} {user?.lastName}</h1> */}
+            </div>
+            <div className='mega-div-ul-wrapper'>
+                <ul className='landingPage-ul'>
+                    {coffees.map(coffee => {
+                        // return <li key={coffee.id} className='item-modal-li'>
+                        //     <div className='item-modal-li-div'>
+                        //         <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} />}>
+                        //         </OpenModalButton>
+                        //     </div>
+                        // </li>
+                        return <li key={coffee.id} className={`item-modal-li ${(coffee.name)?.toLowerCase()}`}>
+                            <div className='item-modal-li-div' >
+                                <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} />}>
+                                </OpenModalButton>
+                            </div>
+                        </li>
+                    })}
+                </ul>
 
-            <ul className='landingPage-ul'>
-                {coffees.map(coffee => {
-                    // return <li key={coffee.id} className='item-modal-li'>
-                    //     <div className='item-modal-li-div'>
-                    //         <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} />}>
-                    //         </OpenModalButton>
-                    //     </div>
-                    // </li>
-                    return <li key={coffee.id} className={`item-modal-li ${(coffee.name)?.toLowerCase()}`}>
-                        <div className='item-modal-li-div' >
-                            <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} />}>
-                            </OpenModalButton>
-                        </div>
-                    </li>
-                })}
-            </ul>
+            </div>
+
             <div className='mega-div-img-wrapper'>
                 <div className='mega-div-img-wrapper2'>
                     <div className='landingPage-img-div1'>
@@ -67,16 +73,12 @@ const SplashPage = () => {
                     </div>
                 </div>
                 <div className='filler2'>
-                    <p className='filler-p2'>
+                    <div className='filler2-bg-img'>
+                        <p className='filler-p2'>
+                            Our coffee shop is more than just a place to grab your daily dose of caffeine. It's a gathering spot where friendships are forged and stories are shared. Our walls reverberate with laughter, animated conversations, and the hum of community connections being formed. Whether you're a busy professional seeking a quick jolt of energy or a laid-back local savoring the company of friends, our doors are open to all.
+                            .</p>
 
-
-                        But our coffee shop is more than just a place to grab your daily dose of caffeine. It's a gathering spot where friendships are forged and stories are shared. Our walls reverberate with laughter, animated conversations, and the hum of community connections being formed. Whether you're a busy professional seeking a quick jolt of energy or a laid-back local savoring the company of friends, our doors are open to all.
-
-                        Here, time slows down as you take a moment to savor the simple pleasures. Cozy up in one of our comfortable nooks, the gentle melodies of soulful music filling the air, as you lose yourself in the pages of a good book or simply watch the world go by through our large windows. Our inviting ambiance is a sanctuary where you can escape the hustle and bustle of everyday life and find solace in a comforting cup of joe.
-
-                        At our coffee shop, we pride ourselves on not only serving exceptional coffee but also fostering a sense of community. We celebrate local artists by showcasing their talent on our walls, and we support nearby businesses by partnering with them to offer delectable treats that perfectly complement our beverages.
-
-                        So, whether you're seeking the familiar warmth of your favorite brew or looking to expand your coffee horizons with our ever-evolving selection of specialty blends, we invite you to join us at our beloved coffee shop—a place where coffee is more than just a beverage; it's a conduit for connection, friendship, and the simple joys that make life beautiful.</p>
+                    </div>
 
                 </div>
             </div>

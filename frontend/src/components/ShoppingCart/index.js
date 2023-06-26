@@ -48,6 +48,8 @@ const ShoppingCart = () => {
 
             setGoober(true)
             dispatch(fetchDeleteItemThunk(item.id))
+            dispatch(fetchUserCartThunk())
+            dispatch(fetchUserCartThunk())
             setTimeout(() => {
                 setGoober(false)
             }, 600)
@@ -55,10 +57,11 @@ const ShoppingCart = () => {
         }
         if (quantity >= 2) {
             dispatch(fetchUpdateItemThunk(updateItem, id))
+            dispatch(fetchUserCartThunk())
             setGoober(true)
             setTimeout(() => {
                 setGoober(false)
-            },)
+            },100)
             setBoolean(!boolean)
         }
     }
@@ -69,13 +72,13 @@ const ShoppingCart = () => {
             "instructionId": item.instructionId,
             "quantity": (item.quantity + 1)
         }
-        setGoober(true)
+        // setGoober(true)
         dispatch(fetchUpdateItemThunk(updateItem, id))
         // dispatch(fetchUserCartThunk())
         // console.log("ID IN UPDATE", id)
-        setTimeout(() => {
-            setGoober(false)
-        }, 100)
+        // setTimeout(() => {
+        //     setGoober(false)
+        // }, 100)
         setBoolean(!boolean)
     }
     // This is just a plain Overall Delete Item Function
@@ -103,37 +106,40 @@ const ShoppingCart = () => {
     */
     return (
         <div className="cart-div-wrapper">
-            <div className="cart-style-div">
-                <h1 className="cart-h1">Shopping Cart</h1>
+            <div className="cart-bg-div">
+                <div className="cart-style-div">
+                    <h1 className="cart-h1">Shopping Cart</h1>
 
-                <ul className="cart-div-ul">
-                    {items?.map(item => {
-                        const coffee = item?.Coffee
-                        return <li key={item?.id} className="cart-div-li">
+                    <ul className="cart-div-ul">
+                        {items?.map(item => {
+                            const coffee = item?.Coffee
+                            return <li key={item?.id} className="cart-div-li">
 
-                            <p>Name: {coffee?.name}</p>
-                            <p>Price: ${(coffee?.price).toFixed(2)}</p>
+                                <p>Name: {coffee?.name}</p>
+                                <p>Price: ${(coffee?.price).toFixed(2)}</p>
 
-                            <div>
-                                {item?.quantity}
-                            </div>
+                                <div>
+                                    {item?.quantity}
+                                </div>
 
-                            <div className="cart-div-quantity-wrapper">
-                                <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
-                                <p className="cart-div-quantity-total" >{item?.quantity ? item?.quantity : 0}</p>
-                                <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
-                            </div>
+                                <div className="cart-div-quantity-wrapper">
+                                    <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
+                                    <p className="cart-div-quantity-total" >{item?.quantity ? item?.quantity : 0}</p>
+                                    <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
+                                </div>
 
-                            <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
-                                disabled={goober} >Delete</button>
-                        </li>
-                    })}
-                </ul>
+                                <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
+                                    disabled={goober} >Delete</button>
+                            </li>
+                        })}
+                    </ul>
 
-                <div className="cart-footer">
-                    <p>Total Items:{newTotalQuantity}</p>
-                    <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
-                    <Checkout items={items} />
+                    <div className="cart-footer">
+                        <p>Total Items:{newTotalQuantity}</p>
+                        <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
+                        <Checkout items={items} />
+                    </div>
+
                 </div>
 
             </div>

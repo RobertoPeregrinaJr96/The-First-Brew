@@ -7,9 +7,16 @@
   background-size: 90% 80%;
   opacity: 100%;
 }
+.cart-bg-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 .cart-style-div {
-  background-color: rgba(141, 70, 4, 0.286);
+  background-color: rgba(0, 0, 0, 0.713);
   height: 100%;
+  width: 57.6rem;
 }
 .cart-h1 {
   display: flex;
@@ -17,19 +24,20 @@
   align-items: center;
   color: white;
   background-color: rgba(128, 99, 40, 0);
+  margin: 0%;
 }
 .cart-div-ul {
   display: grid;
   grid-template-columns: 100%;
-  /* grid-template-rows:  20% 20% 20% 20% 20%; */
+  /* grid-template-rows: 20% 20% 20% 20% 20%; */
   justify-content: center;
   align-items: center;
-  width: 90%;
-  height: 80%;
+  /* width: 90%; */
+  height: 34rem;
   scroll-behavior: auto;
-  /* overflow-y: hidden;
-  overflow-x: hidden; */
-  /* word-break: break-all; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  word-break: break-all;
 }
 .cart-div-li {
   display: grid;
@@ -88,15 +96,19 @@
   grid-template-rows: 20% 10% 20%;
   height: 100%;
   width: 100%;
-  background-color: rgba(141, 70, 4, 0.286);
-
+  padding: 10px 10px 10px 10px;
+  /* background-color: rgba(141, 70, 4, 0.286); */
+  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
+    no-repeat center center fixed;
+  background-size: 90% 100%;
+  color: white;
 }
 .checkout-p {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  font-weight: bold ;
+  font-weight: bold;
 }
 .checkout-button-div {
   display: flex;
