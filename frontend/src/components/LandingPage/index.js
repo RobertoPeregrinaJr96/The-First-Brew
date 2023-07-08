@@ -7,6 +7,7 @@ import { fetchAllCoffeeThunk } from '../../store/coffee';
 import OpenModalButton from '../OpenModalButton';
 import ItemModal from './quickItemModal';
 import { fetchUserCartThunk } from '../../store/carts';
+// import ItemCarousel from './itemCarousel';
 
 const SplashPage = () => {
 
@@ -33,10 +34,11 @@ const SplashPage = () => {
     return (
         <div className='landingPage-wrapper bg'>
             <div className='landingPage-div-h1'>
-{/*
+                {/*
                 <h1 className='landingPage-h1'>Hello {user?.firstName} {user?.lastName}</h1> */}
             </div>
             <div className='mega-div-ul-wrapper'>
+                {/* <ItemCarousel /> */}
                 <ul className='landingPage-ul'>
                     {coffees.map(coffee => {
                         // return <li key={coffee.id} className='item-modal-li'>

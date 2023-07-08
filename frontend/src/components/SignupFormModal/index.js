@@ -27,10 +27,13 @@ function SignupFormModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const isEmailFormat = (email) => {
+      return /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
+    }
 
     const err = {}
-
-    if (newUser.email.length < 3) err.email = "Email must contain a least 1 character"
+    if (isEmailFormat(newUser.email)) err.email = "Email Format is incorrect"
+    if (newUser.email.length < 3) err.email = "Email must contain a least 3 character"
     if (newUser.email.length >= 70) err.email = "Email cannot exceed 70 characters long"
     if (newUser.username.length < 4) err.username = "Username must contain a least 4 character "
     if (newUser.username.length >= 30) err.username = "Username cannot exceed 30 characters long"
@@ -45,6 +48,7 @@ function SignupFormModal() {
     if (newUser.confirmPassword.length < 6) err.password = "Password must be at least 6 characters long"
     if (newUser.confirmPassword.length >= 20) err.password = "Password cannot exceed past 20 characters long"
     if (newUser.password !== confirmPassword) err.password = "Confirm Password field must be the same as the Password"
+
     console.log(err)
     setErrors(err);
 
@@ -83,18 +87,13 @@ function SignupFormModal() {
         <label className="sign-up-form-label">
           Email
           <input
-            className="sign-up-form-input"
-            type="email"
-            minLength="1"
-            maxLength="70"
+            type="text"
             value={email}
-            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             required
-            title="Please keep characters between 1 to 70 "
           />
         </label>
-        {errors.email && <p className="errors">{errors.email}</p>}
+        {errors.email && <p>{errors.email}</p>}
         <label className="sign-up-form-label">
           Username
 
@@ -180,11 +179,14 @@ function SignupFormModal() {
         {errors.confirmPassword && (
           <p className="errors">{errors.confirmPassword}</p>
         )}
-        <button
-          onClick={(e) => handleSubmit(e)}
-          type="submit"
-          className="sign-up-submit"
-        >Sign Up</button>
+        <div className="button-div-sign-up">
+          <button
+            onClick={(e) => handleSubmit(e)}
+            type="submit"
+            className="sign-up-submit"
+          >Sign Up</button>
+
+        </div>
       </form>
     </div>
   );
