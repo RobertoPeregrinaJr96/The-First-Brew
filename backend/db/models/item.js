@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       // Association for
       Item.belongsTo(models.ShoppingCart, { foreignKey: 'cartId', hooks: true, otherKey: 'id' })
       Item.belongsTo(models.Coffee, { foreignKey: 'coffeeId', hooks: true, otherKey: 'id' })
-
+      Item.hasOne(models.Instructions, { foreignKey: 'itemId', hooks: true, otherKey: 'id' })
     }
   }
   Item.init({

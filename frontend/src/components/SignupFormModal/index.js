@@ -13,6 +13,8 @@ function SignupFormModal() {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [image, setImage] = useState(null);
+  const [phone, setPhone] = useState(null);
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
@@ -22,17 +24,19 @@ function SignupFormModal() {
     firstName,
     lastName,
     password,
-    confirmPassword
+    confirmPassword,
+    image,
+    phone,
   }
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const isEmailFormat = (email) => {
-      return /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
-    }
+    // const isEmailFormat = (email) => {
+    //   return /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
+    // }
 
     const err = {}
-    if (isEmailFormat(newUser.email)) err.email = "Email Format is incorrect"
+    // if (isEmailFormat(newUser.email)) err.email = "Email Format is incorrect"
     if (newUser.email.length < 3) err.email = "Email must contain a least 3 character"
     if (newUser.email.length >= 70) err.email = "Email cannot exceed 70 characters long"
     if (newUser.username.length < 4) err.username = "Username must contain a least 4 character "
@@ -63,13 +67,19 @@ function SignupFormModal() {
           firstName,
           lastName,
           password,
+          image,
+          phone
         })
       )
       closeModal()
     }
 
   };
-
+  const updateFile = e => {
+    const file = e.target.files[0];
+    console.log("file", file)
+    if (file) setImage(file);
+  };
   let boolean = false;
   const checkState = () => {
     if (email.length === 0 || username <= 3 || username.length === 0 || lastName.length === 0 || password.length <= 5 || confirmPassword.length === 0) boolean = true
@@ -179,6 +189,10 @@ function SignupFormModal() {
         {errors.confirmPassword && (
           <p className="errors">{errors.confirmPassword}</p>
         )}
+        <label>
+          Avatar
+          <input type="file" onChange={updateFile} />
+        </label>
         <div className="button-div-sign-up">
           <button
             onClick={(e) => handleSubmit(e)}

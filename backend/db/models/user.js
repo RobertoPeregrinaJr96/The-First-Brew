@@ -5,8 +5,10 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       // define association here
-      User.hasOne(models.ShoppingCart, { foreignKey: 'userId', hooks: true })
-      User.hasMany(models.Review,{foreignKey:'userId',hooks:true})
+      User.hasOne(models.ShoppingCart, { foreignKey: 'userId', hooks: true, otherKey: 'id' })
+      User.hasMany(models.Review, { foreignKey: 'userId', hooks: true, otherKey: 'id' })
+      User.belongsToMany(models.Checkout, { through: models.Analytics, foreignKey: 'userId', hooks: true, otherKey: 'id' })
+
     }
 
   };
@@ -30,6 +32,10 @@ module.exports = (sequelize, DataTypes) => {
       phoneNumber: {
         type: DataTypes.INTEGER,
         allowNull: true
+      },
+      profileImageUrl: {
+        type: DataTypes.STRING,
+        allowNull: true,
       },
       username: {
         type: DataTypes.STRING,

@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       Coffee.belongsToMany(models.ShoppingCart, { through: models.Item, foreignKey: "coffeeId", hooks: true, otherKey: 'id' })
       // Association for Reviews
       Coffee.hasMany(models.Review, { foreignKey: "coffeeId", hooks: true, otherKey: 'id' })
+      Coffee.hasMany(models.CoffeeImage, { foreignKey: "coffeeId", hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
     }
   }
   Coffee.init({

@@ -4,9 +4,10 @@ const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-
+const { singleFileUpload, singleMulterUpload } = require('../../awsS3')
 
 const router = express.Router();
+
 
 // GET current User
 router.get('/', requireAuth, async (req, res) => {
@@ -86,8 +87,25 @@ const validateSignup = [
 ];
 
 // Sign up /api/users        <error handling done?>
-router.post('/', validateSignup, async (req, res) => {
-    const { email, password, username, firstName, lastName } = req.body;
+router.post('/', singleMulterUpload("image"), validateSignup, async (req, res) => {
+    let { email, password, username, firstName, lastName, image, phone, } = req.body;
+
+    console.log("<------------------------------->")
+    console.log("1", email)
+    console.log("1", password)
+    console.log("1", username)
+    console.log("1", firstName)
+    console.log("1", lastName)
+    console.log("1", image)
+    console.log("1", typeof image)
+    const profileImageUrl = req.file ?
+        await singleFileUpload({ file: req.file, public: true }) :
+        null;
+    console.log("1", profileImageUrl)
+    console.log("1", phone)
+    if (phone === "null") phone = null
+    console.log("1", typeof phone)
+    console.log("<------------------------------->")
 
     const hashedPassword = bcrypt.hashSync(password);
 
@@ -126,7 +144,9 @@ router.post('/', validateSignup, async (req, res) => {
         username,
         hashedPassword,
         firstName,
-        lastName
+        lastName,
+        profileImageUrl,
+        phoneNumber: phone,
     });
 
     const safeUser = {
@@ -135,6 +155,8 @@ router.post('/', validateSignup, async (req, res) => {
         lastName: user.lastName,
         email: user.email,
         username: user.username,
+        profileImageUrl: user.profileImageUrl,
+        phoneNumber: user.phoneNumber,
 
     };
 
