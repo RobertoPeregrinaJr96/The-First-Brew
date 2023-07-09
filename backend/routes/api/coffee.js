@@ -7,7 +7,7 @@ const express = require('express')
 
 
 // const { Op } = require('sequelize');
-const { Coffee, Item, Review, ShoppingCart, User } = require('../../db/models');
+const { Coffee, Item, Review, ShoppingCart, User, CoffeeImage, Instruction } = require('../../db/models');
 
 
 const router = express.Router();
@@ -16,7 +16,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
 
     // are there any coffee items?
-    const allCoffee = await Coffee.findAll();
+    const allCoffee = await Coffee.findAll({ include: { model: CoffeeImage } });
     if (!allCoffee) return res.status(404).json({ "message": "Cannot find any Coffee items" })
 
     res.status(200).json({ "Coffee": [...allCoffee] })
@@ -27,7 +27,7 @@ router.get('/:coffeeId', async (req, res) => {
     // console.log("--------------------------------------")
     const coffeeId = req.params.coffeeId
     // console.log("coffeeId in BackEND COFFEE", coffeeId)
-    const coffee = await Coffee.findByPk(Number(coffeeId))
+    const coffee = await Coffee.findByPk(Number(coffeeId), { include: { model: CoffeeImage } })
     // console.log("coffee in BackEND COFFEE", coffee)
     if (!coffee) return res.status(404).json({ "message": "Cannot find any Coffee items" })
     // console.log("--------------------------------------")
