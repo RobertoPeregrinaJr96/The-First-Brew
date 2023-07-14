@@ -42,6 +42,10 @@ const ProfileButton = ({ user }) => {
     history.push('/cart')
 
   }
+  const profile = (e) => {
+    e.preventDefault();
+    history.push('/profile')
+  }
   /*
    I want to show the Login && Sign up button MODAL when the User is not Logged IN and show the Profile Button && Cart Button Links when the User is Logged in
   */
@@ -52,6 +56,7 @@ const ProfileButton = ({ user }) => {
           (<div className="nav-topRight-modal" >
             <button className="nav-topRight-logged" onClick={(e) => logout(e)}>Logout</button>
             <button className="nav-topRight-logged" onClick={(e) => cart(e)}><i class="fa-solid fa-cart-shopping"></i></button>
+            <button className="nav-topRight-Profile" onClick={(e) => profile(e)}>Profile</button>
           </div>) : (
             <div className="nav-topRight-modal" >
               <OpenModalMenuItem

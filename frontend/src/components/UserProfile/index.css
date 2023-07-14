@@ -1,0 +1,53 @@
+.main-profile-wrapper {
+  border: solid 1px salmon;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  /* height: 40rem; */
+
+}
+.profile-layout {
+  border: solid 1px salmon;
+  width: 40rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: var();
+}
+.user-img-wrapper {
+  border: solid 1px salmon;
+}
+
+.profile-user-img {
+  border: solid 1px salmon;
+  height: 20rem;
+  width: 20em;
+  border-radius: 50%;
+}
+.user-info-wrapper {
+  border: solid 1px salmon;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.profile-default {
+  border: solid 1px salmon;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+}
+.edit-profile-form {
+  border: solid 1px salmon;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+}
+.edit-label {
+  border: solid 1px salmon;
+  display: flex;
+  justify-content: space-around;
+}

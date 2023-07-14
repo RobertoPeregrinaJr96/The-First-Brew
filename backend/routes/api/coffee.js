@@ -1,12 +1,5 @@
 const express = require('express')
-// const bcrypt = require('bcryptjs');
-// const { setTokenCookie, requireAuth } = require('../../utils/auth');
-// const { User } = require('../../db/models');
-// const { check } = require('express-validator');
-// const { handleValidationErrors } = require('../../utils/validation');
 
-
-// const { Op } = require('sequelize');
 const { Coffee, Item, Review, ShoppingCart, User, CoffeeImage, Instruction } = require('../../db/models');
 
 
@@ -43,7 +36,7 @@ router.post('/:coffeeId', async (req, res) => {
     const idOfUser = user.id;
     const idOfCoffee = req.params.coffeeId;
     // console.log("idOfCoffee", idOfCoffee)
-    const { cartId, coffeeId, instructionId } = req.body
+    const { cartId, coffeeId, instructions } = req.body
     // console.log("--------------------------------------")
     // console.log("cartId", cartId)
     // console.log("coffeeId", coffeeId)
@@ -52,11 +45,15 @@ router.post('/:coffeeId', async (req, res) => {
 
     // create a conditional for if there is and item with the same itemId in and if so then grab that item instead and update its QUANTITY by 1
 
+    const newinstructions = await instructions.create({
+
+    })
+
     const newItem = await Item.create({
         cartId,
         coffeeId,
         quantity: 1,
-        instructionId
+        instructionId: newinstructions.id
     })
     res.status(200).json(newItem)
 })

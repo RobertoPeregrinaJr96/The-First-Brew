@@ -14,7 +14,7 @@ const users = [
     phoneNumber: 1111111,
     username: 'Demo-lition',
     email: 'demo@user.io',
-    profileImageUrl: 'https://s3.console.aws.amazon.com/s3/object/freeawsbucket?region=us-west-1&prefix=public/pexels-demo1-.jpg',
+    profileImageUrl: 'https://freeawsbucket.s3.us-west-1.amazonaws.com/user_seeders/pexels-demo1-.jpg',
     hashedPassword: bcrypt.hashSync('password')
   },
   {
@@ -23,8 +23,8 @@ const users = [
     phoneNumber: 2222222,
     username: 'FakeUser1',
     email: 'user1@user.io',
-    profileImageUrl: 'https://s3.console.aws.amazon.com/s3/object/freeawsbucket?region=us-west-1&prefix=public/pexels-demo2-.jpg',
-    hashedPassword: bcrypt.hashSync('password2')
+    profileImageUrl: 'https://freeawsbucket.s3.us-west-1.amazonaws.com/user_seeders/pexels-demo2-.jpg',
+    hashedPassword: bcrypt.hashSync('password')
   },
   {
     firstName: 'Charlotte',
@@ -32,8 +32,8 @@ const users = [
     phoneNumber: 3333333,
     username: 'FakeUser2',
     email: 'user2@user.io',
-    profileImageUrl: 'https://s3.console.aws.amazon.com/s3/object/freeawsbucket?region=us-west-1&prefix=public/pexels-demo3.jpg',
-    hashedPassword: bcrypt.hashSync('password3')
+    profileImageUrl: 'https://freeawsbucket.s3.us-west-1.amazonaws.com/user_seeders/pexels-demo3.jpg',
+    hashedPassword: bcrypt.hashSync('password')
   }
 ]
 module.exports = {

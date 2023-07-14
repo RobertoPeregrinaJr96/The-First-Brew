@@ -50,13 +50,13 @@ export const fetchOneItemThunk = (id) => async (dispatch) => {
         return item
     }
 }
-export const fetchPostOneItem = (coffeeId, cartId) => async (dispatch) => {
+export const fetchPostOneItem = (coffeeId, cartId, instructions) => async (dispatch) => {
     // console.log("coffeeId", coffeeId)
     // console.log("cartId", cartId)
     const response = await csrfFetch(`/api/coffee/${coffeeId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ coffeeId, cartId })
+        body: JSON.stringify({ coffeeId, cartId, instructions })
     })
     // console.log("response", response)
     if (response.ok) {

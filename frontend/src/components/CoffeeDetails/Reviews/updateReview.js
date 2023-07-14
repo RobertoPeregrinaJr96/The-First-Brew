@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './index.css'
 import { fetchAllCoffeeReviewThunk, fetchUpdateReviewThunk } from '../../../store/review';
 import { useModal } from '../../../context/Modal'
 import './index.css'

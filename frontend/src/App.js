@@ -4,10 +4,13 @@ import { Switch, Route } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
-// my components
+// my component pages
 import SplashPage from './components/LandingPage/index'
 import ShoppingCart from './components/ShoppingCart/index'
 import CoffeeById from './components/CoffeeDetails/index'
+import UserProfile from "./components/UserProfile";
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,6 +24,7 @@ function App() {
       {isLoaded && <Switch>
         <Route exact path='/' component={SplashPage} />
         <Route exact path='/cart' component={ShoppingCart} />
+        <Route exact path='/profile' component={UserProfile} />
         <Route exact path='/coffee/:coffeeId' component={CoffeeById} />
       </Switch>}
     </>

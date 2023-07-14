@@ -1,399 +1,233 @@
-.landingPage {
-  height: 100%;
-  width: 100%;
-}
 .landingPage-wrapper {
-  background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120508205211070464/41593.jpg")
-    no-repeat center center fixed;
-  background-size: 90%;
-  height: 100rem;
+  border: solid 1px rgb(99, 65, 95);
   display: grid;
-  grid-template-columns: 100%;
-  row-gap: 5%;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+  width: 119rem;
 }
 
-.item-modal-li {
-  border: none;
+.landingPage-div-h1 {
+  border: solid 1px rgb(105, 170, 210);
+}
+
+.mega-div-ul-wrapper {
+  border: solid 1px rgb(157, 203, 20);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 12rem;
-  width: 12rem;
-  /* background-color: blueviolet; */
-  border-radius: 50%;
-}
-.item-modal-li-div button {
-  /* background-color: blueviolet; */
-  height: 12rem;
-  width: 12rem;
-  border-radius: 50%;
-  border: none;
-  font-size: 1.5rem;
-  box-shadow: 2px 2px 2px black;
-  background-color: rgba(128, 98, 40, 0.461);
-  border: solid 1px black;
-}
-.landingPage-ul {
-  display: grid;
-  grid-template-columns: 15% 15% 15% 15% 15%;
-  row-gap: 2rem;
-  column-gap: 5px;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  padding: 0%;
 }
 
-/*  */
+.landingPage-ul {
+  border: solid 1px rgb(122, 7, 112);
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 59rem;
+  height: 28rem;
+}
+
+/* Carousel */
+.carousel-root {
+  outline: none;
+}
+.carousel.carousel-slider {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+.landingPage-carousel {
+  /* display: grid; */
+  /* grid-template-columns: 100%; */
+  /* grid-template-rows: 90% 10%; */
+  /* height: 90%; */
+  border: solid 1px rgb(122, 7, 112);
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.carousel .control-dots {
+  position: absolute;
+  bottom: 0;
+  margin: 10px 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+.carousel .control-dots .dot {
+  transition: opacity 0.25s ease-in;
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+  background: #fff;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 8px;
+}
+.carousel.carousel-slider .control-arrow {
+  top: 0;
+  color: #fff;
+  font-size: 26px;
+  bottom: 0;
+  margin-top: 0;
+  padding: 5px;
+}
+.carousel .control-prev.control-arrow {
+  left: 0;
+}
+.carousel .control-arrow,
+.carousel.carousel-slider .control-arrow {
+  transition: all 0.25s ease-in;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  background: none;
+  border: 0;
+  font-size: 32px;
+  cursor: pointer;
+}
+.carousel .control-arrow {
+  outline: 0;
+  border: 0;
+  background: none;
+  top: 50%;
+  margin-top: -13px;
+  font-size: 18px;
+}
+.carousel * {
+  box-sizing: border-box;
+}
+.carousel .slider-wrapper {
+  overflow: hidden;
+  margin: auto;
+  width: 100%;
+  transition: height 0.15s ease-in;
+}
+.carousel.carousel-slider .control-arrow {
+  top: 0;
+  color: #fff;
+  font-size: 26px;
+  bottom: 0;
+  margin-top: 0;
+  padding: 5px;
+}
+.carousel .control-next.control-arrow {
+  right: 0;
+}
+.carousel .control-disabled.control-arrow {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: inherit;
+  display: none;
+}
+.carousel .slider-wrapper.axis-horizontal .slider {
+  -ms-box-orient: horizontal;
+  display: -moz-flex;
+  display: flex;
+  height: 33rem;
+  width: 60rem;
+}
+.thumbs .animated {
+  height: 10rem;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* List Elements */
+.item-modal-li-div {
+  border: solid 1px black;
+  /* height: 16rem; */
+}
+.item-modal-li {
+  border: solid 1px rgb(65, 60, 98);
+  height: 100%;
+  width: 100%;
+}
+.coffee-img-carousel {
+  background-color: rgba(255, 255, 255, 0);
+}
+.coffee-div-img {
+  height: 2rem;
+  width: 2rem;
+}
+.coffee-div-img button {
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
+  height: 2rem;
+  width: 2rem;
+}
+.coffee-img {
+  border: solid 1px red;
+  height: 100%;
+  width: 100%;
+}
+/* .landingPage-cart-div-wrapper {
+
+} */
+/* bottom half */
 .mega-div-img-wrapper {
+  border: solid 1px rgb(9, 85, 109);
   display: grid;
   grid-template-columns: 50% 50%;
+  height: 30rem;
+  width: 100rem;
 }
-.mega-div-img-wrapper2 {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-row: 40% 40%;
-  row-gap: 5%;
-}
-.landingPage-img-div1 {
-  display: flex;
-  align-items: center;
-}
-.landingPage-img-div2 {
-  display: flex;
-  align-items: center;
-}
-.filler1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 19rem;
-  width: 100%;
-}
-.filler2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 98%;
-  width: 100%;
-}
-.filler-p1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.702);
-  height: 80%;
-  width: 80%;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px black;
-}
-.filler-p2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.702);
-  height: 100%;
-  width: 80%;
-  border-radius: 10px;
-  box-shadow: 2px 2px 2px black;
-}
-/* Coffee */
-.espresso {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500414014574704/expresso.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.cappuccino {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500413561569300/cappuccino.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.americano {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1121134500613726358/americano.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  object-fit: cover;
-}
-.latte {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500413779681340/latte.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.mocha {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500413335097436/mocha.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.macchiato {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500437104214067/Macchiato.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.flat {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500436831580192/flat_white.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.affogato {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500436575719484/affogato.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.turkish {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500436210823189/turkish_coffee.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.irish {
-  background-image: url("https://cdn.discordapp.com/attachments/1088906268485357618/1120500435900436560/irish_coffee.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
-.landingPage-coffee-price {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-/* MODAL */
-.landingPage-cart-div-wrapper {
-  /* background-color: rgba(128, 98, 40, 0.461); */
-  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
-    no-repeat center center fixed;
-  background-size: 90% 100%;
-  color: white;
-  height: 100%;
-  width: 100%;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: 100%;
-  padding: 10px 10px 10px 10px;
-}
-.landingPage-loggedIn-function {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-.landingPage-cart-div-quantity-wrapper1 {
-  display: grid;
-  grid-template-columns: 100%;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-}
-.landingPage-cart-div-quantity-wrapper2 {
-  display: flex;
-  justify-content: center;
-  column-gap: 30px;
-  align-items: center;
-  width: 100%;
-}
-.landingPage-cart-div-quantity-total {
-  display: grid;
-  grid-template-columns: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.landingPage-cart-div-quantity-update-minus {
-  display: grid;
-  grid-template-columns: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.landingPage-cart-div-quantity-update-plus {
-  display: grid;
-  grid-template-columns: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.landingPage-cart-div-quantity-post {
-  display: grid;
-  grid-template-columns: 100%;
-  justify-content: center;
-  align-items: center;
-}
-.nav-to-coffee {
-  text-decoration: underline;
-  border: solid 2px white;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media screen and (max-width: 1440px) {
-  .landingPage-h1 {
-    font-size: 1.7rem;
-  }
 
-  .filler-p2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.702);
-    height: 80%;
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px black;
-  }
-  .mega-div-img-wrapper2 {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 50% 35%;
-    height: 104%;
-    row-gap: 10px;
-  }
+.mega-div-img-wrapper2 {
+  border: solid 1px rgb(8, 164, 144);
+  display: grid;
+  grid-template-rows: 50% 50%;
+  justify-content: center;
+  align-items: center;
 }
-@media screen and (max-width: 1024px) {
-  .landingPage-wrapper {
-    background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1120508205211070464/41593.jpg)
-      no-repeat center center fixed;
-    /* background-color: rgba(128, 98, 40, 0.461); */
-    background-color: rgba(0, 0, 0, 0);
-    grid-template-rows: 5%;
-    background-size: 90% 80%;
-    height: 98rem;
-    display: grid;
-    grid-template-columns: 100%;
-    row-gap: 0%;
-  }
-  .landingPage-div-h1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397503893544/brown-wooden-frame-tree-boards-background-rustic-wood-texture-wallpaper-2560x1440_51.jpg)
-      no-repeat center center fixed;
-    background-size: 35% 100%; */
-  }
-  .landingPage-h1 {
-    display: flex;
-    justify-self: center;
-    align-items: center;
-    font-size: 1.2rem;
-    height: 80%;
-    /* background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
-      no-repeat center center fixed;
-    background-size: 180%; */
-    width: 25%;
-    border-radius: 5px;
-    font-family: "Fredericka the Great", cursive;
-    color: white;
-  }
-  .mega-div-ul-wrapper {
-    display: flex;
-    height: 65%;
-  }
-  .landingPage-ul {
-    display: grid;
-    grid-template-columns: 15% 15% 15% 15% 15%;
-    row-gap: 2rem;
-    column-gap: 5px;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 12px;
-    width: 96%;
-    height: 90%;
-    padding: 0% 3% 0% 1%;
-  }
-  .item-modal-li {
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10rem;
-    width: 10rem;
-    border-radius: 50%;
-  }
-  .item-modal-li-div button {
-    background-color: rgba(128, 98, 40, 0.461);
-    border: solid 1px black;
-    /* background-color: blueviolet; */
-    height: 10rem;
-    width: 10rem;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    color: white;
-    box-shadow: 2px 2px 2px black;
-  }
-  .filler-p1 {
-    background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg")
-      no-repeat center center fixed;
-    background-size: 180%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.702);
-    height: 67%;
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px black;
-    font-size: 1.1rem;
-    color: white;
-    font-family: "Fredericka the Great", cursive;
-    padding: 20px 20px 20px 20px;
-    transform: rotate(0turn);
-    font-family: "Fredericka the Great", cursive;
-  }
-  .mega-div-img-wrapper2 {
-    display: grid;
-    grid-template-columns: 100%;
-    height: 122%;
-    grid-template-rows: 40% 40%;
-    row-gap: 10px;
-    padding: 10px 10px 10px 45px;
-  }
-  .mega-div-img-wrapper {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122348839509176380/3378164.jpg")
-      no-repeat center center fixed;
-    background-size: 180%;
-  }
-  .filler2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 99%;
-    width: 100%;
-  }
-  .filler2-bg-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122402397503893544/brown-wooden-frame-tree-boards-background-rustic-wood-texture-wallpaper-2560x1440_51.jpg")
-      no-repeat center center fixed;
-    background-size: 97% 75%;
-    width: 80%;
-    height: 80%;
-    transform: rotate(0turn);
-  }
-  .filler-p2 {
-    background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg")
-      no-repeat center center fixed;
-    background-size: 180%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.702);
-    height: 55%;
-    width: 69%;
-    border-radius: 10px;
-    color: white;
-    font-size: 1.1rem;
-    box-shadow: 2px 2px 2px black;
-    transform: rotate(0turn);
-    font-family: "Fredericka the Great", cursive;
-    padding: 20px 20px 20px 20px;
-  }
-  .filler1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397503893544/brown-wooden-frame-tree-boards-background-rustic-wood-texture-wallpaper-2560x1440_51.jpg)
-      no-repeat center center;
-    background-size: 107% 106%;
-    width: 108%;
-    height: 76%;
-    transform: rotate(0turn);
-    border-radius: 11px;
-  }
+
+.landingPage-img-div1 {
+  border: solid 1px rgb(59, 129, 49);
+}
+
+.filler1 {
+  border: solid 1px rgb(58, 133, 18);
+  height: 10rem;
+  width: 40rem;
+}
+
+.filler-p1 {
+  border: solid 1px rgb(224, 55, 55);
+}
+
+.landingPage-img-div1 {
+  border: solid 1px rgb(49, 8, 8);
+}
+
+.filler2 {
+  border: solid 1px rgb(49, 34, 34);
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.filler2-bg-img {
+  border: solid 1px rgb(65, 19, 19);
+}
+
+.filler-p2 {
+  border: solid 1px rgb(139, 77, 77);
+  height: 20rem;
+  width: 40rem;
+}
+
+/* instructions */
+
+.instructions-form{
+  display: grid;
 }

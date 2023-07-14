@@ -1,28 +1,25 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
+
 let options = {};
 if (process.env.NODE_ENV === 'production') {
-  options.schema = process.env.SCHEMA;  // define your schema in options object
+  options.schema = process.env.SCHEMA
 }
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Instructions', {
+    await queryInterface.createTable('Additions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      itemId: {
+      name: {
+        type: Sequelize.STRING
+      },
+      price: {
         type: Sequelize.INTEGER
-      },
-      additionId: {
-        type: Sequelize.INTEGER,
-      },
-      custom: {
-        type: Sequelize.STRING,
-        allowNull: true
       },
       createdAt: {
         allowNull: false,
@@ -37,7 +34,7 @@ module.exports = {
     }, options);
   },
   async down(queryInterface, Sequelize) {
-    options.tableName = "Instructions"
-    await queryInterface.dropTable('Instructions');
+    options.tableName = 'Additions'
+    await queryInterface.dropTable('Additions');
   }
 };

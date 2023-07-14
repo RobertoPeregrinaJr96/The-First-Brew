@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './index.css';
 import { fetchAllCoffeeThunk } from '../../store/coffee';
 import OpenModalButton from '../OpenModalButton';
 import ItemModal from './quickItemModal';
 import { fetchUserCartThunk } from '../../store/carts';
-// import ItemCarousel from './itemCarousel';
+import { Carousel } from 'react-responsive-carousel';
+
 
 const SplashPage = () => {
 
@@ -34,21 +36,41 @@ const SplashPage = () => {
     return (
         <div className='landingPage-wrapper bg'>
             <div className='landingPage-div-h1'>
-                <div className='mega-div-ul-wrapper'>
 
-                    <ul className='landingPage-ul'>
+                <div className='mega-div-ul-wrapper'>
+                    <Carousel autoPlay stopOnHover emulateTouch infiniteLoop useKeyboardArrows className='landingPage-carousel'>
                         {coffees.map(coffee => {
-                            return <li key={coffee.id} className={`item-modal-li ${(coffee.name)?.toLowerCase()}`}>
+                            return (
+                                <>
+                                    <img className='coffee-img-carousel' src={`${coffee.CoffeeImages[0].img}`} />
+                                    {/* <div className={'coffee-div-img'} >
+
+                                        <div className='item-modal-li-div' >
+                                            <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} className='lol' />}>
+                                            </OpenModalButton>
+                                        </div>
+                                    </div> */}
+                                </>
+                            )
+
+                        })}
+                    </Carousel>
+                </div>
+                {coffees.map(coffee => {
+                    return (
+                        <>
+                            <div className={'coffee-div-img'} >
+
                                 <div className='item-modal-li-div' >
-                                    <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} />}>
+                                    <OpenModalButton buttonText={coffee.name} modalComponent={<ItemModal coffee={coffee} user={user} className='lol' />}>
                                     </OpenModalButton>
                                 </div>
-                            </li>
-                        })}
-                    </ul>
+                            </div>
 
-                </div>
+                        </>
+                    )
 
+                })}
                 <div className='mega-div-img-wrapper'>
                     <div className='mega-div-img-wrapper2'>
                         <div className='landingPage-img-div1'>
@@ -70,13 +92,20 @@ const SplashPage = () => {
                             <p className='filler-p2'>
                                 Our coffee shop is more than just a place to grab your daily dose of caffeine. It's a gathering spot where friendships are forged and stories are shared. Our walls reverberate with laughter, animated conversations, and the hum of community connections being formed. Whether you're a busy professional seeking a quick jolt of energy or a laid-back local savoring the company of friends, our doors are open to all.
                                 .</p>
-
+                            <div id="links-wrapper">
+                                <p>Meet the Developer:</p>
+                                <p>Roberto Peregrina Jr</p>
+                                <div className='dev-links'>
+                                    <a href="https://www.linkedin.com/in/roberto-peregrina/"><i class="fa-brands fa-linkedin"></i></a>
+                                    <a href="https://github.com/RobertoPeregrinaJr96"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

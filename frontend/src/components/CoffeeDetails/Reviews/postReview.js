@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './index.css'
 import { fetchAllCoffeeReviewThunk, fetchPostOneReview, fetchAllReviewThunk } from '../../../store/review';
 import { useModal } from '../../../context/Modal'
 import './index.css'

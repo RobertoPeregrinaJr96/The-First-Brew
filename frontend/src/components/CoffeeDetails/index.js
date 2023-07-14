@@ -7,7 +7,6 @@ import CoffeeDetail from './detailsForCoffee';
 import CoffeeCart from './Cart';
 import { fetchAllCoffeeReviewThunk } from '../../store/review';
 
-
 const CoffeeById = () => {
     // console.log("------------------------------------- :")
     // general Variables
@@ -78,7 +77,6 @@ const CoffeeById = () => {
         return (
             <div className='detail-wrapper'>
                 <div className='hail-mary'>
-                    <CoffeeCart item={itemInCart} coffeeId={coffeeId} coffee={coffeeObj} />
                     {/* <h2 className='detail-h2'>Custom Features coming soon</h2> */}
                     <div className='detail-div-container-top'>
 
@@ -101,6 +99,9 @@ const CoffeeById = () => {
 
                     <CoffeeDetail coffee={coffeeIdObj} user={user} />
 
+                </div>
+                <div>
+                    <CoffeeCart item={itemInCart} coffeeId={coffeeId} coffee={coffeeObj} />
                 </div>
             </div>
         )

@@ -32,6 +32,8 @@ router.get('/', (req, res) => {
             lastName: user.lastName,
             email: user.email,
             username: user.username,
+            profileImageUrl: user.profileImageUrl,
+            phoneNumber: user.phoneNumber
 
         };
         return res.json({

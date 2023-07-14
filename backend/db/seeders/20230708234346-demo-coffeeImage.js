@@ -8,43 +8,43 @@ if (process.env.NODE_ENV === 'production') {
 const images = [
   {
     coffeeId: 1,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/expresso.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_espresso.jpg",
   },
   {
     coffeeId: 2,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/cappuccino.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Cappuccino.jpg",
   },
   {
     coffeeId: 3,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/americano.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_americano.jpg",
   },
   {
     coffeeId: 4,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/latte.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Latte.jpg",
   },
   {
     coffeeId: 5,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/mocha.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Mocha.jpg",
   },
   {
     coffeeId: 6,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/Macchiato.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Macchiato.jpg",
   },
   {
     coffeeId: 7,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/flat_white.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4K_flatwhite.jpg",
   },
   {
     coffeeId: 8,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/affogato.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Affogato.jpg",
   },
   {
     coffeeId: 9,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/turkish_coffee.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Turkish+Coffee.jpg",
   },
   {
     coffeeId: 10,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/CoffeeImg/irish_coffee.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Irish+Coffee.jpg",
   }
 ]
 module.exports = {

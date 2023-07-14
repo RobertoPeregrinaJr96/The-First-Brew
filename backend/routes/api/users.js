@@ -8,56 +8,6 @@ const { singleFileUpload, singleMulterUpload } = require('../../awsS3')
 
 const router = express.Router();
 
-
-// GET current User
-router.get('/', requireAuth, async (req, res) => {
-
-    const { user } = req
-    console.log(user)
-
-    if (!user) {
-        res.status(404);
-        res.json({
-            message: null
-        })
-    }
-
-    const { id, username, email, firstName, lastName } = user
-
-    res.status(200);
-    res.json({
-        user: {
-            id,
-            firstName,
-            lastName,
-            email,
-            username
-        }
-    })
-})
-
-
-// GET all users
-router.get('/', requireAuth, async (req, res) => {
-
-    const users = await User.findAll()
-
-    if (!users) {
-        res.status(401);
-        res.json({
-            message: 'Authentication required'
-        })
-    }
-    res.status(200);
-    res.json(users)
-})
-
-router.get('/:userId', async (req, res) => {
-    const userId = req.params.userId
-    const user = await User.findByPk(userId)
-    res.status(200).json(user)
-})
-
 const validateSignup = [
     check('firstName')
         .exists({ checkFalsy: true })
@@ -85,6 +35,57 @@ const validateSignup = [
         .withMessage('Password must be 6 characters or more.'),
     handleValidationErrors
 ];
+
+
+// GET current User
+router.get('/', requireAuth, async (req, res) => {
+
+    const { user } = req
+    console.log(user)
+
+    if (!user) {
+        res.status(404);
+        res.json({
+            message: null
+        })
+    }
+
+    const { id, username, email, firstName, lastName } = user
+
+    res.status(200);
+    res.json({
+        user: {
+            id,
+            firstName,
+            lastName,
+            email,
+            username,
+
+        }
+    })
+})
+
+
+// GET all users
+router.get('/', requireAuth, async (req, res) => {
+
+    const users = await User.findAll()
+
+    if (!users) {
+        res.status(401);
+        res.json({
+            message: 'Authentication required'
+        })
+    }
+    res.status(200);
+    res.json(users)
+})
+
+router.get('/:userId', async (req, res) => {
+    const userId = req.params.userId
+    const user = await User.findByPk(userId)
+    res.status(200).json(user)
+})
 
 // Sign up /api/users        <error handling done?>
 router.post('/', singleMulterUpload("image"), validateSignup, async (req, res) => {
@@ -169,5 +170,21 @@ router.post('/', singleMulterUpload("image"), validateSignup, async (req, res) =
 }
 );
 
+// Update User
+router.put('/:userId', async (req, res) => {
+    const userId = req.params.userId;
+    const [firstName, lastName, phone, username, email, profileImageUrl] = req.body
+})
+
+
+// Delete User
+router.delete('/:userId', async (req, res) => {
+    const userId = req.params.userId
+    const user = await User.findByPk(userId)
+
+    await user.destroy();
+
+    return res.status(200).json({ "message": "Delete Successful" })
+})
 
 module.exports = router;
