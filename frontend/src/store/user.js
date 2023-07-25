@@ -16,19 +16,19 @@ export const deleteUser = (user) => ({
 // update a user
 export const fetchUpdateUserThunk = (user, id) => async (dispatch) => {
     // console.log("---------------------------------")
-    // console.log("user:", user)
-    // console.log("id:", id)
+    console.log("user22222222:", user)
+    console.log("id2222222222:", id)
     // console.log("---------------------------------")
     const response = await csrfFetch(`/api/users/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),
     });
-    // console.log("Response ====>", response)
+    console.log("Response ====>", response)
     // console.log("---------------------------------")
     if (response.ok) {
         const updatedUser = await response.json();
-        // console.log("data ====>", updatedUser)
+        console.log("data ====>", updatedUser)
         // console.log("---------------------------------")
         dispatch(updateUser(updatedUser));
         return updatedUser;
@@ -56,4 +56,7 @@ const userReducer = (state = initialState, action) => {
 
         case DELETE_USER:
     }
+    return state
 }
+
+export default userReducer

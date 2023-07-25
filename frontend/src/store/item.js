@@ -30,6 +30,7 @@ export const deleteItem = (item) => ({
 })
 
 /* Thunk Creators: */
+// GET
 export const fetchAllItemsThunk = () => async (dispatch) => {
 
     const response = await csrfFetch('/api/items')
@@ -40,6 +41,7 @@ export const fetchAllItemsThunk = () => async (dispatch) => {
         return items
     }
 }
+// GET
 export const fetchOneItemThunk = (id) => async (dispatch) => {
 
     const response = await csrfFetch(`/api/items/${id}`)
@@ -50,6 +52,7 @@ export const fetchOneItemThunk = (id) => async (dispatch) => {
         return item
     }
 }
+// Post
 export const fetchPostOneItem = (coffeeId, cartId, instructions) => async (dispatch) => {
     // console.log("coffeeId", coffeeId)
     // console.log("cartId", cartId)

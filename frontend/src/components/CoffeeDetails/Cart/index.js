@@ -88,7 +88,7 @@ const CoffeeCart = ({ item, coffeeId, coffee }) => {
         if (!user) return <p>Log in you goober</p>
         if (user && item) {
             return <div className="cart-div-quantity-wrapper2">
-                <InstructionsModal />
+                <InstructionsModal coffeeId={coffeeId} cart={cart} />
                 <button disabled={goober} className="cart-div-quantity-update-minus" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
                 <p className="cart-div-quantity-total" >{quantity ? quantity : item?.quantity}</p>
                 <button disabled={goober} className="cart-div-quantity-update-plus" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>

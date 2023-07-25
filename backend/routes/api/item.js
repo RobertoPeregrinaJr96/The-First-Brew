@@ -39,7 +39,7 @@ router.put('/:itemId', async (req, res) => {
     // console.log("---------------------------------")
     res.json(item)
 })
-
+// DELETE ITEM
 router.delete('/:itemId', async (req, res) => {
 
     const idOfItem = req.params.itemId

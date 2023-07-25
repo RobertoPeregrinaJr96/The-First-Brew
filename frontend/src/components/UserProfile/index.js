@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 
 import './index.css';
-//Componenets
+//Components
 import OpenModalButton from '../OpenModalButton';
 import DeleteModal from './Delete';
 import { fetchUpdateUserThunk } from '../../store/user';
@@ -18,13 +18,13 @@ const UserProfile = () => {
 
 
     // EDIT
-    const [error, serError] = useState({})
+    const [error, setError] = useState({})
     const [edit, setEdit] = useState(false); // switch
-    const [first, setFirst] = useState(user.firstName) // firstName
-    const [last, setLast] = useState(user.lastName) // lastName
-    const [phone, setPhone] = useState(user.phoneNumber) // phone
-    const [username, setUsername] = useState(user.username) // userName
-    const [email, setEmail] = useState(user.email) // email
+    const [first, setFirst] = useState('') // firstName
+    const [last, setLast] = useState('') // lastName
+    const [phone, setPhone] = useState('') // phone
+    const [username, setUsername] = useState('') // userName
+    const [email, setEmail] = useState('') // email
     // DELETE
 
     // SUBMIT
@@ -33,26 +33,35 @@ const UserProfile = () => {
 
         const err = {}
 
-        if (first.length) err.first = ""
-        if (last.length) err.last = ""
-        if (phone.length) err.phone = ""
-        if (username.length) err.username = ""
-        if (email.length) err.email = ""
+        // if (!first.length) err.first = ""
+        // if (!last.length) err.last = ""
+        // if (!phone.length) err.phone = ""
+        // if (!username.length) err.username = ""
+        // if (!email.length) err.email = ""
 
-        if (Object.values(err) === 0) {
+        setError(err)
+        console.log(Object.values(error).length)
+        if (Object.values(error).length === 0) {
+            console.log("edit", edit)
+            console.log("first", first)
+            console.log("last", last)
+            console.log("phone", phone)
+            console.log("username", username)
+            console.log("email", email)
             const editUser = {
                 first,
                 last,
                 phone,
                 username,
-                email
+                email,
             }
-
+            console.log('editUser', editUser)
+            console.log("userId", user.id)
             dispatch(fetchUpdateUserThunk(editUser, user.id))
         }
     }
 
-    console.log("user", user)
+    // console.log("user", user)
     useEffect(() => {
 
     }, [dispatch])
@@ -67,12 +76,12 @@ const UserProfile = () => {
                     <button onClick={(e) => setEdit(!edit)}>edit</button>
                     {
                         edit ? (
-                            <form className='edit-profile-form'>
+                            <form className='edit-profile-form' onSubmit={(e) => handleSubmit(e)}>
                                 {/* FIRST NAME */}
                                 <label className='edit-label' for='firstName'>first name:
                                     <input id='firstName'
                                         value={first}
-                                        placeholder={`${first}`}
+                                        // placeholder={`${first}`}
                                         onChange={(e) => { setFirst(e.target.value) }}
                                     ></input>
                                 </label>
@@ -81,7 +90,7 @@ const UserProfile = () => {
                                 <label className='edit-label' for='lastName'>Last name:
                                     <input id='lastName'
                                         value={last}
-                                        placeholder={`${last}`}
+                                        // placeholder={`${last}`}
                                         onChange={(e) => { setLast(e.target.value) }}
                                     ></input>
                                 </label>
@@ -91,7 +100,7 @@ const UserProfile = () => {
                                     Phone number:
                                     <input id='phone'
                                         value={phone}
-                                        placeholder={`${phone}`}
+                                        // placeholder={`${phone}`}
                                         onChange={(e) => { setPhone(e.target.value) }}
                                     ></input>
                                 </label>
@@ -100,7 +109,7 @@ const UserProfile = () => {
                                 <label className='edit-label' for='Username'>Username:
                                     <input id='Username'
                                         value={username}
-                                        placeholder={`${username}`}
+                                        // placeholder={`${username}`}
                                         onChange={(e) => { setUsername(e.target.value) }}
                                     ></input>
                                 </label>
@@ -108,16 +117,16 @@ const UserProfile = () => {
                                 {/* EMAIL */}
                                 <label className='edit-label' for='Email'>Email:
                                     <input id='Email'
-                                        value={email}
-                                        placeholder={`${email}`}
-                                        onChange={(e) => { setFirst(e.target.value) }}
+                                        value={user.email}
+                                        // placeholder={`${email}`}
+                                        onChange={(e) => { setEmail(e.target.value) }}
                                     ></input>
                                 </label>
                                 {error.first && <p>ERROR</p>}
                                 {/* EXTRA INSTRUCTIONS */}
                                 <textarea></textarea>
                                 {error.first && <p>ERROR</p>}
-                                <button >Save</button>
+                                <button type='submit' onSubmit={(e) => handleSubmit(e)}>Save</button>
                             </form>
                         ) : (
                             <div className='profile-default'>

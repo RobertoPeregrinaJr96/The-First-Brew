@@ -173,7 +173,19 @@ router.post('/', singleMulterUpload("image"), validateSignup, async (req, res) =
 // Update User
 router.put('/:userId', async (req, res) => {
     const userId = req.params.userId;
-    const [firstName, lastName, phone, username, email, profileImageUrl] = req.body
+    const [firstName, lastName, phone, username, email] = req.body
+
+    const user = User.findByPk(userId);
+
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.phoneNumber = phone;
+    user.username = username;
+    user.email = email;
+
+    await user.save();
+    res.status(200).json(user )
+
 })
 
 

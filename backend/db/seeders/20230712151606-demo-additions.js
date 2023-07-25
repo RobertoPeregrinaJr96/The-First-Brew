@@ -9,6 +9,10 @@ if (process.env.NODE_ENV === 'production') {
 
 const addons = [
   {
+    name: 'None',
+    price: 0
+  },
+  {
     name: 'Smalls',
     price: 0.20
   },
@@ -81,11 +85,15 @@ const addons = [
     price: 0.20
   },
   {
-    name: 'Steamed',
+    name: 'Hot',
     price: 0.20
   },
   {
     name: 'Very Hot',
+    price: 0.20
+  },
+  {
+    name: 'Steamed',
     price: 0.20
   },
   {

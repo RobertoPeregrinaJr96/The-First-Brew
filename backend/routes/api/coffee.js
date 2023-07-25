@@ -1,6 +1,6 @@
 const express = require('express')
 
-const { Coffee, Item, Review, ShoppingCart, User, CoffeeImage, Instruction } = require('../../db/models');
+const { Coffee, Item, Review, ShoppingCart, User, CoffeeImage, Instruction, Additions } = require('../../db/models');
 
 
 const router = express.Router();
@@ -45,16 +45,33 @@ router.post('/:coffeeId', async (req, res) => {
 
     // create a conditional for if there is and item with the same itemId in and if so then grab that item instead and update its QUANTITY by 1
 
-    const newinstructions = await instructions.create({
+    const adds = Additions.findAll({ where: { name: instructions.size, name: instructions.milk, name: instructions.temperature, name: instructions.shot } })
+    console.log("--------------------------------------")
+    console.log('adds in backend',adds)
+    console.log("--------------------------------------")
 
+    const newInstructions = await Instruction.create({
+        itemId: instructions.itemId,
+        additions: adds,
+        // size: instructions.size,
+        // milk: instructions.milk,
+        // temperature: instructions.temperature,
+        // shot: instructions.shot,
+        custom: instructions.custom
     })
+    console.log("--------------------------------------")
+    console.log('newInstructions in backend',newInstructions)
+    console.log("--------------------------------------")
 
     const newItem = await Item.create({
         cartId,
         coffeeId,
         quantity: 1,
-        instructionId: newinstructions.id
+        instructionId: newInstructions.id
     })
+    console.log("--------------------------------------")
+    console.log('newItem in backend',newItem)
+    console.log("--------------------------------------")
     res.status(200).json(newItem)
 })
 // GET A reviews for the coffee

@@ -12,16 +12,28 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Instructions.belongsTo(models.Item, { foreignKey: 'itemId', hooks: true, otherKey: 'id' })
-      Instructions.hasMany(models.Additions, { foreignKey: 'additionId', hooks: true, otherKey: 'id' })
+      // Instructions.hasMany(models.Additions, { foreignKey: 'additionId', hooks: true, otherKey: 'id' })
     }
   }
   Instructions.init({
     itemId: {
       type: DataTypes.INTEGER,
     },
-    additionId: {
-      type: DataTypes.INTEGER,
+    size: {
+      type: DataTypes.STRING
     },
+    milk: {
+      type: DataTypes.STRING
+    },
+    temperature: {
+      type: DataTypes.STRING
+    },
+    shot: {
+      type: DataTypes.STRING
+    },
+    // additionId: {
+    //   type: DataTypes.INTEGER,
+    // },
     custom: {
       type: DataTypes.STRING,
       allowNull: true
