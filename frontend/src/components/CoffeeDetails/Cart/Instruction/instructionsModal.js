@@ -10,15 +10,15 @@ const InstructionsModal = ({ coffeeId, cart }) => {
 
 
     const [size, setSize] = useState('Small')
-    console.log('size', size)
+    // console.log('size', size)
     const [milk, setMilk] = useState('2% Milk')
-    console.log('milk', milk)
+    // console.log('milk', milk)
     const [status, setStatus] = useState('Warm')
-    console.log('status', status)
-    const [shot, setShot] = useState('')
-    console.log('shot', shot)
+    // console.log('status', status)
+    const [shot, setShot] = useState('None')
+    // console.log('shot', shot)
     const [custom, setCustom] = useState()
-    console.log('custom', custom)
+    // console.log('custom', custom)
     const handleSubmit = (e) => {
 
         const instructions = {
@@ -27,8 +27,8 @@ const InstructionsModal = ({ coffeeId, cart }) => {
             shot: shot.trim(),
             custom: custom.trim()
         }
-
-        dispatch(fetchPostOneItem(coffeeId, cart, instructions))
+        console.log("instructions", instructions)
+        dispatch(fetchPostOneItem(coffeeId, cart?.id, instructions))
 
     }
 

@@ -2,25 +2,22 @@
 /** @type {import('sequelize-cli').Migration} */
 let options = {};
 if (process.env.NODE_ENV === 'production') {
-  options.schema = process.env.SCHEMA;  // define your schema in options object
+  options.schema = process.env.SCHEMA
 }
-
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('CoffeeImages', {
+    await queryInterface.createTable('InstructionItems', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      coffeeId: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
+      instructionId: {
+        type: Sequelize.INTEGER
       },
-      img: {
-        type: Sequelize.STRING,
-        allowNull: true,
+      additionId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -35,7 +32,7 @@ module.exports = {
     }, options);
   },
   async down(queryInterface, Sequelize) {
-    options.tableName = "CoffeeImages";
+    options.tableName = 'InstructionItems'
     await queryInterface.dropTable(options);
   }
 };

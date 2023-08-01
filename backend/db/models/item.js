@@ -12,9 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       // Association for
+      // One to Many
+      Item.hasMany(models.Instruction, { foreignKey: 'itemId', hooks: true, otherKey: 'id' })
+
+      // Many to Many
+
+      // Shopping cart
       Item.belongsTo(models.ShoppingCart, { foreignKey: 'cartId', hooks: true, otherKey: 'id' })
+      // Coffee
       Item.belongsTo(models.Coffee, { foreignKey: 'coffeeId', hooks: true, otherKey: 'id' })
-      Item.hasOne(models.Instructions, { foreignKey: 'itemId', hooks: true, otherKey: 'id' })
     }
   }
   Item.init({

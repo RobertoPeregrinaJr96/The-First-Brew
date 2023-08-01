@@ -8,12 +8,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const addons = [
+  // 1
   {
-    name: 'None',
-    price: 0
-  },
-  {
-    name: 'Smalls',
+    name: 'Small',
     price: 0.20
   },
   {
@@ -24,6 +21,7 @@ const addons = [
     name: 'large',
     price: 0.20
   },
+  // 5
   {
     name: 'Extra Large',
     price: 0.20
@@ -35,6 +33,9 @@ const addons = [
   {
     name: 'Office (3 Gallons)',
     price: 0.20
+  }, {
+    name: 'No Creamer',
+    price: 0
   },
   {
     name: 'Heavy Cream',
@@ -44,6 +45,7 @@ const addons = [
     name: 'Vanilla Sweet Cream',
     price: 0.20
   },
+  //10
   {
     name: 'Nonfat Milk',
     price: 0.20
@@ -81,6 +83,10 @@ const addons = [
     price: 0.20
   },
   {
+    name: 'Iced',
+    price: 0.20
+  },
+  {
     name: 'Cold',
     price: 0.20
   },
@@ -95,6 +101,9 @@ const addons = [
   {
     name: 'Steamed',
     price: 0.20
+  }, {
+    name: 'No Espresso shot',
+    price: 0
   },
   {
     name: 'Signature Espresso Roast',

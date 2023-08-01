@@ -1,6 +1,7 @@
 const express = require('express')
 
-const { Coffee, Item, Review, ShoppingCart, User, CoffeeImage, Instruction, Additions } = require('../../db/models');
+const { Coffee, Item, Review, ShoppingCart, User, CoffeeImage, Instruction, InstructionItem, Addition } = require('../../db/models');
+const additions = require('../../db/models/additions');
 
 
 const router = express.Router();
@@ -32,47 +33,109 @@ router.get('/:coffeeId', async (req, res) => {
 router.post('/:coffeeId', async (req, res) => {
 
     const { user } = req;
-    // console.log("user", user)
+    //-------------------------------------------
     const idOfUser = user.id;
+    //-------------------------------------------
     const idOfCoffee = req.params.coffeeId;
-    // console.log("idOfCoffee", idOfCoffee)
+    //-------------------------------------------
     const { cartId, coffeeId, instructions } = req.body
-    // console.log("--------------------------------------")
-    // console.log("cartId", cartId)
-    // console.log("coffeeId", coffeeId)
-    // console.log("instructionId", instructionId)
-    // console.log("--------------------------------------")
-
+    //-------------------------------------------
     // create a conditional for if there is and item with the same itemId in and if so then grab that item instead and update its QUANTITY by 1
-
-    const adds = Additions.findAll({ where: { name: instructions.size, name: instructions.milk, name: instructions.temperature, name: instructions.shot } })
-    console.log("--------------------------------------")
-    console.log('adds in backend',adds)
-    console.log("--------------------------------------")
-
-    const newInstructions = await Instruction.create({
-        itemId: instructions.itemId,
-        additions: adds,
-        // size: instructions.size,
-        // milk: instructions.milk,
-        // temperature: instructions.temperature,
-        // shot: instructions.shot,
-        custom: instructions.custom
+    const newItem = await Item.create(
+        {
+            cartId,
+            coffeeId,
+            quantity: 1,
+            instructionId: null
+        }
+    )
+    // console.log('newItem', newItem)
+    //-------------------------------------------
+    const newItemInDB = await Item.findAll({ where: { id: newItem.id } })
+    // console.log('newItemInDB',newItemInDB)
+    //-------------------------------------------
+    const newInstructions = await Instruction.create(
+        {
+            itemId: newItemInDB[0].dataValues.id,
+            instructionItemId: null,
+            custom: instructions.custom
+        }
+    )
+    //-------------------------------------------
+    const newInstructionsInDB = await Instruction.findByPk(newInstructions.id)
+    //-------------------------------------------
+    newItem.instructionId = newInstructionsInDB.id
+    //-------------------------------------------
+    await newItem.save()
+    // SIZE
+    const size = await Addition.findAll(
+        {
+            where: {
+                name: instructions.size
+            }
+        }
+    )
+    // MILK
+    const milk = await Addition.findAll(
+        {
+            where: {
+                name: instructions.milk
+            }
+        }
+    )
+    // TEMP
+    const temperature = await Addition.findAll(
+        {
+            where: {
+                name: instructions.temperature
+            }
+        }
+    )
+    // SHOT
+    const shot = await Addition.findAll(
+        {
+            where: {
+                name: instructions.shot
+            }
+        }
+    )
+    //-------------------------------------------
+    // SIZE
+    await InstructionItem.create({
+        instructionId: newInstructionsInDB.id,
+        additionId: size[0].dataValues.id ? size[0].dataValues.id : null
     })
-    console.log("--------------------------------------")
-    console.log('newInstructions in backend',newInstructions)
-    console.log("--------------------------------------")
-
-    const newItem = await Item.create({
-        cartId,
-        coffeeId,
-        quantity: 1,
-        instructionId: newInstructions.id
+    // MILK
+    await InstructionItem.create({
+        instructionId: newInstructionsInDB.id,
+        additionId: milk[0].dataValues.id ? milk[0].dataValues.id : null
     })
-    console.log("--------------------------------------")
-    console.log('newItem in backend',newItem)
-    console.log("--------------------------------------")
-    res.status(200).json(newItem)
+    // TEMP
+    await InstructionItem.create({
+        instructionId: newInstructionsInDB.id,
+        additionId: temperature[0].dataValues.id ? temperature[0].dataValues.id : null
+    })
+    // SHOT
+    await InstructionItem.create({
+        instructionId: newInstructionsInDB.id,
+        additionId: shot[0].dataValues.id ? shot[0].dataValues.id : null
+    })
+    //-------------------------------------------
+    const finalQuery = await Item.findByPk(newItemInDB[0].dataValues.id, {
+        include: [
+            {
+                model: Instruction, include: {
+                    model: InstructionItem, include: Addition
+                }
+            }
+        ]
+    }
+    )
+    //-------------------------------------------
+    // console.log("--------------------------------------")
+    // console.log('finalQuery in backend', finalQuery)
+    // console.log("--------------------------------------")
+    res.status(200).json(finalQuery)
 })
 // GET A reviews for the coffee
 router.get('/:coffeeId/reviews', async (req, res) => {

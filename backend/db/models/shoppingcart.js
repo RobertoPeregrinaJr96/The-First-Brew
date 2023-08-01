@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       ShoppingCart.belongsToMany(models.Coffee, { through: models.Item, foreignKey: 'cartId', hooks: true, otherKey: 'id' })
       // Association for User
       ShoppingCart.belongsTo(models.User, { foreignKey: 'userId', hooks: true, otherKey: 'id' })
+      // Item
       ShoppingCart.hasMany(models.Item, { foreignKey: 'cartId', hooks: true, otherKey: 'id' })
+      // Checkout
       ShoppingCart.hasMany(models.Checkout, { foreignKey: 'cartId', hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
     }
   }

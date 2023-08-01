@@ -6,6 +6,7 @@ export const GET_ONE_ITEM = 'items/GET_ONE_ITEM'
 export const POST_ONE_ITEM = 'items/POST_ONE_ITEM'
 export const UPDATE_ITEM = 'item/UPDATE_ITEM'
 export const DELETE_ITEM = 'item/DELETE_ITEM'
+export const UPDATE_INSTRUCTIONS = 'item/UPDATE_INSTRUCTIONS'
 
 /* Action Creators: */
 export const getAllItems = (items) => ({
@@ -34,9 +35,9 @@ export const deleteItem = (item) => ({
 export const fetchAllItemsThunk = () => async (dispatch) => {
 
     const response = await csrfFetch('/api/items')
-    // console.log("fetch response:", response)
     if (response.ok) {
         const items = await response.json()
+        console.log('items in thunk', items)
         dispatch(getAllItems(items))
         return items
     }
@@ -54,17 +55,18 @@ export const fetchOneItemThunk = (id) => async (dispatch) => {
 }
 // Post
 export const fetchPostOneItem = (coffeeId, cartId, instructions) => async (dispatch) => {
-    // console.log("coffeeId", coffeeId)
-    // console.log("cartId", cartId)
+    console.log("coffeeId", coffeeId)
+    console.log("cartId", cartId)
+    console.log("instructions", instructions)
     const response = await csrfFetch(`/api/coffee/${coffeeId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ coffeeId, cartId, instructions })
     })
-    // console.log("response", response)
+    console.log("response", response)
     if (response.ok) {
         const item = await response.json()
-        // console.log("item", item)
+        console.log("item", item)
         dispatch(postOneItem(item))
         return item
     }
@@ -87,7 +89,7 @@ export const fetchUpdateItemThunk = (item, id) => async (dispatch) => {
         const updatedItem = await response.json();
         // console.log("data ====>", updatedItem)
         // console.log("---------------------------------")
-        dispatch(updateItem(updatedItem));
+        dispatch(updatedItem(updatedItem));
         return updatedItem;
     }
 };
@@ -102,6 +104,27 @@ export const fetchDeleteItemThunk = (id) => async (dispatch) => {
         dispatch(deleteItem(id));
     }
 };
+
+export const fetchInstructionsUpdate = (id, array) => async (dispatch) => {
+    console.log("---------------------------------")
+    console.log("id:", id)
+    console.log("array:", array)
+    console.log("---------------------------------")
+    const response = await csrfFetch(`/api/items/${id}/Instruction`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(array),
+    });
+    console.log("Response ====>", response)
+    console.log("---------------------------------")
+    if (response.ok) {
+        const newItem = await response.json();
+        console.log("updateItem ====>", newItem)
+        console.log("---------------------------------")
+        dispatch(updateItem(newItem));
+        return newItem;
+    }
+}
 
 /* Reducers */
 const initialState = { allItems: {}, singleItem: {} }

@@ -17,9 +17,7 @@ module.exports = {
       itemId: {
         type: Sequelize.INTEGER
       },
-      additionId: {
-        type: Sequelize.INTEGER,
-      },
+
       custom: {
         type: Sequelize.STRING,
         allowNull: true
@@ -38,6 +36,6 @@ module.exports = {
   },
   async down(queryInterface, Sequelize) {
     options.tableName = "Instructions"
-    await queryInterface.dropTable('Instructions');
+    await queryInterface.dropTable(options);
   }
 };

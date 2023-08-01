@@ -6,6 +6,7 @@ import { fetchOneCoffeeThunk } from '../../store/coffee';
 import CoffeeDetail from './detailsForCoffee';
 import CoffeeCart from './Cart';
 import { fetchAllCoffeeReviewThunk } from '../../store/review';
+import OpenModalButton from '../OpenModalButton';
 
 const CoffeeById = () => {
     // console.log("------------------------------------- :")
@@ -39,7 +40,9 @@ const CoffeeById = () => {
         // console.log("items :", items)
         // Onclick functions
         itemInCart = items ? items.find(item => Number(coffeeId) === Number(item?.coffeeId)) : []
-        // console.log("------------------------------------- :")
+        console.log("------------------------------------- :")
+        console.log("itemInCart:", itemInCart)
+        console.log("------------------------------------- :")
     }
 
     // I want to pre-populate the state for Coffee and Cart
@@ -94,15 +97,18 @@ const CoffeeById = () => {
                     </div>
 
                 </div>
+                <div>
+
+                    <CoffeeCart item={itemInCart} coffeeId={coffeeId} coffee={coffeeObj} />
+                </div>
                 <div className='detail-div-component'>
 
 
                     <CoffeeDetail coffee={coffeeIdObj} user={user} />
 
                 </div>
-                <div>
-                    <CoffeeCart item={itemInCart} coffeeId={coffeeId} coffee={coffeeObj} />
-                </div>
+                {user && !itemInCart}
+
             </div>
         )
     }

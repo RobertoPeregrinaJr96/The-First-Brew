@@ -5,12 +5,15 @@ import { fetchDeleteItemThunk, fetchUpdateItemThunk } from "../../store/item"
 import Checkout from "./checkout"
 
 import './index.css'
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import OpenModalButton from "../OpenModalButton"
+import UpdateInstructions from "./updateInstructions"
 
 
 const ShoppingCart = () => {
 
     // general Variables
+    const history = useHistory()
     const [boolean, setBoolean] = useState(true)
     const [goober, setGoober] = useState(false)
     const dispatch = useDispatch()
@@ -29,12 +32,9 @@ const ShoppingCart = () => {
         items.forEach(item => {
             newTotalQuantity += item.quantity
         });
-        // sortedItems = items.sort((a, b) => { return a.id + b.id })
     }
-    // console.log("sorted", sortedItems)
     // Onclick functions
 
-    // Maybe combine this into ONE function and use string interpolation to adjust the positive and negative integers
     const updateItemMinus = async (e, item, id) => {
         const quantity = item.quantity
         if (quantity == 0) return null
@@ -61,7 +61,7 @@ const ShoppingCart = () => {
             setGoober(true)
             setTimeout(() => {
                 setGoober(false)
-            },100)
+            }, 100)
             setBoolean(!boolean)
         }
     }
@@ -112,10 +112,26 @@ const ShoppingCart = () => {
 
                     <ul className="cart-div-ul">
                         {items?.map(item => {
+                            { console.log("item in shopping cart", item) }
                             const coffee = item?.Coffee
                             return <li key={item?.id} className="cart-div-li">
 
-                                <p>Name: {coffee?.name}</p>
+                                <p onClick={(e) => history.push(`/coffee/${coffee?.id}`)}>Name: {coffee?.name}</p>
+                                <div className="cart-item-instructions-div">
+                                    <p>{`${item?.Instruction[0]?.InstructionItem?.map(value => {
+                                        return (
+                                            value.Addition['name']
+                                        )
+                                    })}`}</p>
+                                    <p>{`${item?.Instruction[0]?.['custom']}`}</p>
+                                    <OpenModalButton
+                                        buttonText={`Update Instructions`}
+                                        modalComponent={<UpdateInstructions item={item} />}
+                                    >
+                                    </OpenModalButton>
+
+                                </div>
+
                                 <p>Price: ${(coffee?.price).toFixed(2)}</p>
 
                                 <div>
