@@ -17,10 +17,10 @@ const ShoppingCart = () => {
     const [boolean, setBoolean] = useState(true)
     const [goober, setGoober] = useState(false)
     const dispatch = useDispatch()
+    // useSelector
     const cartsObj = useSelector(state => state.cart.userCart[0])
     // specific Variables
     const items = cartsObj?.Items;
-    // console.log("ITEMS", items)
     let newTotal;
     let newTotalQuantity = 0;
     // let sortedItems;
@@ -34,7 +34,6 @@ const ShoppingCart = () => {
         });
     }
     // Onclick functions
-
     const updateItemMinus = async (e, item, id) => {
         const quantity = item.quantity
         if (quantity == 0) return null
@@ -72,13 +71,7 @@ const ShoppingCart = () => {
             "instructionId": item.instructionId,
             "quantity": (item.quantity + 1)
         }
-        // setGoober(true)
         dispatch(fetchUpdateItemThunk(updateItem, id))
-        // dispatch(fetchUserCartThunk())
-        // console.log("ID IN UPDATE", id)
-        // setTimeout(() => {
-        //     setGoober(false)
-        // }, 100)
         setBoolean(!boolean)
     }
     // This is just a plain Overall Delete Item Function
@@ -90,20 +83,10 @@ const ShoppingCart = () => {
         }, 500)
         setBoolean(!boolean)
     }
-    const checkState = () => { }
     // I want to pre-populate the state for Coffee and Cart
     useEffect(() => {
         dispatch(fetchUserCartThunk())
     }, [dispatch, boolean])
-
-
-    /*
-    On this Page i want to show the  Client:
-        1.) Items that are in the Cart
-            - details of the items
-        2.) A button to checkout
-        3.) The ability to make a new Cart
-    */
     return (
         <div className="cart-div-wrapper">
             <div className="cart-bg-div">
@@ -112,7 +95,6 @@ const ShoppingCart = () => {
 
                     <ul className="cart-div-ul">
                         {items?.map(item => {
-                            { console.log("item in shopping cart", item) }
                             const coffee = item?.Coffee
                             return <li key={item?.id} className="cart-div-li">
 
@@ -164,4 +146,3 @@ const ShoppingCart = () => {
 }
 
 export default ShoppingCart
-// sortedItems?.sort((a, b) => a.id + b.id) && sortedItems?.sort((a, b) => a.id + b.id)?.map(item => {

@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Instruction.hasMany(models.InstructionItem, { foreignKey: 'instructionId', hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
       // Many to Many
-      Instruction.belongsToMany(models.Addition, { through: models.InstructionItem, foreignKey: 'instructionId', hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
+      Instruction.belongsToMany(models.Addition, { through: models.InstructionItem, foreignKey: 'instructionId', hooks: true, otherKey: 'id' })
       // One to Many
-      Instruction.belongsTo(models.Item, { foreignKey: 'itemId', hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
+      Instruction.belongsTo(models.Item, { foreignKey: 'itemId', hooks: true, otherKey: 'id' })
     }
   }
   Instruction.init({

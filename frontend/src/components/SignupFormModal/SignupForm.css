@@ -3,12 +3,10 @@
   grid-template-columns: 100%;
   justify-content: center;
   align-items: center;
-  width: 25rem;
+  width: 38rem;
   height: 35rem;
-  /* background-color: rgba(128, 98, 40, 0.461); */
-  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
-    no-repeat center center fixed;
-  background-size: 90% 100%;
+  border-radius: 20pt;
+  background-color: var(--modal-bg);
   color: white;
 }
 .sign-up-h1 {
@@ -26,7 +24,7 @@
   align-items: center;
   width: 100%;
   height: 30rem;
-  margin: 2%;
+  /* margin: 2%; */
 }
 .sign-up-form-label {
   display: grid;
@@ -55,5 +53,30 @@
     display: grid;
     grid-template-columns: 40% 50%;
     font-size: 0.9rem;
+  }
+  /* .sign-up-div {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 38rem;
+    height: 35rem;
+    border-radius: 20pt;
+    background-color: var(--modal-bg);
+    color: white;
+  } */
+}
+@media screen and (max-width: 425) {
+
+  .sign-up-div {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 38rem;
+    height: 35rem;
+    border-radius: 20pt;
+    background-color: var(--modal-bg);
+    color: white;
   }
 }

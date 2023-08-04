@@ -20,7 +20,7 @@ const images = [
   },
   {
     coffeeId: 4,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Latte.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_Latte1.jpg",
   },
   {
     coffeeId: 5,
@@ -32,7 +32,7 @@ const images = [
   },
   {
     coffeeId: 7,
-    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4K_flatwhite.jpg",
+    img: "https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4K_flatwhite1.jpg",
   },
   {
     coffeeId: 8,

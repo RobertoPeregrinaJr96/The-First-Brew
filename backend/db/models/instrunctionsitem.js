@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       // Many To Many
 
       // Instructions
-      InstructionItem.belongsTo(models.Instruction, { foreignKey: 'instructionId', hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
+      InstructionItem.belongsTo(models.Instruction, { foreignKey: 'instructionId', hooks: true, otherKey: 'id'})
       // Additions
-      InstructionItem.belongsTo(models.Addition, { foreignKey: 'additionId', hooks: true, otherKey: 'id' })
+      InstructionItem.belongsTo(models.Addition, { foreignKey: 'additionId', hooks: true, otherKey: 'id'  })
     }
   }
   InstructionItem.init({

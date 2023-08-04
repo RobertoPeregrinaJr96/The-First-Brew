@@ -63,20 +63,23 @@ const ItemModal = ({ coffee, user }) => {
     }, [dispatch])
     return (
         <div className='landingPage-cart-div-wrapper'>
-            <div>
+            <div className='landing-page-modal-info'>
                 <h1>{coffee.name}</h1>
                 <p>{coffee.description}</p>
             </div>
             <div>
             </div>
-            <p className='landingPage-coffee-price'>Coffee Price:$ {coffee.price?.toFixed(2)}</p>
+            <div className='landingPage-coffee-div'>
+                <p className='landingPage-coffee-price'>Coffee Price:$ {coffee.price?.toFixed(2)} *</p>
+                <p className='coffee-default-state'>* Default *: Size:"Small", Creamer:"2% Milk", Temperature:"Warm", Espresso shot:"No Espresso shot"</p>
+                <p
+                    className='nav-to-coffee'
+                    onClick={(e) => coffeeNav()}>For More Info click here
+                </p>
+            </div>
             <div className='landingPage-loggedIn-function'>
                 {loggedIn(user, item)}
             </div>
-            <p
-                className='nav-to-coffee'
-                onClick={(e) => coffeeNav()}>For More Info click here
-            </p>
         </div>
     )
 }

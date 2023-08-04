@@ -21,7 +21,20 @@
   --modal-txt: #997899;
   --button: #7b46ac;
   --errors: red;
-  /* background: url("https://cdn.discordapp.com/attachments/1088906268485357618/1122348839509176380/3378164.jpg") */
-    /* no-repeat center center fixed; */
-    /* background-size: 180%; */
+
 }
+/* *{
+  background-color: var(--bg-color);
+} */
+/* @media screen (min-width:1440 ) {
+}
+@media screen (min-width:1024 ) {
+}
+@media screen (min-width:768 ) {
+}
+@media screen (min-width:425 ) {
+}
+@media screen (min-width:375 ) {
+}
+@media screen (min-width:320 ) {
+} */

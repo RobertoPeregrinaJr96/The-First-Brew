@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       // Association for
       // One to Many
-      Item.hasMany(models.Instruction, { foreignKey: 'itemId', hooks: true, otherKey: 'id' })
+      Item.hasMany(models.Instruction, { foreignKey: 'itemId', hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
 
       // Many to Many
 

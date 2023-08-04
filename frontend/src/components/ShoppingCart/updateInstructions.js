@@ -1,7 +1,7 @@
 // package import
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import { useModal } from "../../context/Modal";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import './index.css'
 import { fetchInstructionsUpdate } from '../../store/item';
 import { fetchUserCartThunk } from '../../store/carts';
@@ -11,14 +11,12 @@ import { fetchUserCartThunk } from '../../store/carts';
 
 const UpdateInstructions = ({ item }) => {
     // general variables
-    const [boolean, setBoolean] = useState()
     const dispatch = useDispatch()
     const { closeModal } = useModal()
+    // ------------------------------------------
     // item breakdown
     const itemInstructions = item?.Instruction[0] ? item?.Instruction[0] : []
-    // console.log(" itemInstructions: ", itemInstructions)
     const instructionItems = itemInstructions?.InstructionItem ? itemInstructions?.InstructionItem : []
-    // console.log(" instructionItems: ", instructionItems)
 
     const [itemSizeInstruction, itemMilkInstruction, itemTempInstruction, itemShotInstruction] = instructionItems
 
@@ -26,18 +24,15 @@ const UpdateInstructions = ({ item }) => {
     const itemMilk = itemMilkInstruction?.Addition['name']
     const itemTemp = itemTempInstruction?.Addition['name']
     const itemShot = itemShotInstruction?.Addition['name']
-
+    // ------------------------------------------
+    // useStates
     const [size, setSize] = useState(itemSize ? itemSize : 'Small')
-    // console.log('size', size)
     const [milk, setMilk] = useState(itemMilk ? itemMilk : '2% Milk')
-    // console.log('milk', milk)
     const [temperature, setTemperature] = useState(itemTemp ? itemTemp : 'Warm')
-    // console.log('temperature', temperature)
     const [shot, setShot] = useState(itemShot ? itemShot : 'No Espresso shot')
-    // console.log('shot', shot)
     const [custom, setCustom] = useState(itemInstructions.custom)
-    // console.log('custom', custom)
-
+    // ------------------------------------------
+    // functions
     const handleSubmit = (e, item) => {
         e.preventDefault()
         const newInstructionItems = [
@@ -46,16 +41,11 @@ const UpdateInstructions = ({ item }) => {
             [temperature, itemTempInstruction?.['id']],
             [shot, itemShotInstruction?.['id']],
         ]
-        console.log('newInstruction', newInstructionItems)
         const instructions = [custom, itemSizeInstruction?.instructionId]
-        console.log('instructions', instructions)
         const request = [newInstructionItems, instructions]
-        console.log('request', request)
-
         dispatch(fetchInstructionsUpdate(item.id, request))
         dispatch(fetchUserCartThunk())
         dispatch(fetchUserCartThunk())
-
         closeModal()
     }
 

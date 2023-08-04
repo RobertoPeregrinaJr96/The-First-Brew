@@ -59,16 +59,20 @@ const ProfileButton = ({ user }) => {
             <button className="nav-topRight-Profile" onClick={(e) => profile(e)}>Profile</button>
           </div>) : (
             <div className="nav-topRight-modal" >
-              <OpenModalMenuItem
-                itemText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-              />
-              <OpenModalMenuItem
-                itemText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
+              <button className="nav-topRight-modal-loggedIn">
+                <OpenModalMenuItem
+                  itemText="Log In"
+                  onItemClick={closeMenu}
+                  modalComponent={<LoginFormModal />}
+                />
+              </button>
+              <button className="nav-topRight-modal-signUp">
+                <OpenModalMenuItem
+                  itemText="Sign Up"
+                  onItemClick={closeMenu}
+                  modalComponent={<SignupFormModal />}
+                />
+              </button>
             </div >
           )
 
