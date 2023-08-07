@@ -6,46 +6,40 @@
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 20% 50%;
-  /* background-color: rgba(128, 98, 40, 0.461); */
-  background: url(https://cdn.discordapp.com/attachments/1088906268485357618/1122402397197697044/1390893.jpg)
-    no-repeat center center fixed;
-  background-size: 90% 100%;
-  color: white;
+  background-color: var(--modal-bg);
+  height: 30rem;
+  border-radius: 20pt;
 }
-/*
-h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 .login-div-h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 3rem;
 }
 .login-form {
   display: flex;
-  width: 100%;
   display: grid;
   justify-content: center;
   align-items: center;
 }
 
 .submit-button {
-  height: 2rem;
+  height: 3rem;
+  border-radius: 20pt;
 }
 .login-input {
   display: flex;
   justify-self: center;
   align-items: center;
-  width: 16rem;
+  width: 30rem;
+  height: 2rem;
+  border-radius: 20pt;
 }
 .demo-user {
   border: none;
   text-decoration: underline;
   background-color: rgba(128, 99, 40, 0);
   font-size: 1.5rem;
-  color: white;
 }
 .login-errors {
   color: red;

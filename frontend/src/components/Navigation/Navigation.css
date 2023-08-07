@@ -1,12 +1,13 @@
 .nav-list-img {
   height: 9rem;
   width: 8rem;
+  padding: 15px;
 }
 .nav-button {
   display: none;
 }
 .nav-wrapper {
-  background-color: #dc9e82;
+  /* background-color: #dc9e82; */
   display: grid;
   grid-template-columns: 50% 50%;
 }
@@ -16,10 +17,12 @@
 }
 .nav-h1 {
   display: grid;
+  font-size: 4rem;
 }
 .nav-div-topRight {
   display: grid;
   justify-content: end;
+  align-items: center;
 }
 /* quickItemModal */
 .profile-ul {
@@ -55,4 +58,50 @@
   height: 3rem;
   border-radius: 20pt;
   width: 5rem;
+}
+
+@media screen and (max-width: 1440px) {
+  .nav-div-topLeft {
+    display: grid;
+    grid-template-columns: 20% 50%;
+  }
+  .nav-list-img {
+    height: 7rem;
+    width: 5rem;
+    padding: 15px;
+  }
+  .nav-h1 {
+    display: grid;
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .nav-div-topLeft {
+    display: grid;
+    grid-template-columns: 20% 50%;
+  }
+  .nav-list-img {
+    height: 7rem;
+    width: 5rem;
+    padding: 15px;
+  }
+  .nav-h1 {
+    display: grid;
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .nav-div-topLeft {
+    display: grid;
+    grid-template-columns: 20% 50%;
+  }
+  .nav-list-img {
+    height: 7rem;
+    width: 5rem;
+    padding: 15px;
+  }
+  .nav-h1 {
+    display: grid;
+    font-size: 3rem;
+  }
 }

@@ -32,7 +32,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.TEXT,
-    }
+    },
+    default: {
+      type: DataTypes.TEXT,
+    },
   }, {
     sequelize,
     modelName: 'Coffee',

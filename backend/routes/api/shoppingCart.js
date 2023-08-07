@@ -26,6 +26,7 @@ router.get('/current', async (req, res) => {
     // console.log("user", user)
     const idOfUser = user.id;
     // console.log("id", idOfUser)
+    idOfUser == undefined ? res.status(400).json({ message: 'No user Found' }) : console.log('there is a user')
     console.log('--------------------------------------------')
     const userCartArr = await ShoppingCart.findAll({ where: { userId: idOfUser } })
     console.log('--------------------------------------------')
@@ -82,7 +83,7 @@ router.get('/current', async (req, res) => {
         "itemId": userCart.itemId,
         "createdAt": userCart.createdAt,
         "updatedAt": userCart.updatedAt,
-        "Items": [...safeItem.sort((a, b) => a.updatedAt - b.updatedAt)]
+        "Items": [...safeItem.sort((a, b) => a.updatedAt + b.updatedAt)]
     }
     // console.log('-------------------------')
     // console.log('responseCart', responseCart)

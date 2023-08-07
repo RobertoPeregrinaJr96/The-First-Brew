@@ -1,5 +1,289 @@
+.coffee-detail-wrapper {
+  border: solid 1px black;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  padding: 30px;
+}
+.coffee-detail-button-switch {
+  display: grid;
+  align-items: center;
+  height: 4rem;
+  padding: 10px;
+  border: solid 1px black;
+}
+.coffee-detail-button-switch button {
+  height: 3rem;
+  width: 10rem;
+  border-radius: 20pt;
+}
+.coffee-detail-div-ul-wrapper {
+  display: grid;
+  align-items: center;
+  height: 50rem;
+  overflow: scroll;
+}
+.coffee-detail-ul {
+  display: grid;
+  align-items: center;
+  height: fit-content;
+  row-gap: 30px;
+}
+.butn-delete button {
+  height: 3rem;
+  width: 10rem;
+  border-radius: 20pt;
+}
+.coffee-detail-div-profile {
+  display: grid;
+  grid-template-columns: 5rem 30%;
+  align-items: center;
+}
+.coffee-detail-div {
+  display: grid;
+  align-items: center;
+  font-size: 30px;
+}
+.coffee-detail-div p {
+  font-size: 30px;
+}
 .review-user-img {
-  height: 2rem;
-  width: 2rem;
+  height: 4rem;
+  width: 4rem;
   border-radius: 50%;
+}
+
+/* POST REVIEW */
+.review-post-wrapper {
+  background-color: var(--modal-bg);
+  height: 50rem;
+  width: 45rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+}
+.review-post-p {
+  display: grid;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0px;
+}
+.review-post-form {
+  height: 40rem;
+  width: 40rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+.review-post-div-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 10% 85%;
+  margin: 0px;
+}
+.review-post-input {
+  margin: 0px;
+  height: 3rem;
+  width: 30rem;
+  border-radius: 10pt;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.character-counter {
+  margin: 0px;
+  height: 3rem;
+  width: 40rem;
+  display: grid;
+  justify-content: end;
+  color: gray;
+  display: grid;
+  align-items: center;
+}
+.character-errors {
+  margin: 0px;
+  height: 3rem;
+  width: 40rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 0, 0, 0.757);
+}
+.review-post-textarea {
+  height: 10rem;
+  width: 30rem;
+  border-radius: 10pt;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.review-post-div-buttons {
+  height: 3rem;
+  width: 40rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  align-items: center;
+}
+.post-submit {
+  height: 3rem;
+  width: 15rem;
+  border-radius: 20pt;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.post-cancel {
+  height: 3rem;
+  width: 15rem;
+  border-radius: 20pt;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.bttn-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+/* UPDATE REVIEW */
+.review-update-wrapper {
+  background-color: var(--modal-bg);
+  height: 50rem;
+  width: 45rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+}
+.review-update-p {
+  display: grid;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0px;
+}
+.review-update-form {
+  height: 40rem;
+  width: 40rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+.review-update-div-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 10% 85%;
+  margin: 0px;
+}
+.review-update-input {
+  margin: 0px;
+  height: 3rem;
+  width: 30rem;
+  border-radius: 10pt;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.character-counter {
+  margin: 0px;
+  height: 3rem;
+  width: 40rem;
+  display: grid;
+  justify-content: end;
+  color: gray;
+  display: grid;
+  align-items: center;
+}
+.character-errors {
+  margin: 0px;
+  height: 3rem;
+  width: 40rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 0, 0, 0.757);
+}
+.review-update-textarea {
+  height: 10rem;
+  width: 30rem;
+  border-radius: 10pt;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.review-update-div-buttons {
+  height: 3rem;
+  width: 40rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  align-items: center;
+}
+.update-submit {
+  height: 3rem;
+  width: 15rem;
+  border-radius: 20pt;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.update-cancel {
+  height: 3rem;
+  width: 15rem;
+  border-radius: 20pt;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.bttn-update-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+/* DELETE REVIEW */
+.delete-Modal-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--modal-bg);
+  height: 20rem;
+  border-radius: 20pt;
+}
+.delete-h1 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.review-delete-div-buttons {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  align-items: center;
+}
+.delete-butt-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.delete-cancel {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 20pt;
+}
+.delete-submit {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 20pt;
 }

@@ -16,18 +16,6 @@ const DeleteReview = ({ coffee, review, user }) => {
     const dispatch = useDispatch();
     const [goober, setGoober] = useState(false)
 
-    // const user = useSelector(state => state.session.user)
-    // const coffee = useSelector(state => state.singleCoffee)
-    // const reviews = useSelector(state => state.coffeeReviews)
-    // console.log("reviews", reviews)
-    // console.log("user", reviews)
-    // console.log("REVIEES", reviews)
-
-    // let review;
-
-    // if (reviews) {
-    //     review = reviews?.find(review => review.userId == user.id)
-    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -53,17 +41,22 @@ const DeleteReview = ({ coffee, review, user }) => {
         <div disabled={goober} className='delete-Modal-div'>
             <h1 className='delete-h1'>Do you want to Delete your review for {coffee?.name}</h1>
             <div className='review-delete-div-buttons '>
+                <div className='delete-butt-div'>
+                    <button
+                        className='delete-cancel'
+                        onClick={(e) => closeModal()}>
+                        Cancel
+                    </button>
 
-                <button
-                    className='delete-cancel'
-                    onClick={(e) => closeModal()}>
-                    Cancel
-                </button>
-                <button
-                    className='delete-submit'
-                    onClick={(e) => handleSubmit(e)}>
-                    Delete
-                </button>
+                </div>
+                <div className='delete-butt-div'>
+                    <button
+                        className='delete-submit'
+                        onClick={(e) => handleSubmit(e)}>
+                        Delete
+                    </button>
+
+                </div>
             </div>
         </div>
     )

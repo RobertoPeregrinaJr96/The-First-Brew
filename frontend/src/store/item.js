@@ -86,11 +86,11 @@ export const fetchUpdateItemThunk = (item, id) => async (dispatch) => {
     // console.log("Response ====>", response)
     // console.log("---------------------------------")
     if (response.ok) {
-        const updatedItem = await response.json();
+        const updatedItemObject = await response.json();
         // console.log("data ====>", updatedItem)
         // console.log("---------------------------------")
-        dispatch(updatedItem(updatedItem));
-        return updatedItem;
+        dispatch(updateItem(updatedItemObject));
+        return updatedItemObject;
     }
 };
 // delete a Item

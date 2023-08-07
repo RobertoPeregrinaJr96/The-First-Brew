@@ -42,17 +42,21 @@ const CoffeeDetail = ({ coffee, user }) => {
                     {coffeeReviewArr?.reverse()?.map(review => {
                         return <li key={review?.id}>
 
-                            <div>
-                                <img className='review-user-img' src={`${review?.User['profileImageUrl']}`} />
-                                {'   '}
-                                {(review?.User["firstName"])[0].toUpperCase()}
-                                {(review?.User["firstName"]).slice(1)}
-                                {"  "}
-                                {review?.User["lastName"]}
-                                {" : "}
+                            <div className='coffee-detail-div'>
+                                <div className='coffee-detail-div-profile'>
+                                    <img className='review-user-img' src={`${review?.User['profileImageUrl']}`} />
+                                    {'   '}
+                                    {(review?.User["firstName"])[0].toUpperCase()}
+                                    {(review?.User["firstName"]).slice(1)}
+                                    {"  "}
+                                    {review?.User["lastName"]}
+                                    {" : "}
+                                </div>
                                 <p>{review?.title}</p>
                                 <p>{review?.review}</p>
-                                {user?.id == review?.userId ? <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton> : <></>}
+                                <div className='butn-delete'>
+                                    {user?.id == review?.userId ? <OpenModalButton buttonText={'Delete Your Review'} modalComponent={<DeleteReview coffee={coffee} review={review} user={user} />}></OpenModalButton> : <></>}
+                                </div>
 
                             </div>
 

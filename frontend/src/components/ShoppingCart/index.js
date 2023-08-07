@@ -46,6 +46,7 @@ const ShoppingCart = () => {
         if (quantity == 1) {
 
             setGoober(true)
+            dispatch(fetchUserCartThunk())
             dispatch(fetchDeleteItemThunk(item.id))
             dispatch(fetchUserCartThunk())
             dispatch(fetchUserCartThunk())
@@ -56,6 +57,7 @@ const ShoppingCart = () => {
         }
         if (quantity >= 2) {
             dispatch(fetchUpdateItemThunk(updateItem, id))
+            dispatch(fetchUserCartThunk())
             dispatch(fetchUserCartThunk())
             setGoober(true)
             setTimeout(() => {
@@ -78,6 +80,8 @@ const ShoppingCart = () => {
     const deleteItem = (e, id) => {
         setGoober(true)
         dispatch(fetchDeleteItemThunk(id))
+        dispatch(fetchUserCartThunk())
+        dispatch(fetchUserCartThunk())
         setTimeout(() => {
             setGoober(false)
         }, 500)
@@ -98,14 +102,14 @@ const ShoppingCart = () => {
                             const coffee = item?.Coffee
                             return <li key={item?.id} className="cart-div-li">
 
-                                <p onClick={(e) => history.push(`/coffee/${coffee?.id}`)}>Name: {coffee?.name}</p>
+                                <p className="cart-div" onClick={(e) => history.push(`/coffee/${coffee?.id}`)}>{coffee?.name}</p>
                                 <div className="cart-item-instructions-div">
                                     <p>{`${item?.Instruction[0]?.InstructionItem?.map(value => {
                                         return (
                                             value.Addition['name']
                                         )
                                     })}`}</p>
-                                    <p>{`${item?.Instruction[0]?.['custom']}`}</p>
+                                    <p className="cart-div">{`${item?.Instruction[0]?.['custom']}`}</p>
                                     <OpenModalButton
                                         buttonText={`Update Instructions`}
                                         modalComponent={<UpdateInstructions item={item} />}
@@ -114,9 +118,9 @@ const ShoppingCart = () => {
 
                                 </div>
 
-                                <p>Price: ${(coffee?.price).toFixed(2)}</p>
+                                <p className="cart-div">Price: ${(coffee?.price).toFixed(2)}</p>
 
-                                <div>
+                                <div className="cart-div">
                                     {item?.quantity}
                                 </div>
 
@@ -125,17 +129,26 @@ const ShoppingCart = () => {
                                     <p className="cart-div-quantity-total" >{item?.quantity ? item?.quantity : 0}</p>
                                     <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
                                 </div>
+                                <div className="cart-div">
+                                    <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
+                                        disabled={goober} >
+                                        Delete
+                                    </button>
 
-                                <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
-                                    disabled={goober} >Delete</button>
+                                </div>
                             </li>
                         })}
                     </ul>
 
                     <div className="cart-footer">
-                        <p>Total Items:{newTotalQuantity}</p>
-                        <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
-                        <Checkout items={items} />
+                        <div className="cart-footer-div">
+                            <p>Total Items:{newTotalQuantity}</p>
+                            <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
+
+                        </div>
+                        <div className="cart-footer-div">
+                            <Checkout items={items} />
+                        </div>
                     </div>
 
                 </div>

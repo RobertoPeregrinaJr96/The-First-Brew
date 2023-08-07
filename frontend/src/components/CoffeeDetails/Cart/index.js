@@ -8,18 +8,12 @@ import { fetchPostOneItem } from '../../../store/item'
 
 
 const CoffeeCart = ({ item, coffeeId, coffee }) => {
-
     // useState
     const [size, setSize] = useState('Small')
-    console.log('size', size)
     const [milk, setMilk] = useState('2% Milk')
-    console.log('milk', milk)
     const [temperature, setTemperature] = useState('Warm')
-    console.log('temperature', temperature)
-    const [shot, setShot] = useState('None')
-    console.log('shot', shot)
+    const [shot, setShot] = useState('No Espresso shot')
     const [custom, setCustom] = useState('')
-    console.log('custom', custom)
     const [boolean, setBoolean] = useState()
     const [goober, setGoober] = useState()
     const [quantity, setQuantity] = useState(item?.quantity)
@@ -31,7 +25,7 @@ const CoffeeCart = ({ item, coffeeId, coffee }) => {
     const cart = userCartArr ? userCartArr[0] : []
     // functions
     const handleSubmit = (e) => {
-
+        e.preventDefault()
         const instructions = {
             size: size.trim(),
             milk: milk.trim(),
@@ -39,24 +33,32 @@ const CoffeeCart = ({ item, coffeeId, coffee }) => {
             shot: shot.trim(),
             custom: custom.trim()
         }
-        // console.log("instructions", instructions)
         dispatch(fetchPostOneItem(coffeeId, cart?.id, instructions))
         dispatch(fetchUserCartThunk(user?.id))
         setBoolean(!boolean)
         setGoober(true)
-
     }
-
     const notLoggedIn = () => {
         return <p>Log in you goober</p>
     }
 
+    const newItem = (goober) => {
+        if (goober) {
+            setTimeout(() => {
+                setGoober(!goober)
+            }, 5000)
+            return (
+                <p className='notice-event'> New Item Added to Your Cart</p>
+            )
+        }
+    }
+
     const loggedIn = (user, item) => {
-        console.log('user', user)
         if (!user) return <p>Log in you goober</p>
 
         else {
             return <div className="cart-div-quantity-wrapper1">
+                {newItem(goober)}
                 <form className='instructions-form' onSubmit={(e) => handleSubmit(e, user, item)}>
                     {/* MILK */}
                     <label for="item-Size">Size:</label>
@@ -100,7 +102,7 @@ const CoffeeCart = ({ item, coffeeId, coffee }) => {
                     <label for="item-milk-shot">Espresso & shot Options:</label>
                     <select id="item-milk-shot" onChange={(e) => setShot(e.target.value === '--Please choose an option--' ? 'None' : e.target.value)}>
                         <option value="--Please choose an option--">--Please choose an option--</option>
-                        <option value="None">None</option>
+                        <option value="No Espresso shot">No Espresso shot</option>
                         <option value="Signature Espresso Roast">Signature Espresso Roast</option>
                         <option value="">Blond Espresso Roast</option>
                         <option value="Blond Espresso Roast">Decaf Espresso Roast</option>
@@ -111,7 +113,7 @@ const CoffeeCart = ({ item, coffeeId, coffee }) => {
                     {/* Custom  */}
                     <textarea onChange={(e) => setCustom(e.target.value)} placeholder='Custom Instructions'></textarea>
                     {/* <button type='submit'>Add Instructions</button> */}
-                    <button type='submit' onClick={(e) => loggedIn(user, item)}>Post</button>
+                    <button type='submit' onClick={(e) => loggedIn(user, item)}>Add Item to Your Shopping Cart</button>
                     {/* {loggedIn(user, item)} */}
                 </form>
             </div>

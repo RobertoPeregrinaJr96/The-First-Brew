@@ -70,7 +70,7 @@ const UserProfile = () => {
         <div className='main-profile-wrapper'>
             <div className='profile-layout'>
                 <div className='user-img-wrapper'>
-                    <img className='profile-user-img' src={`${user?.profileImageUrl}`} />
+                   { <img className='profile-user-img' src={`${user?.profileImageUrl}`} />}
                 </div>
                 <div className='user-info-wrapper'>
                     <button onClick={(e) => setEdit(!edit)}>edit</button>

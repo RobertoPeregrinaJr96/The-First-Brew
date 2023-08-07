@@ -60,9 +60,13 @@ const PostReview = ({ coffee, user }) => {
     console.log("ERRORS:", errors)
     return (
         <div className="review-post-wrapper">
+            <p className='review-post-p'>Post Your Review</p>
             <form className='review-post-form' onSubmit={(e) => handleSubmit(e)} >
-                <label>
-                    Title
+                <p className='character-errors'>{errors.title}</p>
+                <div className='review-post-div-wrapper'>
+                    <label for='title'>
+                        Title
+                    </label>
                     <input
                         className='review-post-input'
                         title='Please enter a title between 1 to 30 characters long'
@@ -70,30 +74,39 @@ const PostReview = ({ coffee, user }) => {
                         onChange={(e) => setTitle(e.target.value)}
                         type='Text'
                         min={1} max={30}
+                        name='title'
                     >
                     </input>
-                    <p className='character-counter'>{title?.length}/30</p>
-                    <p className='errors'>{errors.title}</p>
-                </label>
-                <label>
-                    Review
+                </div>
+                <p className='character-counter'>{title?.length}/30</p>
+                <p className='character-errors'>{errors.review}</p>
+                <div className='review-post-div-wrapper'>
+                    <label for='review'>
+                        Review
+                    </label>
                     <textarea
+                        name='review'
                         className='review-post-textarea'
                         title='Please write a review between 1 to 1000 characters long'
                         placeholder="Review"
                         onChange={(e) => setReview(e.target.value)}
                     >
                     </textarea>
-                    <p className='character-counter'>{review?.length}/1000</p>
-                </label>
-                <p className='errors'>{errors.review}</p>
+                </div>
+                <p className='character-counter'>{review?.length}/1000</p>
                 <div className='review-post-div-buttons'>
-                    <button className='post-submit' onClick={(e) => closeModal()}> Cancel
-                    </button>
-                    <button
-                        className='post-cancel'
-                        type='submit'>Submit
-                    </button>
+                    <div className='bttn-div'>
+                        <button className='post-submit' onClick={(e) => closeModal()}> Cancel
+                        </button>
+
+                    </div>
+                    <div className='bttn-div'>
+                        <button
+                            className='post-cancel'
+                            type='submit'>Submit
+                        </button>
+
+                    </div>
                 </div>
 
 

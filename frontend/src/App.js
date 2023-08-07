@@ -26,6 +26,7 @@ function App() {
         <Route exact path='/cart' component={ShoppingCart} />
         <Route exact path='/profile' component={UserProfile} />
         <Route exact path='/coffee/:coffeeId' component={CoffeeById} />
+        <Route path='/*' component={SplashPage} />
       </Switch>}
     </>
   );

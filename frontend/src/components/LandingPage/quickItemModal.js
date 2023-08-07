@@ -18,17 +18,23 @@ const ItemModal = ({ coffee, user }) => {
     const items = cartsObj?.Items;
     const cart = userCartArr ? userCartArr[0] : []
     const item = items?.find(item => item?.coffeeId === coffee.id)
+    const defaultArray = coffee['default']?.split('-')
+    console.log(defaultArray)
     // UseStates
+    const [size, setSize] = useState(defaultArray[0])
+    const [milk, setMilk] = useState(defaultArray[1])
+    const [temperature, setTemperature] = useState(defaultArray[2])
+    const [shot, setShot] = useState(defaultArray[3])
     const [boolean, setBoolean] = useState()
     const [goober, setGoober] = useState()
     const [quantity, setQuantity] = useState(item?.quantity)
     // Functions
     const testPost = async (e) => {
         const instructions = {
-            size: 'Small',
-            milk: '2% Milk',
-            temperature: 'Warm',
-            shot: 'No Espresso shot',
+            size,
+            milk,
+            temperature,
+            shot,
             custom: ''
         }
         dispatch(fetchPostOneItem(coffee?.id, cart?.id, instructions));
@@ -70,11 +76,11 @@ const ItemModal = ({ coffee, user }) => {
             <div>
             </div>
             <div className='landingPage-coffee-div'>
-                <p className='landingPage-coffee-price'>Coffee Price:$ {coffee.price?.toFixed(2)} *</p>
-                <p className='coffee-default-state'>* Default *: Size:"Small", Creamer:"2% Milk", Temperature:"Warm", Espresso shot:"No Espresso shot"</p>
+                <p className='landingPage-coffee-price'>Base Item Price:$ {coffee.price?.toFixed(2)} *</p>
+                <p className='coffee-default-state'>{`* Default *: Size:${defaultArray[0]}, Creamer:${defaultArray[1]}, Temperature:${defaultArray[2]}, Espresso shot:${defaultArray[3]}`}</p>
                 <p
                     className='nav-to-coffee'
-                    onClick={(e) => coffeeNav()}>For More Info click here
+                    onClick={(e) => coffeeNav()}>For More Available Options And Or Information Click Here
                 </p>
             </div>
             <div className='landingPage-loggedIn-function'>

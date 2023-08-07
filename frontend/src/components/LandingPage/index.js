@@ -16,10 +16,10 @@ const SplashPage = () => {
     const dispatch = useDispatch();
     const history = useHistory()
 
+    const user = useSelector(state => state.session.user)
     const coffeeObj = useSelector(state => state.coffee.allCoffee)
     const coffees = Object.values(coffeeObj)
 
-    const user = useSelector(state => state.session.user)
 
     const compClick = (coffee, user) => {
         <OpenModalButton>
@@ -28,8 +28,10 @@ const SplashPage = () => {
     }
 
     useEffect(() => {
+        if (user !== undefined) {
+            if (user) dispatch(fetchUserCartThunk(user?.id))
+        }
         dispatch(fetchAllCoffeeThunk())
-        if (user) dispatch(fetchUserCartThunk(user?.id))
 
     }, [dispatch])
 

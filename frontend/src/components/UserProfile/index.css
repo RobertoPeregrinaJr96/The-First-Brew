@@ -1,14 +1,13 @@
 .main-profile-wrapper {
-  border: solid 1px salmon;
+  /* border: solid 1px salmon; */
   display: grid;
   justify-content: center;
   align-items: center;
   row-gap: 20px;
   /* height: 40rem; */
-
 }
 .profile-layout {
-  border: solid 1px salmon;
+  /* border: solid 1px salmon; */
   width: 40rem;
   display: grid;
   justify-content: center;
@@ -16,38 +15,87 @@
   border-radius: 10px;
   background-color: var();
 }
-.user-img-wrapper {
+/* .user-img-wrapper {
   border: solid 1px salmon;
-}
+} */
 
 .profile-user-img {
-  border: solid 1px salmon;
+  /* border: solid 1px salmon; */
   height: 20rem;
   width: 20em;
   border-radius: 50%;
 }
 .user-info-wrapper {
-  border: solid 1px salmon;
+  /* border: solid 1px salmon; */
   display: grid;
   justify-content: center;
   align-items: center;
 }
 .profile-default {
-  border: solid 1px salmon;
+  /* border: solid 1px salmon; */
   display: grid;
   justify-content: center;
   align-items: center;
   height: 20rem;
 }
 .edit-profile-form {
-  border: solid 1px salmon;
+  /* border: solid 1px salmon; */
   display: grid;
   justify-content: center;
   align-items: center;
   height: 20rem;
 }
 .edit-label {
-  border: solid 1px salmon;
+  /* border: solid 1px salmon; */
   display: flex;
   justify-content: space-around;
+}
+/* Delete */
+.delete-user-wrapper {
+  background-color: var(--modal-bg);
+  display: grid;
+  grid-template-rows: 50% 10% 20%;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+  border-radius: 20pt;
+}
+.delete-user-wrapper p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+.delete-user-errors {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+.delete-user-button-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  align-items: center;
+}
+.delete-user-button-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.delete-user-cancel {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 20pt;
+}
+.delete-user-submit {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 20pt;
 }

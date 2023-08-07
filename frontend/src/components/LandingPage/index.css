@@ -1,5 +1,5 @@
 .landingPage-wrapper {
-  border: solid 1px rgb(99, 65, 95);
+  /* border: solid 1px rgb(99, 65, 95); */
   display: grid;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
 }
 
 .landingPage-div-h1 {
-  border: solid 1px rgb(105, 170, 210);
+  /* border: solid 1px rgb(105, 170, 210); */
   /* background-color: #dc9e82; */
   display: grid;
   justify-content: center;
@@ -16,7 +16,7 @@
 }
 
 .mega-div-ul-wrapper {
-  border: solid 1px rgb(157, 203, 20);
+  /* border: solid 1px rgb(157, 203, 20); */
   display: grid;
   justify-content: center;
   align-items: center;
@@ -24,8 +24,7 @@
 }
 
 .landingPage-ul {
-  border: solid 1px rgb(122, 7, 112);
-
+  /* border: solid 1px rgb(122, 7, 112); */
   width: 59rem;
   height: 28rem;
 }
@@ -41,7 +40,7 @@
 }
 .landingPage-carousel {
   height: rem;
-  border: solid 1px rgb(122, 7, 112);
+  /* border: solid 1px rgb(122, 7, 112); */
 }
 .carousel {
   position: relative;
@@ -55,7 +54,7 @@
   padding: 0;
   text-align: center;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
 }
 .slide {
   display: grid;
@@ -140,6 +139,10 @@
 }
 .thumbs .animated {
   height: 10rem;
+  cursor: pointer;
+}
+.thumbs{
+  cursor: pointer;
 }
 .carousel {
   position: relative;
@@ -187,7 +190,7 @@
   height: 16rem;
 }z */
 .item-modal-li {
-  border: solid 1px rgb(65, 60, 98);
+  /* border: solid 1px rgb(65, 60, 98); */
   height: 100%;
   width: 100%;
 }
@@ -210,7 +213,7 @@
   border-radius: 20pt;
 }
 .coffee-img {
-  border: solid 1px red;
+  /* border: solid 1px red; */
   height: 100%;
   width: 100%;
 }
@@ -221,6 +224,9 @@
   align-items: center;
   height: 3rem;
   padding: 20px;
+}
+.coffee-div-img-wrapper button{
+  cursor: pointer;
 }
 /* .landingPage-cart-div-wrapper {
 
@@ -234,7 +240,7 @@
   /* background-color: var(--bg-color); */
   height: fit-content;
   width: 100rem;
-  border: solid 2px black;
+  /* border: solid 2px black; */
 }
 .landing-page-info- {
   display: grid;
@@ -357,14 +363,14 @@
 }
 @media screen and (max-width: 1600px) {
   .landingPage-wrapper {
-    border: solid 1px rgb(99, 65, 95);
+    /* border: solid 1px rgb(99, 65, 95); */
     display: grid;
     justify-content: center;
     align-items: center;
     height: fit-content;
   }
   .mega-div-ul-wrapper {
-    border: solid 1px rgb(157, 203, 20);
+    /* border: solid 1px rgb(157, 203, 20); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -379,10 +385,10 @@
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
-    border: solid 2px black;
+    /* border: solid 2px black; */
   }
   .landing-page-info-div {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -391,14 +397,14 @@
     padding: 20px;
   }
   .landing-page-info-div-p {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
-    font-size: 7px;
+    font-size: 15px;
     /* height: fit-content; */
     /* width: fit-content; */
   }
   .landing-page-info-div-1 {
-    background-color: rgb(67, 125, 161);
+    /* background-color: rgb(67, 125, 161); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -407,7 +413,7 @@
     /* padding: 20px; */
   }
   .landing-page-info-div-4 {
-    background-color: rgb(67, 125, 161);
+    /* background-color: rgb(67, 125, 161); */
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: center;
@@ -417,7 +423,7 @@
     padding: 0px;
   }
   #links-wrapper {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     grid-template-columns: none;
     /* height: 18rem; */
@@ -426,7 +432,7 @@
     /* font-size: 7px; */
   }
   .dev-links {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     /* justify-content: center; */
     /* align-items: center; */
@@ -450,14 +456,14 @@
 }
 @media screen and (max-width: 1440px) {
   .landingPage-wrapper {
-    border: solid 1px rgb(99, 65, 95);
+    /* border: solid 1px rgb(99, 65, 95); */
     display: grid;
     justify-content: center;
     align-items: center;
     height: fit-content;
   }
   .mega-div-ul-wrapper {
-    border: solid 1px rgb(157, 203, 20);
+    /* border: solid 1px rgb(157, 203, 20); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -472,10 +478,10 @@
     height: -moz-fit-content;
     height: fit-content;
     width: 100%;
-    border: solid 2px black;
+    /* border: solid 2px black; */
   }
   .landing-page-info-div {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -484,14 +490,14 @@
     padding: 20px;
   }
   .landing-page-info-div-p {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
-    font-size: 7px;
+    font-size: 15px;
     /* height: fit-content; */
     /* width: fit-content; */
   }
   .landing-page-info-div-1 {
-    background-color: rgb(67, 125, 161);
+    /* background-color: rgb(67, 125, 161); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -500,7 +506,7 @@
     /* padding: 20px; */
   }
   .landing-page-info-div-4 {
-    background-color: rgb(67, 125, 161);
+    /* background-color: rgb(67, 125, 161); */
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: center;
@@ -510,7 +516,7 @@
     padding: 0px;
   }
   #links-wrapper {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     grid-template-columns: none;
     /* height: 18rem; */
@@ -519,7 +525,7 @@
     /* font-size: 7px; */
   }
   .dev-links {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     /* justify-content: center; */
     /* align-items: center; */
@@ -550,32 +556,32 @@
     border-radius: 20pt;
 }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
 
   /* landing */
   .landingPage-wrapper {
-    border: solid 1px rgb(99, 65, 95);
+    /* border: solid 1px rgb(99, 65, 95); */
     display: grid;
     justify-content: center;
     align-items: center;
     height: fit-content;
   }
   .landingPage-div-h1 {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     /* background-color: #dc9e82; */
     display: grid;
     justify-content: center;
     align-items: center;
   }
   .mega-div-ul-wrapper {
-    border: solid 1px rgb(157, 203, 20);
+    /* border: solid 1px rgb(157, 203, 20); */
     display: grid;
     justify-content: center;
     align-items: center;
     /* width: 100rem; */
   }
   .coffee-div-img-wrapper {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
     justify-content: center;
@@ -591,7 +597,7 @@
     /* background-color: var(--bg-color); */
     height: fit-content;
     /* width: 75%; */
-    border: solid 2px black;
+    /* border: solid 2px black; */
   }
   .coffee-div-img button {
     height: 2rem;
@@ -601,7 +607,7 @@
     font-weight: bold;
   }
   .landing-page-info- {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -609,7 +615,7 @@
     padding: 20px; */
   }
   .landing-page-info-div {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -618,14 +624,14 @@
     padding: 20px;
   }
   .landing-page-info-div-p {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
-    font-size: 7px;
+    font-size: 18px;
     /* height: fit-content; */
     /* width: fit-content; */
   }
   .landing-page-info-div-1 {
-    background-color: rgb(67, 125, 161);
+    /* background-color: rgb(67, 125, 161); */
     display: grid;
     justify-content: center;
     align-items: center;
@@ -634,7 +640,7 @@
     /* padding: 20px; */
   }
   .landing-page-info-div-4 {
-    background-color: rgb(67, 125, 161);
+    /* background-color: rgb(67, 125, 161); */
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: center;
@@ -644,7 +650,7 @@
     padding: 0px;
   }
   #links-wrapper {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     grid-template-columns: none;
     /* height: 18rem; */
@@ -653,7 +659,132 @@
     /* font-size: 7px; */
   }
   .dev-links {
-    border: solid 1px rgb(105, 170, 210);
+    /* border: solid 1px rgb(105, 170, 210); */
+    display: grid;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* grid-template-rows: 30% 30%; */
+    color: black;
+    text-decoration: none;
+    font-size: 7px;
+    height: 100%;
+  }
+  .dev-links a {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+
+  /* landing */
+  .landingPage-wrapper {
+    /* border: solid 1px rgb(99, 65, 95); */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+  }
+  .landingPage-div-h1 {
+    /* border: solid 1px rgb(105, 170, 210); */
+    /* background-color: #dc9e82; */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .mega-div-ul-wrapper {
+    /* border: solid 1px rgb(157, 203, 20); */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* width: 100rem; */
+  }
+  .coffee-div-img-wrapper {
+    /* border: solid 1px rgb(105, 170, 210); */
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    padding: 20px;
+  }
+  .landing-page-info-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--bg-color); */
+    height: fit-content;
+    /* width: 75%; */
+    /* border: solid 2px black; */
+  }
+  .coffee-div-img button {
+    height: 2rem;
+    width: 5rem;
+    border-radius: 20pt;
+    font-size: 9px;
+    font-weight: bold;
+  }
+  .landing-page-info- {
+    /* border: solid 1px rgb(105, 170, 210); */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* height: 20rem;
+    padding: 20px; */
+  }
+  .landing-page-info-div {
+    /* border: solid 1px rgb(105, 170, 210); */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* height: 20rem; */
+    width: 10rem;
+    padding: 20px;
+  }
+  .landing-page-info-div-p {
+    /* border: solid 1px rgb(105, 170, 210); */
+    display: grid;
+    font-size: 18px;
+    /* height: fit-content; */
+    /* width: fit-content; */
+  }
+  .landing-page-info-div-1 {
+    /* background-color: rgb(67, 125, 161); */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* height: fit-content; */
+    width: 20rem;
+    /* padding: 20px; */
+  }
+  .landing-page-info-div-4 {
+    /* background-color: rgb(67, 125, 161); */
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    /* height: 20rem; */
+    width: 30rem;
+    padding: 0px;
+  }
+  #links-wrapper {
+    /* border: solid 1px rgb(105, 170, 210); */
+    display: grid;
+    grid-template-columns: none;
+    /* height: 18rem; */
+    height: 100%;
+    width: 15rem;
+    /* font-size: 7px; */
+  }
+  .dev-links {
+    /* border: solid 1px rgb(105, 170, 210); */
     display: grid;
     /* justify-content: center; */
     /* align-items: center; */

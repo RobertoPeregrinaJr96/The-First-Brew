@@ -1,0 +1,315 @@
+/* Not Logged IN */
+.detail-noUser-div-container-top {
+}
+.detail-noUser-img {
+}
+.detail-noUser-div-header {
+}
+.detail-noUser-h1 {
+}
+.detail-noUser-description {
+}
+.detail-noUser-p {
+}
+@media screen and (max-width: 1440px) {
+  .detail-noUser-div-container-top {
+  }
+  .detail-noUser-img {
+  }
+  .detail-noUser-div-header {
+  }
+  .detail-noUser-h1 {
+  }
+  .detail-noUser-description {
+  }
+  .detail-noUser-p {
+  }
+}
+@media screen and (max-width: 1200px) {
+  .detail-noUser-div-container-top {
+  }
+  .detail-noUser-img {
+  }
+  .detail-noUser-div-header {
+  }
+  .detail-noUser-h1 {
+  }
+  .detail-noUser-description {
+  }
+  .detail-noUser-p {
+  }
+}
+@media screen and (max-width: 1024px) {
+  .detail-noUser-div-container-top {
+  }
+  .detail-noUser-img {
+  }
+  .detail-noUser-div-header {
+  }
+  .detail-noUser-h1 {
+  }
+  .detail-noUser-description {
+  }
+  .detail-noUser-p {
+  }
+}
+/* ===================================== */
+/* INDEX */
+.detail-main-block-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.detail-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 140rem;
+}
+.hail-mary {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.detail-div-container-top {
+  display: grid;
+  justify-self: center;
+  align-items: center;
+}
+.detail-img {
+  display: grid;
+  justify-self: center;
+  align-items: center;
+}
+.detail-img img {
+  height: 40rem;
+  width: 40rem;
+  border-radius: 50%;
+}
+.detail-div-header {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.detail-h1 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+.detail-description {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: center;
+  align-items: center;
+  height: 50rem;
+}
+.detail-p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+.detail-div-component {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+/* ----------------------------------------- */
+@media screen and (max-width: 1440px) {
+  .detail-main-block-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 140rem;
+  }
+  .hail-mary {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-div-container-top {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+  }
+  .detail-img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+  }
+  .detail-img img {
+    height: 30rem;
+    width: 30rem;
+    border-radius: 50%;
+  }
+  .detail-div-header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+  }
+  .detail-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .detail-p {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .detail-div-component {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* ----------------------------------------- */
+@media screen and (max-width: 1200px) {
+  .detail-main-block-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 140rem;
+  }
+  .hail-mary {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-div-container-top {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+  }
+  .detail-img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+  }
+  .detail-img img {
+    height: 30rem;
+    width: 30rem;
+    border-radius: 50%;
+  }
+  .detail-div-header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+  }
+  .detail-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .detail-p {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .detail-div-component {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* ----------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .detail-main-block-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 140rem;
+  }
+  .hail-mary {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-div-container-top {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+  }
+  .detail-img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+  }
+  .detail-img img {
+    height: 30rem;
+    width: 30rem;
+    border-radius: 50%;
+  }
+  .detail-div-header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+  }
+  .detail-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .detail-p {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .detail-div-component {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+}

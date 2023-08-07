@@ -1,0 +1,229 @@
+.cart-div-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.cart-bg-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 125rem;
+}
+.cart-style-div {
+}
+.cart-h1 {
+}
+.cart-div-ul {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50rem;
+  width: 120rem;
+  overflow-y: scroll;
+  row-gap: 30px;
+}
+
+.cart-div-li {
+  display: grid;
+  grid-template-columns: 40% 50% 30% 25% 20% 10%;
+}
+.cart-item-instructions-div button {
+  border-radius: 20pt;
+  height: 2rem;
+}
+
+.cart-div-quantity-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 30% 30% 30%;
+}
+
+.cart-div-quantity-update {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-div-quantity-total {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+}
+
+.cart-div-quantity-update {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+}
+.cart-div-quantity-delete {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  border-radius: 20pt;
+}
+.cart-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.cart-footer {
+  display: grid;
+  justify-content: end;
+  align-items: center;
+  grid-template-columns: 20% 10%;
+}
+.cart-footer-div {
+  grid-template-columns: 50% 50%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.checkout {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+/* Update Instructions Modal */
+
+.instructions-update-main-wrapper {
+  background-color: var(--modal-bg);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50rem;
+  grid-template-rows: 30% 50%;
+  border-radius: 20pt;
+}
+.instructions-update-main-wrapper p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.instructions-update-form {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+}
+.update-form-div {
+  display: grid;
+  grid-template-columns: 30% 60%;
+  /* justify-content: center; */
+  align-items: center;
+  height: 3rem;
+  width: 25rem;
+}
+.update-bttn-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 50% 50%;
+}
+.update-bttn-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.instructions-update-form p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+}
+.instructions-update-form label {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+}
+.instructions-update-form textarea {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 25rem;
+}
+.instructions-update-form select {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 25rem;
+  border-radius: 20pt;
+}
+.instructions-update-form button {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 10rem;
+  border-radius: 20pt;
+}
+/* Checkout modal */
+
+.checkout-div-wrapper {
+  background-color: var(--modal-bg);
+  height: 30rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+}
+
+.checkout-p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.checkout-button-div {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+}
+.checkout-buttons {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.checkout-button-cancel {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+  height: 3rem;
+  width: 10rem;
+  font-size: 20px;
+}
+
+.checkout-button-submit {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20pt;
+    height: 3rem;
+    width: 10rem;
+    font-size: 20px;
+}
+.fa-circle-check {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: #24a239;
+  font-size: 10rem;
+}
+.checkout-icon-p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}

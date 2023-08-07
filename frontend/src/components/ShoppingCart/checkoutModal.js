@@ -7,23 +7,32 @@ import './index.css'
 
 
 const CheckoutModel = ({ items }) => {
-
+    const [hidden, setHidden] = useState(false)
     const [boolean, setBoolean] = useState()
     const dispatch = useDispatch()
     const { closeModal } = useModal()
 
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (items) {
-            items.map(item => {
-                dispatch(fetchDeleteItemThunk(item.id))
-            })
-            dispatch(fetchUserCartThunk())
+            setHidden(!hidden)
+            setTimeout(() => {
+                if (items) {
+                    items.map(item => {
+                        dispatch(fetchDeleteItemThunk(item.id))
+                    })
 
-            setBoolean(!boolean)
+                }
+                dispatch(fetchUserCartThunk())
+                setBoolean(!boolean)
+                setHidden(!hidden)
+                closeModal()
+
+            }, 1000);
         }
-        closeModal()
-        window.alert(" PLACEHOLDER : Your Cart has Successfully been Checkout")
+        dispatch(fetchUserCartThunk())
+
+        // window.alert(" PLACEHOLDER : Your Cart has Successfully been Checkout")
     }
 
 
@@ -31,17 +40,36 @@ const CheckoutModel = ({ items }) => {
         dispatch(fetchUserCartThunk())
     }, [dispatch, boolean])
 
-    return (
-        <div className='checkout-div-wrapper'>
-            <p></p>
-            <p className='checkout-p'>Are you ready to Checkout your items?</p>
-            <p className='checkout-p'>Please Review your items before preceding</p>
-            <div className='checkout-button-div'>
-                <button className='checkout-button-cancel' onClick={() => closeModal()}>go back to cart</button>
-                <button className='checkout-button-submit' onClick={() => handleSubmit()}>Confirm</button>
+    if (!hidden) {
+        return (
+            <div className='checkout-div-wrapper'>
+                <p></p>
+                <p className='checkout-p'>Are you ready to Checkout your items?</p>
+                <p className='checkout-p'>Please Review your items before preceding</p>
+                <div className='checkout-button-div'>
+                    <div className='checkout-buttons'>
+                        <button className='checkout-button-cancel' onClick={() => closeModal()}>Cancel</button>
+
+                    </div>
+                    <div className='checkout-buttons'>
+                        <button className='checkout-button-submit' onClick={() => handleSubmit()}>Confirm</button>
+
+                    </div>
+                </div>
             </div>
-        </div>
-    )
+        )
+
+    }
+    if (hidden) {
+        return (
+            <div className='checkout-div-wrapper'>
+                <p className='checkout-icon-p'>Checking out</p>
+                <p>
+                    <i class="fa-solid fa-circle-check fa-beat"  ></i>
+                </p>
+            </div>
+        )
+    }
 }
 
 export default CheckoutModel
