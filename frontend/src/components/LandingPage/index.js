@@ -17,6 +17,7 @@ const SplashPage = () => {
     const history = useHistory()
 
     const user = useSelector(state => state.session.user)
+    console.log(user)
     const coffeeObj = useSelector(state => state.coffee.allCoffee)
     const coffees = Object.values(coffeeObj)
 
@@ -28,8 +29,8 @@ const SplashPage = () => {
     }
 
     useEffect(() => {
-        if (user !== undefined) {
-            if (user) dispatch(fetchUserCartThunk(user?.id))
+        if (user !== undefined && user !== null) {
+            if (user !== undefined && user !== null) dispatch(fetchUserCartThunk())
         }
         dispatch(fetchAllCoffeeThunk())
 

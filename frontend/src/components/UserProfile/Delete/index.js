@@ -3,6 +3,7 @@ import { fetchDeleteUserThunk } from "../../../store/user";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../../context/Modal";
 import { useState } from "react";
+import { logout } from "../../../store/session";
 
 const DeleteModal = () => {
 
@@ -23,6 +24,7 @@ const DeleteModal = () => {
         }
         if (Object.values(err).length === 0) {
             dispatch(fetchDeleteUserThunk(id))
+            dispatch(logout())
             closeModal()
             history.push("/")
         }
