@@ -187,7 +187,7 @@ function SignupFormModal() {
         )}
         <label>
           Avatar
-          <input type="file" onChange={updateFile} />
+          <input type="file"  onChange={updateFile} required/>
         </label>
         <div className="button-div-sign-up">
           <button
