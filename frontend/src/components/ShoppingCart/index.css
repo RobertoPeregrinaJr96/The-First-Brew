@@ -3,12 +3,15 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  background: url("https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg");
+  background-size: cover;
+  padding: 20px;
 }
 .cart-bg-div {
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 125rem;
+  /* width: 125rem; */
 }
 .cart-style-div {
 }
@@ -19,14 +22,19 @@
   justify-content: center;
   align-items: center;
   height: 50rem;
-  width: 120rem;
+  /* width: 120rem; */
   overflow-y: scroll;
   row-gap: 30px;
+  padding: 20px;
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
 }
 
 .cart-div-li {
   display: grid;
-  grid-template-columns: 40% 50% 30% 25% 20% 10%;
+  grid-template-columns: 12% 35% 12% 5% 20% 10%;
+  width: 80rem;
 }
 .cart-item-instructions-div button {
   border-radius: 20pt;
@@ -70,12 +78,16 @@
   display: grid;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 }
 .cart-footer {
   display: grid;
   justify-content: end;
   align-items: center;
   grid-template-columns: 20% 10%;
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
 }
 .cart-footer-div {
   grid-template-columns: 50% 50%;
@@ -88,6 +100,15 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 1024px) {
+  .cart-div-li {
+    display: grid;
+    grid-template-columns: 12% 35% 12% 5% 20% 10%;
+    width: 50rem;
+  }
+}
+
 /* Update Instructions Modal */
 
 .instructions-update-main-wrapper {
@@ -166,6 +187,22 @@
   width: 10rem;
   border-radius: 20pt;
 }
+@media screen and (max-width: 1024px) {
+  .instructions-update-form select {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 15rem;
+  }
+  .instructions-update-form textarea {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 15rem;
+  }
+}
 /* Checkout modal */
 
 .checkout-div-wrapper {
@@ -206,13 +243,13 @@
 }
 
 .checkout-button-submit {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20pt;
-    height: 3rem;
-    width: 10rem;
-    font-size: 20px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+  height: 3rem;
+  width: 10rem;
+  font-size: 20px;
 }
 .fa-circle-check {
   display: grid;

@@ -76,10 +76,13 @@ const SplashPage = () => {
                         <div className='landing-page-info-div-1'>
                             <p className='landing-page-info-div-p'> Welcome to our cozy and cherished neighborhood coffee haven! Nestled in the heart of our community, our humble coffee shop is a beacon of warmth and the perfect retreat for all coffee aficionados. While we may specialize in just one thing—coffee—we pour our hearts into every cup, creating an experience that keeps locals coming back for more. Our coffee shop is more than just a place to grab your daily dose of caffeine. It's a gathering spot where friendships are forged and stories are shared. Our walls reverberate with laughter, animated conversations, and the hum of community connections being formed. Whether you're a busy professional seeking a quick jolt of energy or a laid-back local savoring the company of friends, our doors are open to all step inside and be enveloped by the rich aromas of freshly brewed beans, lovingly sourced from sustainable and ethical growers. Our skilled baristas, armed with their passion and expertise, transform these beans into liquid gold, crafting exquisite cups of coffee that awaken the senses and delight the palate.</p>
                         </div>
-                        <div className='landing-page-info-div'>2</div>
+                        <div className='landing-page-info-div'>
+                        </div>
                     </div >
                     <div className='landing-page-info-'>
-                        <div className='landing-page-info-div'>3</div>
+                        <div className='landing-page-info-div'>
+                            <img className='landing-page-info-div-img' src='https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/stock_coffee_machine.jpg'></img>
+                        </div>
                         <div className='landing-page-info-div-4'>
                             <div id="links-wrapper">
                                 <p>Meet the Developer: <br />Roberto Peregrina Jr </p>

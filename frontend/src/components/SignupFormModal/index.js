@@ -31,10 +31,6 @@ function SignupFormModal() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // const isEmailFormat = (email) => {
-    //   return /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
-    // }
-
     const err = {}
     // if (isEmailFormat(newUser.email)) err.email = "Email Format is incorrect"
     if (newUser.email.length < 3) err.email = "Email must contain a least 3 character"

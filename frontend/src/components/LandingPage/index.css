@@ -4,6 +4,8 @@
   justify-content: center;
   align-items: center;
   height: fit-content;
+  background: url("https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg");
+  background-size: cover;
 }
 
 .landingPage-div-h1 {
@@ -141,7 +143,7 @@
   height: 10rem;
   cursor: pointer;
 }
-.thumbs{
+.thumbs {
   cursor: pointer;
 }
 .carousel {
@@ -219,13 +221,15 @@
 }
 .coffee-div-img-wrapper {
   display: grid;
+  background-color: rgba(0, 0, 0, 0.878);
   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
   justify-content: center;
   align-items: center;
   height: 3rem;
   padding: 20px;
+  border-radius: 20pt;
 }
-.coffee-div-img-wrapper button{
+.coffee-div-img-wrapper button {
   cursor: pointer;
 }
 /* .landingPage-cart-div-wrapper {
@@ -264,39 +268,45 @@
   width: fit-content;
 }
 .landing-page-info-div-1 {
-  /* background-color: rgb(67, 125, 161); */
+  background-color: rgba(0, 0, 0, 0.878);
   display: grid;
+  color: white;
   justify-content: center;
   align-items: center;
   height: fit-content;
   width: 40rem;
   padding: 20px;
+  border-radius: 20pt;
 }
 .landing-page-info-div-4 {
-  /* background-color: rgb(67, 125, 161); */
+  background-color: rgba(0, 0, 0, 0.878);
   display: grid;
+  grid-template-columns: 50% 50%;
   justify-content: center;
   align-items: center;
   height: 20rem;
-  width: 40rem;
-  padding: 20px;
+  width: 30rem;
+  border-radius: 20pt;
 }
 #links-wrapper {
+  color: white;
   display: grid;
   grid-template-columns: 50% 50%;
   height: 18rem;
   width: 35rem;
+  padding: 20px;
   font-size: 30px;
 }
 .dev-links {
   display: grid;
   grid-template-rows: 30% 30%;
-  color: black;
   text-decoration: none;
   font-size: 30px;
+  color: white;
+  row-gap: 10px;
 }
 .dev-links a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 30px;
 }
@@ -356,9 +366,24 @@
 .landingPage-cart-div-quantity-post {
   cursor: pointer;
 }
+.landing-page-info-div img {
+  display: grid;
+  justify-self: center;
+  align-items: center;
+  height: 30rem;
+  border-radius: 20pt;
+  width: 30rem;
+}
 @media screen and (min-width: 2560px) {
   .landingPage-div-h1 {
     width: 100rem;
+  }
+  .landing-page-info-div img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    height: 25rem;
+    width: 25rem;
   }
 }
 @media screen and (max-width: 1600px) {
@@ -447,11 +472,19 @@
     justify-self: center;
     align-items: center;
     grid-template-columns: 50% 50%;
-    color: #ffffff;
+    color: black;
+
     text-decoration: none;
     font-size: 30px;
     width: 100%;
     height: 100%;
+  }
+  .landing-page-info-div img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    height: 25rem;
+    width: 25rem;
   }
 }
 @media screen and (max-width: 1440px) {
@@ -530,7 +563,6 @@
     /* justify-content: center; */
     /* align-items: center; */
     /* grid-template-rows: 30% 30%; */
-    color: black;
     text-decoration: none;
     font-size: 7px;
     height: 100%;
@@ -540,7 +572,8 @@
     justify-self: center;
     align-items: center;
     grid-template-columns: 50% 50%;
-    color: #ffffff;
+    color: white;
+
     text-decoration: none;
     font-size: 30px;
     width: 100%;
@@ -554,10 +587,16 @@
     /* width: 40rem; */
     height: fit-content;
     border-radius: 20pt;
-}
+  }
+  .landing-page-info-div img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    height: 25rem;
+    width: 25rem;
+  }
 }
 @media screen and (max-width: 1200px) {
-
   /* landing */
   .landingPage-wrapper {
     /* border: solid 1px rgb(99, 65, 95); */
@@ -664,7 +703,7 @@
     /* justify-content: center; */
     /* align-items: center; */
     /* grid-template-rows: 30% 30%; */
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 7px;
     height: 100%;
@@ -674,15 +713,23 @@
     justify-self: center;
     align-items: center;
     grid-template-columns: 50% 50%;
-    color: #ffffff;
+    color: rgb(255, 255, 255);
+
     text-decoration: none;
     font-size: 30px;
     width: 100%;
     height: 100%;
+  }
+  .landing-page-info-div img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    height: 25rem;
+    width: 25rem;
   }
 }
-@media screen and (max-width: 1024px) {
 
+@media screen and (min-width: 1024px) {
   /* landing */
   .landingPage-wrapper {
     /* border: solid 1px rgb(99, 65, 95); */
@@ -745,7 +792,7 @@
     justify-content: center;
     align-items: center;
     /* height: 20rem; */
-    width: 10rem;
+    width: 27rem;
     padding: 20px;
   }
   .landing-page-info-div-p {
@@ -765,31 +812,25 @@
     /* padding: 20px; */
   }
   .landing-page-info-div-4 {
-    /* background-color: rgb(67, 125, 161); */
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: center;
     align-items: center;
-    /* height: 20rem; */
+    height: 17rem;
     width: 30rem;
+    color: white;
     padding: 0px;
   }
   #links-wrapper {
-    /* border: solid 1px rgb(105, 170, 210); */
+    color: white;
     display: grid;
     grid-template-columns: none;
-    /* height: 18rem; */
     height: 100%;
     width: 15rem;
-    /* font-size: 7px; */
   }
   .dev-links {
-    /* border: solid 1px rgb(105, 170, 210); */
+    color: white;
     display: grid;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* grid-template-rows: 30% 30%; */
-    color: black;
     text-decoration: none;
     font-size: 7px;
     height: 100%;
@@ -799,10 +840,37 @@
     justify-self: center;
     align-items: center;
     grid-template-columns: 50% 50%;
-    color: #ffffff;
+
+    color: white;
     text-decoration: none;
     font-size: 30px;
     width: 100%;
     height: 100%;
+  }
+  .landing-page-info-div img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    height: 25rem;
+    width: 25rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .landing-page-info-div {
+    /* border: solid 1px rgb(105, 170, 210); */
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* height: 20rem; */
+    width: 25rem;
+    padding: 20px;
+}
+  .landing-page-info-div-img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+    height: 25rem;
+    width: 25rem;
+    padding-left: 14rem;
   }
 }

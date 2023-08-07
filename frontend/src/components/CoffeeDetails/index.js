@@ -47,8 +47,9 @@ const CoffeeById = () => {
     if (!user) {
         return (<div className='detail-noUser-div-container-top'>
             <div className='detail-noUser-img'>
-                <p className={`${(coffeeObj.name)?.toLowerCase()} img-p`}></p>
+                <img src={copy[0]?.img}></img>
             </div>
+            <p className={`${(coffeeObj.name)?.toLowerCase()} img-p`}></p>
             <div className='detail-noUser-div-header'>
 
                 <h1 className='detail-noUser-h1'>{coffeeObj.name},  price:${coffeeObj?.price?.toFixed(2)}</h1>

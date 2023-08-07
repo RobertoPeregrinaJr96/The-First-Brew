@@ -1,56 +1,172 @@
 /* Not Logged IN */
 .detail-noUser-div-container-top {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: url("https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg");
+  background-size: cover;
+  padding: 20px;
 }
 .detail-noUser-img {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.detail-noUser-img img {
+  height: 40rem;
+  width: 40rem;
+  border-radius: 50%;
 }
 .detail-noUser-div-header {
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 .detail-noUser-h1 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
 }
 .detail-noUser-description {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 60rem;
+  font-size: 35px;
+  padding: 20px;
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
 }
 .detail-noUser-p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
+
 @media screen and (max-width: 1440px) {
   .detail-noUser-div-container-top {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   .detail-noUser-img {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .detail-noUser-img img {
+    height: 40rem;
+    width: 40rem;
+    border-radius: 50%;
   }
   .detail-noUser-div-header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
   .detail-noUser-h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
   .detail-noUser-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
+    font-size: 35px;
   }
   .detail-noUser-p {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media screen and (max-width: 1200px) {
   .detail-noUser-div-container-top {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   .detail-noUser-img {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .detail-noUser-img img {
+    height: 40rem;
+    width: 40rem;
+    border-radius: 50%;
   }
   .detail-noUser-div-header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
   .detail-noUser-h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
   .detail-noUser-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
+    font-size: 35px;
   }
   .detail-noUser-p {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media screen and (max-width: 1024px) {
   .detail-noUser-div-container-top {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
   .detail-noUser-img {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .detail-noUser-img img {
+    height: 40rem;
+    width: 40rem;
+    border-radius: 50%;
   }
   .detail-noUser-div-header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
   .detail-noUser-h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
   .detail-noUser-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
+    font-size: 35px;
   }
   .detail-noUser-p {
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }
 }
 /* ===================================== */
@@ -59,7 +175,9 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  background: url("https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg");
+  background-size: cover;
+  padding: 20px;
 }
 .detail-wrapper {
   display: grid;
@@ -99,6 +217,10 @@
   justify-content: center;
   align-items: center;
   font-size: 4rem;
+  padding: 10px;
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
 }
 .detail-description {
   display: grid;
@@ -112,6 +234,10 @@
   justify-content: center;
   align-items: center;
   font-size: 3rem;
+  padding: 20px;
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
 }
 .detail-div-component {
   display: grid;
@@ -249,18 +375,18 @@
   }
 }
 /* ----------------------------------------- */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .detail-main-block-wrapper {
     display: grid;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /* width: 0%; */
   }
   .detail-wrapper {
     display: grid;
     justify-content: center;
     align-items: center;
-    width: 140rem;
+    width: 60rem;
   }
   .hail-mary {
     display: grid;
@@ -279,8 +405,8 @@
     align-items: center;
   }
   .detail-img img {
-    height: 30rem;
-    width: 30rem;
+    height: 20rem;
+    width: 20rem;
     border-radius: 50%;
   }
   .detail-div-header {
@@ -293,23 +419,91 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-size: 2rem;
   }
   .detail-description {
     display: grid;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    height: 35rem;
   }
   .detail-p {
     display: grid;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .detail-div-component {
     display: grid;
     justify-content: center;
     align-items: center;
+    width: 60rem;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .detail-main-block-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* width: 0%; */
+  }
+  .detail-wrapper {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
+  }
+  .hail-mary {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-div-container-top {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+  }
+  .detail-img {
+    display: grid;
+    justify-self: center;
+    align-items: center;
+  }
+  .detail-img img {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+  }
+  .detail-div-header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .detail-h1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .detail-description {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    height: 35rem;
+  }
+  .detail-p {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+  .detail-div-component {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
   }
 }

@@ -20,7 +20,9 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/">
           <img className='nav-list-img' src='https://cdn.discordapp.com/attachments/1088906268485357618/1118284501710295100/PngItem_30012.png' alt=''></img>
         </NavLink>
-        <h1 className='nav-h1'>The First Brew</h1>
+        <NavLink exact to="/">
+          <h1 className='nav-h1'>The First Brew</h1>
+        </NavLink>
       </div>
       <div className='nav-div-topRight'>
 

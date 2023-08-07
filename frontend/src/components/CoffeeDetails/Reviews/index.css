@@ -1,5 +1,6 @@
 .coffee-detail-wrapper {
-  border: solid 1px black;
+  border-bottom: solid 1px black;
+
   display: grid;
   justify-content: center;
   align-items: center;
@@ -11,12 +12,16 @@
   align-items: center;
   height: 4rem;
   padding: 10px;
-  border: solid 1px black;
+  border-bottom: solid 1px black;
+
 }
 .coffee-detail-button-switch button {
   height: 3rem;
   width: 10rem;
+  color: white;
+  background-color: var(--div-color);
   border-radius: 20pt;
+  cursor: pointer;
 }
 .coffee-detail-div-ul-wrapper {
   display: grid;
@@ -44,6 +49,10 @@
   display: grid;
   align-items: center;
   font-size: 30px;
+  padding: 10px;
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
 }
 .coffee-detail-div p {
   font-size: 30px;
@@ -52,6 +61,64 @@
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
+}
+@media screen and (min-width: 1024px) {
+  .coffee-detail-wrapper {
+    border-bottom: solid 1px black;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    padding: 30px;
+  }
+  .coffee-detail-button-switch {
+    display: grid;
+    align-items: center;
+    height: 4rem;
+    padding: 10px;
+    border-bottom: solid 1px black;
+
+  }
+  .coffee-detail-button-switch button {
+    height: 3rem;
+    width: 10rem;
+    border-radius: 20pt;
+  }
+  .coffee-detail-div-ul-wrapper {
+    display: grid;
+    align-items: center;
+    height: 50rem;
+    overflow: scroll;
+  }
+  .coffee-detail-ul {
+    display: grid;
+    align-items: center;
+    height: fit-content;
+    row-gap: 30px;
+  }
+  .butn-delete button {
+    height: 3rem;
+    width: 10rem;
+    border-radius: 20pt;
+  }
+  .coffee-detail-div-profile {
+    display: grid;
+    grid-template-columns: 5rem 30%;
+    align-items: center;
+  }
+  .coffee-detail-div {
+    display: grid;
+    align-items: center;
+    font-size: 1rem;
+  }
+  .coffee-detail-div p {
+    font-size: 1rem;
+  }
+  .review-user-img {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+  }
 }
 
 /* POST REVIEW */
