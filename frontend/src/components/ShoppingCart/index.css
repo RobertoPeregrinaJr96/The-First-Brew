@@ -110,6 +110,21 @@
     width: 50rem;
     font-size: 15px;
   }
+  .cart-div-ul {
+    display: grid;
+    width: 60rem;
+    justify-content: center;
+    align-items: center;
+    height: 50rem;
+    /* width: 120rem; */
+    overflow-y: scroll;
+    row-gap: 30px;
+    padding: 20px;
+    color: white;
+    background-color: var(--div-color);
+    border-radius: 20pt;
+  }
+
 }
 @media screen and (max-width: 1200px) {
   .cart-div-li {
