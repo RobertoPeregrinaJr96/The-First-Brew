@@ -30,15 +30,21 @@ const UserProfile = () => {
 
     // SUBMIT
     const handleSubmit = (e) => {
+
+        setFirst(first.trim())
+        setLast(last.trim())
+        setUsername(username.trim())
+        setEmail(email.trim())
+
         e.preventDefault();
 
         const err = {}
         setError(err)
         // min length
-        if (!first.length) err.first = "Cannot be empty"
-        if (!last.length) err.last = "Cannot be empty"
-        if (!username.length) err.username = "Cannot be empty"
-        if (!email.length) err.email = "Cannot be empty"
+        if (!first.trim().length) err.first = "Cannot be empty"
+        if (!last.trim().length) err.last = "Cannot be empty"
+        if (!username.trim().length) err.username = "Cannot be empty"
+        if (!email.trim().length) err.email = "Cannot be empty"
         console.log("err", err)
         // max length
         if (first.length > 30) err.first = "Cannot exceed 30 characters"
@@ -112,7 +118,6 @@ const UserProfile = () => {
                                 <label className='edit-label' for='phone'>
                                     Phone number:
                                     <input id='phone'
-                                        required
                                         type='number'
                                         value={phone}
                                         // placeholder={`${phone}`}
