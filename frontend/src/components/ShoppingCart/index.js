@@ -109,7 +109,7 @@ const ShoppingCart = () => {
                                             value.Addition['name']
                                         )
                                     })}`}</p>
-                                    <p className="cart-div">{`${item?.Instruction[0]?.['custom']}`}</p>
+                                    <p className="cart-div-custom">{`${item?.Instruction[0]?.['custom']}`}</p>
                                     <OpenModalButton
                                         buttonText={`Update Instructions`}
                                         modalComponent={<UpdateInstructions item={item} />}

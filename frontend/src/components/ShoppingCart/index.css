@@ -78,7 +78,7 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 .cart-footer {
   display: grid;
@@ -100,12 +100,15 @@
   justify-content: center;
   align-items: center;
 }
-
+.cart-div-custom{
+  overflow-y: scroll;
+}
 @media screen and (max-width: 1024px) {
   .cart-div-li {
     display: grid;
     grid-template-columns: 12% 35% 12% 5% 20% 10%;
     width: 50rem;
+    font-size: 15px;
   }
 }
 
