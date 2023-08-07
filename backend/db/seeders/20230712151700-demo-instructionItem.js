@@ -116,7 +116,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    options.tableName = 'instructionItems';
+    options.tableName = 'InstructionItems';
     return queryInterface.bulkInsert(options, instructionItems, {})
   },
 
@@ -127,7 +127,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    options.tableName = 'instructionItems';
+    options.tableName = 'InstructionItems';
     return queryInterface.bulkDelete(options, instructionItems, {})
   }
 };
