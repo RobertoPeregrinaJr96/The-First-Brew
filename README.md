@@ -8,9 +8,193 @@
 
 ## API Documentation
 
+## Users
+
+### GET User by Id
+
+- Require Authentication: true
+
+- Request
+
+  - Method: GET
+  - URL: /api/users/:userId
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```json
+  {
+    "id": 2,
+    "firstName": "jane",
+    "lastName": "Doe",
+    "phoneNumber": 2222222,
+    "profileImageUrl": "https://freeawsbucket.s3.us-west-1.amazonaws.com/user_seeders/pexels-demo2-.jpg",
+    "username": "FakeUser1"
+  }
+  ```
+
+- Successful Response
+
+  - status Code:200
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+```json
+{
+  "user": {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "demo@user.io",
+    "username": "Demo-lition"
+  }
+}
+```
+
+### GET All Users
+
+- Require Authentication: true
+
+- Request
+  - Method: GET
+  - URL: /api/users/
+- Successful Response
+
+  - status Code:200
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+```json
+{
+  "user": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "demo@user.io",
+      "username": "Demo-lition"
+    }
+  ]
+}
+```
+
+### POST Sign a new User
+
+- Require Authentication: false
+
+- Request
+
+  - Method: POST
+  - URL: /api/users
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```js
+    {
+        "email",
+        "username",
+        "hashedPassword",
+        "firstName",
+        "lastName",
+        "profileImageUrl",
+        "phoneNumber",
+    }
+  ```
+
+- Successful Response
+
+  - status Code:200
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```js
+    { "User":{
+          "id": ...,
+          "firstName": ...,
+          "lastName":  ...,
+          "email":  ...,
+          "username": ...,
+          "profileImageUrl":  ...,
+          "phoneNumber": ...,
+
+        }
+    };
+
+  ```
+
+### Update a Users information
+
+- Require Authentication: true
+
+- Request
+
+  - Method: PUT
+  - URL: /api/users/:userId
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```js
+    { "User":{
+          "id": ...,
+          "firstName": ...,
+          "lastName":  ...,
+          "email":  ...,
+          "username": ...,
+          "phoneNumber": ...,
+
+        }
+    };
+
+  ```
+
+- Successful Response
+
+  - status Code:200
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```js
+    { "User":{
+          "id": ...,
+          "firstName": ...,
+          "lastName":  ...,
+          "email":  ...,
+          "username": ...,
+          "phoneNumber": ...,
+        }
+    };
+
+  ```
+
+### Delete a User
+
+- Require Authentication: true
+
+- Request
+  - Method: GET
+  - URL: /api/users/:userId
+- Successful Response
+
+  - status Code:200
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```json
+  {
+    "message": "Successfully deleted"
+  }
+  ```
+
 ## Coffee
 
-### Returns All Coffee
+### GET All Coffee
 
 - Require Authentication: false
   - Request
@@ -35,7 +219,7 @@
       }
       ```
 
-### Returns Coffee by Id
+### GET Coffee by Id
 
 - Require Authentication: false
   - Request
@@ -57,7 +241,7 @@
       }
       ```
 
-### Create an Item
+### POST an Item
 
 - Creates and returns a new Item.
 
@@ -100,23 +284,7 @@
     }
     ```
 
-- Error Response: Body validation error
-
-  - Status Code: 400
-
-  - Headers:
-
-    - Content-Type: application/json
-
-    - Body:
-
-      ```json
-
-        To be added
-
-      ```
-
-### Return Reviews by Coffee Id
+### GET Reviews by Coffee Id
 
 - Require Authentication: false
   - Request
@@ -150,27 +318,32 @@
         ]
         ```
 
-### Create a Review for a Coffee
+### POST a Review for a Coffee
 
 - Require Authentication: false
+
   - Request
     - Method: POST
     - URL: /api/coffee/:coffeeId/reviews
     - Body:
-    ```json
-    {
-      "coffeeId": 1,
-      "userId": 2,
-      "title": "Heavenly Espresso Delight!",
-      "rating": 5,
-      "review": " <=== body ===>"
-    }
-    ```
+
+  ```json
+  {
+    "coffeeId": 1,
+    "userId": 2,
+    "title": "Heavenly Espresso Delight!",
+    "rating": 5,
+    "review": " <=== body ===>"
+  }
+  ```
+
   - Successful Response
+
     - status Code:200
     - Header:
       - Content-Type:application/json
       - Body:
+
     ```json
     {
       "coffeeId": 1,
@@ -183,7 +356,7 @@
 
 ## Reviews
 
-### Get All Reviews
+### GET All Reviews
 
 - Require Authentication: false
 
@@ -212,7 +385,7 @@
       ]
       ```
 
-### Get All of The Users Reviews
+### GET All of The Users Reviews
 
 - Require Authentication: false
 
@@ -240,14 +413,16 @@
       ]
       ```
 
-### Upate Reveiw
+### Update Review
 
 - Require Authentication: false
 
   - Request - Method: put
   - URL: /api/reviews
   - Request
+
     - Body:
+
       ```json
       {
         "title": "Heavenly Espresso Delight!",
@@ -255,11 +430,14 @@
         "review": " <=== body ===>"
       }
       ```
+
   - Successful Response
+
     - status Code:200
     - Header:
       - Content-Type:application/json
     - Body:
+
       ```json
       {
         "id": 1,
@@ -420,4 +598,140 @@
       {
         "message": "Review Successfully Deleted"
       }
+      ```
+
+### Update Instructions
+
+- Require Authentication: false
+
+  - Request
+    - Method: DELETE
+    - URL: /api/items/:itemId
+  - Successful Response
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```json
+  {
+    "additions": [
+      ["Extra Large", 29],
+      ["2% Milk", 30],
+      ["Very Hot", 31],
+      ["", 32]
+    ],
+    "custom": ["85555555555555555555555555555555555", 8]
+  }
+  ```
+
+  - status Code:200
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```json
+    {
+    "Item":{
+          "id":8,
+          "Coffee":{},
+          "Instruction":[{…}],
+          "cartId":1,
+          "coffeeId":8,
+          "instructionId":null,
+          "quantity":1,
+          "createdAt":"2023-08-07T00:57:47.000Z",
+          "updatedAt":"2023-08-07T00:57:47.000Z",
+          }
+    }
+  ```
+
+## Shopping Cart
+
+### GET all shopping carts
+
+- Require Authentication: true
+
+- Request
+  - Method: GET
+  - URL: /api/cart/
+- Successful Response
+
+  - status Code:200
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```json
+  {
+    "ShoppingCart": [
+      {
+        "id": 1,
+        "userId": 1,
+        "createdAt": "2023-08-07T00:57:47.000Z",
+        "updatedAt": "2023-08-07T00:57:47.000Z"
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "createdAt": "2023-08-07T00:57:47.000Z",
+        "updatedAt": "2023-08-07T00:57:47.000Z"
+      },
+      {
+        "id": 4,
+        "userId": 5,
+        "createdAt": "2023-08-07T15:18:23.382Z",
+        "updatedAt": "2023-08-07T15:18:23.382Z"
+      }
+    ]
+  }
+  ```
+
+### GET Current Users Cart
+
+- Require Authentication: true
+
+- Request
+  - Method: GET
+  - URL: /api/cart/current
+- Successful Response
+
+  - status Code:200
+  - Header:
+    - Content-Type:application/json
+  - Body:
+
+  ```json
+  {
+    "UserCart": [
+      {
+        "id": 1,
+        "userId": 1,
+        "createdAt": "2023-08-07T00:57:47.000Z",
+        "updatedAt": "2023-08-07T00:57:47.000Z",
+        "Items": [
+          {
+            "id": 8,
+            "cartId": 1,
+            "coffeeId": 8,
+            "instructionId": null,
+            "quantity": 1,
+            "createdAt": "2023-08-07T00:57:47.000Z",
+            "updatedAt": "2023-08-07T00:57:47.000Z",
+            "Coffee": {
+              "id": 8,
+              "name": "Affogato",
+              "price": 5,
+              "description": " Indulge in our heavenly Affogato - a delightful union of rich, smooth espresso and   velvety vanilla gelato. A symphony of flavors awaits as a single shot of our freshly brewed espresso is poured over a generous scoop of luscious, artisanal vanilla gelato. Watch as the steam rises, mingling with the cold creaminess of the gelato, creating a tantalizing dance of temperature and texture. ",
+              "default": "Small-Whole Mlik-Cold-1/3 Decaf Espresso Roast",
+              "createdAt": "2023-08-07T00:57:47.000Z",
+              "updatedAt": "2023-08-07T00:57:47.000Z"
+            },
+            "Instruction": []
+          }
+        ]
+      }
+    ]
+  }
+  ```
+
       ```

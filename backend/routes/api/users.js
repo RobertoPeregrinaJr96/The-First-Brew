@@ -39,17 +39,13 @@ const validateSignup = [
 
 // GET current User
 router.get('/', requireAuth, async (req, res) => {
-
     const { user } = req
-    console.log(user)
-
     if (!user) {
         res.status(404);
         res.json({
             message: null
         })
     }
-
     const { id, username, email, firstName, lastName } = user
 
     res.status(200);
@@ -60,11 +56,9 @@ router.get('/', requireAuth, async (req, res) => {
             lastName,
             email,
             username,
-
         }
     })
 })
-
 
 // GET all users
 router.get('/', requireAuth, async (req, res) => {

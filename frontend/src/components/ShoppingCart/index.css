@@ -124,7 +124,6 @@
     background-color: var(--div-color);
     border-radius: 20pt;
   }
-
 }
 @media screen and (max-width: 1200px) {
   .cart-div-li {
