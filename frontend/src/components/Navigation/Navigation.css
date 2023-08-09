@@ -10,6 +10,7 @@
   /* background-color: #dc9e82; */
   display: grid;
   grid-template-columns: 50% 50%;
+  border: solid 2px black;
 }
 .nav-div-topLeft {
   display: grid;

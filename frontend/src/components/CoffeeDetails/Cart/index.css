@@ -115,3 +115,52 @@
     border-radius: 20pt;
   }
 }
+@media screen and (max-width: 1023px) {
+  .cart-div-quantity-wrapper1 {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* width: 40rem; */
+    /* padding: 20px; */
+    /* border: solid 1px black; */
+  }
+  .instructions-form {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+  }
+  .instructions-form select {
+    font-size: 1rem;
+    border: solid 1px black;
+  }
+  .instructions-form label {
+    font-size: 1rem;
+    /* border: solid 1px black; */
+  }
+  .instructions-form option {
+    font-size: 1rem;
+    /* border: solid 1px black; */
+  }
+  .instructions-form textarea {
+    height: 10rem;
+    width: 25rem;
+    border: solid 1px black;
+  }
+  .instructions-form button {
+    height: 3rem;
+    width: 25rem;
+    border: solid 1px black;
+    font-size: 1rem;
+  }
+  .notice-event {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: black;
+    height: 2rem;
+    font-size: 20px;
+    border-radius: 20pt;
+  }
+}

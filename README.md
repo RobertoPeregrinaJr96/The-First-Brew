@@ -4,9 +4,9 @@
 
 ![db-schema]
 
-[db-schema]: ./images/Database_Schema_Design.png
+[db-schema]:Images/Database_Schema_Design.png
 
-## API Documentation
+# API Documentation
 
 ## Users
 
