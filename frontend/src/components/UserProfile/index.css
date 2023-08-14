@@ -3,135 +3,74 @@
   justify-content: center;
   align-items: center;
   row-gap: 20px;
-  background: url("https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg");
-  background-size: cover;
   padding: 20px;
 }
-.counter-length {
-  display: grid;
-  justify-content: end;
-  align-items: center;
-  font-size: 10px;
-}
-.edit-error {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  color: red;
-  font-size: 1rem;
-  padding: 0%;
-  margin: 0%;
-}
-.profile-delete-button button {
-  height: 2rem;
 
-  border-radius: 20pt;
-}
 .profile-layout {
+  background-color: rgba(0, 0, 0, 0.872);
   width: 40rem;
   display: grid;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background-color: var();
-}
-.edit-textarea {
-  height: 4rem;
-}
-.profile-edit-button-div {
-  display: grid;
-  justify-content: center;
-}
-/* .user-img-wrapper {
-  border: solid 1px salmon;
-} */
-.user-edit-button {
+  padding: 30px;
   border-radius: 20pt;
 }
-.user-edit-save {
-  border-radius: 20pt;
-  width: 12rem;
+.user-img-wrapper {
 }
+
 .profile-user-img {
   height: 20rem;
   width: 20em;
   border-radius: 50%;
 }
-.user-info-wrapper {
+
+.profile-update-button {
+  display: grid;
+  justify-content: end;
+  align-items: center;
+  height: 2rem;
+  padding: 10px;
+}
+
+.profile-update-button button {
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgba(0, 0, 0, 0);
+  width: 5rem;
+  height: 2rem;
+  border-radius: 20pt;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.user-profile-info-wrapper {
+  background-color: rgb(255, 255, 255);
   display: grid;
   justify-content: center;
   align-items: center;
-  color: white;
-  grid-template-rows: 10%;
-  background-color: var(--div-color);
   border-radius: 20pt;
-  row-gap: 0px;
-  padding: 30px;
-  height: 30rem;
 }
+
 .profile-default {
   display: grid;
   justify-content: center;
   align-items: center;
   height: 20rem;
 }
-.edit-profile-form {
+
+.profile-delete-button {
   display: grid;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  height: 22rem;
-  row-gap: 0px;
+  height: 2rem;
+  padding: 10px;
 }
-.edit-label {
-  display: flex;
-  justify-content: space-around;
-}
-/* Delete */
-.delete-user-wrapper {
-  background-color: var(--modal-bg);
-  display: grid;
-  grid-template-rows: 50% 10% 20%;
-  justify-content: center;
-  align-items: center;
-  height: 30rem;
+.profile-delete-button button {
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgba(0, 0, 0, 0);
+  width: 5rem;
+  height: 2rem;
   border-radius: 20pt;
-}
-.delete-user-wrapper p {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-}
-.delete-user-errors {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  color: red;
-}
-.delete-user-button-wrapper {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  justify-content: center;
-  align-items: center;
-}
-.delete-user-button-div {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-.delete-user-cancel {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  width: 10rem;
-  border-radius: 20pt;
-}
-.delete-user-submit {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 3rem;
-  width: 10rem;
-  border-radius: 20pt;
+  font-size: 1rem;
+  cursor: pointer;
 }

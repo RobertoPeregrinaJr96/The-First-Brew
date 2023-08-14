@@ -18,14 +18,9 @@ router.get('/', async (req, res) => {
 // Get Coffee by Id
 router.get('/:coffeeId', async (req, res) => {
     // is there a specific coffee
-    // console.log("--------------------------------------")
     const coffeeId = req.params.coffeeId
-    // console.log("coffeeId in BackEND COFFEE", coffeeId)
     const coffee = await Coffee.findByPk(Number(coffeeId), { include: { model: CoffeeImage } })
-    // console.log("coffee in BackEND COFFEE", coffee)
     if (!coffee) return res.status(404).json({ "message": "Cannot find any Coffee items" })
-    // console.log("--------------------------------------")
-
     res.status(200).json(coffee)
 })
 
@@ -33,14 +28,9 @@ router.get('/:coffeeId', async (req, res) => {
 router.post('/:coffeeId', async (req, res) => {
 
     const { user } = req;
-    //-------------------------------------------
     const idOfUser = user.id;
-    //-------------------------------------------
     const idOfCoffee = req.params.coffeeId;
-    //-------------------------------------------
     const { cartId, coffeeId, instructions } = req.body
-    //-------------------------------------------
-    // create a conditional for if there is and item with the same itemId in and if so then grab that item instead and update its QUANTITY by 1
     const newItem = await Item.create(
         {
             cartId,
@@ -49,11 +39,7 @@ router.post('/:coffeeId', async (req, res) => {
             instructionId: null
         }
     )
-    // console.log('newItem', newItem)
-    //-------------------------------------------
     const newItemInDB = await Item.findAll({ where: { id: newItem.id } })
-    // console.log('newItemInDB',newItemInDB)
-    //-------------------------------------------
     const newInstructions = await Instruction.create(
         {
             itemId: newItemInDB[0].dataValues.id,
@@ -132,26 +118,15 @@ router.post('/:coffeeId', async (req, res) => {
     }
     )
     //-------------------------------------------
-    // console.log("--------------------------------------")
-    // console.log('finalQuery in backend', finalQuery)
-    // console.log("--------------------------------------")
     res.status(200).json(finalQuery)
 })
 // GET A reviews for the coffee
 router.get('/:coffeeId/reviews', async (req, res) => {
     const idOfCoffee = req.params.coffeeId
-    // console.log("idOfCoffee", idOfCoffee)
     const reviews = await Review.findAll({
         where: { coffeeId: Number(idOfCoffee) },
         include: [{ model: User }]
     })
-
-    // console.log("----------------------------------")
-    // console.log(reviews)
-    // console.log("----------------------------------")
-
-
-
     res.status(200).json(reviews.sort((a, b) => {
 
         let aObj = a.dataValues
@@ -164,19 +139,10 @@ router.get('/:coffeeId/reviews', async (req, res) => {
 })
 // POST A review for the coffee
 router.post('/:coffeeId/reviews', async (req, res) => {
-    // console.log("--------------------------------------")
     const { user } = req;
-    // console.log("user", user)
     const idOfUser = user.id;
     const idOfCoffee = req.params.coffeeId;
     const { coffeeId, userId, title, rating, review } = req.body
-    // console.log("reviewObj", review)
-    // console.log("idOfUser in Backend", review.idOfUser)
-    // console.log("idOfCoffee  in Backend", review.idOfCoffee)
-    // console.log("title in Backend", review.title)
-    // console.log("rating in backend", review.rating)
-    // console.log("review in Backend", review.review)
-
     const newReview = await Review.create({
         coffeeId: review.coffeeId,
         userId: review.userId,
@@ -184,11 +150,9 @@ router.post('/:coffeeId/reviews', async (req, res) => {
         title: review.title,
         review: review.review
     })
-    // console.log("newReview:", newReview)
     await newReview.save()
     res.status(200).json(newReview)
 
-    // console.log("--------------------------------------")
 })
 
 module.exports = router;

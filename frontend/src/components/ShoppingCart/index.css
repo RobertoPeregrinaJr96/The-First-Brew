@@ -2,28 +2,28 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  background: url("https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg");
-  background-size: cover;
   padding: 20px;
+  row-gap: 30px;
 }
 .cart-bg-div {
   display: grid;
   justify-content: center;
   align-items: center;
-  /* width: 125rem; */
 }
 .cart-style-div {
-}
-.cart-h1 {
-}
-.cart-div-ul {
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 50rem;
-  /* width: 120rem; */
-  overflow-y: scroll;
+  row-gap: 30px;
+  height: 100%;
+}
+
+.cart-div-ul {
+  display: grid;
+  width: 60rem;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
   row-gap: 30px;
   padding: 20px;
   color: white;
@@ -39,6 +39,11 @@
 .cart-item-instructions-div button {
   border-radius: 20pt;
   height: 2rem;
+  padding: 5px;
+}
+.cart-item-instructions-div p {
+  padding: 5px;
+  font-size: 15px;
 }
 
 .cart-div-quantity-wrapper {
@@ -72,28 +77,37 @@
   justify-content: center;
   align-items: center;
   height: 2rem;
+  width: 4rem;
   border-radius: 20pt;
 }
 .cart-div {
   display: grid;
   justify-content: center;
   align-items: center;
-  /* overflow: scroll; */
 }
 .cart-footer {
   display: grid;
   justify-content: end;
   align-items: center;
-  grid-template-columns: 20% 10%;
+  grid-template-columns: 30% 10%;
   color: white;
   background-color: var(--div-color);
   border-radius: 20pt;
+  padding: 15px;
 }
 .cart-footer-div {
   grid-template-columns: 50% 50%;
   display: grid;
   justify-content: center;
   align-items: center;
+}
+.cart-footer-div button {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 5rem;
+  border-radius: 20pt;
 }
 .checkout {
   display: grid;
@@ -102,8 +116,31 @@
 }
 .cart-div-custom {
   /* overflow-y: scroll; */
+
   height: fit-content;
   overflow-wrap: break-word;
+  padding: 5px;
+  font-size: 15px;
+}
+.empty-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+}
+.empty-p {
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
+  padding: 15px;
+}
+.empty-p2 {
+  color: white;
+  background-color: var(--div-color);
+  border-radius: 20pt;
+  padding: 15px;
+  cursor: pointer;
+  border: solid 1px white;
 }
 @media screen and (max-width: 1023px) {
   .cart-div-li {
@@ -118,8 +155,6 @@
     justify-content: center;
     align-items: center;
     height: 50rem;
-    /* width: 120rem; */
-    overflow-y: scroll;
     row-gap: 30px;
     padding: 20px;
     color: white;
@@ -139,9 +174,6 @@
     width: 60rem;
     justify-content: center;
     align-items: center;
-    height: 50rem;
-    /* width: 120rem; */
-    overflow-y: scroll;
     row-gap: 30px;
     padding: 20px;
     color: white;
@@ -189,46 +221,50 @@
     font-size: 15px;
   }
 }
-/* @media screen and (max-width: 1000px) {
-  .cart-div-li {
-    display: grid;
-    grid-template-columns: 12% 35% 12% 5% 20% 10%;
-    width: 40rem;
-    font-size: 15px;
-  }
-} */
+
 
 /* Update Instructions Modal */
 
 .instructions-update-main-wrapper {
+  background: url(https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg);
+  background-size: cover;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 34rem;
+  border-radius: 20pt;
+  width: 40rem;
+  padding: 30px;
+}
+.instructions-update-div-container {
   background-color: var(--modal-bg);
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 50rem;
-  grid-template-rows: 30% 50%;
   border-radius: 20pt;
+  padding: 30px;
+  color: white;
 }
 .instructions-update-main-wrapper p {
   display: grid;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  padding: 20px;
+  font-size: 2rem;
 }
 
 .instructions-update-form {
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 30rem;
+  row-gap: 25px;
+  width: 30rem;
 }
 .update-form-div {
   display: grid;
-  grid-template-columns: 30% 60%;
-  /* justify-content: center; */
+  grid-template-columns: 35% 65%;
+  justify-content: center;
   align-items: center;
-  height: 3rem;
-  width: 25rem;
 }
 .update-bttn-wrapper {
   display: grid;
@@ -245,36 +281,38 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 3rem;
 }
 .instructions-update-form label {
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 3rem;
 }
 .instructions-update-form textarea {
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 3rem;
-  width: 25rem;
+  height: 4rem;
 }
 .instructions-update-form select {
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 2rem;
-  width: 25rem;
+  cursor: pointer;
   border-radius: 20pt;
 }
 .instructions-update-form button {
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 3rem;
+  height: 2rem;
   width: 10rem;
+  font-weight: bolder;
+  font-size: 1rem;
   border-radius: 20pt;
+  cursor: pointer;
+}
+.item-milk-custom {
+  resize: none;
 }
 @media screen and (max-width: 1024px) {
   .instructions-update-form select {
@@ -295,19 +333,35 @@
 /* Checkout modal */
 
 .checkout-div-wrapper {
-  background-color: var(--modal-bg);
+  background: url(https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg);
+  background-size: cover;
   height: 30rem;
+  width: 40rem;
   display: grid;
   justify-content: center;
   align-items: center;
   border-radius: 20pt;
 }
-
+.checkout-div-wrapper2 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.checkout-div-wrapper3 {
+  background-color: var(--modal-bg);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+  padding: 30px;
+  color: white;
+  row-gap: 30px;
+}
 .checkout-p {
   display: grid;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .checkout-button-div {
@@ -326,9 +380,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 20pt;
-  height: 3rem;
-  width: 10rem;
-  font-size: 20px;
+  height: 2rem;
+  width: 7rem;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .checkout-button-submit {
@@ -336,9 +391,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 20pt;
-  height: 3rem;
-  width: 10rem;
-  font-size: 20px;
+  height: 2rem;
+  width: 7rem;
+  font-size: 15px;
+  cursor: pointer;
 }
 .fa-circle-check {
   display: grid;

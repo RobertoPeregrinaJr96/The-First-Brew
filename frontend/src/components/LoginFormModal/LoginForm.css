@@ -1,46 +1,72 @@
 .login-div {
-  position: absolute;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 20% 50%;
-  background-color: var(--modal-bg);
-  height: 30rem;
+  justify-content: center;
+  align-items: center;
+  background: url(https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg);
+  background-size: cover;
   border-radius: 20pt;
+  width: 40rem;
+  height: 30rem;
+}
+.login-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20pt;
+  width: 30rem;
+  height: 20rem;
+  grid-template-rows: 30% 70%;
+  background-color: var(--modal-bg);
+  padding: 20px;
+  color: white;
 }
 .login-div-h1 {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
 }
 .login-form {
-  display: flex;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  width: 30rem;
+}
+.login-div-extra {
   display: grid;
   justify-content: center;
   align-items: center;
 }
-
 .submit-button {
-  height: 3rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 10rem;
   border-radius: 20pt;
 }
 .login-input {
-  display: flex;
-  justify-self: center;
+  display: grid;
+  justify-content: center;
   align-items: center;
-  width: 30rem;
-  height: 2rem;
+  width: 20rem;
   border-radius: 20pt;
+  height: 2rem;
 }
 .demo-user {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   border: none;
   text-decoration: underline;
   background-color: rgba(128, 99, 40, 0);
   font-size: 1.5rem;
+  color: white;
 }
 .login-errors {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   color: red;
 }

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../../context/Modal";
 import { useState } from "react";
 import { logout } from "../../../store/session";
+import './index.css'
 
 const DeleteModal = () => {
 
@@ -32,21 +33,27 @@ const DeleteModal = () => {
 
     return (
         <div className="delete-user-wrapper">
-            <p>Are you sure you want to delete your profile?</p>
-            {errors.demo ? <p className="delete-user-errors">{errors.demo}
-            </p> : ''}
-            <div className="delete-user-button-wrapper">
-                <div className="delete-user-button-div">
-                    <button className="delete-user-cancel" onClick={(e) => closeModal(e)}>Cancel</button>
-                </div>
-                <div className="delete-user-button-div">
-                    <button
-                        className="delete-user-submit"
-                        onClick={(e) => { handleSubmit(e, user.id) }} >
-                        DELETE
-                    </button>
+            <div className="div-delete-wrapper">
+                <div className="delete-user-div">
+                    <p>Are you sure you want to delete your profile?</p>
+                    {errors.demo ? <p id="delete-user-errors">{errors.demo}
+                    </p> : ''}
+                    <div className="delete-user-button-wrapper">
+                        <div className="delete-user-button-div">
+                            <button className="delete-user-cancel" onClick={(e) => closeModal(e)}>Cancel</button>
+                        </div>
+                        <div className="delete-user-button-div">
+                            <button
+                                className="delete-user-submit"
+                                onClick={(e) => { handleSubmit(e, user.id) }} >
+                                DELETE
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
         </div>
     )
 }

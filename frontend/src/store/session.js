@@ -4,6 +4,12 @@ import { csrfFetch } from "./csrf";
 const SET_USER = "session/setUser";
 const REMOVE_USER = "session/removeUser";
 export const POST_NEW_CART = 'session/POST_NEW_CART'
+export const GET_USER = 'session/GET_USER'
+
+export const getUser = (user) => ({
+  type: GET_USER,
+  user
+})
 const setUser = (user) => {
   return {
     type: SET_USER,
@@ -22,20 +28,14 @@ export const postNewCart = (cart) => ({
 })
 //  POST a cart upon user sign up
 export const fetchPostUserCart = () => async (dispatch) => {
-  // console.log("---------------------------")
-  // console.log("---------------------------")
   const response = await csrfFetch("/api/session/user/cart", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({})
   })
-  // console.log(response)
   if (response.ok) {
     const cart = await response.json()
-    // console.log(cart)
     dispatch(postNewCart(cart))
-    // console.log("---------------------------")
-    // console.log("---------------------------")
     return cart
   }
 }
@@ -90,7 +90,15 @@ export const logout = () => async (dispatch) => {
   dispatch(removeUser());
   return response;
 };
-
+export const fetchUserThunk = (userId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/users/${userId}`, {
+    method: 'GET'
+  })
+  if (response.ok) {
+    const aUser = await response.json()
+    dispatch(getUser(aUser))
+  }
+}
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
@@ -104,6 +112,11 @@ const sessionReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.user = null;
       return newState;
+    case GET_USER:
+      newState = Object.assign({}, state)
+      console.log('Action.user', action.user)
+      newState.user = action.user
+      return newState
     default:
       return state;
   }

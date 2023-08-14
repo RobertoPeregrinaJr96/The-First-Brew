@@ -51,85 +51,88 @@ const UpdateInstructions = ({ item }) => {
 
     return (
         <div className='instructions-update-main-wrapper'>
-            <p>Update Instructions</p>
-            < form className='instructions-update-form' onSubmit={(e) => handleSubmit(e, item)}>
-                {/* MILK */}
-                <div className='update-form-div'>
-                    < label for="item-Size" > Size:</label >
-                    <select
-                        id="item-Size"
-                        onChange={(e) => setSize(e.target.value)}
-                    >
-                        <option value={`${size}`} selected>{`${size}`}</option>
-                        <option value="Small">Small</option>
-                        <option value="Medium">Medium</option>
-                        <option value="large">large</option>
-                        <option value="Extra Large">Extra Large</option>
-                        <option value="Gallon">Gallon</option>
-                        <option value="Office (3 Gallons)">Office (3 Gallons)</option>
-                    </select>
+            <div className='instructions-update-div-container'>
+                <p>Update Instructions</p>
+                < form className='instructions-update-form' onSubmit={(e) => handleSubmit(e, item)}>
+                    {/* MILK */}
+                    <div className='update-form-div'>
+                        < label for="item-Size" > Size:</label >
+                        <select
+                            id="item-Size"
+                            onChange={(e) => setSize(e.target.value)}
+                        >
+                            <option value={`${size}`} selected>{`${size}`}</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="large">large</option>
+                            <option value="Extra Large">Extra Large</option>
+                            <option value="Gallon">Gallon</option>
+                            <option value="Office (3 Gallons)">Office (3 Gallons)</option>
+                        </select>
 
-                </div>
-                {/* Creamer */}
-                <div className='update-form-div'>
-                    <label for="item-Creamer">Creamer:</label>
-                    <select id="item-Creamer" onChange={(e) => setMilk(e.target.value)}>
-                        <option value={`${milk}`} selected>{`${milk}`}</option>
-                        <option value="No Creamer">No Creamer</option>
-                        <option value="Heavy Cream">Heavy Cream</option>
-                        <option value="Vanilla Sweet Cream">Vanilla Sweet Cream</option>
-                        <option value="Nonfat Milk">Nonfat Milk</option>
-                        <option value="2% Milk">2% Milk</option>
-                        <option value="Whole Mlik">Whole Mlik</option>
-                        <option value="Breve (Half & Half)">{`Breve (Half & Half)`}</option>
-                        <option value="Almond">Almond</option>
-                        <option value="Coconut">Coconut</option>
-                        <option value="Oatmilk">Oatmilk</option>
-                        <option value="Soy">Soy</option>
-                    </select>
-                </div>
-                {/* Status */}
-                <div className='update-form-div'>
-                    <label for="item-milk-temperature"> Temperature:</label>
-                    <select id="item-milk-temperature" onChange={(e) => setTemperature(e.target.value)}>
-                        <option value={`${temperature}`} selected>{`${temperature}`}</option>
-                        <option value='Iced'>Iced</option>
-                        <option value="Cold">Cold</option>
-                        <option value="Warm">Warm</option>
-                        <option value="Hot">Hot</option>
-                        <option value="Very Hot">Very Hot</option>
-                        <option value="Steamed">Steamed</option>
-                    </select>
-                </div>
-                {/* Shots */}
-                <div className='update-form-div'>
-                    <label for="item-milk-shot">Espresso shot Options:</label>
-                    <select id="item-milk-shot" onChange={(e) => setShot(e.target.value)}>
-                        <option value={`${shot}`} selected>{`${shot}`}</option>
-                        <option value="No Espresso shot">No Espresso shot</option>
-                        <option value="Signature Espresso Roast">Signature Espresso Roast</option>
-                        <option value="">Blond Espresso Roast</option>
-                        <option value="Blond Espresso Roast">Decaf Espresso Roast</option>
-                        <option value="1/3 Decaf Espresso Roast">1/3 Decaf Espresso Roast</option>
-                        <option value="1/2 Decaf Espresso Roast">1/2 Decaf Espresso Roast</option>
-                        <option value="2/3 Decaf Espresso Roast">2/3 Decaf Espresso Roast</option>
-                    </select>
-                </div>
-                {/* Custom  */}
-                <div className='update-form-div'>
-                    <label for="item-milk-custom">Additional Instructions:</label>
-                    <textarea id='item-milk-custom' value={custom} onChange={(e) => setCustom(e.target.value)} placeholder='Custom Instructions'></textarea>
-                </div>
-                <div className='update-bttn-wrapper'>
-                    <div className='update-bttn-div'>
-                        <button onClick={(e) => closeModal(e)}>Cancel</button>
                     </div>
-                    <div className='update-bttn-div'>
-                        <button type='submit' onClick={(e) => handleSubmit(e, item)}>Update Instructions</button>
+                    {/* Creamer */}
+                    <div className='update-form-div'>
+                        <label for="item-Creamer">Creamer:</label>
+                        <select id="item-Creamer" onChange={(e) => setMilk(e.target.value)}>
+                            <option value={`${milk}`} selected>{`${milk}`}</option>
+                            <option value="No Creamer">No Creamer</option>
+                            <option value="Heavy Cream">Heavy Cream</option>
+                            <option value="Vanilla Sweet Cream">Vanilla Sweet Cream</option>
+                            <option value="Nonfat Milk">Nonfat Milk</option>
+                            <option value="2% Milk">2% Milk</option>
+                            <option value="Whole Mlik">Whole Mlik</option>
+                            <option value="Breve (Half & Half)">{`Breve (Half & Half)`}</option>
+                            <option value="Almond">Almond</option>
+                            <option value="Coconut">Coconut</option>
+                            <option value="Oatmilk">Oatmilk</option>
+                            <option value="Soy">Soy</option>
+                        </select>
                     </div>
+                    {/* Status */}
+                    <div className='update-form-div'>
+                        <label for="item-milk-temperature"> Temperature:</label>
+                        <select id="item-milk-temperature" onChange={(e) => setTemperature(e.target.value)}>
+                            <option value={`${temperature}`} selected>{`${temperature}`}</option>
+                            <option value='Iced'>Iced</option>
+                            <option value="Cold">Cold</option>
+                            <option value="Warm">Warm</option>
+                            <option value="Hot">Hot</option>
+                            <option value="Very Hot">Very Hot</option>
+                            <option value="Steamed">Steamed</option>
+                        </select>
+                    </div>
+                    {/* Shots */}
+                    <div className='update-form-div'>
+                        <label for="item-milk-shot">Espresso shot Options:</label>
+                        <select id="item-milk-shot" onChange={(e) => setShot(e.target.value)}>
+                            <option value={`${shot}`} selected>{`${shot}`}</option>
+                            <option value="No Espresso shot">No Espresso shot</option>
+                            <option value="Signature Espresso Roast">Signature Espresso Roast</option>
+                            <option value="">Blond Espresso Roast</option>
+                            <option value="Blond Espresso Roast">Decaf Espresso Roast</option>
+                            <option value="1/3 Decaf Espresso Roast">1/3 Decaf Espresso Roast</option>
+                            <option value="1/2 Decaf Espresso Roast">1/2 Decaf Espresso Roast</option>
+                            <option value="2/3 Decaf Espresso Roast">2/3 Decaf Espresso Roast</option>
+                        </select>
+                    </div>
+                    {/* Custom  */}
+                    <div className='update-form-div'>
+                        <label for="item-milk-custom">Additional Instructions:</label>
+                        <textarea id='item-milk-custom' value={custom} onChange={(e) => setCustom(e.target.value)} placeholder='Custom Instructions'></textarea>
+                    </div>
+                    <div className='update-bttn-wrapper'>
+                        <div className='update-bttn-div'>
+                            <button onClick={(e) => closeModal(e)}>Cancel</button>
+                        </div>
+                        <div className='update-bttn-div'>
+                            <button type='submit' onClick={(e) => handleSubmit(e, item)}>Update </button>
+                        </div>
 
-                </div>
-            </form >
+                    </div>
+                </form >
+            </div>
+
 
         </div>
     )

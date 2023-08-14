@@ -43,18 +43,23 @@ const CheckoutModel = ({ items }) => {
     if (!hidden) {
         return (
             <div className='checkout-div-wrapper'>
-                <p></p>
-                <p className='checkout-p'>Are you ready to Checkout your items?</p>
-                <p className='checkout-p'>Please Review your items before preceding</p>
-                <div className='checkout-button-div'>
-                    <div className='checkout-buttons'>
-                        <button className='checkout-button-cancel' onClick={() => closeModal()}>Cancel</button>
+                <div className='checkout-div-wrapper2'>
+                    <div className='checkout-div-wrapper3'>
 
-                    </div>
-                    <div className='checkout-buttons'>
-                        <button className='checkout-button-submit' onClick={() => handleSubmit()}>Confirm</button>
+                        <p className='checkout-p'>Are you ready to Checkout your items?</p>
+                        <p className='checkout-p'>Please Review your items before preceding</p>
+                        <div className='checkout-button-div'>
+                            <div className='checkout-buttons'>
+                                <button className='checkout-button-cancel' onClick={() => closeModal()}>Cancel</button>
 
+                            </div>
+                            <div className='checkout-buttons'>
+                                <button className='checkout-button-submit' onClick={() => handleSubmit()}>Confirm</button>
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         )

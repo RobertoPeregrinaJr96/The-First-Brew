@@ -7,10 +7,13 @@
   display: none;
 }
 .nav-wrapper {
-  /* background-color: #dc9e82; */
+  background-color: white;
   display: grid;
   grid-template-columns: 50% 50%;
-  border: solid 2px black;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  margin: 0%;
+  padding: 0%;
 }
 .nav-div-topLeft {
   display: grid;
@@ -40,12 +43,14 @@
   height: 3rem;
   border-radius: 20pt;
   width: 5rem;
+  cursor: pointer;
 }
 
 .nav-topRight-Profile {
   height: 3rem;
   border-radius: 20pt;
   width: 5rem;
+  cursor: pointer;
 }
 .nav-topRight-modal {
   display: grid;
@@ -56,11 +61,13 @@
   height: 3rem;
   border-radius: 20pt;
   width: 5rem;
+  cursor: pointer;
 }
 .nav-topRight-modal-signUp {
   height: 3rem;
   border-radius: 20pt;
   width: 5rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1440px) {
@@ -99,8 +106,7 @@
     display: grid;
     grid-template-columns: 50% 50%;
     height: 10rem;
-
-}
+  }
   .nav-div-topLeft {
     display: grid;
     grid-template-columns: 20% 50%;

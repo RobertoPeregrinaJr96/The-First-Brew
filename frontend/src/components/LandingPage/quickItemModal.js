@@ -28,6 +28,7 @@ const ItemModal = ({ coffee, user }) => {
     const [boolean, setBoolean] = useState()
     const [goober, setGoober] = useState()
     const [quantity, setQuantity] = useState(item?.quantity)
+    const [timer, setTimer] = useState(false)
     // Functions
     const testPost = async (e) => {
         const instructions = {
@@ -41,14 +42,27 @@ const ItemModal = ({ coffee, user }) => {
         dispatch(fetchUserCartThunk(user?.id))
         setBoolean(!boolean)
         setGoober(true)
+        setTimer(!timer)
         setTimeout(() => {
             setGoober(false)
-        }, 400)
+        }, 800)
     }
     const coffeeNav = () => {
         history.push(`/coffee/${coffee.id}`)
         closeModal()
     }
+
+    const newItem = (timer) => {
+        if (timer) {
+            setTimeout(() => {
+                setTimer(!timer)
+            }, 600)
+            return (
+                <p className='notice-event'> New Item Added to Your Cart</p>
+            )
+        }
+    }
+
     useEffect(() => {
         if (user) dispatch(fetchUserCartThunk(user.id))
 
@@ -58,7 +72,10 @@ const ItemModal = ({ coffee, user }) => {
         if (!user) return <p>Please Login to Order</p>
         if (user) {
             return <div className="landingPage-cart-div-quantity-wrapper1">
-                <button className="landingPage-cart-div-quantity-post" disabled={goober} onClick={(e) => testPost(e)}> Add to Cart</button>
+                {newItem(timer)}
+                <div className='wrapper1-button'>
+                    <button className="landingPage-cart-div-quantity-post" disabled={goober} onClick={(e) => testPost(e)}> Add to Cart</button>
+                </div>
             </div>
         }
     }
@@ -69,23 +86,26 @@ const ItemModal = ({ coffee, user }) => {
     }, [dispatch])
     return (
         <div className='landingPage-cart-div-wrapper'>
-            <div className='landing-page-modal-info'>
-                <h1>{coffee.name}</h1>
-                <p>{coffee.description}</p>
+            <div className='modal-center-div'>
+                <div className='modal-center-div1'>
+                    <div className='landing-page-modal-info'>
+                        <h1>{coffee.name}</h1>
+                        <p>{coffee.description}</p>
+                    </div>
+                    <div className='landingPage-coffee-div'>
+                        <p className='landingPage-coffee-price'>Base Item Price:$ {coffee.price?.toFixed(2)} *</p>
+                        <p className='coffee-default-state'>{`* Default *: Size:${defaultArray[0]}, Creamer:${defaultArray[1]}, Temperature:${defaultArray[2]}, Espresso shot:${defaultArray[3]}`}</p>
+                        <p
+                            className='nav-to-coffee'
+                            onClick={(e) => coffeeNav()}>For More Available Options And Or Information Click Here
+                        </p>
+                        <div className='landingPage-loggedIn-function'>
+                            {loggedIn(user, item)}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-            </div>
-            <div className='landingPage-coffee-div'>
-                <p className='landingPage-coffee-price'>Base Item Price:$ {coffee.price?.toFixed(2)} *</p>
-                <p className='coffee-default-state'>{`* Default *: Size:${defaultArray[0]}, Creamer:${defaultArray[1]}, Temperature:${defaultArray[2]}, Espresso shot:${defaultArray[3]}`}</p>
-                <p
-                    className='nav-to-coffee'
-                    onClick={(e) => coffeeNav()}>For More Available Options And Or Information Click Here
-                </p>
-            </div>
-            <div className='landingPage-loggedIn-function'>
-                {loggedIn(user, item)}
-            </div>
+
         </div>
     )
 }

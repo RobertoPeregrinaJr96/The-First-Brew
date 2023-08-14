@@ -8,6 +8,12 @@
   text-decoration: none;
   font-family: "Manrope", sans-serif;
   font-weight: bold;
+  padding: 0%;
+  margin: 0%;
+}
+html {
+  background: url(https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg);
+  background-size: cover;
 }
 
 .errors {
@@ -17,7 +23,7 @@
 :root {
   --div-color: rgba(0, 0, 0, 0.878);
   --txt-color: #56667a;
-  --modal-bg: #c8c8c8;
+  --modal-bg: #000000dc;
   --modal-txt: #997899;
   --button: #7b46ac;
   --errors: red;

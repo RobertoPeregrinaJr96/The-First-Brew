@@ -313,12 +313,33 @@
 
 /* modal */
 .landingPage-cart-div-wrapper {
-  background-color: var(--modal-bg);
+  background: url(https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg);
+  background-size: cover;
   display: grid;
   justify-self: center;
   align-items: center;
+  height: -moz-fit-content;
   height: fit-content;
+  height: 35rem;
+  width: 55rem;
   border-radius: 20pt;
+  padding: 30px;
+}
+.modal-center-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.modal-center-div1 {
+  background-color: var(--modal-bg);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+  width: 50rem;
+  border-radius: 20pt;
+  color: white;
 }
 .landing-page-modal-info {
   display: grid;
@@ -334,7 +355,6 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 7rem;
 }
 .landingPage-coffee-price {
   display: grid;
@@ -360,8 +380,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 20pt;
-  height: 2rem;
-  width: 7rem;
+  font-size: 1rem;
+  height: 2.3rem;
+  width: 10rem;
+  cursor: pointer;
 }
 .landingPage-cart-div-quantity-post {
   cursor: pointer;
@@ -373,6 +395,17 @@
   height: 30rem;
   border-radius: 20pt;
   width: 30rem;
+}
+.landingPage-cart-div-quantity-wrapper1 {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+}
+.wrapper1-button {
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (min-width: 2560px) {
   .landingPage-div-h1 {
@@ -946,7 +979,7 @@
     height: 17rem;
     width: 28rem;
     color: white;
-    padding: 0px;;
+    padding: 0px;
   }
   #links-wrapper {
     color: white;
@@ -991,7 +1024,7 @@
     /* height: 20rem; */
     width: 25rem;
     padding: 20px;
-}
+  }
   .landing-page-info-div-img {
     display: grid;
     justify-self: center;

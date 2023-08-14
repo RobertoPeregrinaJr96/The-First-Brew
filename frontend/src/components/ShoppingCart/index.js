@@ -92,64 +92,71 @@ const ShoppingCart = () => {
         dispatch(fetchUserCartThunk())
     }, [dispatch, boolean])
     return (
+
         <div className="cart-div-wrapper">
             <div className="cart-bg-div">
                 <div className="cart-style-div">
                     <h1 className="cart-h1">Shopping Cart</h1>
+                    {(items && items.length > 0) ? <div className="cart-div-wrapper">
+                        <ul className="cart-div-ul">
+                            {items?.map(item => {
+                                const coffee = item?.Coffee
+                                return <li key={item?.id} className="cart-div-li">
 
-                    <ul className="cart-div-ul">
-                        {items?.map(item => {
-                            const coffee = item?.Coffee
-                            return <li key={item?.id} className="cart-div-li">
+                                    <p className="cart-div" onClick={(e) => history.push(`/coffee/${coffee?.id}`)}>{coffee?.name}</p>
+                                    <div className="cart-item-instructions-div">
+                                        <p>{`${item?.Instruction[0]?.InstructionItem?.map(value => {
+                                            return (
+                                                value.Addition['name']
+                                            )
+                                        })}`}</p>
+                                        <p className="cart-div-custom">{`${item?.Instruction[0]?.['custom']}`}</p>
+                                        <OpenModalButton
+                                            buttonText={`Update Instructions`}
+                                            modalComponent={<UpdateInstructions item={item} />}
+                                        >
+                                        </OpenModalButton>
 
-                                <p className="cart-div" onClick={(e) => history.push(`/coffee/${coffee?.id}`)}>{coffee?.name}</p>
-                                <div className="cart-item-instructions-div">
-                                    <p>{`${item?.Instruction[0]?.InstructionItem?.map(value => {
-                                        return (
-                                            value.Addition['name']
-                                        )
-                                    })}`}</p>
-                                    <p className="cart-div-custom">{`${item?.Instruction[0]?.['custom']}`}</p>
-                                    <OpenModalButton
-                                        buttonText={`Update Instructions`}
-                                        modalComponent={<UpdateInstructions item={item} />}
-                                    >
-                                    </OpenModalButton>
+                                    </div>
 
-                                </div>
+                                    <p className="cart-div">Price: ${(coffee?.price).toFixed(2)}</p>
 
-                                <p className="cart-div">Price: ${(coffee?.price).toFixed(2)}</p>
+                                    <div className="cart-div">
+                                        {item?.quantity}
+                                    </div>
 
-                                <div className="cart-div">
-                                    {item?.quantity}
-                                </div>
+                                    <div className="cart-div-quantity-wrapper">
+                                        <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
+                                        <p className="cart-div-quantity-total" >{item?.quantity ? item?.quantity : 0}</p>
+                                        <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
+                                    </div>
+                                    <div className="cart-div">
+                                        <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
+                                            disabled={goober} >
+                                            Delete
+                                        </button>
 
-                                <div className="cart-div-quantity-wrapper">
-                                    <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemMinus(e, item, item?.id)}>-1</button>
-                                    <p className="cart-div-quantity-total" >{item?.quantity ? item?.quantity : 0}</p>
-                                    <button disabled={goober} className="cart-div-quantity-update" onClick={(e) => updateItemPlus(e, item, item?.id)}>+1</button>
-                                </div>
-                                <div className="cart-div">
-                                    <button className="cart-div-quantity-delete" onClick={(e) => deleteItem(e, item?.id)}
-                                        disabled={goober} >
-                                        Delete
-                                    </button>
+                                    </div>
+                                </li>
+                            })}
+                        </ul>
 
-                                </div>
-                            </li>
-                        })}
-                    </ul>
+                        <div className="cart-footer">
+                            <div className="cart-footer-div">
+                                <p>Total Items:{newTotalQuantity}</p>
+                                <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
 
-                    <div className="cart-footer">
-                        <div className="cart-footer-div">
-                            <p>Total Items:{newTotalQuantity}</p>
-                            <p className="checkout"> {newTotal?.length !== 0 ? `Total Price: $ ${newTotal?.reduce((a, b) => a + b)?.toFixed(2)}` : "Cart is Empty"}</p>
-
-                        </div>
-                        <div className="cart-footer-div">
-                            <Checkout items={items} />
+                            </div>
+                            <div className="cart-footer-div">
+                                <Checkout items={items} />
+                            </div>
                         </div>
                     </div>
+                        : <div className="empty-wrapper">
+
+                            <p className="empty-p"> You have no items in your Cart</p>
+                            <p className="empty-p2" onClick={(e) => history.push('/')}>Click here to go to our Menu</p >
+                        </div>}
 
                 </div>
 

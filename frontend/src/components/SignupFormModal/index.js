@@ -87,118 +87,138 @@ function SignupFormModal() {
   }, [dispatch, newUser])
 
   return (
-    <div className="sign-up-div">
-      <h1 className="sign-up-h1">Sign Up</h1>
-      <form onSubmit={handleSubmit} className="sign-up-form"   >
-        <label className="sign-up-form-label">
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label className="sign-up-form-label">
-          Username
+    <div className="sign-up-wrapper">
+      <div className="sign-up-div">
+        <h1 className="sign-up-h1">Sign Up</h1>
+        <form onSubmit={handleSubmit} className="sign-up-form"   >
+          <div className="sign-up-div-container">
+            <label className="sign-up-form-label">
+              Email
+            </label>
+            <input
+              type="email"
+              className="sign-up-form-input"
+              value={email}
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          {errors.email && <p>{errors.email}</p>}
+          <div className="sign-up-div-container">
 
-          <input
-            minLength="1"
-            maxLength="30"
-            className="sign-up-form-input"
-            type="text"
-            value={username}
-            title="Please keep characters between 4 to 30 "
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value ? e.target.value : username)}
-            required
-          />
-        </label>
-        {errors.username && <p className="errors">{errors.username}</p>}
-        <label className="sign-up-form-label">
-          First name
+            <label className="sign-up-form-label">
+              Username
+            </label>
+            <input
+              minLength="1"
+              maxLength="30"
+              className="sign-up-form-input"
+              type="text"
+              value={username}
+              title="Please keep characters between 4 to 30 "
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value ? e.target.value : username)}
+              required
+            />
+          </div>
+          {errors.username && <p className="errors">{errors.username}</p>}
+          <div className="sign-up-div-container">
 
-          <input
-            minLength="1"
-            maxLength="30"
-            className="sign-up-form-input"
-            type="text"
-            placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-            title="Please keep characters between 1 to 30 "
+            <label className="sign-up-form-label">
+              First name
+            </label>
+            <input
+              minLength="1"
+              maxLength="30"
+              className="sign-up-form-input"
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              title="Please keep characters between 1 to 30 "
 
-          />
-        </label>
-        {errors.firstName && <p className="errors">{errors.firstName}</p>}
-        <label className="sign-up-form-label">
-          Last name
+            />
+          </div>
+          {errors.firstName && <p className="errors">{errors.firstName}</p>}
+          <div className="sign-up-div-container">
+            <label className="sign-up-form-label">
+              Last name
+            </label>
+            <input
+              minLength="1"
+              maxLength="30"
+              className="sign-up-form-input"
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              title="Please keep characters between 1 to 30 "
 
-          <input
-            minLength="1"
-            maxLength="30"
-            className="sign-up-form-input"
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-            title="Please keep characters between 1 to 30 "
+              required
+            />
 
-            required
-          />
-        </label>
-        {errors.lastName && <p className="errors">{errors.lastName}</p>}
-        <label className="sign-up-form-label">
-          Password
+          </div>
+          {errors.lastName && <p className="errors">{errors.lastName}</p>}
+          <div className="sign-up-div-container">
 
-          <input
-            minLength="1"
-            maxLength="30"
-            className="sign-up-form-input"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            title="Please keep characters between 1 to 30 "
+            <label className="sign-up-form-label">
+              Password
 
-          />
-        </label>
-        {errors.password && <p className="errors">{errors.password}</p>}
-        <label className="sign-up-form-label">
+            </label>
+            <input
+              minLength="1"
+              maxLength="30"
+              className="sign-up-form-input"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              title="Please keep characters between 1 to 30 "
+            />
+          </div>
+          {errors.password && <p className="errors">{errors.password}</p>}
+          <div className="sign-up-div-container">
+            <label className="sign-up-form-label">
+              Confirm Password
+            </label>
+            <input
+              minLength="1"
+              maxLength="30"
+              className="sign-up-form-input"
+              type="password"
+              placeholder=" Confirm Password"
+              value={confirmPassword}
+              title="Please make sure this matches your password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
 
-          Confirm Password
-          <input
-            minLength="1"
-            maxLength="30"
-            className="sign-up-form-input"
-            type="password"
-            placeholder=" Confirm Password"
-            value={confirmPassword}
-            title="Please make sure this matches your password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.confirmPassword && (
-          <p className="errors">{errors.confirmPassword}</p>
-        )}
-        <label>
-          Avatar
-          <input type="file"  onChange={updateFile} required/>
-        </label>
-        <div className="button-div-sign-up">
-          <button
-            onClick={(e) => handleSubmit(e)}
-            type="submit"
-            className="sign-up-submit"
-          >Sign Up</button>
+          </div>
+          {errors.confirmPassword && (
+            <p className="errors">{errors.confirmPassword}</p>
+          )}
+          <div className="sign-up-div-container">
+            <label>
+              Avatar
+            </label>
+            <input type="file" id="file-upload" onChange={updateFile} required />
 
-        </div>
-      </form>
+          </div>
+          <div className="button-div-sign-up">
+            <button
+              onClick={(e) => handleSubmit(e)}
+              type="submit"
+              className="sign-up-submit"
+            >Sign Up</button>
+
+          </div>
+        </form>
+      </div>
     </div>
+
   );
 }
 

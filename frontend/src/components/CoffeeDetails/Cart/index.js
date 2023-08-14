@@ -5,6 +5,7 @@ import './index.css'
 // internal import
 import { fetchUserCartThunk } from '../../../store/carts';
 import { fetchPostOneItem } from '../../../store/item'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const CoffeeCart = ({ item, coffeeId, coffee }) => {
@@ -19,6 +20,8 @@ const CoffeeCart = ({ item, coffeeId, coffee }) => {
     const [quantity, setQuantity] = useState(item?.quantity)
     // useDispatch
     const dispatch = useDispatch();
+    // useHistory
+    const history = useHistory()
     // useSelector
     const user = useSelector(state => state.session.user)
     const userCartArr = useSelector(state => state.cart.userCart)
@@ -37,6 +40,7 @@ const CoffeeCart = ({ item, coffeeId, coffee }) => {
         dispatch(fetchUserCartThunk(user?.id))
         setBoolean(!boolean)
         setGoober(true)
+        history.push('/cart')
     }
     const notLoggedIn = () => {
         return <p>Log in you goober</p>

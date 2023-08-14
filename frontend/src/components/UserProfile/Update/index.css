@@ -1,0 +1,66 @@
+.update-user-wrapper {
+  background: url(https://freeawsbucket.s3.us-west-1.amazonaws.com/coffee_seeders/4k_coffee_beans.jpg);
+  background-size: cover;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 35rem;
+  height: 32rem;
+  border-radius: 20pt;
+}
+.edit-error {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 1rem;
+  padding: 0%;
+  margin: 0%;
+}
+.counter-length {
+  display: grid;
+  justify-content: end;
+  align-items: center;
+  font-size: 10px;
+}
+.user-edit-button {
+  border-radius: 20pt;
+}
+.user-edit-save {
+  border-radius: 20pt;
+  width: 12rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.user-info-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 1.2rem;
+}
+.edit-profile-form {
+  background-color: var(--modal-bg);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 22rem;
+  row-gap: 0px;
+  padding: 20px;
+  border-radius: 20pt;
+  color: white;
+}
+.edit-label {
+  display: flex;
+  justify-content: space-around;
+}
+.edit-input {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.profile-edit-button-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

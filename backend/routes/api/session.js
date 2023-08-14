@@ -82,10 +82,7 @@ router.post('/', validateLogin, async (req, res, next) => {
 
 router.post('/user/cart', async (req, res) => {
 
-    // console.log("------------------------------")
-    // console.log("------------------------------")
     const { user } = req
-    // console.log("user", user)
 
     const newUserCart = await ShoppingCart.create({
         userId: user.id,
@@ -93,9 +90,6 @@ router.post('/user/cart', async (req, res) => {
     await newUserCart.save()
 
     res.status(200).json(newUserCart)
-
-    // console.log("------------------------------")
-    // console.log("------------------------------")
 })
 
 router.delete('/', (_req, res) => {

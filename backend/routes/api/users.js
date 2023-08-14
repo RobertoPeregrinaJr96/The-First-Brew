@@ -84,26 +84,11 @@ router.get('/:userId', async (req, res) => {
 // Sign up /api/users        <error handling done?>
 router.post('/', singleMulterUpload("image"), validateSignup, async (req, res) => {
     let { email, password, username, firstName, lastName, image, phone, } = req.body;
-
-    console.log("<------------------------------->")
-    console.log("1", email)
-    console.log("1", password)
-    console.log("1", username)
-    console.log("1", firstName)
-    console.log("1", lastName)
-    console.log("1", image)
-    console.log("1", typeof image)
     const profileImageUrl = req.file ?
         await singleFileUpload({ file: req.file, public: true }) :
         null;
-    console.log("1", profileImageUrl)
-    console.log("1", phone)
     if (phone === "null") phone = null
-    console.log("1", typeof phone)
-    console.log("<------------------------------->")
-
     const hashedPassword = bcrypt.hashSync(password);
-
     const usersEmail = await User.findOne({
         where: {
             email
@@ -167,18 +152,18 @@ router.post('/', singleMulterUpload("image"), validateSignup, async (req, res) =
 // Update User
 router.put('/:userId', async (req, res) => {
     const userId = req.params.userId;
-    const [firstName, lastName, phone, username, email] = req.body
+    const { first, last, phone, username, email } = req.body
 
-    const user = User.findByPk(userId);
+    const user = await User.findByPk(userId);
 
-    user.firstName = firstName;
-    user.lastName = lastName;
+    user.firstName = first;
+    user.lastName = last;
     user.phoneNumber = phone;
     user.username = username;
     user.email = email;
 
     await user.save();
-    res.status(200).json(user )
+    res.status(200).json(user)
 
 })
 
