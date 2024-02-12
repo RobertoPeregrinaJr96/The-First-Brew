@@ -41,13 +41,13 @@
         - waitTime: The estimated wait time for the item.
         - itemImg: The image of the item.
 
-    - InstructionAdditions
+    - InstructionModifier
         - cartId: The ID of the cart.
-        - additionId: The ID of the additional.
+        - modifierId: The ID of the additional.
 
-    - Additions
-        - name: The name of the additional item.
-        - price: The price of the additional item.
+    - Modifier
+        - name: The name of the Modifier item.
+        - price: The price of the Modifier item.
 
     - Analytics
         - userId: The ID of the user.
