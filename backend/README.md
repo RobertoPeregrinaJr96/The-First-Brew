@@ -8,8 +8,8 @@
     - Orders
     - OrderItems
     - Items
-    - InstructionAdditions
-    - Additions
+    - InstructionModifiers
+    - Modifiers
     - Analytics
     - Reviews
 
