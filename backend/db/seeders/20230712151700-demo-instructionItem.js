@@ -1,109 +1,140 @@
-'use strict';
+"use strict";
 let options = {};
-if (process.env.NODE_ENV === 'production') {
-  options.schema = process.env.SCHEMA;  // define your schema in options object
+if (process.env.NODE_ENV === "production") {
+  options.schema = process.env.SCHEMA; // define your schema in options object
 }
 /** @type {import('sequelize-cli').Migration} */
 
-const instructionItems = [
+const instructionMondifiers = [
   {
-    instructionId: 1,
-    additionId: 2
-  }, {
-    instructionId: 1,
-    additionId: 11
-  }, {
-    instructionId: 1,
-    additionId: 19
-  }, {
-    instructionId: 1,
-    additionId: 25
-  }, {
-    instructionId: 2,
-    additionId: 2
-  }, {
-    instructionId: 2,
-    additionId: 11
-  }, {
-    instructionId: 2,
-    additionId: 19
-  }, {
-    instructionId: 2,
-    additionId: 25
-  }, {
-    instructionId: 3,
-    additionId: 2
-  }, {
-    instructionId: 3,
-    additionId: 11
-  }, {
-    instructionId: 3,
-    additionId: 19
-  }, {
-    instructionId: 3,
-    additionId: 25
-  }, {
-    instructionId: 4,
-    additionId: 2
-  }, {
-    instructionId: 4,
-    additionId: 11
-  }, {
-    instructionId: 4,
-    additionId: 19
-  }, {
-    instructionId: 4,
-    additionId: 25
-  }, {
-    instructionId: 5,
-    additionId: 2
-  }, {
-    instructionId: 5,
-    additionId: 11
-  }, {
-    instructionId: 5,
-    additionId: 19
-  }, {
-    instructionId: 5,
-    additionId: 25
-  }, {
-    instructionId: 6,
-    additionId: 2
-  }, {
-    instructionId: 6,
-    additionId: 11
-  }, {
-    instructionId: 6,
-    additionId: 19
-  }, {
-    instructionId: 6,
-    additionId: 25
-  }, {
-    instructionId: 7,
-    additionId: 2
-  }, {
-    instructionId: 7,
-    additionId: 11
-  }, {
-    instructionId: 7,
-    additionId: 19
-  }, {
-    instructionId: 7,
-    additionId: 25
-  }, {
-    instructionId: 8,
-    additionId: 2
-  }, {
-    instructionId: 8,
-    additionId: 11
-  }, {
-    instructionId: 8,
-    additionId: 19
-  }, {
-    instructionId: 8,
-    additionId: 25
+    orderItemId: 1,
+    modifierId: 2,
   },
-]
+  {
+    orderItemId: 1,
+    modifierId: 11,
+  },
+  {
+    orderItemId: 1,
+    modifierId: 19,
+  },
+  {
+    orderItemId: 1,
+    modifierId: 25,
+  },
+  {
+    orderItemId: 2,
+    modifierId: 2,
+  },
+  {
+    orderItemId: 2,
+    modifierId: 11,
+  },
+  {
+    orderItemId: 2,
+    modifierId: 19,
+  },
+  {
+    orderItemId: 2,
+    modifierId: 25,
+  },
+  {
+    orderItemId: 3,
+    modifierId: 2,
+  },
+  {
+    orderItemId: 3,
+    modifierId: 11,
+  },
+  {
+    orderItemId: 3,
+    modifierId: 19,
+  },
+  {
+    orderItemId: 3,
+    modifierId: 25,
+  },
+  {
+    orderItemId: 4,
+    modifierId: 2,
+  },
+  {
+    orderItemId: 4,
+    modifierId: 11,
+  },
+  {
+    orderItemId: 4,
+    modifierId: 19,
+  },
+  {
+    orderItemId: 4,
+    modifierId: 25,
+  },
+  {
+    orderItemId: 5,
+    modifierId: 2,
+  },
+  {
+    orderItemId: 5,
+    modifierId: 11,
+  },
+  {
+    orderItemId: 5,
+    modifierId: 19,
+  },
+  {
+    orderItemId: 5,
+    modifierId: 25,
+  },
+  {
+    orderItemId: 6,
+    modifierId: 2,
+  },
+  {
+    orderItemId: 6,
+    modifierId: 11,
+  },
+  {
+    orderItemId: 6,
+    modifierId: 19,
+  },
+  {
+    orderItemId: 6,
+    modifierId: 25,
+  },
+  {
+    orderItemId: 7,
+    modifierId: 2,
+  },
+  {
+    orderItemId: 7,
+    modifierId: 11,
+  },
+  {
+    orderItemId: 7,
+    modifierId: 19,
+  },
+  {
+    orderItemId: 7,
+    modifierId: 25,
+  },
+  {
+    orderItemId: 8,
+    modifierId: 2,
+  },
+  {
+    orderItemId: 8,
+    modifierId: 11,
+  },
+  {
+    orderItemId: 8,
+    modifierId: 19,
+  },
+  {
+    orderItemId: 8,
+    modifierId: 25,
+  },
+];
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -115,9 +146,9 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-    options.tableName = 'InstructionItems';
-    return queryInterface.bulkInsert(options, instructionItems, {})
+     */
+    options.tableName = "InstructionMondifiers";
+    return queryInterface.bulkInsert(options, instructionMondifiers, {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -127,7 +158,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    options.tableName = 'InstructionItems';
-    return queryInterface.bulkDelete(options, instructionItems, {})
-  }
+    options.tableName = "InstructionMondifiers";
+    return queryInterface.bulkDelete(options, instructionMondifiers, {});
+  },
 };

@@ -1,20 +1,26 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 
 let options = {};
-if (process.env.NODE_ENV === 'production') {
-  options.schema = process.env.SCHEMA;  // define your schema in options object
+if (process.env.NODE_ENV === "production") {
+  options.schema = process.env.SCHEMA; // define your schema in options object
 }
 
-const cart = [
+const orders = [
   {
-    userId: 1
+    userId: 1,
+    totalCost: 10,
+    status: "pending",
+    pointsEarned: 100,
   },
   {
-    userId: 2
+    userId: 2,
+    totalCost: 10,
+    status: "pending",
+    pointsEarned: 100,
   },
-]
+];
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -26,19 +32,19 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-    options.tableName = 'ShoppingCarts'
-    return queryInterface.bulkInsert(options, cart, {})
+     */
+    options.tableName = "Orders";
+    return queryInterface.bulkInsert(options, orders, {});
   },
 
   async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
-    *
-    * Example:
-    * await queryInterface.bulkDelete('People', null, {});
-    */
-    options.tableName = 'ShoppingCarts'
-    return queryInterface.bulkDelete(options, cart, {})
-  }
+     *
+     * Example:
+     * await queryInterface.bulkDelete('People', null, {});
+     */
+    options.tableName = "Orders";
+    return queryInterface.bulkDelete(options, orders, {});
+  },
 };

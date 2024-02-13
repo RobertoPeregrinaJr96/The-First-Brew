@@ -15,7 +15,7 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER,
         },
-        itemId: {
+        orderItemId: {
           type: Sequelize.INTEGER,
         },
         modifierId: {
