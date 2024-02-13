@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Analytics extends Model {
     /**
@@ -11,16 +9,46 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Analytics.belongsTo(models.Checkout, { foreignKey: 'purchase_historyId', hooks: true, otherKey: 'id' })
-      Analytics.belongsTo(models.User, { foreignKey: 'userId', hooks: true, otherKey: 'id' })
+      Analytics.belongsTo(models.Checkout, {
+        foreignKey: "purchase_historyId",
+        hooks: true,
+        otherKey: "id",
+      });
+      Analytics.belongsTo(models.User, {
+        foreignKey: "userId",
+        hooks: true,
+        otherKey: "id",
+      });
     }
   }
-  Analytics.init({
-    userId: DataTypes.INTEGER,
-    purchase_historyId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Analytics',
-  });
+  Analytics.init(
+    {
+      userId: {
+        type: DataTypes.INTEGER,
+      },
+      totatlOrders: {
+        type: DataTypes.INTEGER,
+      },
+      totatlSpent: {
+        type: DataTypes.INTEGER,
+      },
+      totatlOrders: {
+        type: DataTypes.INTEGER,
+      },
+      avgOrderValue: {
+        type: DataTypes.INTEGER,
+      },
+      orderFrequency: {
+        type: DataTypes.INTEGER,
+      },
+      lastPurchase: {
+        type: DataTypes.DATE,
+      },
+    },
+    {
+      sequelize,
+      modelName: "Analytics",
+    }
+  );
   return Analytics;
 };

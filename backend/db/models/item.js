@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Item extends Model {
     /**
@@ -11,46 +9,55 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // Association for
-      // One to Many
-      Item.hasMany(models.Instruction, { foreignKey: 'itemId', hooks: true, otherKey: 'id', onDelete: 'CASCADE' })
 
-      // Many to Many
-
-      // Shopping cart
-      Item.belongsTo(models.ShoppingCart, { foreignKey: 'cartId', hooks: true, otherKey: 'id' })
-      // Coffee
-      Item.belongsTo(models.Coffee, { foreignKey: 'coffeeId', hooks: true, otherKey: 'id' })
+      // Association for Shopping Cart
+      Item.belongsToMany(models.ShoppingCart, {
+        through: models.Item,
+        foreignKey: "itemId",
+        hooks: true,
+        otherKey: "id",
+      });
+      // Association for Reviews
+      Item.hasMany(models.Review, {
+        foreignKey: "itemId",
+        hooks: true,
+        otherKey: "id",
+      });
+      Item.hasMany(models.ItemImage, {
+        foreignKey: "itemId",
+        hooks: true,
+        otherKey: "id",
+        onDelete: "CASCADE",
+      });
     }
   }
-  Item.init({
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+  Item.init(
+    {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      price: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.TEXT,
+      },
+      waitTime: {
+        type: DataTypes.Integer,
+      },
+      itemImage: {
+        type: DataTypes.String,
+      },
+      default: {
+        type: DataTypes.TEXT,
+      },
     },
-    cartId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    coffeeId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    instructionId: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-
-    },
-    quantity: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-
-  }, {
-    sequelize,
-    modelName: 'Item',
-  });
+    {
+      sequelize,
+      modelName: "Item",
+    }
+  );
   return Item;
 };
