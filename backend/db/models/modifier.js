@@ -10,8 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       // Instructions
-      Modifier.belongsToMany(models.Instruction, {
-        through: models.InstructionItem,
+      Modifier.belongsTo(models.InstructionModifier, {
         foreignKey: "modifierId",
         hooks: true,
         otherKey: "id",

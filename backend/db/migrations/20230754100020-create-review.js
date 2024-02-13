@@ -42,7 +42,7 @@ module.exports = {
           type: Sequelize.TEXT,
           allowNull: false,
         },
-        reviewImg: {
+        reviewImage: {
           type: Sequelize.STRING,
         },
         createdAt: {

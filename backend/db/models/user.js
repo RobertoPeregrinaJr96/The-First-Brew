@@ -1,17 +1,27 @@
-'use strict';
-const { Model, Validator } = require('sequelize');
+"use strict";
+const { Model, Validator } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       // define association here
-      User.hasOne(models.ShoppingCart, { foreignKey: 'userId', hooks: true, otherKey: 'id' })
-      User.hasMany(models.Review, { foreignKey: 'userId', hooks: true, otherKey: 'id' })
-      User.belongsToMany(models.Checkout, { through: models.Analytics, foreignKey: 'userId', hooks: true, otherKey: 'id' })
-
+      User.hasOne(models.Order, {
+        foreignKey: "userId",
+        hooks: true,
+        otherKey: "id",
+      });
+      User.hasMany(models.Review, {
+        foreignKey: "userId",
+        hooks: true,
+        otherKey: "id",
+      });
+      User.hasOne(models.Analytic, {
+        foreignKey: "userId",
+        hooks: true,
+        otherKey: "id",
+      });
     }
-
-  };
+  }
 
   User.init(
     {
@@ -19,21 +29,21 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
       firstName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       lastName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       phoneNumber: {
         type: DataTypes.INTEGER,
-        allowNull: true
+        allowNull: true,
       },
-      profileImageUrl: {
+      profileImage: {
         type: DataTypes.STRING,
         allowNull: true,
       },
@@ -46,33 +56,33 @@ module.exports = (sequelize, DataTypes) => {
             if (Validator.isEmail(value)) {
               throw new Error("Cannot be an email.");
             }
-          }
-        }
+          },
+        },
       },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [3, 256],
-          isEmail: true
-        }
+          isEmail: true,
+        },
       },
       hashedPassword: {
         type: DataTypes.STRING.BINARY,
         allowNull: false,
         validate: {
-          len: [60, 60]
-        }
-      }
+          len: [60, 60],
+        },
+      },
     },
     {
       sequelize,
       modelName: "User",
       defaultScope: {
         attributes: {
-          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"]
-        }
-      }
+          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"],
+        },
+      },
     }
   );
 

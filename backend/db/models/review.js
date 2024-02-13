@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Review extends Model {
     /**
@@ -11,40 +9,54 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Review.belongsTo(models.Coffee, { foreignKey: "coffeeId", hooks: true, otherKey: 'id'})
-      Review.belongsTo(models.User, { foreignKey: "userId", hooks: true, otherKey: "id" })
+      Review.belongsTo(models.Item, {
+        foreignKey: "itemId",
+        hooks: true,
+        otherKey: "id",
+      });
+      Review.belongsTo(models.User, {
+        foreignKey: "userId",
+        hooks: true,
+        otherKey: "id",
+      });
     }
   }
-  Review.init({
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+  Review.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      itemId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      rating: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      review: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      reviewImage: {
+        type: DataTypes.String,
+      },
     },
-    coffeeId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    rating: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    review: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-  }, {
-    sequelize,
-    modelName: 'Review',
-  });
+    {
+      sequelize,
+      modelName: "Review",
+    }
+  );
   return Review;
 };

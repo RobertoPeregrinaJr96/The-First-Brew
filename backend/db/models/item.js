@@ -11,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
 
       // Association for Shopping Cart
-      Item.belongsToMany(models.ShoppingCart, {
-        through: models.Item,
+      Item.hasMany(models.OrderItem, {
         foreignKey: "itemId",
         hooks: true,
         otherKey: "id",
@@ -23,12 +22,6 @@ module.exports = (sequelize, DataTypes) => {
         hooks: true,
         otherKey: "id",
       });
-      Item.hasMany(models.ItemImage, {
-        foreignKey: "itemId",
-        hooks: true,
-        otherKey: "id",
-        onDelete: "CASCADE",
-      });
     }
   }
   Item.init(
@@ -38,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       price: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
       description: {

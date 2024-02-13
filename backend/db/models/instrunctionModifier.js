@@ -13,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       // Many To Many
 
       // Instructions
-      InstructionModifier.belongsTo(models.Instruction, {
-        foreignKey: "instructionId",
+      InstructionModifier.belongsTo(models.OrderItem, {
+        foreignKey: "orderItemId",
         hooks: true,
         otherKey: "id",
       });
       // Additions
-      InstructionModifier.belongsTo(models.Addition, {
-        foreignKey: "additionId",
+      InstructionModifier.hasMany(models.Modifier, {
+        foreignKey: "modifierId",
         hooks: true,
         otherKey: "id",
       });
@@ -34,17 +34,17 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      instructionId: {
+      orderItemId: {
         type: DataTypes.INTEGER,
         references: {
-          model: "Instruction",
+          model: "OrderItem",
           key: "id",
         },
       },
-      additionId: {
+      modifierId: {
         type: DataTypes.INTEGER,
         references: {
-          model: "Addition",
+          model: "Modifier",
           key: "id",
         },
       },
