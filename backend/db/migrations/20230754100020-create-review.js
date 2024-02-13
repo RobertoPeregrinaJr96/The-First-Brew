@@ -44,6 +44,7 @@ module.exports = {
         },
         reviewImage: {
           type: Sequelize.STRING,
+          allowNull: true,
         },
         createdAt: {
           allowNull: false,

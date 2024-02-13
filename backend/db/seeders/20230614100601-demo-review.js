@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === "production") {
 
 const review = [
   {
-    coffeeId: 1,
+    itemId: 1,
     userId: 2,
     title: "Heavenly Espresso Delight!",
     rating: 5,
@@ -18,7 +18,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 1,
+    itemId: 1,
     userId: 3,
     title: "Calling all coffee lovers!",
     rating: 5,
@@ -27,7 +27,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 2,
+    itemId: 2,
     userId: 2,
     title: "A Perfect Morning Pick-Me-Up!",
     rating: 5,
@@ -36,7 +36,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 2,
+    itemId: 2,
     userId: 3,
     title: "A Cappuccino Worth Savoring!",
     rating: 5,
@@ -45,7 +45,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 3,
+    itemId: 3,
     userId: 2,
     title: "A Coffee Haven! Best Place in Town!",
     rating: 5,
@@ -54,7 +54,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 3,
+    itemId: 3,
     userId: 3,
     title: "A Taste of Perfection! Unforgettable Coffee Experience",
     rating: 5,
@@ -63,7 +63,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 4,
+    itemId: 4,
     userId: 2,
     title: "Exquisite Latte Delight!",
     rating: 5,
@@ -72,7 +72,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 4,
+    itemId: 4,
     userId: 3,
     title: "A Latte to Remember",
     rating: 5,
@@ -81,7 +81,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 5,
+    itemId: 5,
     userId: 2,
     title: "A Burst of Heavenly Flavors!",
     rating: 5,
@@ -90,7 +90,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 5,
+    itemId: 5,
     userId: 3,
     title: "Best Coffee Shop in Town",
     rating: 5,
@@ -99,7 +99,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 6,
+    itemId: 6,
     userId: 2,
     title: "Delightful Macchiato Experience",
     rating: 5,
@@ -108,7 +108,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 6,
+    itemId: 6,
     userId: 3,
     title: "A Luxurious Coffee Journey",
     rating: 5,
@@ -117,7 +117,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 7,
+    itemId: 7,
     userId: 2,
     title: "Perfectly Balanced and Full of Flavor",
     rating: 5,
@@ -126,7 +126,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 7,
+    itemId: 7,
     userId: 3,
     title: "A Heavenly Coffee Delight",
     rating: 5,
@@ -135,7 +135,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 8,
+    itemId: 8,
     userId: 2,
     title: "Affogato Experience",
     rating: 5,
@@ -144,7 +144,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 8,
+    itemId: 8,
     userId: 3,
     title: "Affogato Delight",
     rating: 5,
@@ -153,7 +153,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 9,
+    itemId: 9,
     userId: 2,
     title: "I am absolutely blown away by their Turkish coffee",
     rating: 5,
@@ -162,7 +162,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 9,
+    itemId: 9,
     userId: 3,
     title: "A Hidden Gem for Coffee Connoisseurs!",
     rating: 5,
@@ -170,7 +170,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 10,
+    itemId: 10,
     userId: 2,
     title: "Absolutely Delightful Irish Coffee ",
     rating: 5,
@@ -179,7 +179,7 @@ const review = [
     reviewImage: "",
   },
   {
-    coffeeId: 10,
+    itemId: 10,
     userId: 3,
     title: "Best Irish Coffee in Town",
     rating: 5,

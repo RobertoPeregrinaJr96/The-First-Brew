@@ -28,7 +28,7 @@ module.exports = {
           allowNull: false,
         },
         status: {
-          type: Sequelize.String(50),
+          type: Sequelize.STRING(50),
           allowNull: false,
         },
         pointsEarned: {
