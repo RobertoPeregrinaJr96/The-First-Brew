@@ -1,16 +1,15 @@
 /** @type {import('sequelize-cli').Migration} */
 "use strict";
 const bcrypt = require("bcryptjs");
-
 let options = {};
 if (process.env.NODE_ENV === "production") {
-  options.schema = process.env.SCHEMA; // define your schema in options object
+  options.schema = process.env.SCHEMA;
 }
 const users = [
   {
     firstName: "John",
     lastName: "Smith",
-    phoneNumber: 1111111,
+    phoneNumber: "1111111",
     username: "Demo-lition",
     email: "demo@user.io",
     profileImageUrl:
@@ -20,7 +19,7 @@ const users = [
   {
     firstName: "jane",
     lastName: "Doe",
-    phoneNumber: 2222222,
+    phoneNumber: "2222222",
     username: "FakeUser1",
     email: "user1@user.io",
     profileImageUrl:
@@ -30,7 +29,7 @@ const users = [
   {
     firstName: "Charlotte",
     lastName: "Wondering",
-    phoneNumber: 3333333,
+    phoneNumber: "3333333",
     username: "FakeUser2",
     email: "user2@user.io",
     profileImageUrl:
@@ -40,7 +39,7 @@ const users = [
   {
     firstName: "Alice",
     lastName: "Smith",
-    phoneNumber: 4444444,
+    phoneNumber: "4444444",
     username: "Alice123",
     email: "alice@example.com",
     profileImageUrl: "https://example.com/profiles/alice.jpg",
@@ -49,7 +48,7 @@ const users = [
   {
     firstName: "Bob",
     lastName: "Johnson",
-    phoneNumber: 5555555,
+    phoneNumber: "5555555",
     username: "BobJ",
     email: "bob@example.com",
     profileImageUrl: "https://example.com/profiles/bob.jpg",
@@ -58,7 +57,7 @@ const users = [
   {
     firstName: "Eve",
     lastName: "Adams",
-    phoneNumber: 6666666,
+    phoneNumber: "6666666",
     username: "EveA",
     email: "eve@example.com",
     profileImageUrl: "https://example.com/profiles/eve.jpg",
@@ -67,7 +66,7 @@ const users = [
   {
     firstName: "Michael",
     lastName: "Brown",
-    phoneNumber: 7777777,
+    phoneNumber: "7777777",
     username: "MBrown",
     email: "michael@example.com",
     profileImageUrl: "https://example.com/profiles/michael.jpg",
@@ -76,7 +75,7 @@ const users = [
   {
     firstName: "Sophia",
     lastName: "Wilson",
-    phoneNumber: 8888888,
+    phoneNumber: "8888888",
     username: "SWilson",
     email: "sophia@example.com",
     profileImageUrl: "https://example.com/profiles/sophia.jpg",
@@ -91,7 +90,6 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     options.tableName = "Users";
-    const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, users, {});
   },
 };

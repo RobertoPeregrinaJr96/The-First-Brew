@@ -32,7 +32,7 @@ module.exports = {
           allowNull: false,
         },
         title: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(100),
         },
         rating: {
           type: Sequelize.INTEGER,
@@ -43,7 +43,7 @@ module.exports = {
           allowNull: false,
         },
         reviewImage: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(200),
           allowNull: true,
         },
         createdAt: {
