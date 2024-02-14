@@ -43,8 +43,11 @@ module.exports = (sequelize, DataTypes) => {
       itemImage: {
         type: DataTypes.String,
       },
-      default: {
+      defaultModifiers: {
         type: DataTypes.TEXT,
+      },
+      type: {
+        type: DataTypes.STRING(10),
       },
     },
     {
