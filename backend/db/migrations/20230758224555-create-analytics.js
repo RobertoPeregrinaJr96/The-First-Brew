@@ -24,10 +24,7 @@ module.exports = {
         },
         totatlSpent: {
           type: Sequelize.INTEGER,
-        },
-        totatlOrders: {
-          type: Sequelize.INTEGER,
-        },
+        }, 
         avgOrderValue: {
           type: Sequelize.INTEGER,
         },
